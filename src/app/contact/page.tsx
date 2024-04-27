@@ -6,10 +6,10 @@ export const metadata = {
   description: 'This is the contact page',
 }
 
-export const Contact = () => {
+const Contact = () => {
   return (
     <div>
-      <img src='/engenious.jpeg' className={styles.logo}></img>
+      <img src='/engenious.jpeg' className={styles.logo}/>
     </div>
   )
 }
