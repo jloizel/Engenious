@@ -1,19 +1,9 @@
 .banner {
   position: relative;
   height: 700px;
-  /* width: 100%; */
+  width: 100%;
 
-  @media (max-width: 767px) {
-    max-width: 767px;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    max-width: 1023px;
-  }
-  
-  @media (min-width: 1024px) {
-    width: 100%;
-  }
+ 
 }
 
 .backgroundVideo {
@@ -23,18 +13,8 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-
-  @media (max-width: 767px) {
-    width: auto;
-  }
+  width: 100%;
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: auto;
-  }
-  
-  @media (min-width: 1024px) {
-    width: 100%;
-  }
 }
 
 .videoOverlay {
@@ -44,18 +24,8 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.4);
   z-index: 1;
+  width: 100%;
 
-  @media (max-width: 767px) {
-    width: auto;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: auto;
-  }
-  
-  @media (min-width: 1024px) {
-    width: 100%;
-  }
 }
 
 .bannerContent {
