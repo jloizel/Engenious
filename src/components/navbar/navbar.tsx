@@ -4,6 +4,7 @@ import Link from 'next/link'
 import React from 'react'
 import styles from './page.module.css'
 import SearchIcon from '@mui/icons-material/Search';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useRouter } from 'next/router';
 
 const links = [
@@ -35,6 +36,7 @@ const Navbar = () => {
     <div className={styles.navbar}>
       <div className={styles.container}>
         <div className={styles.left}>
+          <MenuIcon className={styles.menuIcon}/>
           <a href="/">
             <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
           </a>

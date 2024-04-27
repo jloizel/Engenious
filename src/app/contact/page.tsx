@@ -9,7 +9,7 @@ export const metadata = {
 export const Contact = () => {
   return (
     <div>
-      {/* <img src='/engenious.jpeg' className={styles.logo}></img> */}
+      <img src='/engenious.jpeg' className={styles.logo}></img>
     </div>
   )
 }
