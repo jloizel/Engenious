@@ -41,11 +41,11 @@
   height: 100%;
   text-align: center;
 
-  @media (max-width: 767px) {
-    max-width: 767px;
+  @media (max-width: 639px) {
+    width: 100%;
   }
   
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 640px) and (max-width: 1023px) {
     width: 800px;
   }
   
@@ -58,13 +58,13 @@
   color: white;
   font-weight: 800;
 
-  @media (max-width: 767px) {
+  @media (max-width: 639px) {
     font-size: 24px;
     line-height: 125%;
     margin-bottom: 24px;
   }
   
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 640px) and (max-width: 1023px) {
     font-size: 70px;
     line-height: 115%;
   }
