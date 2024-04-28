@@ -39,6 +39,25 @@ body {
   outline: none !important;
 }
 
-.css-ldybpn-JoyDrawer-content {
-  background-color: #242326 !important
+.css-ain6vo-JoyDrawer-content {
+  background-color: #242326 !important;
+  width: 60% !important;
 }
+
+.css-ain6vo-JoyDrawer-content {
+  background-color: #242326 !important;
+  width: 100% !important;
+}
+
+.MuiDrawer-paper {
+  background-color: #242326 !important;
+  width: 100% !important;
+}
+  
+@media (max-width: 1200px) {
+    .MuiDrawer-paper {
+  width: 60% !important;
+  }
+}
+
+

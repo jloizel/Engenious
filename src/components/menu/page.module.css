@@ -1,3 +1,5 @@
+/* Top container */
+
 .icon {
   color: white;
   background-color: rgba(255, 255, 255, 0.08);
@@ -19,7 +21,7 @@
 }
 
 .closeIcon {
-  color: white;
+  color: #00617C;
   background-color: rgba(255, 255, 255, 0.08);
   border-radius: 50%;
   cursor: pointer;
@@ -62,7 +64,7 @@
 .link {
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  color: white;
+  color: #00617C;
   font-weight: 500;
 }
 
@@ -78,4 +80,74 @@
 
 .companyName2 {
   font-weight: 300;
+}
+
+/* CONTENT CONTAINER */
+.contentContainer {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+/* left container */
+.leftContainer {
+  width: 50%;
+  height: 100%;
+  background-color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  text-align: center
+}
+
+.list {
+  margin-top: 80px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.listItem {
+  position: relative;
+  font-size: 26px;
+  line-height: 38px;
+  font-weight: 700;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  column-gap: 16px;
+  transition: all 0.3s ease-in-out;
+  white-space: pre;
+  color: #00617C;
+  margin-bottom: 26px;
+}
+
+
+
+.listItem:hover, .listItem:focus {
+  padding-left: 8px;
+  opacity: 1;
+}
+
+.listItem::after {
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #00617C;
+  display: block;
+  transition: all 0.3s ease-in-out;
+}
+
+.listItem:hover::after {
+  width: 100%;
+  opacity: 1; /* Show the line when the list item is hovered */
+}
+
+/* right container */
+.rightContainer {
+  width: 50%;
+  height: 100%;
+  background-color: #00617C;
+  
 }
