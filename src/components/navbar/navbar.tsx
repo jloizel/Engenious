@@ -50,12 +50,28 @@ const Navbar = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
 
+  const setDisplay  = () => {
+    if (isMobile) {
+        return 'none';
+    } else {
+        return '';
+    }
+  }; 
+
+  const setDisplay2  = () => {
+    if (isTabletOrAbove) {
+        return 'none';
+    } else {
+        return '';
+    }
+  }; 
+
   return (
     <div className={styles.navbar}>
       {/* {(isTabletOrAbove || isTablet) && ( */}
       <div className={styles.container}>
         <div className={styles.left}>
-          <div className={styles.menu1}>
+          <div className={styles.menu1} style={{display: setDisplay()}}>
             <Menu />
           </div>
           <a href="/">
@@ -67,11 +83,11 @@ const Navbar = () => {
               <div className={styles.companyName2}>RECRUITMENT</div>
             </div>
           </a>
-          <div className={styles.menu2}>
+          <div className={styles.menu2} style={{display: setDisplay2()}}>
             <Menu />
           </div>
         </div>
-        <div className={styles.middle}>
+        <div className={styles.middle} style={{display: setDisplay()}}>
           <div className={styles.links}>
               {links.map(link => (
                 <a key={link.id} href={link.url} className={styles.link}>
@@ -81,7 +97,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <SearchIcon className={styles.searchIcon}/>
+          <SearchIcon className={styles.searchIcon} style={{display: setDisplay()}}/>
         </div>
       </div>
       {/* )} */}
