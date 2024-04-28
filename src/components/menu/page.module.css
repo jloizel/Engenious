@@ -17,3 +17,9 @@
     font-size: 35px !important;
   }
 }
+
+.drawer {
+  background-color: red;
+  color: red;
+  background: red;
+}

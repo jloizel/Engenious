@@ -38,3 +38,21 @@ body {
 .MuiButton-root:focus {
   outline: none !important;
 }
+
+.MuiDrawer-backdrop .css-ta4b9y-JoyDrawer-backdrop {
+  background-color: red;
+  background: red;
+  color: red;
+}
+
+.MuiDrawer-content .css-ldybpn-JoyDrawer-content {
+  background-color: red;
+  background: red;
+  color: red;
+}
+
+.MuiDrawer-root .MuiDrawer-variantPlain .MuiDrawer-colorNeutral .MuiDrawer-sizeLg .css-zyu5jz-JoyDrawer-root {
+  background-color: red;
+  background: red;
+  color: red;
+}

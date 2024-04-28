@@ -15,6 +15,23 @@ interface MenuProps {
 const Menu: React.FC<MenuProps> = ({}) => {
   const [open, setOpen] = useState(false);
 
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 767,
+        md: 1024,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
+  
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
+  
+
   return (
     <Box className={styles.menu}>
       <div className={styles.button}>
@@ -25,20 +42,21 @@ const Menu: React.FC<MenuProps> = ({}) => {
           sx={{ minHeight: 0, minWidth: 0, padding: 0, '&:hover': { backgroundColor: 'transparent', '&:focus': {outline: 'none'} }}}>
           <MenuIcon className={styles.icon}/>
         </Button>
-        </div>
-          <Drawer
-            sx={{height: "100%", color: "#242326"}}
-            open={open} 
-            onClose={() => {
-              setOpen(false);
-            }}
-            anchor="right"
-            size={"lg"}
-          >
-            <ModalClose/>
-          </Drawer>
-        </Box>
-    );
+      </div>
+      <Drawer
+        sx={{height: "100%", background: "#434147"}}
+        open={open} 
+        onClose={() => {
+          setOpen(false);
+        }}
+        anchor= {isMobile ? "right" : "left"}
+        size={"lg"}
+        // color=''
+      >
+        <ModalClose/>
+      </Drawer>
+    </Box>
+  );
 };
 
 export default Menu;
