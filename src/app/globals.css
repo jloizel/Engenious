@@ -22,3 +22,19 @@ body {
 @media (min-width: 1024px) {
 
 }
+
+.MuiButton-outlined:focus {
+  outline: none !important;
+}
+
+.Mui-focused {
+  outline: none !important;
+}
+
+.MuiButton-outlined:active {
+  outline: none !important;
+}
+
+.MuiButton-root:focus {
+  outline: none !important;
+}

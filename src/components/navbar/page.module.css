@@ -1,3 +1,5 @@
+/* general */
+
 .navbar {
   position: absolute;
   width: 100%;
@@ -11,13 +13,45 @@
   align-items: center;
   position: relative;
   column-gap: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
+
+/* left side of navbar */
 
 .left {
   display: flex !important;
-  flex-direction: row !important;
+  /* flex-direction: row !important; */
   align-items: center;
   gap: 10px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.menu1 {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.menu2 {
+  @media (max-width: 767px) {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -15px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.logo {
+  /* max-width: 100%; */
+  height: 70px;
 }
 
 .companyNameContainer {
@@ -34,30 +68,21 @@
   font-weight: 300;
 }
 
-.companyName1:link {
-  text-decoration: none !important;
-}
-
 .text {
   text-decoration: none;
   color: white;
 }
 
+/* middle of navbar */
+
 .middle {
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
-}
 
-.right {
-  flex-wrap: wrap;
-  display: flex;
-  justify-content: center;
-}
-
-.logo {
-  /* max-width: 100%; */
-  height: 70px;
+  @media (max-width: 767px) {
+    display: none;
+  }
 }
 
 .links {
@@ -72,3 +97,35 @@
   color: white;
   font-weight: 500;
 }
+
+/* right side of navbar */
+
+.right {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.searchIcon {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 35px !important;
+
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 25px !important;
+  }
+}
+
+
+

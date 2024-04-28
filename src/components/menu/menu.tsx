@@ -27,7 +27,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
         </Button>
         </div>
           <Drawer
-            sx={{height: "100%"}}
+            sx={{height: "100%", color: "#242326"}}
             open={open} 
             onClose={() => {
               setOpen(false);

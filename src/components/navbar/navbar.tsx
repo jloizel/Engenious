@@ -52,10 +52,12 @@ const Navbar = () => {
 
   return (
     <div className={styles.navbar}>
-      {isTabletOrAbove && (
+      {/* {(isTabletOrAbove || isTablet) && ( */}
       <div className={styles.container}>
         <div className={styles.left}>
-          <Menu />
+          <div className={styles.menu1}>
+            <Menu />
+          </div>
           <a href="/">
             <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
           </a>
@@ -65,6 +67,9 @@ const Navbar = () => {
               <div className={styles.companyName2}>RECRUITMENT</div>
             </div>
           </a>
+          <div className={styles.menu2}>
+            <Menu />
+          </div>
         </div>
         <div className={styles.middle}>
           <div className={styles.links}>
@@ -76,11 +81,11 @@ const Navbar = () => {
           </div>
         </div>
         <div className={styles.right}>
-          <SearchIcon style={{color: "white"}}/>
+          <SearchIcon className={styles.searchIcon}/>
         </div>
       </div>
-      )}
-      {isMobile && (
+      {/* )} */}
+      {/* {isMobile && (
       <div className={styles.container}>
         <div className={styles.left}>
           <a href="/">
@@ -97,7 +102,7 @@ const Navbar = () => {
           <Menu />
         </div>
       </div>
-      )}
+      )} */}
     </div>
   )
 }
