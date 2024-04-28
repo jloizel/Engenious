@@ -8,6 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import styles from "./page.module.css";
 import Fade from '@mui/material/Fade';
 import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface MenuProps {}
 
@@ -57,21 +58,27 @@ const Menu: React.FC<MenuProps> = ({}) => {
         size={isMobile ? "sm" : "lg"} 
         onClose={handleDrawerClose}>
           
-            
-            <div className={styles.container}>
-              <ModalClose sx={{borderRadius: "50%", backgroundColor: "rgba(255, 255, 255, 0.08)", color: "white", alignItems: "left"}}/>
-              <div className={styles.logoContainer}>
-                <a href="/">
-                  <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
-                </a>
-                <a href="/" className={styles.link}>
-                  <div className={styles.companyNameContainer}>
-                    <div className={styles.companyName1}>ENGENIOUS</div>
-                    <div className={styles.companyName2}>RECRUITMENT</div>
-                  </div>
-                </a>
+        <div className={styles.container}>
+          <div className={styles.topContainer}>
+            <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
+            <a href="/">
+              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+            </a>
+            <a href="/" className={styles.link}>
+              <div className={styles.companyNameContainer}>
+                <div className={styles.companyName1}>ENGENIOUS</div>
+                <div className={styles.companyName2}>RECRUITMENT</div>
               </div>
-            </div>
+            </a>
+          </div>
+          <div className={styles.centerContainer}>
+            <ul>
+              <li></li>
+            </ul>
+          </div>
+
+
+        </div>
 
       </Drawer>
     </>
