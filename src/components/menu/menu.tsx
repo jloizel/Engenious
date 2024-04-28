@@ -1,21 +1,19 @@
-"use client"
-
-
 import React, { useState } from 'react';
-import { Box, ThemeProvider, createTheme, useMediaQuery } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
-import styles from "./page.module.css";
-import ModalClose from '@mui/joy/ModalClose';
-import Button from '@mui/joy/Button';
+import { Box, List, ListItem, ListItemText, AccordionSummary, AccordionDetails, Typography, createTheme, useMediaQuery } from '@mui/material';
+import Accordion, { AccordionSlots } from '@mui/material/Accordion';
 import Drawer from '@mui/joy/Drawer';
-import { extendTheme } from '@mui/joy/styles';
+import ModalClose from '@mui/joy/ModalClose';
+import MenuIcon from '@mui/icons-material/Menu';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import styles from "./page.module.css";
+import Fade from '@mui/material/Fade';
+import Collapse from '@mui/material/Collapse';
 
-interface MenuProps {
-    
-}
+interface MenuProps {}
 
 const Menu: React.FC<MenuProps> = ({}) => {
   const [open, setOpen] = useState(false);
+  const [expanded, setExpanded] = useState<string | false>(false);
 
   const theme = createTheme({
     breakpoints: {
@@ -28,34 +26,55 @@ const Menu: React.FC<MenuProps> = ({}) => {
       },
     },
   });
-  
+
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
+
+  const handleDrawerOpen = () => {
+    setOpen(true);
+  };
+
+  const handleDrawerClose = () => {
+    setOpen(false);
+  };
+
+  const handleAccordionChange = (panel: string) => (
+    event: React.SyntheticEvent,
+    isExpanded: boolean
+  ) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
   return (
-    <Box className={styles.menu}>
+    <>
       <div className={styles.button}>
-        <Button 
-          onClick={() => setOpen(true)} 
-          className={styles.button} 
-          variant="plain" 
-          sx={{ minHeight: 0, minWidth: 0, padding: 0, '&:hover': { backgroundColor: 'transparent', '&:focus': {outline: 'none'} }}}>
-          <MenuIcon className={styles.icon}/>
-        </Button>
+        <MenuIcon onClick={handleDrawerOpen} className={styles.icon} />
       </div>
-      <Drawer
+      <Drawer 
         sx={{height: "100%"}}
         open={open} 
-        onClose={() => {
-          setOpen(false);
-        }}
-        anchor= {isMobile ? "right" : "left"}
-        size={"lg"}
-      >
-        <ModalClose/>
+        anchor={!isMobile ? "left" : "right"} 
+        size={isMobile ? "sm" : "lg"} 
+        onClose={handleDrawerClose}>
+          
+            
+            <div className={styles.container}>
+              <ModalClose sx={{borderRadius: "50%", backgroundColor: "rgba(255, 255, 255, 0.08)", color: "white", alignItems: "left"}}/>
+              <div className={styles.logoContainer}>
+                <a href="/">
+                  <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                </a>
+                <a href="/" className={styles.link}>
+                  <div className={styles.companyNameContainer}>
+                    <div className={styles.companyName1}>ENGENIOUS</div>
+                    <div className={styles.companyName2}>RECRUITMENT</div>
+                  </div>
+                </a>
+              </div>
+            </div>
+
       </Drawer>
-    </Box>
+    </>
   );
 };
 
