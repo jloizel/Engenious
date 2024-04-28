@@ -125,7 +125,7 @@
 
 
 
-.listItem:hover, .listItem:focus {
+.listItem:hover, .listItem:active {
   padding-left: 8px;
   opacity: 1;
 }
@@ -142,6 +142,23 @@
 .listItem:hover::after {
   width: 100%;
   opacity: 1; /* Show the line when the list item is hovered */
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  background-color: #00617C;
+  color: white;
+  font-size: 18px;
+  padding: 0 32px;
+  height: 56px;
+  line-height: 56px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
 }
 
 /* right container */

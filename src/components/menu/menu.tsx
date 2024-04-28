@@ -62,7 +62,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
 
   return (
     <>
-      <div className={styles.button}>
+      <div className={styles.menuButton}>
         <MenuIcon onClick={handleDrawerOpen} className={styles.icon} />
       </div>
       <Drawer 
@@ -91,6 +91,10 @@ const Menu: React.FC<MenuProps> = ({}) => {
               <div className={styles.listItem}>Jobs</div>
               <div className={styles.listItem}>About</div>
             </div>
+            <div className={styles.buttonContainer}>
+              <a href="/jobseekers" className={styles.button}>Find Talent</a>
+              <a href="/employers" className={styles.button}>Find a Job</a>
+            </div>
           </div>
             
             <div className={styles.rightContainer}>
@@ -98,11 +102,6 @@ const Menu: React.FC<MenuProps> = ({}) => {
             </div>
 
           </div>
-      
-
-
-       
-
       </Drawer>
     </>
   );
