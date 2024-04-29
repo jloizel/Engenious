@@ -100,25 +100,6 @@ const Navbar = () => {
           <SearchIcon className={styles.searchIcon} style={{display: setDisplay()}}/>
         </div>
       </div>
-      {/* )} */}
-      {/* {isMobile && (
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <a href="/">
-            <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
-          </a>
-          <a href="/" className={styles.link}>
-            <div className={styles.companyNameContainer}>
-              <div className={styles.companyName1}>ENGENIOUS</div>
-              <div className={styles.companyName2}>RECRUITMENT</div>
-            </div>
-          </a>
-        </div>
-        <div className={styles.right}>
-          <Menu />
-        </div>
-      </div>
-      )} */}
     </div>
   )
 }

@@ -15,7 +15,9 @@ interface MenuProps {}
 const Menu: React.FC<MenuProps> = ({}) => {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | false>(false);
-  const [hovered, setHovered] = useState(false); // State to track hover
+  const [hovered1, setHovered1] = useState(false); // State to track hover
+  const [hovered2, setHovered2] = useState(false); // State to track hover
+  const [hovered3, setHovered3] = useState(false); // State to track hover
 
 
   const theme = createTheme({
@@ -48,18 +50,6 @@ const Menu: React.FC<MenuProps> = ({}) => {
     setExpanded(isExpanded ? panel : false);
   };
 
-   // Function to handle auto-hover effect
-   useEffect(() => {
-    if (open) {
-      // Timeout to ensure that the list item is focused after the drawer is opened
-      const timeout = setTimeout(() => {
-        setHovered(true);
-      }, 100); // Adjust the delay as needed
-      // Clear the timeout when the component is unmounted or the drawer is closed
-      return () => clearTimeout(timeout);
-    }
-  }, [open]);
-
   return (
     <>
       <div className={styles.menuButton}>
@@ -87,9 +77,24 @@ const Menu: React.FC<MenuProps> = ({}) => {
               </a>
             </div>
             <div className={styles.list}>
-              <div className={styles.listItem} autoFocus={hovered} >Employers</div>
-              <div className={styles.listItem}>Jobs</div>
-              <div className={styles.listItem}>About</div>
+              <div 
+                className={styles.listItem}
+                autoFocus={hovered1}
+                onMouseEnter={() => setHovered1(true)}
+                onMouseLeave={() => setHovered1(false)} 
+              >Employers</div>
+              <div 
+                className={styles.listItem}
+                autoFocus={hovered2}
+                onMouseEnter={() => setHovered2(true)}
+                onMouseLeave={() => setHovered2(false)} 
+              >Jobs</div>
+              <div 
+                className={styles.listItem}
+                autoFocus={hovered3}
+                onMouseEnter={() => setHovered3(true)}
+                onMouseLeave={() => setHovered3(false)} 
+              >About</div>
             </div>
             <div className={styles.buttonContainer}>
               <a href="/jobseekers" className={styles.button}>Find Talent</a>
@@ -98,7 +103,30 @@ const Menu: React.FC<MenuProps> = ({}) => {
           </div>
             
             <div className={styles.rightContainer}>
-              
+            {hovered1 && (
+              <div className={styles.extendedContainer1}>
+                {/* Divs to be shown when hovered */}
+                <div>Our services</div>
+                <div>Our expertise</div>
+                <div>Submit a vacancy</div>
+              </div>
+            )}
+            {hovered2 && (
+              <div className={styles.extendedContainer2}>
+                {/* Divs to be shown when hovered */}
+                <div>Search all jobs</div>
+                <div>Send your cv</div>
+              </div>
+            )}
+            {hovered3 && (
+              <div className={styles.extendedContainer3}>
+                {/* Divs to be shown when hovered */}
+                <div>Our work</div>
+                <div>Our story</div>
+                <div>Our purpose</div>
+                <div>Our commitments</div>
+              </div>
+            )}
             </div>
 
           </div>
