@@ -31,12 +31,10 @@ const Menu: React.FC<MenuProps> = ({}) => {
 
   const handleDrawerOpen = () => {
     setOpen(true);
-    setActiveItem('Employers');
   };
 
   const handleDrawerClose = () => {
     setOpen(false);
-    
   };
 
   const handleListItemClick = (itemName: string) => {
@@ -50,8 +48,6 @@ const Menu: React.FC<MenuProps> = ({}) => {
   useEffect(() => {
     setActiveItem(hoveredItem); // Update active item based on hover
   }, [hoveredItem]);
-
-  console.log(activeItem)
 
   return (
     <>
@@ -107,40 +103,38 @@ const Menu: React.FC<MenuProps> = ({}) => {
               <a href="/employers" className={styles.button}>Find a Job</a>
             </div>
           </div>
-          {!isMobile && (
+
           <div className={styles.rightContainer}>
-            <div className={styles.extendedContainer}>
-              {activeItem && (
-                <div>
-                  {activeItem === 'Employers' && (
-                    <div className={styles.subMenu}>
-                      <Overview text={"Learn more about our full talent services"}/>
-                      <div className={styles.subTopic}>Our services</div>
-                      <div className={styles.subTopic}>Our expertise</div>
-                      <div className={styles.subTopic}>Submit a vacancy</div>
-                    </div>
-                  )}
-                  {activeItem === 'Jobs' && (
-                    <div className={styles.subMenu}>
-                      <Overview text={"Find your dream job"}/>
-                      <div className={styles.subTopic}>Search all jobs</div>
-                      <div className={styles.subTopic}>Send your cv</div>
-                    </div>
-                  )}
-                  {activeItem === 'About' && (
-                    <div className={styles.subMenu}>
-                      <Overview text={"Learn more about us"}/>
-                      <div className={styles.subTopic}>Our work</div>
-                      <div className={styles.subTopic}>Our story</div>
-                      <div className={styles.subTopic}>Our purpose</div>
-                      <div className={styles.subTopic}>Our commitments</div>
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
+            {activeItem && (
+              <div className={`${styles.extendedContainer} ${activeItem ? styles.extendedContainerActive : ''}`}>
+                {activeItem === 'Employers' && (
+                  <div>
+                    <Overview text={"Learn more about our full talent services"}/>
+                    <div>Our services</div>
+                    <div>Our expertise</div>
+                    <div>Submit a vacancy</div>
+                  </div>
+                )}
+                {activeItem === 'Jobs' && (
+                  <div>
+                    <Overview text={"Learn more about our full talent services"}/>
+                    <div>Search all jobs</div>
+                    <div>Send your cv</div>
+                  </div>
+                )}
+                {activeItem === 'About' && (
+                  <div>
+                    <Overview text={"Learn more about us"}/>
+                    <div>Our work</div>
+                    <div>Our story</div>
+                    <div>Our purpose</div>
+                    <div>Our commitments</div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-          )}
+
         </div>
       </Drawer>
     </>

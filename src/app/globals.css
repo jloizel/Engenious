@@ -39,24 +39,41 @@ body {
   outline: none !important;
 }
 
-.css-ain6vo-JoyDrawer-content {
+/* desktop */
+.css-ain6vo-JoyDrawer-content { 
   background-color: #242326 !important;
-  width: 60% !important;
+  width: 40% !important;
 }
 
-.css-ain6vo-JoyDrawer-content {
+/* mobile */
+.css-ain6vo-JoyDrawer-content { 
   background-color: #242326 !important;
   width: 100% !important;
 }
 
 .MuiDrawer-paper {
   background-color: #242326 !important;
-  width: 100% !important;
+  width: 60% !important;
 }
   
 @media (max-width: 1200px) {
     .MuiDrawer-paper {
   width: 60% !important;
+  }
+}
+
+/* drawer width */
+.MuiDrawer-content, .css-ldybpn-JoyDrawer-content {
+  @media (max-width: 767px) {
+    width: 100% !important;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+  
+  }
+  
+  @media (min-width: 1024px) {
+    width: 70% !important;
   }
 }
 

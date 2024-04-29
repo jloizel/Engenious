@@ -54,6 +54,7 @@
   align-items: center;
   gap: 10px;
   margin-top: 10px;
+  margin-bottom: 200px;
 }
 
 .logo {
@@ -87,20 +88,31 @@
   display: flex;
   width: 100%;
   height: 100%;
+  
 }
 
 /* left container */
 .leftContainer {
-  width: 50%;
   height: 100%;
   background-color: #eeeeee;
   display: flex;
   flex-direction: column;
   text-align: center;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+  
+  }
+  
+  @media (min-width: 1024px) {
+    width: 50% !important;
+  }
 }
 
 .list {
-  margin-top: 80px;
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -124,14 +136,12 @@
   margin-bottom: 26px;
 }
 
-
-
 .listItem:hover, .listItem.active {
   padding-left: 8px;
   opacity: 1;
 }
 
-.listItem::after {
+.listItem::after, .listItem.active::after {
   content: '';
   width: 0;
   height: 2px;
@@ -140,7 +150,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.listItem:hover::after {
+.listItem:hover::after, .listItem.active::after {
   width: 100%;
   opacity: 1; /* Show the line when the list item is hovered */
 }
@@ -170,17 +180,51 @@
   width: 50%;
   height: 100%;
   background-color: #00617C;
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
   align-items: center;
-  align-content: center;
+  /* align-content: center; */
+  /* justify-content: center; */
 }
 
-.extendedContainer1 {
-  transition: opacity 3s ease-in-out;
+.extendedContainer {
+  position: relative;
+  padding: 50px;
 }
 
-.extendedContainer1:active {
-  
+.subMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 200px;
+  /* transition: opacity 1s ease-in-out; */
+  transform: translateX(-100%); /* Initially move the submenu off the screen */
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
 }
 
+.subMenu.active {
+  opacity: 1; /* Change opacity to 1 when active */
+}
+
+body:has(.listItem.active) .subMenu {
+  opacity: 1;
+  transform: translateX(0);
+  transition-delay: 0.5s;
+}
+
+.subTopic {
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 6px;
+  width: max-content;
+}
+
+.subTopic:hover {
+  background-color: #eeeeee;
+  color: #00617C;
+  border-radius: 8px;
+  /* margin-bottom: 8px; */
+}
