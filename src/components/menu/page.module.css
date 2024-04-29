@@ -126,7 +126,7 @@
 
 
 
-.listItem:hover, .listItem:active {
+.listItem:hover, .listItem.active {
   padding-left: 8px;
   opacity: 1;
 }
@@ -183,3 +183,4 @@
 .extendedContainer1:active {
   
 }
+

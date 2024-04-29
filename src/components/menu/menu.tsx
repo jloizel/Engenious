@@ -1,39 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Box, List, ListItem, ListItemText, AccordionSummary, AccordionDetails, Typography, createTheme, useMediaQuery } from '@mui/material';
-import Accordion, { AccordionSlots } from '@mui/material/Accordion';
+import { Box, createTheme, useMediaQuery } from '@mui/material';
 import Drawer from '@mui/joy/Drawer';
 import ModalClose from '@mui/joy/ModalClose';
 import MenuIcon from '@mui/icons-material/Menu';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import styles from "./page.module.css";
-import Fade from '@mui/material/Fade';
-import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
+import styles from "./page.module.css";
+import Overview from '../overview/overview';
 
 interface MenuProps {}
 
 const Menu: React.FC<MenuProps> = ({}) => {
   const [open, setOpen] = useState(false);
-  const [expanded, setExpanded] = useState<string | false>(false);
-  const [hovered1, setHovered1] = useState(false); // State to track hover
-  const [hovered2, setHovered2] = useState(false); // State to track hover
-  const [hovered3, setHovered3] = useState(false); // State to track hover
-
-
-  const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 767,
-        md: 1024,
-        lg: 1200,
-        xl: 1536,
-      },
-    },
-  });
-
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const [activeItem, setActiveItem] = useState<string | null>(null); // State to track active item
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -43,11 +22,14 @@ const Menu: React.FC<MenuProps> = ({}) => {
     setOpen(false);
   };
 
-  const handleAccordionChange = (panel: string) => (
-    event: React.SyntheticEvent,
-    isExpanded: boolean
-  ) => {
-    setExpanded(isExpanded ? panel : false);
+  const handleItemListClick = (item: string) => {
+    setActiveItem(item); // Update active item when clicked
+  };
+
+  const handleItemListHover = (item: string) => {
+    if (!activeItem) {
+      setActiveItem(item); // Update active item on hover if no item is currently active
+    }
   };
 
   return (
@@ -58,14 +40,13 @@ const Menu: React.FC<MenuProps> = ({}) => {
       <Drawer 
         sx={{height: "100%", width: "100%"}}
         open={open} 
-        anchor={!isMobile ? "left" : "right"} 
-        size={isMobile ? "sm" : "lg"} 
+        anchor="left" 
+        size="lg" 
         onClose={handleDrawerClose}
       >
         <div className={styles.contentContainer}>
           <div className={styles.leftContainer}>
             <div className={styles.topContainer}>
-              <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
               <a href="/">
                 <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
               </a>
@@ -78,58 +59,61 @@ const Menu: React.FC<MenuProps> = ({}) => {
             </div>
             <div className={styles.list}>
               <div 
-                className={styles.listItem}
-                autoFocus={hovered1}
-                onMouseEnter={() => setHovered1(true)}
-                onMouseLeave={() => setHovered1(false)} 
-              >Employers</div>
+                className={`${styles.listItem} ${activeItem === 'Employers' ? styles.active : ''}`}
+                onClick={() => handleItemListClick('Employers')}
+                onMouseEnter={() => handleItemListHover('Employers')}
+              >
+                Employers
+              </div>
               <div 
-                className={styles.listItem}
-                autoFocus={hovered2}
-                onMouseEnter={() => setHovered2(true)}
-                onMouseLeave={() => setHovered2(false)} 
-              >Jobs</div>
+                className={`${styles.listItem} ${activeItem === 'Jobs' ? styles.active : ''}`}
+                onClick={() => handleItemListClick('Jobs')}
+                onMouseEnter={() => handleItemListHover('Jobs')}
+              >
+                Jobs
+              </div>
               <div 
-                className={styles.listItem}
-                autoFocus={hovered3}
-                onMouseEnter={() => setHovered3(true)}
-                onMouseLeave={() => setHovered3(false)} 
-              >About</div>
-            </div>
-            <div className={styles.buttonContainer}>
-              <a href="/jobseekers" className={styles.button}>Find Talent</a>
-              <a href="/employers" className={styles.button}>Find a Job</a>
+                className={`${styles.listItem} ${activeItem === 'About' ? styles.active : ''}`}
+                onClick={() => handleItemListClick('About')}
+                onMouseEnter={() => handleItemListHover('About')}
+              >
+                About
+              </div>
             </div>
           </div>
             
-            <div className={styles.rightContainer}>
-            {hovered1 && (
-              <div className={styles.extendedContainer1}>
-                {/* Divs to be shown when hovered */}
-                <div>Our services</div>
-                <div>Our expertise</div>
-                <div>Submit a vacancy</div>
+          <div className={styles.rightContainer}>
+            {activeItem && (
+              <div className={`${styles.additionalContent} ${activeItem ? styles.active : ''}`}>
+                {activeItem === 'Employers' && (
+                  <div>
+                    <Overview text={"Learn more about our full talent services"}/>
+                    <div>Our services</div>
+                    <div>Our expertise</div>
+                    <div>Submit a vacancy</div>
+                  </div>
+                )}
+                {activeItem === 'Jobs' && (
+                  <div>
+                    <Overview text={"Learn more about our full talent services"}/>
+                    <div>Search all jobs</div>
+                    <div>Send your cv</div>
+                  </div>
+                )}
+                {activeItem === 'About' && (
+                  <div>
+                    <Overview text={"Learn more about us"}/>
+                    <div>Our work</div>
+                    <div>Our story</div>
+                    <div>Our purpose</div>
+                    <div>Our commitments</div>
+                  </div>
+                )}
               </div>
             )}
-            {hovered2 && (
-              <div className={styles.extendedContainer2}>
-                {/* Divs to be shown when hovered */}
-                <div>Search all jobs</div>
-                <div>Send your cv</div>
-              </div>
-            )}
-            {hovered3 && (
-              <div className={styles.extendedContainer3}>
-                {/* Divs to be shown when hovered */}
-                <div>Our work</div>
-                <div>Our story</div>
-                <div>Our purpose</div>
-                <div>Our commitments</div>
-              </div>
-            )}
-            </div>
-
           </div>
+
+        </div>
       </Drawer>
     </>
   );
