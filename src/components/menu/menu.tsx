@@ -48,7 +48,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
   };
 
   useEffect(() => {
-    setActiveItem(hoveredItem); // Update active item based on hover
+    setActiveItem(hoveredItem); // Update active item based on hover state
   }, [hoveredItem]);
 
   console.log(activeItem)
