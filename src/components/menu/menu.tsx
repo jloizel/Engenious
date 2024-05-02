@@ -45,13 +45,40 @@ const Menu: React.FC<MenuProps> = ({}) => {
 
   const handleListItemHover = (itemName: string) => {
     setHoveredItem(itemName);
+    if (itemName === 'Employers') {
+      showSubMenu('subMenu1');
+    } else if (itemName === 'Jobs') {
+      showSubMenu('subMenu2');
+    } else if (itemName === 'About') {
+      showSubMenu('subMenu3');
+    } else {
+      hideAllSubMenus();
+    }
   };
 
   useEffect(() => {
     setActiveItem(hoveredItem); // Update active item based on hover state
   }, [hoveredItem]);
 
-  console.log(activeItem)
+  const showSubMenu = (subMenuId: string) => {
+    const subMenu = document.getElementById(subMenuId);
+    if (subMenu) {
+      subMenu.classList.add('active');
+    }
+  };
+
+  const hideSubMenu = (subMenuId: string) => {
+    const subMenu = document.getElementById(subMenuId);
+    if (subMenu) {
+      subMenu.classList.remove('active');
+    }
+  };
+
+  const hideAllSubMenus = () => {
+    hideSubMenu('subMenu1');
+    hideSubMenu('subMenu2');
+    hideSubMenu('subMenu3');
+  };
 
   return (
     <>
@@ -113,7 +140,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
               {activeItem && (
                 <div>
                   {activeItem === 'Employers' && (
-                    <div className={styles.subMenu}>
+                    <div className={styles.subMenu} id="subMenu1">
                       <Overview text={"Learn more about our full talent services"}/>
                       <div className={styles.subTopic}>Our services</div>
                       <div className={styles.subTopic}>Our expertise</div>
@@ -121,14 +148,14 @@ const Menu: React.FC<MenuProps> = ({}) => {
                     </div>
                   )}
                   {activeItem === 'Jobs' && (
-                    <div className={styles.subMenu}>
+                    <div className={styles.subMenu} id="subMenu2">
                       <Overview text={"Find your dream job"}/>
                       <div className={styles.subTopic}>Search all jobs</div>
                       <div className={styles.subTopic}>Send your cv</div>
                     </div>
                   )}
                   {activeItem === 'About' && (
-                    <div className={styles.subMenu}>
+                    <div className={styles.subMenu} id="subMenu3">
                       <Overview text={"Learn more about us"}/>
                       <div className={styles.subTopic}>Our work</div>
                       <div className={styles.subTopic}>Our story</div>
