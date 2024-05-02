@@ -192,22 +192,40 @@
   padding: 50px;
 }
 
+
+
 .subMenu {
   display: flex;
   flex-direction: column;
   gap: 10px;
   margin-top: 200px;
-  /* transition: opacity 1s ease-in-out; */
-  transform: translateX(-100%); /* Initially move the submenu off the screen */
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.5s ease; /* Add a smooth transition */
+  transform: translateX(-50%);
   opacity: 0;
+  /* display: none; */
 }
 
-.subMenu.active {
-  opacity: 1; /* Change opacity to 1 when active */
+.subMenuActive {
+  transform: translateX(0); 
+  opacity: 1;
+  display: flex;
 }
 
-body:has(.listItem.active) .subMenu {
+/* .listItem:hover + .subMenu,
+.listItem:active + .subMenu {
+    transform: translateX(0); 
+    opacity: 1;
+}
+
+#itemList:hover ~ .subMenu {
+  transform: translateX(0); 
+  opacity: 1;
+} */
+
+
+
+
+body:has(.listItem.active) .subMenu.active {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.5s;

@@ -49,13 +49,13 @@ const Menu: React.FC<MenuProps> = ({}) => {
     setHoveredItem(itemName);
     if (itemName === 'Employers') {
       setSubMenuActive(true);
-      setActiveSubMenuId('subMenu1');
+      setActiveSubMenuId('1');
       // setTimeout(() => {
       //   setSubMenuActive(false);
       // }, 500);
     } else if (itemName === 'Jobs') {
       setSubMenuActive(true);
-      setActiveSubMenuId('subMenu2');
+      setActiveSubMenuId('2');
     } else if (itemName === 'About') {
       setSubMenuActive(true);
       setActiveSubMenuId('subMenu3');
@@ -70,24 +70,48 @@ const Menu: React.FC<MenuProps> = ({}) => {
     setSubMenuActive(true);
   }, [hoveredItem]);
 
+
+  function slideIn(id: string): void {
+    if (typeof document !== "undefined") {
+      const subMenuId = `subMenu${id}`;
+      const subMenu = document.getElementById(subMenuId);
+
+    if (subMenu) {
+      subMenu.classList.add(styles.subMenuActive)
+    }
+  }}
+
+  function slideOut(id: string): void {
+    if (typeof document !== "undefined") {
+      const itemListId = `itemList${id}`;
+      const itemList = document.getElementById(itemListId);
+
+    if (itemList) {
+      itemList.classList.add(styles.labelGuessed)
+    }
+  }}
+
   console.log(hoveredItem)
+  console.log(activeSubMenuId)
 
-  if (hoveredItem) {
+  if (hoveredItem && activeSubMenuId) {
+    const itemList = document.getElementById(`itemList${activeSubMenuId}`);
+    const subMenu = document.getElementById(`subMenu${activeSubMenuId}`)
 
-    const itemList = document.getElementById("itemList1");
-    const subMenu = document.getElementById("subMenu1")
+    console.log(itemList)
 
     itemList?.addEventListener('mouseenter', () => {
-      
+
       console.log('Mouse entered the element');
-      // if (subMenu) {
+      if (subMenu) {
         subMenu?.classList.add(styles.subMenuActive)
-      // }
+      }
+      // slideIn(activeSubMenuId)
     });
 
     itemList?.addEventListener('mouseleave', () => {
       console.log('Mouse left the element');
-      subMenu?.classList.remove(styles.subMenuActive)
+      // subMenu?.classList.remove(styles.subMenuActive)
     });
   }
 
