@@ -54,12 +54,28 @@
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  margin-bottom: 200px;
+
+  @media (max-width: 1023px) {
+    margin-bottom: 100px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 200px;
+  }
 }
 
 .logo {
-  /* max-width: 100%; */
-  height: 70px;
+  @media (max-width: 767px) {
+    height: 60px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 60px;
+  }
+  
+  @media (min-width: 1024px) {
+    height: 70px;
+  }
 }
 
 .link {
@@ -73,6 +89,8 @@
   display: flex;
   flex-direction: column;
   line-height: 18px;
+  font-family: "Poppins", sans-serif;
+  align-items: flex-start;
 }
 
 .companyName1 {
@@ -199,8 +217,6 @@
   padding: 50px;
 }
 
-
-
 .subMenu {
   display: flex;
   flex-direction: column;
@@ -219,9 +235,10 @@
   display: flex;
 }
 
-.dropdownContainer {
-  margin-top: -25px;
-  margin-bottom: 10px;
+.subTopicContainer {
+  margin-top: -20px;
+  margin-bottom: 20px;
+
 }
 
 .subTopicMobile {
@@ -232,6 +249,7 @@
   padding: 6px;
   font-family: "Poppins", sans-serif;
 }
+
 
 
 body:has(.listItem.active) .subMenu.active {

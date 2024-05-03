@@ -111,7 +111,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
                 Employers
               </div>
               {isMobile && activeItem === 'Employers' && (
-                <div className={styles.dropdownContainer}>
+                <div className={styles.subTopicContainer}>
                   <div className={styles.subTopicMobile}>Our services</div>
                   <div className={styles.subTopicMobile}>Our expertise</div>
                   <div className={styles.subTopicMobile}>Submit a vacancy</div>
@@ -125,7 +125,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
                 Jobs
               </div>
               {isMobile && activeItem === 'Jobs' && (
-                <div className={styles.dropdownContainer}>
+                <div className={styles.subTopicContainer}>
                   <div className={styles.subTopicMobile}>Search all jobs</div>
                   <div className={styles.subTopicMobile}>Send your cv</div>
                 </div>
@@ -138,7 +138,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
                 About
               </div>
               {isMobile && activeItem === 'About' && (
-                <div className={styles.dropdownContainer}>
+                <div className={styles.subTopicContainer}>
                   <div className={styles.subTopicMobile}>Our work</div>
                   <div className={styles.subTopicMobile}>Our story</div>
                   <div className={styles.subTopicMobile}>Our purpose</div>
