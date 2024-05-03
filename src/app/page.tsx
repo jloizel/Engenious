@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
+import SliderContainer from "../../components/slider/sliderContainer";
 
 export default function Home() {
   return (
@@ -24,10 +25,14 @@ export default function Home() {
         </div>
       </section>
       <section className={styles.services}>
-        <div className={styles.header}>
-          <span >A full range of </span>
-          <span color="##09B089">Talent Services..</span>
+        <div className={styles.servicesContent}>
+          <div className={styles.header}>
+            <span >A full range of </span>
+            <span style={{color: "#008489"}}>Talent Services..</span>
+          </div>
+          <p>Whether you need new people to scale up your teams, or you’re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
         </div>
+        <SliderContainer />
       </section>
       <section className={styles.stats}>
 

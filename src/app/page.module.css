@@ -1,3 +1,5 @@
+/* banner */
+
 .banner {
   position: relative;
   height: 700px;
@@ -111,14 +113,35 @@
   }
 }
 
+/* services */
+
+.services {
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: auto; */
+  justify-content: center;
+  left: 0;
+  right: 0;
+  align-content: center;
+  /* height: 100%; */
+  text-align: center;
+}
+
+.servicesContent {
+  width: 80%;
+}
+
 .header {
-  /* color: #002D49; */
+  color: #002D49;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
 
   @media (max-width: 767px) {
-    font-size: 24px;
+    font-size: 22px;
     line-height: 125%;
+    margin-top: 40px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -129,5 +152,4 @@
 
   }
 
-  
 }
