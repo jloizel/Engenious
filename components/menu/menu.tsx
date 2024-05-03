@@ -93,7 +93,9 @@ const Menu: React.FC<MenuProps> = ({}) => {
         <div className={styles.contentContainer}>
           <div className={styles.leftContainer}>
             <div className={styles.topContainer}>
-              <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
+              {!isMobile && (
+                <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
+              )}
               <a href="/">
                 <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
               </a>
@@ -103,6 +105,9 @@ const Menu: React.FC<MenuProps> = ({}) => {
                   <div className={styles.companyName2}>RECRUITMENT</div>
                 </div>
               </a>
+              {isMobile && (
+                <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
+              )}
             </div>
             <div className={styles.list}>
               <div 
