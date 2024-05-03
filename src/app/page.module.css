@@ -32,7 +32,6 @@
   z-index: 10;
   display: flex;
   flex-wrap: wrap;
-  
   margin: auto;
   justify-content: center;
   left: 0;
@@ -57,16 +56,19 @@
 .title {
   color: white;
   font-weight: 800;
+  font-family: "Poppins", sans-serif;
 
   @media (max-width: 767px) {
-    font-size: 24px;
+    font-size: 40px;
     line-height: 125%;
-    margin-bottom: 24px;
+    margin-bottom: 30px;
+    margin-top: -30px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 70px;
+    font-size: 50px;
     line-height: 115%;
+    margin-bottom: 40px;
   }
   
   @media (min-width: 1024px) {
@@ -79,16 +81,53 @@
 .buttonContainer {
   display: flex;
   gap: 25px;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
 }
 
 .bannerButton {
   background-color: #00617C;
   color: white;
-  font-size: 18px;
-  padding: 0 32px;
+  padding: 0 20px;
   height: 56px;
   line-height: 56px;
   font-weight: 700;
   border-radius: 4px;
   text-decoration: none;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+}
+
+.header {
+  /* color: #002D49; */
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+    line-height: 125%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+  }
+  
+  @media (min-width: 1024px) {
+
+  }
+
+  
 }

@@ -64,14 +64,18 @@ const Menu: React.FC<MenuProps> = ({}) => {
     setActiveItem(hoveredItem); // Update active item based on hover state
   }, [hoveredItem]);
 
-  useEffect(() => {
-    const subMenu = document.getElementById(`subMenu${activeSubMenuId}`)
-    if (activeSubMenuId) {
-      subMenu?.classList.add(styles.subMenuSlideIn)
-    } else {
-      subMenu?.classList.remove(styles.subMenuSlideIn)
-    }
-  }, [activeSubMenuId, activeItem])
+  console.log(activeSubMenuId)
+  console.log(activeItem)
+
+  // useEffect(() => {
+  //   const subMenu = document.getElementById(`subMenu${activeSubMenuId}`)
+
+  //   if (activeSubMenuId) {
+  //     subMenu?.classList.add(styles.subMenuSlideIn)
+  //   } else {
+  //     subMenu?.classList.remove(styles.subMenuSlideIn)
+  //   }
+  // }, [activeSubMenuId, activeItem])
 
 
   return (

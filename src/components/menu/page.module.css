@@ -22,7 +22,7 @@
 
 .closeIcon {
   color: #00617C;
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: rgba(95, 95, 95, 0.08) !important;
   border-radius: 50%;
   cursor: pointer;
   padding: 5px;
@@ -56,7 +56,7 @@
   margin-top: 10px;
 
   @media (max-width: 1023px) {
-    margin-bottom: 100px;
+    margin-bottom: 150px;
   }
 
   @media (min-width: 1024px) {
@@ -122,8 +122,8 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-  
-  }
+    width: 50% !important;
+  } 
   
   @media (min-width: 1024px) {
     width: 50% !important;
@@ -150,7 +150,7 @@
   column-gap: 16px;
   transition: all 0.3s ease-in-out;
   white-space: pre;
-  color: #002D49;
+  color: #00617C;
   margin-bottom: 26px;
   font-family: "Poppins", sans-serif;
 }
@@ -164,7 +164,7 @@
   content: '';
   width: 0;
   height: 2px;
-  background-color: #002D49;
+  background-color: #00617C;
   display: block;
   transition: all 0.3s ease-in-out;
 }
@@ -183,7 +183,7 @@
 }
 
 .button {
-  background-color: #002D49;
+  background-color: #00617C;
   color: white;
   font-size: 18px;
   padding: 0 10px;
@@ -197,7 +197,7 @@
 }
 
 .button:hover {
-  background-color: #00617C;
+  background-color: #002D49;
 }
 
 /* right container */
@@ -215,6 +215,10 @@
 .extendedContainer {
   position: relative;
   padding: 50px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-top: -30px;
+  }
 }
 
 .subMenu {
@@ -222,9 +226,9 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 200px;
-  transition: all 0.3s ease-in-out; /* Add a smooth transition */
-  transform: translateX(-50%);
-  opacity: 0;
+  transition: all 0.2s ease-in-out; /* Add a smooth transition */
+  /* transform: translateX(-50%); */
+  opacity: 1;
   /* display: none; */
   font-family: "Poppins", sans-serif;
 }
@@ -232,7 +236,7 @@
 .subMenuSlideIn {
   transform: translateX(0); 
   opacity: 1;
-  display: flex;
+  /* display: flex; */
 }
 
 .subTopicContainer {
@@ -242,21 +246,22 @@
 }
 
 .subTopicMobile {
-  color: #00617C;
+  color: #656c6e;
   font-size: 20px;
   font-weight: 600;
   cursor: pointer;
   padding: 6px;
   font-family: "Poppins", sans-serif;
+  display: flex;
+  margin-left: 10px;
 }
 
 
-
-body:has(.listItem.active) .subMenu.active {
+/* body:has(.listItem.active) .subMenuSlideIn {
   opacity: 1;
   transform: translateX(0);
-  /* transition-delay: 0.3s; */
-}
+  transition-delay: 0.3s;
+} */
 
 .subTopic {
   color: white;

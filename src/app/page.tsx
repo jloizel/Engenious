@@ -24,8 +24,9 @@ export default function Home() {
         </div>
       </section>
       <section className={styles.services}>
-        <div>
-          A full range of Talent Services
+        <div className={styles.header}>
+          <span >A full range of </span>
+          <span color="##09B089">Talent Services..</span>
         </div>
       </section>
       <section className={styles.stats}>
