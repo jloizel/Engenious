@@ -14,7 +14,6 @@ const Menu: React.FC<MenuProps> = ({}) => {
   const [open, setOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-  const [subMenuActive, setSubMenuActive] = useState<boolean>(false);
   const [activeSubMenuId, setActiveSubMenuId] = useState<string | null>(null);
 
   const theme = createTheme({
@@ -33,68 +32,46 @@ const Menu: React.FC<MenuProps> = ({}) => {
 
   const handleDrawerOpen = () => {
     setOpen(true);
-    setActiveItem('Employers');
-  };
+    if (!isMobile) {
+      setActiveItem('Employers');
+    };
+  }
 
   const handleDrawerClose = () => {
     setOpen(false);
-    
   };
 
   const handleListItemClick = (itemName: string) => {
-    setActiveItem(itemName === activeItem ? null : itemName);
+    if (!isMobile) {
+      setActiveItem(itemName === activeItem ? null : itemName);
+    }
   };
 
   const handleListItemHover = (itemName: string) => {
     setHoveredItem(itemName);
     if (itemName === 'Employers') {
-      setSubMenuActive(true);
-      setActiveSubMenuId('subMenu1');
-      // setTimeout(() => {
-      //   setSubMenuActive(false);
-      // }, 500);
+      setActiveSubMenuId('1');
     } else if (itemName === 'Jobs') {
-      setSubMenuActive(true);
-      setActiveSubMenuId('subMenu2');
+      setActiveSubMenuId('2');
     } else if (itemName === 'About') {
-      setSubMenuActive(true);
-      setActiveSubMenuId('subMenu3');
+      setActiveSubMenuId('3');
     } else {
-      setSubMenuActive(false);
       setActiveSubMenuId(null);
     }
   };
 
   useEffect(() => {
     setActiveItem(hoveredItem); // Update active item based on hover state
-    setSubMenuActive(true);
   }, [hoveredItem]);
 
-  console.log(hoveredItem)
-
-  if (hoveredItem) {
-
-    const itemList = document.getElementById("itemList1");
-    const subMenu = document.getElementById("subMenu1")
-
-    itemList?.addEventListener('mouseenter', () => {
-      
-      console.log('Mouse entered the element');
-      // if (subMenu) {
-        subMenu?.classList.add(styles.subMenuActive)
-      // }
-    });
-
-    itemList?.addEventListener('mouseleave', () => {
-      console.log('Mouse left the element');
-      subMenu?.classList.remove(styles.subMenuActive)
-    });
-  }
-
-
-  // useEffect(() => {
-  //   if ()
-  // })
+  useEffect(() => {
+    const subMenu = document.getElementById(`subMenu${activeSubMenuId}`)
+    if (activeSubMenuId) {
+      subMenu?.classList.add(styles.subMenuSlideIn)
+    } else {
+      subMenu?.classList.remove(styles.subMenuSlideIn)
+    }
+  }, [activeSubMenuId, activeItem])
 
 
   return (
@@ -125,6 +102,7 @@ const Menu: React.FC<MenuProps> = ({}) => {
             </div>
             <div className={styles.list}>
               <div 
+                // className={`${isMobile ? styles.listItemMobile : styles.listItem} ${activeItem === 'Employers' ? styles.active : ''}`}
                 className={`${styles.listItem} ${activeItem === 'Employers' ? styles.active : ''}`} 
                 onClick={() => handleListItemClick('Employers')}
                 onMouseEnter={() => handleListItemHover('Employers')}
@@ -132,6 +110,13 @@ const Menu: React.FC<MenuProps> = ({}) => {
               >
                 Employers
               </div>
+              {isMobile && activeItem === 'Employers' && (
+                <div className={styles.dropdownContainer}>
+                  <div className={styles.subTopicMobile}>Our services</div>
+                  <div className={styles.subTopicMobile}>Our expertise</div>
+                  <div className={styles.subTopicMobile}>Submit a vacancy</div>
+                </div>
+              )}
               <div 
                 className={`${styles.listItem} ${activeItem === 'Jobs' ? styles.active : ''}`} 
                 onClick={() => handleListItemClick('Jobs')}
@@ -139,6 +124,12 @@ const Menu: React.FC<MenuProps> = ({}) => {
               >
                 Jobs
               </div>
+              {isMobile && activeItem === 'Jobs' && (
+                <div className={styles.dropdownContainer}>
+                  <div className={styles.subTopicMobile}>Search all jobs</div>
+                  <div className={styles.subTopicMobile}>Send your cv</div>
+                </div>
+              )}
               <div 
                 className={`${styles.listItem} ${activeItem === 'About' ? styles.active : ''}`} 
                 onClick={() => handleListItemClick('About')}
@@ -146,6 +137,14 @@ const Menu: React.FC<MenuProps> = ({}) => {
               >
                 About
               </div>
+              {isMobile && activeItem === 'About' && (
+                <div className={styles.dropdownContainer}>
+                  <div className={styles.subTopicMobile}>Our work</div>
+                  <div className={styles.subTopicMobile}>Our story</div>
+                  <div className={styles.subTopicMobile}>Our purpose</div>
+                  <div className={styles.subTopicMobile}>Our commitments</div>
+                </div>
+              )}
             </div>
             <div className={styles.buttonContainer}>
               <a href="/jobseekers" className={styles.button}>Find Talent</a>

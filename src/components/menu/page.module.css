@@ -126,14 +126,15 @@
   font-size: 26px;
   line-height: 38px;
   font-weight: 700;
-  opacity: 0.5;
+  opacity: 0.6;
   display: flex;
   align-items: center;
   column-gap: 16px;
   transition: all 0.3s ease-in-out;
   white-space: pre;
-  color: #00617C;
+  color: #002D49;
   margin-bottom: 26px;
+  font-family: "Poppins", sans-serif;
 }
 
 .listItem:hover, .listItem.active {
@@ -145,7 +146,7 @@
   content: '';
   width: 0;
   height: 2px;
-  background-color: #00617C;
+  background-color: #002D49;
   display: block;
   transition: all 0.3s ease-in-out;
 }
@@ -155,6 +156,8 @@
   opacity: 1; /* Show the line when the list item is hovered */
 }
 
+
+
 .buttonContainer {
   display: flex;
   flex-direction: column;
@@ -162,7 +165,7 @@
 }
 
 .button {
-  background-color: #00617C;
+  background-color: #002D49;
   color: white;
   font-size: 18px;
   padding: 0 10px;
@@ -173,6 +176,10 @@
   text-decoration: none;
   margin-bottom: 24px;
   width: 60%;
+}
+
+.button:hover {
+  background-color: #00617C;
 }
 
 /* right container */
@@ -199,36 +206,38 @@
   flex-direction: column;
   gap: 10px;
   margin-top: 200px;
-  transition: transform 0.5s ease; /* Add a smooth transition */
+  transition: all 0.3s ease-in-out; /* Add a smooth transition */
   transform: translateX(-50%);
   opacity: 0;
   /* display: none; */
+  font-family: "Poppins", sans-serif;
 }
 
-.subMenuActive {
+.subMenuSlideIn {
   transform: translateX(0); 
   opacity: 1;
   display: flex;
 }
 
-/* .listItem:hover + .subMenu,
-.listItem:active + .subMenu {
-    transform: translateX(0); 
-    opacity: 1;
+.dropdownContainer {
+  margin-top: -25px;
+  margin-bottom: 10px;
 }
 
-#itemList:hover ~ .subMenu {
-  transform: translateX(0); 
-  opacity: 1;
-} */
-
-
+.subTopicMobile {
+  color: #00617C;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px;
+  font-family: "Poppins", sans-serif;
+}
 
 
 body:has(.listItem.active) .subMenu.active {
   opacity: 1;
   transform: translateX(0);
-  transition-delay: 0.5s;
+  /* transition-delay: 0.3s; */
 }
 
 .subTopic {
