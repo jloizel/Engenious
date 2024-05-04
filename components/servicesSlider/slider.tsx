@@ -44,7 +44,9 @@ const Slider: React.FC<SliderProps> = ({id, title, text, link}) => {
         <div className={styles.title}>{title}</div>
         <div className={styles.text}>{text}</div>
       </div>
-      <button>text <KeyboardArrowRightIcon className={styles.arrow}/></button>
+      <div className={styles.buttonContainer}>
+        <button className={styles.button}>Learn More <KeyboardArrowRightIcon className={styles.arrow}/></button>
+      </div>
     </div>
   )
 }

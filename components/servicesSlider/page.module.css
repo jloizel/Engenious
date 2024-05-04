@@ -1,0 +1,124 @@
+.container {
+  height: 200px;
+  overflow: hidden;
+  box-shadow: 0px 8px 24px rgba(62, 53, 82, 0.16);
+  border-radius: 24px;
+  background-color: #09B089;
+  padding: 30px 30px;
+  text-align: center;
+  color: var(--white);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  /* flex: 0 0 283px; */
+  /* width: 100%; */
+  margin-top: 20px;
+  /* min-height: max-content; */
+
+  /* @media (max-width: 767px) {
+    width: 200px !important;
+  } */
+}
+
+.swiperContainer {
+  width: 150%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.swiper {
+  width: 100% !important;
+  height: 100%;
+}
+
+/* .swiperSlide {
+  width: 50%;
+} */
+
+.swiper-pagination {
+  position: absolute !important; /* Use absolute positioning */
+  bottom: 20px !important; /* Adjust the distance from the bottom as needed */
+  left: 50% !important; /* Center horizontally */
+  transform: translateX(-50%) !important; /* Center horizontally */
+}
+
+
+.content {
+
+}
+
+.title {
+  color: white;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 10px;
+
+  @media (max-width: 767px) {
+    font-size: 24px !important;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px !important;
+  }
+}
+
+.text {
+  color: white;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  line-height: 150%;
+
+  @media (max-width: 767px) {
+    font-size: 14px !important;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px !important;
+  }
+}
+
+.buttonContainer {
+  margin-top: 20px;
+  position: absolute;
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.button {
+  background-color: transparent !important; 
+  color: white; 
+  border: 1px solid white;
+  padding-left: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  @media (max-width: 767px) {
+    font-size: 14px !important;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px !important;
+  }
+}
+
+.arrow {
+  
+}

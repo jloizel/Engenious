@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import styles from "./page.module.css";
-import SliderContainer from "../../components/slider/sliderContainer";
+import ServicesSlider from "../../components/servicesSlider/servicesSlider";
 
 export default function Home() {
   return (
-    <div>
+    <div className={styles.app}>
       <section className={styles.banner}>
         <div className={styles.video}>
           <video className={styles.backgroundVideo} autoPlay muted loop>
@@ -32,19 +32,23 @@ export default function Home() {
           </div>
           <p>Whether you need new people to scale up your teams, or you’re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
         </div>
-        <SliderContainer />
+        <ServicesSlider />
       </section>
-      <section className={styles.stats}>
-
+      <section className={styles.about}>
+        <div className={styles.aboutContent}>
+          <div className={styles.header}>
+            <span>Investing time in people; </span>
+            <span style={{color: "#008489"}}>it's in our DNA.</span>
+          </div>
+        </div>
       </section>
       <section className={styles.quote}>
 
       </section>
       <section className={styles.testimonials}>
-
       </section>
       <section className={styles.locations}>
-
+        
       </section>
     </div>
   );
