@@ -7,6 +7,8 @@ import AboutSlider from "../../components/about/aboutSlider";
 import { createTheme, useMediaQuery } from "@mui/material";
 import Services from "../../components/services/services";
 import About from "../../components/about/about";
+import Join from "../../components/join/join";
+import Testimonials from "../../components/testimonials/testimonials";
 
 
 
@@ -71,9 +73,16 @@ export default function Home() {
         </div>
       </section>
       <section className={styles.join}>
-
+        <Join/>
       </section>
       <section className={styles.testimonials}>
+        <div className={styles.testimonialsContent}>
+          <div className={styles.header}>
+            <span style={{color: "#008489"}}>Talented people </span>
+            <span >are at the centre of everything we do.</span>
+          </div>
+        </div>
+        <Testimonials/>
       </section>
       <section className={styles.locations}>
         

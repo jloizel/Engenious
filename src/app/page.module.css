@@ -122,7 +122,7 @@
 
 /* services */
 
-.services, .about {
+.services, .about, .testimonials {
   /* position: absolute; */
   z-index: 10;
   display: flex;
@@ -136,7 +136,11 @@
   text-align: center;
 }
 
-.servicesContent, .aboutContent {
+.testimonials {
+  background: #EFF0F0;
+}
+
+.servicesContent, .aboutContent, .testimonialsContent {
   width: 80%;
 }
 
@@ -192,7 +196,6 @@
 }
 
 .aboutButton {
- 
   background: #09B089;
   border: none;
   border-radius: 5px;

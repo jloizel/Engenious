@@ -32,17 +32,23 @@ const Join: React.FC = ({}) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <div className={styles.aboutContainer}>
-        {data.map((about, index) => (
-          <div className={styles.container} key={about.id}>
-            <div className={styles.content}>
-              <div className={styles.title}>{about.title}</div>
-              <div className={styles.text}>{about.text}</div>
-            </div>
-            <div className={styles.buttonContainer}>
-            </div>
-          </div>
-        ))}
+    <div className={styles.container}>
+      <div className={styles.imageContainer}>
+        <img src="/pics.png" alt="Images" className={styles.image}/>
+      </div>
+      <div className={styles.textContainer}>
+        <div className={styles.quote}>
+          &apos;Enter some kind of quote here.&apos;
+        </div>
+        <div className={styles.quoter}>
+          - Poppy Dickinson, CEO of Engenious Recruitment
+        </div>
+        <div className={styles.text}>
+          At Engenious Recruitment, our priority is our people, enabling them to excel and reach new heights. Join our team, and together, we&apos;ll surpass expectations and redefine success
+        </div>
+        <button className={styles.button}>Join the team</button>
+      </div>
+        
     </div>
   )
 }
