@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { useRouter } from 'next/router';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,14 +8,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { createTheme, useMediaQuery } from "@mui/material";
 
-interface AboutSliderProps {
-  // text: string
-}
-
-const AboutSlider: React.FC<AboutSliderProps> = ({}) => {
+const AboutSlider: React.FC = ({}) => {
   const [data, setData] = useState([
     {
       id: "",

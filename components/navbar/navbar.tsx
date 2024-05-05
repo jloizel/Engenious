@@ -1,11 +1,8 @@
 "use client"
 
-import Link from 'next/link'
 import React from 'react'
 import styles from './page.module.css'
 import SearchIcon from '@mui/icons-material/Search';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useRouter } from 'next/router';
 import Menu from '../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
 

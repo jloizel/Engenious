@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { useRouter } from 'next/router';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -10,8 +8,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
-import { createTheme, useMediaQuery } from "@mui/material";
+import { Navigation } from 'swiper/modules';
+
 
 
 const Testimonials: React.FC = ({}) => {
@@ -44,21 +42,6 @@ const Testimonials: React.FC = ({}) => {
   useEffect(()=>{
     getData()
   },[])
-
-
-  const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 767,
-        md: 1024,
-        lg: 1200,
-        xl: 1536,
-      },
-    },
-  });
-
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   return (
     <div className={styles.swiperContainer}>

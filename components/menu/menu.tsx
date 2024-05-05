@@ -8,9 +8,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import styles from "./page.module.css";
 import Overview from '../overview/overview';
 
-interface MenuProps {}
 
-const Menu: React.FC<MenuProps> = ({}) => {
+
+const Menu: React.FC = ({}) => {
   const [open, setOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);

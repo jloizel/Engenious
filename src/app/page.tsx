@@ -9,7 +9,7 @@ import Services from "../../components/services/services";
 import About from "../../components/about/about";
 import Join from "../../components/join/join";
 import Testimonials from "../../components/testimonials/testimonials";
-
+import Location from "../../components/location/location";
 
 
 export default function Home() {
@@ -85,7 +85,7 @@ export default function Home() {
         <Testimonials/>
       </section>
       <section className={styles.locations}>
-        
+        <Location/>
       </section>
     </div>
   );
