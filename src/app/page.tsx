@@ -30,7 +30,7 @@ export default function Home() {
     <div className={styles.app}>
       <section className={styles.banner}>
         <div className={styles.video}>
-          <video className={styles.backgroundVideo} autoPlay muted loop>
+          <video className={styles.backgroundVideo} autoPlay muted loop playsInline controlsList="nodownload">
             <source src="/background3.mp4" type="video/mp4" />
           </video>
           <div className={styles.videoOverlay}></div>
