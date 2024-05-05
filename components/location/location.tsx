@@ -1,9 +1,7 @@
 import React from 'react'
 import styles from './page.module.css'
 
-const Join: React.FC = ({}) => {
-
-  const api = process.env.API_KEY
+const Location: React.FC = ({}) => {
 
   return (
     <div className={styles.container}>
@@ -23,4 +21,4 @@ const Join: React.FC = ({}) => {
   )
 }
 
-export default Join
+export default Location
