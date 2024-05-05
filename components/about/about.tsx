@@ -13,11 +13,11 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import { createTheme, useMediaQuery } from "@mui/material";
 
-interface AboutSliderProps {
+interface AboutProps {
   // text: string
 }
 
-const AboutSlider: React.FC<AboutSliderProps> = ({}) => {
+const About: React.FC<AboutProps> = ({}) => {
   const [data, setData] = useState([
     {
       id: "",
@@ -63,34 +63,19 @@ const AboutSlider: React.FC<AboutSliderProps> = ({}) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <div className={styles.swiperContainer}>
-      <Swiper
-        slidesPerView={2}
-        centeredSlides={true}
-        initialSlide={1}
-        spaceBetween={20}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className={styles.swiper}
-        style={{marginLeft: "50px"}}
-      >
+    <div className={styles.aboutContainer}>
         {data.map((service, index) => (
-          <SwiperSlide key={service.id} className={styles.swiperSlide}>
-            <div className={styles.container} >
-              <div className={styles.content}>
-                <div className={styles.title}>{service.title}</div>
-                <div className={styles.text}>{service.text}</div>
-              </div>
-              <div className={styles.buttonContainer}>
-              </div>
+          <div className={styles.container} >
+            <div className={styles.content}>
+              <div className={styles.title}>{service.title}</div>
+              <div className={styles.text}>{service.text}</div>
             </div>
-          </SwiperSlide>
+            <div className={styles.buttonContainer}>
+            </div>
+          </div>
         ))}
-      </Swiper>
     </div>
   )
 }
 
-export default AboutSlider
+export default About

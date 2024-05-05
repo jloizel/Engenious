@@ -1,3 +1,10 @@
+.servicesContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 90%;
+}
+
 .container {
   height: 200px;
   /* overflow: hidden; */
@@ -5,12 +12,27 @@
   border-radius: 24px;
   /* background-image: #09B089; */
   background: #09B089;
-  padding: 30px 30px;
+  
   text-align: center;
   color: white;
   position: relative;
   margin-top: 20px;
   margin-bottom: 50px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    padding: 25px 25px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 28px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 40px 25px;
+  }
 }
 
 
@@ -59,11 +81,11 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 40px !important;
+    font-size: 28px !important;
   }
   
   @media (min-width: 1024px) {
-    font-size: 40px !important;
+    font-size: 26px !important;
   }
 }
 
@@ -82,16 +104,15 @@
   }
   
   @media (min-width: 1024px) {
-    font-size: 40px !important;
+    font-size: 16px !important;
   }
 }
 
 .buttonContainer {
   margin-top: 20px;
-  position: absolute;
-  bottom: 20px; 
-  left: 50%;
-  transform: translateX(-50%);
+  display: flex;
+  justify-content: center; /* Horizontally center the button */
+  align-items: center;
 }
 
 .button {
@@ -116,7 +137,7 @@
   }
   
   @media (min-width: 1024px) {
-    font-size: 40px !important;
+    font-size: 16px !important;
   }
 }
 

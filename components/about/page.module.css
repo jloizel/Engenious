@@ -1,3 +1,10 @@
+.aboutContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
 .container {
   height: 200px;
   /* overflow: hidden; */
@@ -17,13 +24,10 @@
   background-size: 100% 3px; /* Adjust the height of the line as needed */
   background-position: bottom;
   background-repeat: no-repeat;
-}
 
-
-.container:hover {
-  /* background-image: linear-gradient(180deg, rgba(9,176,137,1) 0%, rgba(0,97,124,1) 48%, rgba(0,45,73,1) 100%); */
-  background-color: #002D49;
-  transition: background-color 0.3s ease-in;
+  @media (min-width: 1024px) {
+    width: 180px;
+  }
 }
 
 .swiperContainer {
@@ -36,10 +40,6 @@
 .swiper {
   width: 100% !important;
   height: 80% !important;
-}
-
-.swiper-wrapper {
-  margin-left: 100px !important;
 }
 
 .swiper-pagination {
@@ -89,7 +89,7 @@
   }
   
   @media (min-width: 1024px) {
-    font-size: 40px !important;
+    font-size: 20px !important;
   }
 }
 
