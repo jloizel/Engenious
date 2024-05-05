@@ -153,7 +153,10 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-
+    font-size: 30px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
   
   @media (min-width: 1024px) {
@@ -173,7 +176,7 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-
+    font-size: 16px;
   }
   
   @media (min-width: 1024px) {
@@ -200,7 +203,7 @@
   margin-top: 40px;
   margin-bottom: 40px;
 
-  @media (max-width: 767px) {
+  @media (max-width: 1023px) {
     width: 300px;
     font-size: 16px;
   }

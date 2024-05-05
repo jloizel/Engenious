@@ -57,10 +57,6 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
     }
   },[hoveredItem])
 
-  
-
-    console.log(buttonClass)
-
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -73,12 +69,12 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
     },
   });
 
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   return (
     <div className={styles.swiperContainer}>
     <Swiper
-      slidesPerView={2}
+      slidesPerView={isTablet ? 3 : 2}
       centeredSlides={true}
       spaceBetween={20}
       loop={false}

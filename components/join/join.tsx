@@ -13,38 +13,8 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import { createTheme, useMediaQuery } from "@mui/material";
 
-interface AboutProps {
-  // text: string
-}
 
-const About: React.FC<AboutProps> = ({}) => {
-  const [data, setData] = useState([
-    {
-      id: "",
-      title: "",
-      text: ""
-    },
-  ]);
-
-  const getData=()=>{
-    fetch('data/about.json',{
-        headers : { 
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        }
-      }
-    )
-      .then(function(response){
-        return response.json();
-      })
-      .then(function(myJson) {
-        setData(myJson)
-      });
-    }
-
-  useEffect(()=>{
-    getData()
-  },[])
+const Join: React.FC = ({}) => {
 
 
   const theme = createTheme({
@@ -77,4 +47,4 @@ const About: React.FC<AboutProps> = ({}) => {
   )
 }
 
-export default About
+export default Join

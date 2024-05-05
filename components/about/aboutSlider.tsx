@@ -42,11 +42,10 @@ const AboutSlider: React.FC<AboutSliderProps> = ({}) => {
       });
     }
 
-     useEffect(()=>{
-       getData()
-     },[])
+  useEffect(()=>{
+    getData()
+  },[])
 
-     console.log(data)
 
   const theme = createTheme({
     breakpoints: {
@@ -60,12 +59,12 @@ const AboutSlider: React.FC<AboutSliderProps> = ({}) => {
     },
   });
 
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
   return (
     <div className={styles.swiperContainer}>
       <Swiper
-        slidesPerView={2}
+        slidesPerView={isTablet ? 3 : 2}
         centeredSlides={true}
         initialSlide={1}
         spaceBetween={20}

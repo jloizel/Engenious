@@ -59,7 +59,6 @@ const Services: React.FC<ServicesProps> = ({}) => {
 
   
 
-    console.log(buttonClass)
 
   const theme = createTheme({
     breakpoints: {
