@@ -64,11 +64,11 @@ const About: React.FC<AboutProps> = ({}) => {
 
   return (
     <div className={styles.aboutContainer}>
-        {data.map((service, index) => (
-          <div className={styles.container} >
+        {data.map((about, index) => (
+          <div className={styles.container} key={about.id}>
             <div className={styles.content}>
-              <div className={styles.title}>{service.title}</div>
-              <div className={styles.text}>{service.text}</div>
+              <div className={styles.title}>{about.title}</div>
+              <div className={styles.text}>{about.text}</div>
             </div>
             <div className={styles.buttonContainer}>
             </div>
