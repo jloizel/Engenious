@@ -3,6 +3,7 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import ServicesSlider from "../../components/servicesSlider/servicesSlider";
+import AboutSlider from "../../components/aboutSlider/aboutSlider";
 
 export default function Home() {
   return (
@@ -41,8 +42,12 @@ export default function Home() {
             <span style={{color: "#008489"}}>it's in our DNA.</span>
           </div>
         </div>
+        <AboutSlider />
+        <button className={styles.aboutButton}>
+          Learn more about us
+        </button>
       </section>
-      <section className={styles.quote}>
+      <section className={styles.join}>
 
       </section>
       <section className={styles.testimonials}>

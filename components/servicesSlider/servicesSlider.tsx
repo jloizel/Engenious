@@ -12,13 +12,14 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import { createTheme, useMediaQuery } from "@mui/material";
-import Slider from './slider';
 
 interface ServicesSliderProps {
   // text: string
 }
 
 const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [buttonClass, setButtonClass] = useState<string | null>(null);
   const [data, setData] = useState([
     {
       id: "",
@@ -44,9 +45,21 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
       });
     }
 
-     useEffect(()=>{
-       getData()
-     },[])
+  useEffect(()=>{
+    getData()
+  },[])
+
+  useEffect(()=>{
+    if (hoveredItem) {
+      setButtonClass("buttonActive")
+    } else {
+      setButtonClass ("button")
+    }
+  },[hoveredItem])
+
+  
+
+    console.log(buttonClass)
 
   const theme = createTheme({
     breakpoints: {
@@ -68,30 +81,30 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
       slidesPerView={2}
       centeredSlides={true}
       spaceBetween={20}
-      loop={true}
+      loop={false}
       pagination={{
-        clickable: true,
+        clickable: true
       }}
       modules={[Pagination]}
-      // style={{"--swiper-theme-color": "#00617C"}}
       className={styles.swiper}
-      // style={{width: "100%"}}
     >
       {data.map((service, index) => (
         <SwiperSlide key={service.id} className={styles.swiperSlide}>
-          {/* <Slider 
-            id={index}
-            title={service.title}
-            text={service.text} 
-            link={service.link}
-          /> */}
-          <div className={styles.container} >
+          <div 
+            className={styles.container}
+            onMouseEnter={() => setHoveredItem(service.id)}
+            onMouseLeave={() => setHoveredItem(null)}
+            id={service.id}>
             <div className={styles.content}>
               <div className={styles.title}>{service.title}</div>
               <div className={styles.text}>{service.text}</div>
             </div>
             <div className={styles.buttonContainer}>
-              <button className={styles.button}>Learn More <KeyboardArrowRightIcon className={styles.arrow}/></button>
+              <button 
+                className={`${styles.button} ${hoveredItem === service.id ? styles.buttonActive : ''}`}
+                id={service.id}>
+                Learn More <KeyboardArrowRightIcon className={styles.arrow}/>
+              </button>
             </div>
           </div>
         </SwiperSlide>

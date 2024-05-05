@@ -64,40 +64,31 @@ const AboutSlider: React.FC<AboutSliderProps> = ({}) => {
 
   return (
     <div className={styles.swiperContainer}>
-    <Swiper
-      slidesPerView={2}
-      centeredSlides={true}
-      spaceBetween={20}
-      loop={true}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Pagination]}
-      // style={{"--swiper-theme-color": "#00617C"}}
-      className={styles.swiper}
-      // style={{width: "100%"}}
-    >
-      {data.map((service, index) => (
-        <SwiperSlide key={service.id} className={styles.swiperSlide}>
-          {/* <Slider 
-            id={index}
-            title={service.title}
-            text={service.text} 
-            link={service.link}
-          /> */}
-          <div className={styles.container} >
-            <div className={styles.content}>
-              <div className={styles.title}>{service.title}</div>
-              <div className={styles.text}>{service.text}</div>
+      <Swiper
+        slidesPerView={2}
+        centeredSlides={true}
+        initialSlide={1}
+        spaceBetween={20}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className={styles.swiper}
+        style={{marginLeft: "50px"}}
+      >
+        {data.map((service, index) => (
+          <SwiperSlide key={service.id} className={styles.swiperSlide}>
+            <div className={styles.container} >
+              <div className={styles.content}>
+                <div className={styles.title}>{service.title}</div>
+                <div className={styles.text}>{service.text}</div>
+              </div>
+              <div className={styles.buttonContainer}>
+              </div>
             </div>
-            <div className={styles.buttonContainer}>
-              <button className={styles.button}>Learn More <KeyboardArrowRightIcon className={styles.arrow}/></button>
-            </div>
-          </div>
-        </SwiperSlide>
-      ))}
-     
-    </Swiper>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </div>
   )
 }
