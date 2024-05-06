@@ -11,6 +11,7 @@ import Join from "../../components/join/join";
 import Testimonials from "../../components/testimonials/testimonials";
 import Location from "../../components/location/location";
 import Navbar1 from "../../components/navbar/navbar1";
+import { Helmet } from 'react-helmet-async';
 
 
 export default function Home() {
@@ -32,6 +33,11 @@ export default function Home() {
 
   return (
     <div className={styles.app}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>My Title</title>
+        <link rel="canonical" href="http://mysite.com/example" />
+      </Helmet>
       <Navbar1/>
       <section className={styles.banner}>
         <div className={styles.video}>

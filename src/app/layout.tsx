@@ -5,10 +5,10 @@ import Footer from "../../components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Engenious Recruitment",
-  description: "Connecting construction and civil engineering professionals across the South East",
-};
+// export const metadata: Metadata = {
+//   title: "Engenious Recruitment",
+//   description: "Connecting construction and civil engineering professionals across the South East",
+// };
 
 export default function RootLayout({
   children,

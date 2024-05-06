@@ -143,6 +143,15 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   <div className={styles.subTopicMobile}>Our commitments</div>
                 </div>
               )}
+              <div 
+                // className={`${isMobile ? styles.listItemMobile : styles.listItem} ${activeItem === 'Employers' ? styles.active : ''}`}
+                className={`${styles.listItem} ${activeItem === 'Contact' ? styles.active : ''}`} 
+                onClick={() => handleListItemClick('Contact')}
+                onMouseEnter={() => handleListItemHover('Contact')}
+                id='itemList4'
+              >
+                Contact
+              </div>
             </div>
             <div className={styles.buttonContainer}>
               <a href="/jobseekers" className={styles.button}>Find Talent</a>

@@ -13,7 +13,7 @@ const Join: React.FC = ({}) => {
           &apos;Enter some kind of quote here.&apos;
         </div>
         <div className={styles.quoter}>
-          - Poppy Dickinson, CEO of Engenious Recruitment
+          - Phlippa Dickinson, CEO of Engenious Recruitment
         </div>
         <div className={styles.text}>
           At Engenious Recruitment, our priority is our people, enabling them to excel and reach new heights. Join our team, and together, we&apos;ll surpass expectations and redefine success
