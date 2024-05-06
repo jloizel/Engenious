@@ -97,7 +97,15 @@
 .links {
   display: flex;
   width: 100%;
-  column-gap: 30px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* column-gap: 80px; */
+    gap: 35px;
+  }
+  
+  @media (min-width: 1024px) {
+    gap: 80px;
+  }
 }
 
 .link {

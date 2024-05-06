@@ -10,7 +10,7 @@ const Location: React.FC = ({}) => {
           Our Locations
         </div>
         <div className={styles.subHeader}>
-          Henfield
+          Sussex
         </div>
       </div>
       <div className={styles.imageContainer}>
