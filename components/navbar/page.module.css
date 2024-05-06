@@ -113,6 +113,22 @@
   text-decoration: none;
   color: white;
   font-weight: 500;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #197089; /* Adjust the color as needed */
+  transition: width 0.3s ease-in-out; /* Add a transition effect */
+}
+
+.link:hover::after {
+  width: 100%; /* Expand the underline on hover */
 }
 
 /* right side of navbar */
