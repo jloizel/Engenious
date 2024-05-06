@@ -137,7 +137,18 @@ body { min-height: 100vh; }
   border-radius: 50% !important;
   width: 50px !important;
   height: 50px !important;
-  margin-top: 80px !important;
+
+  @media (max-width: 767px) {
+    margin-top: 120px !important;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 80px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    margin-top: 80px !important;
+  }
 }
 
 .swiper-button-prev::after,

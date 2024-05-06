@@ -83,3 +83,117 @@
 .line {
   width: 80%;
 }
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-bottom: 15px; */
+}
+
+.logo {
+
+  @media (max-width: 767px) {
+    width: 80px;
+    height: 80px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 40px;
+    height: 40px;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.link {
+  text-decoration: none;
+}
+
+.companyNameContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px;
+  text-decoration: none;
+  color: white;
+}
+
+.companyName1 {
+  font-weight: 600;
+}
+
+.companyName2 {
+  font-weight: 300;
+}
+
+.logos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.linkedInContainer {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #00617C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+}
+
+.linkedIn {
+  color: white;
+  width: 20px;
+  height: 20px;
+}
+
+.pagesContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 20px;
+}
+
+.page {
+  color: white;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 14px;
+  }
+}
+
+.copyright {
+  color: white;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 12px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 14px;
+  }
+}
