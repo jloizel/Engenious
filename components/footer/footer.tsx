@@ -68,10 +68,8 @@ const Footer: React.FC = ({}) => {
               <div className={styles.page}>Join Us</div>
               <div className={styles.page}>Contact Us</div>
               <div className={styles.page}>Upload CV</div>
-              <div className={styles.page}>About Us</div>
               <div className={styles.page}>Submit Job</div>
               <div className={styles.page}>Privacy Policy</div>
-              <div className={styles.page}>Join Us</div>
               <div className={styles.copyright}>© Engenious Recruitment</div>
             </div>
           )}
@@ -81,13 +79,12 @@ const Footer: React.FC = ({}) => {
                 <div className={styles.page}>About Us</div>
                 <div className={styles.page}>Join Us</div>
                 <div className={styles.page}>Contact Us</div>
-                <div className={styles.page}>Upload CV</div>
               </div>
               <div>
-                <div className={styles.page}>About Us</div>
+              <div className={styles.page}>Upload CV</div>
                 <div className={styles.page}>Submit Job</div>
                 <div className={styles.page}>Privacy Policy</div>
-                <div className={styles.page}>Join Us</div>
+
               </div>
             </div>
           )}

@@ -8,9 +8,12 @@ import CloseIcon from '@mui/icons-material/Close';
 import styles from "./page.module.css";
 import Overview from '../overview/overview';
 
+interface MenuProps {
+  color: string
+}
 
 
-const Menu: React.FC = ({}) => {
+const Menu: React.FC<MenuProps> = ({color}) => {
   const [open, setOpen] = useState(false);
   const [activeItem, setActiveItem] = useState<string | null>(null);
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
@@ -67,7 +70,7 @@ const Menu: React.FC = ({}) => {
   return (
     <>
       <div className={styles.menuButton}>
-        <MenuIcon onClick={handleDrawerOpen} className={styles.icon} />
+        <MenuIcon onClick={handleDrawerOpen} className={styles.icon} style={{color: color}}/>
       </div>
       <Drawer 
         sx={{height: "100%", width: "100%"}}

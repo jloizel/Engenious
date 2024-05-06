@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import styles from './page.module.css'
+import styles from './page2.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
@@ -29,7 +29,7 @@ const links = [
     }
   ];
 
-const Navbar = () => {
+const Navbar2 = () => {
 
   const theme = createTheme({
     breakpoints: {
@@ -69,19 +69,19 @@ const Navbar = () => {
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
-            <Menu />
+            <Menu color={"#00617C"}/>
           </div>
           <a href="/">
             <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
           </a>
-          <a href="/" className={styles.link}>
+          <a href="/" className={styles.titleLink}>
             <div className={styles.companyNameContainer}>
               <div className={styles.companyName1}>ENGENIOUS</div>
               <div className={styles.companyName2}>RECRUITMENT</div>
             </div>
           </a>
           <div className={styles.menu2} style={{display: setDisplay2()}}>
-            <Menu />
+            <Menu color={"#00617C"}/>
           </div>
         </div>
         <div className={styles.middle} style={{display: setDisplay()}}>
@@ -101,4 +101,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar2

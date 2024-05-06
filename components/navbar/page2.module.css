@@ -1,0 +1,170 @@
+/* general */
+
+.navbar {
+  width: 100%;
+  z-index: 1000;
+  overflow: hidden;
+  height: 80px;
+  justify-content: center;
+  position: relative;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  column-gap: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 100%;
+}
+
+/* left side of navbar */
+
+.left {
+  display: flex !important;
+  /* flex-direction: row !important; */
+  align-items: center;
+  gap: 10px;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.menu1 {
+  background-color: rgba(12, 12, 12, 0.08);
+  border-radius: 5px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.menu2 {
+  @media (max-width: 767px) {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: -15px;
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.logo {
+  @media (max-width: 767px) {
+    height: 60px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 60px;
+  }
+  
+  @media (min-width: 1024px) {
+    height: 70px;
+  }
+}
+
+.companyNameContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px;
+}
+
+.companyName1 {
+  font-weight: 600;
+}
+
+.companyName2 {
+  font-weight: 300;
+}
+
+.text {
+  text-decoration: none;
+  color: #00617C;
+}
+
+/* middle of navbar */
+
+.middle {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.links {
+  display: flex;
+  width: 100%;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    /* column-gap: 80px; */
+    gap: 35px;
+  }
+  
+  @media (min-width: 1024px) {
+    gap: 80px;
+  }
+}
+
+.link, .titleLink {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: #00617C;
+  font-weight: 500;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #197089; /* Adjust the color as needed */
+  transition: width 0.3s ease-in-out; /* Add a transition effect */
+}
+
+.link:hover::after {
+  width: 100%; /* Expand the underline on hover */
+}
+
+/* right side of navbar */
+
+.right {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.searchIcon {
+  color: #00617C;
+  background-color: rgba(12, 12, 12, 0.08);
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 35px !important;
+
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 25px !important;
+  }
+}
+
+
+

@@ -10,6 +10,7 @@ import About from "../../components/about/about";
 import Join from "../../components/join/join";
 import Testimonials from "../../components/testimonials/testimonials";
 import Location from "../../components/location/location";
+import Navbar1 from "../../components/navbar/navbar1";
 
 
 export default function Home() {
@@ -31,6 +32,7 @@ export default function Home() {
 
   return (
     <div className={styles.app}>
+      <Navbar1/>
       <section className={styles.banner}>
         <div className={styles.video}>
           <video className={styles.backgroundVideo} autoPlay muted loop playsInline controlsList="nodownload">

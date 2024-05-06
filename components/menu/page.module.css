@@ -1,9 +1,17 @@
 /* Top container */
 
+.menuButton {
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 2px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
 .icon {
   color: white;
-  background-color: rgba(255, 255, 255, 0.08);
-  border-radius: 5px;
+  /* background-color: rgba(255, 255, 255, 0.08); */
   cursor: pointer;
 
   @media (max-width: 767px) {

@@ -73,7 +73,7 @@
   @media (max-width: 767px) {
     font-size: 40px;
     line-height: 125%;
-    margin-bottom: 30px;
+    padding-bottom: 60px;
     margin-top: -30px;
   }
   
@@ -109,6 +109,7 @@
   border-radius: 4px;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -208,6 +209,7 @@
   line-height: 50px;
   margin-top: 40px;
   margin-bottom: 40px;
+  cursor: pointer;
 
   @media (max-width: 1023px) {
     width: 300px;
