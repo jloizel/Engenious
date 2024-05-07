@@ -11,7 +11,7 @@ import Join from "../../components/join/join";
 import Testimonials from "../../components/testimonials/testimonials";
 import Location from "../../components/location/location";
 import Navbar1 from "../../components/navbar/navbar1";
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from 'react-helmet';
 
 
 export default function Home() {
