@@ -4,18 +4,36 @@
   /* width: 100%; */
   padding: 20px 20px;
   display: flex;
-  margin-bottom: 60px;
-  margin-top: 20px;
+
+  @media (max-width: 767px) {
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 40px;
+  }
 }
 
 .content {
-  /* padding: 30px 30px; */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 .mapContainer {
 
   @media (max-width: 767px) {
     height: 250px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    order: 1;
+    height: 250px;
+    width: 350px;
   }
 }
 
@@ -36,7 +54,8 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    gap: 80px;
+    gap: 20px;
+    flex: 2;
   }
   
   @media (min-width: 1024px) {
@@ -56,7 +75,9 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 35px;
+    font-size: 24px;
+    padding: 2px 4px;
+    margin-top: 25px;
   }
   
   @media (min-width: 1024px) {
@@ -87,7 +108,8 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 22px;
+    font-size: 20px;
+    margin-right: 10px;
   }
   
   @media (min-width: 1024px) {
@@ -104,7 +126,7 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 22px;
+    font-size: 16px;
   }
   
   @media (min-width: 1024px) {
