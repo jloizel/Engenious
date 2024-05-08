@@ -62,12 +62,11 @@ const Footer: React.FC = ({}) => {
             </div>
           </div>
           <div className={styles.pagesContainer}>
-            <div className={styles.page}>About Us</div>
-            <div className={styles.page}>Join Us</div>
-            <div className={styles.page}>Contact Us</div>
-            <div className={styles.page}>Upload CV</div>
-            <div className={styles.page}>Submit Job</div>
-            <div className={styles.page}>Privacy Policy</div>
+            <div className={styles.page}>Employers</div>
+            <div className={styles.page}>Jobs</div>
+            <div className={styles.page}>About</div>
+            <div className={styles.page}>Contact</div>
+            <div className={styles.privacy}>Privacy Policy</div>
             <div className={styles.copyright}>© Engenious Recruitment</div>
           </div>
         </div>
@@ -88,17 +87,21 @@ const Footer: React.FC = ({}) => {
           </div>
           <div className={styles.pagesContainerComputer}>
             <div className={styles.pagesComputer}>
-              <div className={styles.page}>About Us</div>
-              <div className={styles.page}>Join Us</div>
-              <a href="/contact" className={styles.page}>Contact Us</a>
+              <div className={styles.page}>Employers</div>
+              
             </div>
             <div className={styles.pagesComputer}>
-              <div className={styles.page}>Upload CV</div>
-              <div className={styles.page}>Submit Job</div>
-              <div className={styles.page}>Privacy Policy</div>
+              <div className={styles.page}>Jobs</div>
+            </div>
+            <div className={styles.pagesComputer}>
+              <div className={styles.page}>About</div>
+            </div>
+            <div className={styles.pagesComputer}>
+              <a href="/contact" className={styles.page}>Contact</a>
             </div>
           </div>
           <div className={styles.copyrightContainerComputer}>
+            <div className={styles.privacy}>Privacy Policy</div>
             <div className={styles.copyright}>© Engenious Recruitment</div>
           </div>
         </div>
