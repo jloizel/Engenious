@@ -99,12 +99,14 @@ const ContactForm = () => {
         <div className={styles.inputTitle}>
           Message *
         </div>
-        <input
-          id="contactFormMessage"
-          className={styles.messageBox}
-          type="text"
-          name="message"
-        />
+        <div className={styles.messageBox}> 
+          <input
+            id="contactFormMessage"
+            className={styles.message}
+            type="text"
+            name="message"
+          />
+        </div>
         {formErrors.message && (<span className={styles.errorMessage}>{formErrors.message}</span>)}
       </div>
       <div className={styles.checkboxContainer}>

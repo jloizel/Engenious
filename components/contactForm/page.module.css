@@ -21,26 +21,25 @@
   width: 100%;
   align-items: center;
   display: flex;
-
+  flex-direction: column;
 
   @media (max-width: 767px) {
-    flex-direction: column;
     gap: 5px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    flex-direction: column;
     gap: 5px;
   }
   
   @media (min-width: 1024px) {
-    flex-direction: row;
+    gap: 5px;
   }
 }
 
 .inputTitle {
   font-weight: 600;
   width: 100%;
+  font-family: "Poppins", sans-serif;
 
   @media (max-width: 767px) {
     margin-left: 10px;
@@ -51,16 +50,17 @@
   }
   
   @media (min-width: 1024px) {
-    
+    margin-left: 10px;
   }
 }
 
-.inputBox, .messageBox {
+.inputBox {
   background-color: white;
   border: none;
   width: 90%;
   outline: none;
   font-weight: 300;
+  font-family: "Poppins", sans-serif;
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -77,22 +77,60 @@
   }
   
   @media (min-width: 1024px) {
-    flex-direction: row;
+    flex-direction: column;
+    font-size: 25px;
+    line-height: 50px;
+    padding: 0 15px;
   }
 }
 
 .messageBox {
+  background-color: white;
+  border: none;
+  width: 90%;
+  display: flex;
+  align-items: flex-start;
 
   @media (max-width: 767px) {
+    padding: 0 10px;
     min-height: 200px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 10px;
     min-height: 250px;
   }
-
+  
   @media (min-width: 1024px) {
-    flex-direction: row;
+    padding: 0 15px;
+    min-height: 250px;
+  }
+}
+
+.message {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 50px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 50px;
   }
 }
 
@@ -107,6 +145,10 @@
   @media (min-width: 768px) and (max-width: 1023px) {
     gap: 10px;
   }
+
+  @media (min-width: 1024px) {
+    gap: 10px;
+  }
 }
 
 .errorMessage {
@@ -116,7 +158,17 @@
 
   @media (max-width: 767px) {
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 5px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-left: 10px;
+    margin-top: 5px;
   }
 }
 
