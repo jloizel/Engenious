@@ -6,7 +6,7 @@
   overflow: hidden;
   height: 80px;
   justify-content: center;
-  position: absolute;
+  position: relative;
 }
 
 .container {
@@ -63,6 +63,9 @@
 }
 
 .menu1 {
+  background-color: rgba(12, 12, 12, 0.08);
+  border-radius: 5px;
+
   @media (max-width: 767px) {
     display: none;
   }
@@ -113,11 +116,6 @@
   font-weight: 300;
 }
 
-.text {
-  text-decoration: none;
-  color: white;
-}
-
 /* middle of navbar */
 
 .middle {
@@ -147,7 +145,7 @@
 .link, .titleLink {
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  color: white;
+  color: #00617C;
   font-weight: 500;
   position: relative;
 }
@@ -176,8 +174,8 @@
 }
 
 .searchIcon {
-  color: white;
-  background-color: rgba(255, 255, 255, 0.08);
+  color: #00617C;
+  background-color: rgba(12, 12, 12, 0.08);
   border-radius: 50%;
   padding: 8px;
   cursor: pointer;

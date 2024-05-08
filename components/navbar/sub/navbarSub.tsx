@@ -55,7 +55,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links}) => {
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
-            <Menu color={"white"}/>
+            <Menu color={"#00617C"}/>
           </div>
           <div className={styles.home}>
             <a href="/">
@@ -69,7 +69,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links}) => {
             </a>
             </div>
             <div className={styles.menu2} style={{display: setDisplay2()}}>
-              <Menu color={"white"}/>
+              <Menu color={"#00617C"}/>
             </div>
           </div>
         <div className={styles.middle} style={{display: setDisplay()}}>

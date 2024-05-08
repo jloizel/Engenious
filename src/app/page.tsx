@@ -10,7 +10,7 @@ import About from "../../components/about/about";
 import Join from "../../components/join/join";
 import Testimonials from "../../components/testimonials/testimonials";
 import Location from "../../components/location/location";
-import NavbarSub from "../../components/navbar/sub/navbarSub";
+import NavbarMain1 from "../../components/navbar/main/navbarMain1";
 import { Helmet } from 'react-helmet';
 
 
@@ -38,7 +38,7 @@ export default function Home() {
         <title>My Title</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
-      <NavbarSub/>
+      <NavbarMain1/>
       <section className={styles.banner}>
         <div className={styles.video}>
           <video className={styles.backgroundVideo} autoPlay muted loop playsInline controlsList="nodownload">

@@ -6,7 +6,7 @@ import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import ContactForm from '../../../components/contactForm/contactForm'
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
-import { Helmet } from 'react-helmet'; // Import Helmet
+import { Helmet } from 'react-helmet';
 import ContactMap from '../../../components/contactMap/contactMap'
 
 const About = () => {
@@ -49,67 +49,15 @@ const About = () => {
   ];
 
   return (
-    <div className={styles.contactContainer}>
+    <div className={styles.aboutContainer}>
       <Helmet>
-        <title>Contact</title>
+        <title>About</title>
         <meta name='description' content='' />
       </Helmet>
-      {/* <NavbarSub links={links}/> */}
-      <div className={styles.pageHeader}>
-        <div className={styles.header}>Get in touch</div>
-        <HiMiniArrowLongDown className={styles.arrow} />
+      <NavbarSub links={links}/>
+      <div className={styles.aboutContent}>
+        text
       </div>
-      <div className={styles.formContainer}>
-        {isMobile && (
-          <div className={styles.mobileContainer}>
-            <div className={styles.title}>
-              <span>Thanks for visiting. We&apos;d love to hear from you</span>
-            </div>
-            <div className={styles.text}>
-              If you&apos;d like to get in touch our details are below. Or if you&apos;d rather, put your information in the form below and we&apos;ll get right back to you.
-            </div>
-            <div className={styles.details}>
-              <div>
-                <span style={{fontWeight: "500"}}>Give us a call: </span>
-                <span style={{fontWeight: "500", color: "#008489"}}>+44(0)7748 179242</span>
-              </div>
-              <div>
-                <span style={{fontWeight: "500"}}>Drop us an email: </span>
-                <span style={{fontWeight: "500", color: "#008489"}}>email@engeniousrecruitment.com</span>
-              </div>
-            </div>
-          </div>
-        )}
-        <div className={styles.topContainer}>
-          {!isMobile && (
-            <div className={styles.textContainer}>
-              <div className={styles.title}>
-                <span>Thanks for visiting. We&apos;d love to hear from you</span>
-              </div>
-              <div className={styles.text}>
-                If you&apos;d like to get in touch our details are below. Or if you&apos;d rather, put your information in the form below and we&apos;ll get right back to you.
-              </div>
-              <div className={styles.details}>
-                <div>
-                  <span style={{fontWeight: "500"}}>Give us a call:</span>
-                  <span style={{fontWeight: "500", color: "#008489"}}> +44(0)7748 179242</span>
-                </div>
-                <div>
-                  <span style={{fontWeight: "500"}}>Drop us an email:</span>
-                  <span style={{fontWeight: "500", color: "#008489"}}> email@engeniousrecruitment.com</span>
-                </div>
-              </div>
-            </div>
-          )}
-          <div className={styles.contactForm}>
-            <ContactForm/>
-          </div>
-        </div>
-        <div className={styles.contactMap}>
-          <ContactMap/>
-        </div>
-      </div>
-      
     </div>
   )
 }
