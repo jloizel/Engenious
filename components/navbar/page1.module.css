@@ -69,13 +69,15 @@
 }
 
 .menu2 {
+  height: 100%;
+  
   @media (max-width: 767px) {
     /* width: 100%; */
     display: flex;
     /* justify-content: flex-end; */
     /* margin-right: -15px; */
     /* align-items: flex-end; */
-    height: 100%;
+    
   }
 
   @media (min-width: 768px) {
