@@ -75,6 +75,7 @@
     /* justify-content: flex-end; */
     /* margin-right: -15px; */
     /* align-items: flex-end; */
+    height: 100%;
   }
 
   @media (min-width: 768px) {
