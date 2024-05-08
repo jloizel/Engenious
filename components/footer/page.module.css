@@ -9,6 +9,10 @@
     align-items: center;
     justify-content: center;
   }
+
+  @media (min-width: 1024px) {
+    align-items: center;
+  }
 }
 
 .box {
@@ -120,21 +124,10 @@
 
 .bottomContainer {
   display: flex;
-
-  @media (max-width: 767px) {
-    flex-direction: column !important;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    flex-direction: column !important;
-  }
-  
-  @media (min-width: 1024px) {
-    flex-direction: row !important;
-    align-items: center;
-
-  }
+  flex-direction: column !important;
 }
+
+
 
 .logos {
   display: flex;
@@ -152,13 +145,6 @@
     margin-top: 5px;
     gap: 30px;
     width: 100%;
-
-  }
-  
-  @media (min-width: 1024px) {
-    align-items: flex-start;
-    margin-right: 250px;
-    margin-left: 20px;
   }
 }
 
@@ -174,10 +160,6 @@
   @media (min-width: 768px) and (max-width: 1023px) {
     gap: 20px;
   }
-  
-  @media (min-width: 1024px) {
-    gap: 10px;
-  }
 }
 
 .logo {
@@ -191,10 +173,10 @@
     width: 100px;
     height: 100px;
   }
-  
+
   @media (min-width: 1024px) {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
   }
 }
 
@@ -215,9 +197,6 @@
   
   @media (min-width: 768px) and (max-width: 1023px) {
     line-height: 35px;
-  }
-  
-  @media (min-width: 1024px) {
   }
 }
 
@@ -247,8 +226,6 @@
   }
 }
 
-
-
 .linkedInContainer {
   width: 30px;
   height: 30px;
@@ -267,9 +244,7 @@
 }
 
 .pagesContainer {
-  display: flex;
-  /* justify-content: center; */
-  
+  display: flex; 
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -285,14 +260,9 @@
     width: 100%;
     gap: 15px;
     margin-bottom: 40px;
+    margin-top: 20px;
   }
-  
-  @media (min-width: 1024px) {
-    flex-direction: row;
-    gap: 150px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-  }
+
 }
 
 .page {
@@ -318,6 +288,7 @@
   width: 100%;
   justify-content: flex-end;
   margin-bottom: 20px;
+  height: 100%;
 }
 
 .copyright {
@@ -340,4 +311,45 @@
     text-align: right;
     margin-right: 30px !important;
   }
+}
+
+/* computer */
+
+.bottomContainerComputer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  align-items: center;
+}
+
+.logosComputer {
+  
+}
+
+.logoContainerComputer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.companyNameContainerComputer {
+  color: white;
+  text-decoration: none;
+}
+
+.pagesContainerComputer {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    
+}
+
+.pagesComputer {
+
+}
+
+.copyrightContainerComputer {
+
 }

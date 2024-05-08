@@ -19,22 +19,23 @@ const Footer: React.FC = ({}) => {
     },
   });
   
+  const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
   
   return (
     <div className={styles.container}>
       <div className={styles.box}>
-      {!isComputer && (
-        <div className={styles.header}>
-          <span>Rise above</span>
-          <span>all limitations.</span>
-        </div>
-      )}
-      {isComputer && (
-        <div className={styles.header}>
-          Rise above all limitations.
-        </div>
-      )}
+        {!isComputer && (
+          <div className={styles.header}>
+            <span>Rise above</span>
+            <span>all limitations.</span>
+          </div>
+        )}
+        {isComputer && (
+          <div className={styles.header}>
+            Rise above all limitations.
+          </div>
+        )}
         <div className={styles.buttonContainer}>
           <button className={styles.button}>
             Find a Job
@@ -45,56 +46,64 @@ const Footer: React.FC = ({}) => {
         </div>
       </div>
       <hr className={styles.line}></hr>
-      <div className={styles.bottomContainer}>
-        <div className={styles.logos}>
-          <div className={styles.logoContainer}>
-            <a href="/">
-              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
-            </a>
-            <a href="/" className={styles.link}>
-              <div className={styles.companyNameContainer}>
-                <div className={styles.companyName1}>ENGENIOUS</div>
-                <div className={styles.companyName2}>RECRUITMENT</div>
-              </div>
-            </a>
+      {isTabletOrBelow ? (
+        <div className={styles.bottomContainer}>
+          <div className={styles.logos}>
+            <div className={styles.logoContainer}>
+              <a href="/">
+                <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+              </a>
+              <a href="/" className={styles.link}>
+                <div className={styles.companyNameContainer}>
+                  <div className={styles.companyName1}>ENGENIOUS</div>
+                  <div className={styles.companyName2}>RECRUITMENT</div>
+                </div>
+              </a>
+            </div>
           </div>
-          {/* <div className={styles.linkedInContainer}>
-            <LinkedInIcon className={styles.linkedIn}/>
-          </div> */}
+          <div className={styles.pagesContainer}>
+            <div className={styles.page}>About Us</div>
+            <div className={styles.page}>Join Us</div>
+            <div className={styles.page}>Contact Us</div>
+            <div className={styles.page}>Upload CV</div>
+            <div className={styles.page}>Submit Job</div>
+            <div className={styles.page}>Privacy Policy</div>
+            <div className={styles.copyright}>© Engenious Recruitment</div>
+          </div>
         </div>
-          {!isComputer && (
-            <div className={styles.pagesContainer}>
+      ) : (
+        <div className={styles.bottomContainerComputer}>
+          <div className={styles.logosComputer}>
+            <div className={styles.logoContainerComputer}>
+              <a href="/">
+                <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+              </a>
+              <a href="/" className={styles.link}>
+                <div className={styles.companyNameContainerComputer}>
+                  <div className={styles.companyName1}>ENGENIOUS</div>
+                  <div className={styles.companyName2}>RECRUITMENT</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className={styles.pagesContainerComputer}>
+            <div className={styles.pagesComputer}>
               <div className={styles.page}>About Us</div>
               <div className={styles.page}>Join Us</div>
               <div className={styles.page}>Contact Us</div>
+            </div>
+            <div className={styles.pagesComputer}>
               <div className={styles.page}>Upload CV</div>
               <div className={styles.page}>Submit Job</div>
               <div className={styles.page}>Privacy Policy</div>
-              <div className={styles.copyright}>© Engenious Recruitment</div>
             </div>
-          )}
-          {isComputer && (
-            <div className={styles.pagesContainer}>
-              <div>
-                <div className={styles.page}>About Us</div>
-                <div className={styles.page}>Join Us</div>
-                <div className={styles.page}>Contact Us</div>
-              </div>
-              <div>
-              <div className={styles.page}>Upload CV</div>
-                <div className={styles.page}>Submit Job</div>
-                <div className={styles.page}>Privacy Policy</div>
-
-              </div>
-            </div>
-          )}
+          </div>
+          <div className={styles.copyrightContainerComputer}>
+            <div className={styles.copyright}>© Engenious Recruitment</div>
+          </div>
         </div>
-        {isComputer && (
-        <div className={styles.copyrightContainer}>
-          <div className={styles.copyright}>© Engenious Recruitment</div>
-        </div>
-        )}
-      </div>
+      )}
+    </div>
   );
 }
 
