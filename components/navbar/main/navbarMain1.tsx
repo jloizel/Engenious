@@ -3,19 +3,19 @@
 import React from 'react'
 import styles from './page1.module.css'
 import SearchIcon from '@mui/icons-material/Search';
-import Menu from '../menu/menu';
+import Menu from '../../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
 
 const links = [
     {
       id: 1,
-      title: "Jobs",
-      url: "/jobs",
+      title: "Employers",
+      url: "/employers",
     },
     {
       id: 2,
-      title: "Submit a vacancy",
-      url: "/submit-vacancy",
+      title: "Jobs",
+      url: "/jobs",
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ const links = [
     }
   ];
 
-const Navbar1 = () => {
+const NavbarMain1 = () => {
 
   const theme = createTheme({
     breakpoints: {
@@ -102,4 +102,4 @@ const Navbar1 = () => {
   )
 }
 
-export default Navbar1
+export default NavbarMain1

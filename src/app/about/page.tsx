@@ -2,14 +2,14 @@
 
 import React from 'react'
 import styles from "./page.module.css"
-import NavbarMain2 from '../../../components/navbar/main/navbarMain2'
+import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import ContactForm from '../../../components/contactForm/contactForm'
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet'; // Import Helmet
 import ContactMap from '../../../components/contactMap/contactMap'
 
-const Contact = () => {
+const About = () => {
 
   const theme = createTheme({
     breakpoints: {
@@ -25,13 +25,36 @@ const Contact = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const links = [
+    {
+      id: 1,
+      title: "Our work",
+      url: "/our-work",
+    },
+    {
+      id: 2,
+      title: "Our story",
+      url: "/our-story",
+    },
+    {
+      id: 3,
+      title: "Our purpose",
+      url: "/our-purpose",
+    },
+    {
+      id: 4,
+      title: "Our work",
+      url: "/our-commitments",
+    }
+  ];
+
   return (
     <div className={styles.contactContainer}>
       <Helmet>
         <title>Contact</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarMain2/>
+      {/* <NavbarSub links={links}/> */}
       <div className={styles.pageHeader}>
         <div className={styles.header}>Get in touch</div>
         <HiMiniArrowLongDown className={styles.arrow} />
@@ -91,4 +114,4 @@ const Contact = () => {
   )
 }
 
-export default Contact
+export default About

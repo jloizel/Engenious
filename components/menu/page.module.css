@@ -16,6 +16,8 @@
 
   @media (max-width: 767px) {
     font-size: 30px !important;
+    background-color: rgba(12, 12, 12, 0.08);
+    border-radius: 5px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -280,6 +282,7 @@
   cursor: pointer;
   padding: 6px;
   width: max-content;
+  text-decoration: none;
 }
 
 .subTopic:hover {

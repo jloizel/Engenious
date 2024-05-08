@@ -269,6 +269,8 @@
   color: white;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 14px;

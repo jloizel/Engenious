@@ -1,35 +1,22 @@
 "use client"
 
 import React from 'react'
-import styles from './page2.module.css'
+import styles from './page.module.css'
 import SearchIcon from '@mui/icons-material/Search';
-import Menu from '../menu/menu';
+import Menu from '../../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
 
-const links = [
-    {
-      id: 1,
-      title: "Jobs",
-      url: "/jobs",
-    },
-    {
-      id: 2,
-      title: "Submit a vacancy",
-      url: "/submit-vacancy",
-    },
-    {
-      id: 3,
-      title: "About",
-      url: "/about",
-    },
-    {
-      id: 4,
-      title: "Contact",
-      url: "/contact",
-    }
-  ];
+interface Link {
+  id: number;
+  title: string;
+  url: string;
+}
 
-const Navbar2 = () => {
+interface NavbarSubProps {
+  links: Link[];
+} 
+
+const NavbarSub: React.FC<NavbarSubProps> = ({links}) => {
 
   const theme = createTheme({
     breakpoints: {
@@ -65,32 +52,33 @@ const Navbar2 = () => {
 
   return (
     <div className={styles.navbar}>
-      {/* {(isTabletOrAbove || isTablet) && ( */}
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
-            <Menu color={"#00617C"}/>
+            <Menu color={"white"}/>
           </div>
-          <a href="/">
-            <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
-          </a>
-          <a href="/" className={styles.titleLink}>
-            <div className={styles.companyNameContainer}>
-              <div className={styles.companyName1}>ENGENIOUS</div>
-              <div className={styles.companyName2}>RECRUITMENT</div>
+          <div className={styles.home}>
+            <a href="/">
+              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+            </a>
+            <a href="/" className={styles.titleLink}>
+              <div className={styles.companyNameContainer}>
+                <div className={styles.companyName1}>ENGENIOUS</div>
+                <div className={styles.companyName2}>RECRUITMENT</div>
+              </div>
+            </a>
             </div>
-          </a>
-          <div className={styles.menu2} style={{display: setDisplay2()}}>
-            <Menu color={"#00617C"}/>
+            <div className={styles.menu2} style={{display: setDisplay2()}}>
+              <Menu color={"white"}/>
+            </div>
           </div>
-        </div>
         <div className={styles.middle} style={{display: setDisplay()}}>
           <div className={styles.links}>
-              {links.map(link => (
-                <a key={link.id} href={link.url} className={styles.link}>
-                    {link.title}
-                </a>
-              ))}
+            {links && links.map(link => (
+              <a key={link.id} href={link.url} className={styles.link}>
+                {link.title}
+              </a>
+            ))}
           </div>
         </div>
         <div className={styles.right}>
@@ -101,4 +89,4 @@ const Navbar2 = () => {
   )
 }
 
-export default Navbar2
+export default NavbarSub

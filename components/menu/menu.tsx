@@ -58,6 +58,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
       setActiveSubMenuId('2');
     } else if (itemName === 'About') {
       setActiveSubMenuId('3');
+    } else if (itemName === 'Contact') {
+        setActiveSubMenuId('4');
     } else {
       setActiveSubMenuId(null);
     }
@@ -148,10 +150,14 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                 className={`${styles.listItem} ${activeItem === 'Contact' ? styles.active : ''}`} 
                 onClick={() => handleListItemClick('Contact')}
                 onMouseEnter={() => handleListItemHover('Contact')}
-                id='itemList4'
               >
                 Contact
               </div>
+              {isMobile && activeItem === 'Contact' && (
+                <div className={styles.subTopicContainer}>
+                  <div className={styles.subTopicMobile}>Get in touch</div>
+                </div>
+              )}
             </div>
             <div className={styles.buttonContainer}>
               <a href="/jobseekers" className={styles.button}>Find Talent</a>
@@ -185,6 +191,12 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                       <div className={styles.subTopic}>Our story</div>
                       <div className={styles.subTopic}>Our purpose</div>
                       <div className={styles.subTopic}>Our commitments</div>
+                    </div>
+                  )}
+                  {activeItem === 'Contact' && (
+                    <div className={styles.subMenu} id="subMenu4">
+                      <Overview text={"Ask us any questions"}/>
+                      <a href="/contact" className={styles.subTopic}>Get in touch</a>
                     </div>
                   )}
                 </div>
