@@ -90,10 +90,10 @@ const About = () => {
               <div className={styles.text}>
                 Our world revolves around talented people. Company shapers. Relationship builders. People who make a difference.
               </div>
-            </div>
-            <button className={styles.button}>
+              <button className={styles.button}>
               More about what we do
             </button>
+            </div>
           </div>
         </Box>
         <Box>
@@ -109,10 +109,10 @@ const About = () => {
               <div className={styles.text}>
                 Our devotion to go beyond expectations in everything we do has helped us establish a strong reputation over the years.
               </div>
+              <button className={styles.button}>
+                More about our story
+              </button>
             </div>
-            <button className={styles.button}>
-              More about our story
-            </button>
           </div>
         </Box>
         <Box>
@@ -126,12 +126,12 @@ const About = () => {
                 <span style={{color:'#09B089'}}> purpose.</span>
               </div>
               <div className={styles.text}>
-                We’re in the business of improving lives. Our dedication to candidates and clients is what keeps us going everyday.
+                We&apos;re in the business of improving lives. Our dedication to candidates and clients is what keeps us going everyday.
               </div>
+              <button className={styles.button}>
+                More about our purpose
+              </button>
             </div>
-            <button className={styles.button}>
-              More about our purpose
-            </button>
           </div>
         </Box>
         <Box>
@@ -146,10 +146,10 @@ const About = () => {
               <div className={styles.mainText}>
                 We put our people first, so our people go further. Why not further your career with us?
               </div>
+              <button className={styles.button}>
+                Work at Engenious
+              </button>
             </div>
-            <button className={styles.button}>
-              Work at Engenious
-            </button>
           </div>
         </Box>
       </Box>

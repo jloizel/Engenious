@@ -112,6 +112,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               </div>
               {isMobile && activeItem === 'Employers' && (
                 <div className={styles.subTopicContainer}>
+                  <div className={styles.subTopicMobile}>Overview</div>
                   <div className={styles.subTopicMobile}>Our services</div>
                   <div className={styles.subTopicMobile}>Our expertise</div>
                   <div className={styles.subTopicMobile}>Submit a vacancy</div>
@@ -126,6 +127,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               </div>
               {isMobile && activeItem === 'Jobs' && (
                 <div className={styles.subTopicContainer}>
+                  <div className={styles.subTopicMobile}>Overview</div>
                   <div className={styles.subTopicMobile}>Search all jobs</div>
                   <div className={styles.subTopicMobile}>Send your cv</div>
                 </div>
@@ -139,6 +141,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               </div>
               {isMobile && activeItem === 'About' && (
                 <div className={styles.subTopicContainer}>
+                  <a href="/about" className={styles.subTopicMobile}>Overview</a>
                   <div className={styles.subTopicMobile}>Our work</div>
                   <div className={styles.subTopicMobile}>Our story</div>
                   <div className={styles.subTopicMobile}>Our purpose</div>
@@ -155,7 +158,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               </div>
               {isMobile && activeItem === 'Contact' && (
                 <div className={styles.subTopicContainer}>
-                  <div className={styles.subTopicMobile}>Get in touch</div>
+                  <a href="/contact" className={styles.subTopicMobile}>Get in touch</a>
                 </div>
               )}
             </div>

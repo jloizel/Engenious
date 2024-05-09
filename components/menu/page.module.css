@@ -266,6 +266,8 @@
   font-family: "Poppins", sans-serif;
   display: flex;
   margin-left: 10px;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
