@@ -41,6 +41,12 @@
     height: auto;
     width: 100%;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: auto;
+    width: 50%;
+    order: 2;
+  }
 }
 
 .headerImage {
@@ -50,15 +56,29 @@
     height: 250px;
     width: 100%;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 300px;
+    width: 100%;
+
+  }
 }
 
 .headerTextContainer {
   text-align: center;
   display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
 
   @media (max-width: 767px) {
-    flex-direction: column;
     width: 75%;
+    padding: 50px 0px;
+    gap: 30px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 50%;
     padding: 50px 0px;
     gap: 30px;
   }
@@ -71,12 +91,21 @@
   @media (max-width: 767px) {
     font-size: 40px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px;
+  }
 }
 
 .mainText {
   font-family: "Poppins", sans-serif;
   color: white;
   font-weight: 400;
+  display: flex;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 30px;
+  }
 }
 
 .aboutBox {
@@ -86,6 +115,10 @@
   justify-content: center;
 
   @media (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
     flex-direction: column;
   }
 }
@@ -100,6 +133,11 @@
   border-radius: 20px;
 
   @media (max-width: 767px) {
+    height: 100%;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
     height: 100%;
     width: 100%;
   }
@@ -143,6 +181,7 @@
   font-family: "Poppins", sans-serif;
   width: 80%;
   margin-bottom: 40px;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 16px !important;

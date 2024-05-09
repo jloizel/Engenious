@@ -3,8 +3,6 @@
 import React from 'react'
 import styles from "./page.module.css"
 import NavbarSub from '../../../components/navbar/sub/navbarSub'
-import ContactForm from '../../../components/contactForm/contactForm'
-import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 
@@ -133,6 +131,24 @@ const About = () => {
             </div>
             <button className={styles.button}>
               More about our purpose
+            </button>
+          </div>
+        </Box>
+        <Box>
+          <div className={styles.aboutBox} style={{background:'#008489'}}>
+            <div className={styles.imageContainer}>
+              <img src="/aboutPage/team.jpg" alt="Image" className={styles.image} />
+            </div>
+            <div className={styles.textContainer}>
+              <div className={styles.header}>
+                <span style={{color:'white'}}>Careers</span>
+              </div>
+              <div className={styles.mainText}>
+                We put our people first, so our people go further. Why not further your career with us?
+              </div>
+            </div>
+            <button className={styles.button}>
+              Work at Engenious
             </button>
           </div>
         </Box>
