@@ -142,7 +142,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   <div className={styles.subTopicMobile}>Our work</div>
                   <div className={styles.subTopicMobile}>Our story</div>
                   <div className={styles.subTopicMobile}>Our purpose</div>
-                  <div className={styles.subTopicMobile}>Our commitments</div>
+                  <div className={styles.subTopicMobile}>Join the team</div>
                 </div>
               )}
               <div 

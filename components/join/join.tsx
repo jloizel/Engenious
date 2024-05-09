@@ -20,7 +20,6 @@ const Join: React.FC = ({}) => {
         </div>
         <button className={styles.button}>Join the team</button>
       </div>
-        
     </div>
   )
 }

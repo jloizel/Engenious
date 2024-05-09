@@ -14,9 +14,10 @@ interface Link {
 
 interface NavbarSubProps {
   links: Link[];
+  pageName: string
 } 
 
-const NavbarSub: React.FC<NavbarSubProps> = ({links}) => {
+const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName}) => {
 
   const theme = createTheme({
     breakpoints: {
@@ -73,6 +74,9 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links}) => {
             </div>
           </div>
         <div className={styles.middle} style={{display: setDisplay()}}>
+          <div className={styles.pageName}>
+            {pageName}
+          </div>
           <div className={styles.links}>
             {links && links.map(link => (
               <a key={link.id} href={link.url} className={styles.link}>

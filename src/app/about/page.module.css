@@ -9,3 +9,151 @@
 .aboutContent {
   position: relative;
 }
+
+.headerContainer {
+  display: flex;
+  width: 100%;
+  height: auto;
+  background: #002D49;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: row;
+
+  }
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.headerImageContainer {
+  display: flex;
+  position: inherit;
+
+  @media (max-width: 767px) {
+    height: auto;
+    width: 100%;
+  }
+}
+
+.headerImage {
+  object-fit: cover;
+
+  @media (max-width: 767px) {
+    height: 250px;
+    width: 100%;
+  }
+}
+
+.headerTextContainer {
+  text-align: center;
+  display: flex;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    width: 75%;
+    padding: 50px 0px;
+    gap: 30px;
+  }
+}
+
+.mainHeader {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+
+  @media (max-width: 767px) {
+    font-size: 40px;
+  }
+}
+
+.mainText {
+  font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: 400;
+}
+
+.aboutBox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  width: 85%;
+  margin-top: 50px;
+}
+
+.image {
+  border-radius: 20px;
+
+  @media (max-width: 767px) {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.textContainer {
+  text-align: center;
+  display: flex;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    width: 75%;
+    padding: 30px 0px;
+    gap: 30px;
+  }
+}
+
+.header {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+
+  @media (max-width: 767px) {
+    font-size: 25px;
+  }
+}
+
+.text {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+.button {
+  background-color: #00617C;
+  color: white; 
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  width: 80%;
+  margin-bottom: 40px;
+
+  @media (max-width: 767px) {
+    font-size: 16px !important;
+    padding: 15px 0;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px !important;
+  }
+}

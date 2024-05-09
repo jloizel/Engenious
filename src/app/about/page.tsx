@@ -5,11 +5,11 @@ import styles from "./page.module.css"
 import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import ContactForm from '../../../components/contactForm/contactForm'
 import { HiMiniArrowLongDown } from "react-icons/hi2";
-import { createTheme, useMediaQuery } from '@mui/material';
+import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import ContactMap from '../../../components/contactMap/contactMap'
 
 const About = () => {
+  const pageName = "About"
 
   const theme = createTheme({
     breakpoints: {
@@ -24,25 +24,34 @@ const About = () => {
   });
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isComputer = useMediaQuery(theme.breakpoints.up('md'));
+
+  
 
   const links = [
     {
       id: 1,
+      title: "Overview",
+      url: "/overview",
+    },
+    {
+      id: 2,
       title: "Our work",
       url: "/our-work",
     },
     {
-      id: 2,
+      id: 3,
       title: "Our story",
       url: "/our-story",
     },
     {
-      id: 3,
+      id: 4,
       title: "Our purpose",
       url: "/our-purpose",
     },
     {
-      id: 4,
+      id: 5,
       title: "Our work",
       url: "/our-commitments",
     }
@@ -54,10 +63,80 @@ const About = () => {
         <title>About</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links}/>
-      <div className={styles.aboutContent}>
-        text
-      </div>
+      <NavbarSub links={links} pageName={pageName}/>
+      <Box className={styles.aboutContent}>
+        <Box className={styles.headerContainer}>
+          <div className={styles.headerImageContainer}>
+            <img src="./aboutPage/header.jpg" alt="Image" className={styles.headerImage} />
+          </div>
+          <div className={styles.headerTextContainer}>
+            <div className={styles.mainHeader}>
+              <span style={{color:'#09B089'}}>About</span>
+              <span style={{color:'white'}}> us.</span>
+            </div>
+            <div className={styles.mainText}>
+              We are a global talent services company, offering the full spectrum of solutions to meet your resourcing needs. Each and every one of our employees shares a belief in the power of helping others realise their goals.
+            </div>
+          </div>
+        </Box>
+        <Box>
+          <div className={styles.aboutBox}>
+            <div className={styles.imageContainer}>
+              <img src="/aboutPage/1.jpg" alt="Image" className={styles.image} />
+            </div>
+            <div className={styles.textContainer}>
+              <div className={styles.header}>
+                <span>Our</span>
+                <span style={{color:'#09B089'}}> work.</span>
+              </div>
+              <div className={styles.text}>
+                Our world revolves around talented people. Company shapers. Relationship builders. People who make a difference.
+              </div>
+            </div>
+            <button className={styles.button}>
+              More about what we do
+            </button>
+          </div>
+        </Box>
+        <Box>
+          <div className={styles.aboutBox} style={{background: "#EFF0F0"}}>
+            <div className={styles.imageContainer}>
+              <img src="/aboutPage/2.jpg" alt="Image" className={styles.image} />
+            </div>
+            <div className={styles.textContainer}>
+              <div className={styles.header}>
+                <span>Our</span>
+                <span style={{color:'#09B089'}}> story.</span>
+              </div>
+              <div className={styles.text}>
+                Our devotion to go beyond expectations in everything we do has helped us establish a strong reputation over the years.
+              </div>
+            </div>
+            <button className={styles.button}>
+              More about our story
+            </button>
+          </div>
+        </Box>
+        <Box>
+          <div className={styles.aboutBox}>
+            <div className={styles.imageContainer}>
+              <img src="/aboutPage/3.jpg" alt="Image" className={styles.image} />
+            </div>
+            <div className={styles.textContainer}>
+              <div className={styles.header}>
+                <span>Our</span>
+                <span style={{color:'#09B089'}}> purpose.</span>
+              </div>
+              <div className={styles.text}>
+                We’re in the business of improving lives. Our dedication to candidates and clients is what keeps us going everyday.
+              </div>
+            </div>
+            <button className={styles.button}>
+              More about our purpose
+            </button>
+          </div>
+        </Box>
+      </Box>
     </div>
   )
 }
