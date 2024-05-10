@@ -72,7 +72,7 @@
   }
 
   @media (min-width: 1024px) {
-    margin-bottom: 200px;
+    margin-bottom: 150px;
   }
 }
 
@@ -148,7 +148,7 @@
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 60px;
+  /* margin-bottom: 60px; */
 }
 
 .listItem {
@@ -237,7 +237,7 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 200px;
+  margin-top: 150px;
   transition: all 0.2s ease-in-out; /* Add a smooth transition */
   /* transform: translateX(-50%); */
   opacity: 1;

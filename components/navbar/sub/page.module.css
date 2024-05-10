@@ -177,7 +177,8 @@
 }
 
 .active {
-  border-bottom: 2px solid #197089; /* Add line for active link */
+  border-bottom: 3px solid #197089; /* Add line for active link */
+  font-weight: 700;
 }
 
 /* right side of navbar */

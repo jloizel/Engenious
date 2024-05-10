@@ -134,6 +134,179 @@
   }
 }
 
+.services {
+  /* position: absolute; */
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: auto; */
+  justify-content: center;
+  left: 0;
+  right: 0;
+  align-content: center;
+  /* height: 100%; */
+  text-align: center;
+}
+
+.servicesContent {
+  width: 80%;
+}
+
+.header {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 22px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+}
+
+.text {
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+}
+
+.quoteContainer {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: #EFF0F0;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    gap: 20px;
+    width: 70%;
+    padding: 100px 0px;
+  }
+}
+
+.quote {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+}
+
+.quotationMark1, .quotationMark2 {
+  color: #09B089;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px;
+  }
+}
+
+.quotationMark2 {
+  align-content: flex-end;
+}
+
+.quoteBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.quoteText {
+  color: #002D49;
+  font-weight: 600;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 35px;
+    line-height: 150%;
+    padding: 0px 50px;
+  }
+}
+
+.quoter {
+  color: #002D49;
+  font-weight: 600;
+
+  @media (max-width: 767px) {
+    font-size: 14px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    padding: 0px 50px;
+  }
+}
+
+
+/* 
 .aboutBox {
   display: flex;
   width: 100%;
@@ -356,4 +529,4 @@
     font-size: 30px !important;
     padding: 15px 0;
   }
-}
+} */

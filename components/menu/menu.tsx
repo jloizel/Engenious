@@ -80,6 +80,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
         anchor={!isMobile ? "left" : "right"} 
         size={isMobile ? "sm" : "lg"} 
         onClose={handleDrawerClose}
+        hideBackdrop={false}
       >
         <div className={styles.contentContainer}>
           <div className={styles.leftContainer}>

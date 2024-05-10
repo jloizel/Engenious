@@ -39,7 +39,7 @@ const About = () => {
     {
       id: 2,
       title: "Our work",
-      url: "/our-work",
+      url: "/about/our-work",
     },
     {
       id: 3,
