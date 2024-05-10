@@ -79,7 +79,7 @@ const About = () => {
         </Box>
         <Box>
           <div className={styles.aboutBox}>
-            <div className={styles.imageContainer}>
+            <div className={styles.imageContainer1}>
               <img src="/aboutPage/1.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
@@ -117,7 +117,7 @@ const About = () => {
         </Box>
         <Box>
           <div className={styles.aboutBox}>
-            <div className={styles.imageContainer}>
+            <div className={styles.imageContainer1}>
               <img src="/aboutPage/3.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
@@ -136,14 +136,14 @@ const About = () => {
         </Box>
         <Box>
           <div className={styles.aboutBox} style={{background:'#008489'}}>
-            <div className={styles.imageContainer}>
-              <img src="/aboutPage/team.jpg" alt="Image" className={styles.image} />
+            <div className={styles.imageContainer2}>
+              <img src="/aboutPage/team.jpg" alt="Image" className={styles.image2} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
                 <span style={{color:'white'}}>Careers</span>
               </div>
-              <div className={styles.mainText}>
+              <div className={styles.text2}>
                 We put our people first, so our people go further. Why not further your career with us?
               </div>
               <button className={styles.button}>
