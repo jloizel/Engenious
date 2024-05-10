@@ -1,13 +1,16 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import styles from "./page.module.css"
 import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
+import { useLocation } from 'react-router-dom';
 
 const About = () => {
   const pageName = "About"
+  const currentPath = location.pathname;
+  
 
   const theme = createTheme({
     breakpoints: {
@@ -31,7 +34,7 @@ const About = () => {
     {
       id: 1,
       title: "Overview",
-      url: "/overview",
+      url: "/about",
     },
     {
       id: 2,
@@ -50,10 +53,10 @@ const About = () => {
     },
     {
       id: 5,
-      title: "Our work",
-      url: "/our-commitments",
+      title: "Join the team",
+      url: "/join",
     }
-  ];
+  ]; 
 
   return (
     <div className={styles.aboutContainer}>
@@ -61,7 +64,7 @@ const About = () => {
         <title>About</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName}/>
+      <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
       <Box className={styles.aboutContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>

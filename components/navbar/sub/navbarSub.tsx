@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '../../menu/menu';
@@ -15,9 +15,10 @@ interface Link {
 interface NavbarSubProps {
   links: Link[];
   pageName: string
+  currentPath: string
 } 
 
-const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName}) => {
+const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath}) => {
 
   const theme = createTheme({
     breakpoints: {
@@ -79,8 +80,11 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName}) => {
           </div>
           <div className={styles.links}>
             {links && links.map(link => (
-              <a key={link.id} href={link.url} className={styles.link}>
-                {link.title}
+              <a 
+                key={link.id} 
+                href={link.url} 
+                className={`${styles.link} ${link.url === currentPath ? styles.active : ''}`}
+                >{link.title}
               </a>
             ))}
           </div>

@@ -176,6 +176,10 @@
   width: 100%; /* Expand the underline on hover */
 }
 
+.active {
+  border-bottom: 2px solid #197089; /* Add line for active link */
+}
+
 /* right side of navbar */
 
 .right {
