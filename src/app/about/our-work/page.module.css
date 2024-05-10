@@ -221,7 +221,9 @@
   flex-direction: column;
 
   @media (max-width: 767px) {
-    
+    gap: 20px;
+    width: 80%;
+    padding: 50px 0px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -237,16 +239,24 @@
 
 .quote {
   display: flex;
-  flex-direction: row;
   align-content: center;
   justify-content: center;
+
+  
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
 .quotationMark1, .quotationMark2 {
   color: #09B089;
 
   @media (max-width: 767px) {
-    font-size: 14px;
+    font-size: 20px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -258,22 +268,50 @@
   }
 }
 
+.quotationMark1 {
+  display: flex;
+  
+    @media (max-width: 767px) {
+      padding-left: 30px;
+    }    
+  }
+
 .quotationMark2 {
-  align-content: flex-end;
+display: flex;
+
+  @media (max-width: 767px) {
+    justify-content: flex-end;
+    padding-right: 30px;
+  }
+  
+  @media (min-width: 768px) {
+    align-content: flex-end;
+  }
+  
 }
 
 .quoteBox {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+
+  @media (max-width: 767px) {
+    gap: 10px;
+  }
+  
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
 }
 
 .quoteText {
   color: #002D49;
   font-weight: 600;
+  line-height: 150%;
 
   @media (max-width: 767px) {
-    font-size: 14px;
+    font-size: 18px;
+    padding: 0px 30px;
+    padding-top: 20px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -282,7 +320,6 @@
   
   @media (min-width: 1024px) {
     font-size: 35px;
-    line-height: 150%;
     padding: 0px 50px;
   }
 }
@@ -293,6 +330,7 @@
 
   @media (max-width: 767px) {
     font-size: 14px;
+    padding: 0px 30px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
