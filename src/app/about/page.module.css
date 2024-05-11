@@ -256,7 +256,6 @@
 }
 
 .textContainer {
-  text-align: left;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -266,6 +265,7 @@
     width: 75%;
     padding: 30px 0px;
     gap: 30px;
+    text-align: center;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -273,6 +273,7 @@
     width: 50%;
     padding: 60px 30px;
     gap: 30px;
+    text-align: left;
   }
 
   @media (min-width: 1024px) {
@@ -280,6 +281,7 @@
     width: 50%;
     padding: 100px 50px;
     gap: 30px;
+    text-align: left;
   }
 }
 
@@ -337,7 +339,7 @@
   align-items: center;
   justify-content: center;
   font-family: "Poppins", sans-serif;
-  width: 100%;
+
   
   cursor: pointer;
 
@@ -345,15 +347,18 @@
     font-size: 16px !important;
     padding: 15px 0;
     margin-bottom: 60px;
+    width: 100%;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px !important;
     padding: 15px 0;
+    width: 80%;
   }
   
   @media (min-width: 1024px) {
-    font-size: 30px !important;
+    font-size: 20px !important;
     padding: 15px 0;
+    width: 80%;
   }
 }

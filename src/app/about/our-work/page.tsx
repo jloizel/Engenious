@@ -12,6 +12,7 @@ import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
 import About from '../../../../components/about/about';
 import AboutSlider from '../../../../components/about/aboutSlider';
+import Testimonials from '../../../../components/testimonials/testimonials';
 
 
 const OurWork = () => {
@@ -166,7 +167,15 @@ const OurWork = () => {
             </div>
           </div>
         </Box>
-        
+        <section className={styles.testimonials}>
+        <div className={styles.testimonialsContent}>
+          <div className={styles.header1}>
+            <span style={{color: "#008489"}}>Talented people </span>
+            <span >are at the centre of everything we do.</span>
+          </div>
+        </div>
+        <Testimonials/>
+      </section>
       </Box>
     </div>
   )

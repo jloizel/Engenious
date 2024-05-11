@@ -44,12 +44,12 @@ const About = () => {
     {
       id: 3,
       title: "Our story",
-      url: "/our-story",
+      url: "/about/our-story",
     },
     {
       id: 4,
       title: "Our purpose",
-      url: "/our-purpose",
+      url: "/about/our-purpose",
     },
     {
       id: 5,
@@ -86,7 +86,7 @@ const About = () => {
               <img src="/about/1.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
-              <div className={styles.aboutHeader}>
+              <div className={styles.header}>
                 <span>Our</span>
                 <span style={{color:'#09B089'}}> work.</span>
               </div>

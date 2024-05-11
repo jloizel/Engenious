@@ -1,0 +1,174 @@
+.swiperContainer {
+  max-width: 100vw; /* Limit to viewport width */
+  margin: 0 auto;
+  background: #C6D5B8;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    margin-bottom: 100px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: row;
+  }
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
+
+.imageContainer {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.textContainer {
+  text-align: left;
+
+  @media (max-width: 767px) {
+    width: 80%;
+    margin-top: 20px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    
+  }
+}
+
+.page {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 16px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    
+  }
+}
+
+.swiperContainer {
+  width: 150%;
+  display: flex;
+  justify-content: center;
+  height: 80%;
+}
+
+.swiper {
+  width: 100% !important;
+  height: 80% !important;
+}
+
+.swiper-pagination {
+  position: absolute !important; /* Use absolute positioning */
+  bottom: 20px !important; /* Adjust the distance from the bottom as needed */
+  left: 50% !important; /* Center horizontally */
+  transform: translateX(-50%) !important; /* Center horizontally */
+}
+
+.swiper-slide {
+  display: flex !important;
+  justify-content: center !important
+}
+
+
+.title {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 40px !important;
+    line-height: 45px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px !important;
+  }
+}
+
+.text {
+  color: #002D49;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  line-height: 150%;
+
+  @media (max-width: 767px) {
+    font-size: 16px !important;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 20px !important;
+  }
+}
+
+
+.button {
+  background-color: transparent !important; 
+  color: #002D49; 
+  border: 1px solid #002D49;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: 400;
+  line-height: 20px;
+
+  @media (max-width: 767px) {
+    font-size: 14px !important;
+    gap: 10px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px !important;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px !important;
+  }
+}
+
+.buttonActive {
+  color: #002D49;
+  background-color: white !important;
+}

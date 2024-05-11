@@ -113,7 +113,12 @@ body { min-height: 100vh; }
 #008489
 #09B089
 #8CD87A
-#F9F871 */
+#F9F871 
+#FFF7D6
+#C6D5B8
+#92B2A0
+#678F8B
+*/
 
 .swiper-pagination-bullet, .swiper-pagination-bullet-active {
   background: #00617C !important;
@@ -139,7 +144,7 @@ body { min-height: 100vh; }
   height: 50px !important;
 
   @media (max-width: 767px) {
-    margin-top: 120px !important;
+    margin-top: 100px !important;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -147,7 +152,7 @@ body { min-height: 100vh; }
   }
   
   @media (min-width: 1024px) {
-    margin-top: 80px !important;
+    margin-top: 100px !important;
   }
 }
 

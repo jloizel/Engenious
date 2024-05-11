@@ -24,7 +24,7 @@ const Testimonials: React.FC = ({}) => {
   ]);
 
   const getData=()=>{
-    fetch('data/testimonials.json',{
+    fetch('/data/testimonials.json',{
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
