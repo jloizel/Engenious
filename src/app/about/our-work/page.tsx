@@ -10,6 +10,8 @@ import Services from '../../../../components/services/services';
 import ServicesSlider from "../../../../components/services/servicesSlider";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
+import About from '../../../../components/about/about';
+import AboutSlider from '../../../../components/about/aboutSlider';
 
 
 const OurWork = () => {
@@ -72,10 +74,10 @@ const OurWork = () => {
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
-      <Box className={styles.aboutContent}>
+      <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <img src="/aboutPage/1.jpg" alt="Image" className={styles.headerImage} />
+            <img src="/about/1.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
@@ -89,7 +91,7 @@ const OurWork = () => {
         </Box>
         <Box className={styles.services}>
           <div className={styles.servicesContent}>
-              <div className={styles.header}>
+              <div className={styles.header1}>
                 <span >A full range of </span>
                 <span style={{color: "#008489"}}>Talent Services..</span>
               </div>
@@ -119,9 +121,51 @@ const OurWork = () => {
             </div>
           </div>
         </Box>
-
-
-
+        <Box>
+          <div className={styles.aboutBox}>
+            <div className={styles.imageContainer1}>
+              <img src="/about/ourWork/1.jpg" alt="Image" className={styles.image} />
+            </div>
+            <div className={styles.textContainer}>
+              <div className={styles.header2}>
+                <span>The best opportunities, taking your career further.</span>
+              </div>
+              <div className={styles.text2}>
+                From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
+              </div>
+              <button className={styles.button}>
+                Search for a job
+              </button>
+            </div>
+          </div>
+        </Box>
+        <section className={styles.about}>
+          <div className={styles.aboutContent}>
+            <div className={styles.aboutHeader} style={{display: "flex", flexDirection: "column"}}>
+              <span>Investing time in people; </span>
+              <span style={{color: "#008489"}}>it&apos;s in our DNA.</span>
+            </div>
+          </div>
+          { isComputer ? <About/> : <AboutSlider/> }
+        </section>
+        <Box>
+          <div className={styles.aboutBox}>
+            <div className={styles.imageContainer2}>
+              <img src="/about/ourWork/2.jpg" alt="Image" className={styles.image} />
+            </div>
+            <div className={styles.textContainer}>
+              <div className={styles.header2}>
+                <span>Become part of our journey.</span>
+              </div>
+              <div className={styles.text2}>
+                From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
+              </div>
+              <button className={styles.button}>
+                Work at Engenious
+              </button>
+            </div>
+          </div>
+        </Box>
         
       </Box>
     </div>

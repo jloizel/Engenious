@@ -68,7 +68,7 @@ const About = () => {
       <Box className={styles.aboutContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <img src="./aboutPage/header.jpg" alt="Image" className={styles.headerImage} />
+            <img src="./about/header.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
@@ -83,10 +83,10 @@ const About = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer1}>
-              <img src="/aboutPage/1.jpg" alt="Image" className={styles.image} />
+              <img src="/about/1.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
-              <div className={styles.header}>
+              <div className={styles.aboutHeader}>
                 <span>Our</span>
                 <span style={{color:'#09B089'}}> work.</span>
               </div>
@@ -102,7 +102,7 @@ const About = () => {
         <Box>
           <div className={styles.aboutBox} style={{background: "#EFF0F0"}}>
             <div className={styles.imageContainer}>
-              <img src="/aboutPage/2.jpg" alt="Image" className={styles.image} />
+              <img src="/about/2.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -121,7 +121,7 @@ const About = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer1}>
-              <img src="/aboutPage/3.jpg" alt="Image" className={styles.image} />
+              <img src="/about/3.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -140,7 +140,7 @@ const About = () => {
         <Box>
           <div className={styles.aboutBox} style={{background:'#008489'}}>
             <div className={styles.imageContainer2}>
-              <img src="/aboutPage/team.jpg" alt="Image" className={styles.image2} />
+              <img src="/about/team.jpg" alt="Image" className={styles.image2} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>

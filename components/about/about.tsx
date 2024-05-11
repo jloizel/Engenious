@@ -12,7 +12,7 @@ const About: React.FC = ({}) => {
   ]);
 
   const getData=()=>{
-    fetch('data/about.json',{
+    fetch('/data/about.json',{
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'

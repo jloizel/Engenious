@@ -6,7 +6,7 @@
   /* align-items: center; */
 }
 
-.aboutContent {
+.headerContent {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -137,7 +137,7 @@
   }
 }
 
-.services {
+.services, .about {
   /* position: absolute; */
   z-index: 10;
   display: flex;
@@ -155,11 +155,11 @@
   }
 }
 
-.servicesContent {
+.servicesContent, .aboutContent {
   width: 80%;
 }
 
-.header {
+.header1 {
   color: #002D49;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
@@ -348,7 +348,7 @@
 }
 
 
-/* 
+
 .aboutBox {
   display: flex;
   width: 100%;
@@ -388,14 +388,6 @@
   }
 }
 
-.imageContainer {
-  
-  @media (min-width: 1024px) {
-    margin-left: 30px;
-  }
-}
-
-
 .imageContainer1 {
   @media (min-width: 768px) and (max-width: 1023px) {
     order: 1;
@@ -425,8 +417,8 @@
   }
 
   @media (min-width: 1024px) {
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -471,34 +463,38 @@
 }
 
 .textContainer {
-  text-align: left;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-content: center;
+  color: #002D49;
 
   @media (max-width: 767px) {
     flex-direction: column;
-    width: 75%;
-    padding: 30px 0px;
+    width: 90%;
+    padding: 20px 0px;
     gap: 30px;
+    line-height: 30px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     padding: 60px 30px;
     gap: 30px;
+    line-height: 40px;
   }
 
   @media (min-width: 1024px) {
     flex-direction: column;
-    width: 50%;
+    width: 80%;
     padding: 100px 50px;
     gap: 30px;
+    line-height: 50px;
   }
 }
 
-.header {
+.header2 {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
 
@@ -515,12 +511,13 @@
   }
 }
 
-.text {
+.text2 {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 30px;
   }
 
   @media (min-width: 1024px) {
@@ -529,7 +526,7 @@
   }
 }
 
-.text2 {
+/* .text2 {
   font-family: "Poppins", sans-serif;
   color: white;
   font-weight: 400;
@@ -539,7 +536,33 @@
     font-size: 20px;
     line-height: 30px;
   }
+} */
 
+.aboutHeader {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 22px;
+    line-height: 125%;
+    /* margin-top: 20px; */
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
 }
 
 .button {
@@ -571,4 +594,44 @@
     font-size: 30px !important;
     padding: 15px 0;
   }
-} */
+}
+
+.about {
+  flex-direction: column;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    margin-bottom: 60px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 80px;
+  }
+  
+  @media (min-width: 1024px) {
+    margin-bottom: 80px;
+  }
+}
+
+.aboutButton {
+  background: #09B089;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 800;
+  font-family: "Poppins", sans-serif;
+  line-height: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  cursor: pointer;
+
+  @media (max-width: 1023px) {
+    width: 300px;
+    font-size: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 250px;
+    font-size: 18px;
+  }
+}
