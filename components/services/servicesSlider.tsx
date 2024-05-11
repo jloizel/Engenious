@@ -30,7 +30,7 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
   ]);
 
   const getData=()=>{
-    fetch('data/services.json',{
+    fetch('/data/services.json',{
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'

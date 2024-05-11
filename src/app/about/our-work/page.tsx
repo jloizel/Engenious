@@ -7,7 +7,7 @@ import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
 import Services from '../../../../components/services/services';
-import ServicesSlider from '../../../../components/services/servicesSlider';
+import ServicesSlider from "../../../../components/services/servicesSlider";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
 
@@ -89,14 +89,16 @@ const OurWork = () => {
         </Box>
         <Box className={styles.services}>
           <div className={styles.servicesContent}>
-            <div className={styles.header}>
-              <span >A full range of </span>
-              <span style={{color: "#008489"}}>Talent Services..</span>
-            </div>
-            <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
+              <div className={styles.header}>
+                <span >A full range of </span>
+                <span style={{color: "#008489"}}>Talent Services..</span>
+              </div>
+              <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
           </div>
-          { isComputer ? <Services/> : <ServicesSlider/> }
         </Box>
+        <div className={styles.services}>
+          { isComputer ? <Services/> : <ServicesSlider/> }
+        </div>
         <Box className={styles.quoteContainer}>
           <div className={styles.textBox}>
             <div className={styles.quote}>
