@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './page.module.css'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { useLocation } from 'react-router-dom';
 
 interface OverviewProps {
   text: string
@@ -11,6 +12,7 @@ const Overview: React.FC<OverviewProps> = ({text, href}) => {
 
   const handleOnClick = () => {
     // Redirect to the specified URL
+    const location = useLocation();
     window.location.href = href;
   };
   

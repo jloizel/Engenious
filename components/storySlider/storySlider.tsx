@@ -7,6 +7,8 @@ import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
 import { createTheme, useMediaQuery } from '@mui/material';
 import { IoIosArrowForward } from "react-icons/io";
+import { HiOutlineArrowLongRight } from "react-icons/hi2";
+import { HiOutlineArrowLongLeft} from "react-icons/hi2";
 
 
 const StorySlider: React.FC = () => {
@@ -46,7 +48,8 @@ const StorySlider: React.FC = () => {
         <SwiperSlide>
           <div className={styles.container}>
             <div className={styles.imageContainer}>
-            <img src="/about/ourStory/1.jpg" alt="Image" className={styles.image}/>
+              <img src="/about/ourStory/1.jpg" alt="Image" className={styles.image}/>
+              <HiOutlineArrowLongRight className={styles.arrow1}/>
             </div>
             <div className={styles.textContainer}>
               <div className={styles.content}>
@@ -63,7 +66,8 @@ const StorySlider: React.FC = () => {
         <SwiperSlide>
           <div className={styles.container}>
             <div className={styles.imageContainer2}>
-            <img src="/about/ourStory/2.jpg" alt="Image" className={styles.image}/>
+              <img src="/about/ourStory/2.jpg" alt="Image" className={styles.image}/>
+              <HiOutlineArrowLongLeft className={styles.arrow2}/>
             </div>
             <div className={styles.textContainer}>
               <div className={styles.content}>

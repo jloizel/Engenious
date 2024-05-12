@@ -17,6 +17,7 @@ import Testimonials from '../../../../components/testimonials/testimonials';
 
 const OurWork = () => {
   const pageName = "About"
+  const location = useLocation();
   const currentPath = location.pathname;
   
 
