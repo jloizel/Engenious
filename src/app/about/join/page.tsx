@@ -15,7 +15,7 @@ import AboutSlider from '../../../../components/about/aboutSlider';
 import Testimonials from '../../../../components/testimonials/testimonials';
 
 
-const OurPurpose = () => {
+const Join = () => {
   const pageName = "About"
   const currentPath = location.pathname;
   
@@ -64,32 +64,44 @@ const OurPurpose = () => {
       title: "Join the team",
       url: "/about/join",
     }
-  ]; 
+  ];  
 
   console.log(links)
 
   return (
     <div className={styles.aboutContainer}>
       <Helmet>
-        <title>Our Purpose</title>
+        <title>Join</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <img src="/about/ourPurpose/2.jpg" alt="Image" className={styles.headerImage} />
+            <img src="/about/1.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
-              <span style={{color:'#09B089'}}>Our</span>
-              <span style={{color:'white'}}> purpose.</span>
+              <span style={{color:'#09B089'}}>Join</span>
+              <span style={{color:'white'}}> the team.</span>
             </div>
             <div className={styles.mainText}>
-              We&apos;re in the business of improving lives. Our dedication to candidates and clients is what keeps us going everyday.
+            Helping businesses evolve through their people. Helping professionals evolve through their careers. We&apos;re relentlessly committed. We&apos;re endlessly ambitious. We empower you to push yourself further. 
             </div>
           </div>
         </Box>
+        <Box className={styles.services}>
+          <div className={styles.servicesContent}>
+              <div className={styles.header1}>
+                <span >A full range of </span>
+                <span style={{color: "#008489"}}>Talent Services..</span>
+              </div>
+              <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
+          </div>
+        </Box>
+        <div className={styles.services}>
+          { isComputer ? <Services/> : <ServicesSlider/> }
+        </div>
         <Box className={styles.quoteContainer}>
           <div className={styles.textBox}>
             <div className={styles.quote}>
@@ -113,53 +125,40 @@ const OurPurpose = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer1}>
-              <img src="/about/ourPurpose/1.jpg" alt="Image" className={styles.image} />
+              <img src="/about/ourWork/1.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
-              <div className={styles.header}>
-                <span>Empowering Success: Our Vision, Values, and Mission</span>
+              <div className={styles.header2}>
+                <span>The best opportunities, taking your career further.</span>
               </div>
-              <div className={styles.text}>
-                <span>Welcome to Engenious, where talent meets opportunity and dreams find their wings! We are more than just a recruitment company; we are your strategic partner in navigating the dynamic landscape of the job market.</span> 
-                <span>At Engenious, our core values are the guiding stars that illuminate our path forward. We believe in integrity, transparency, and a relentless commitment to excellence. These values form the bedrock of our operations, shaping every interaction and decision we make.</span> 
-                <span>Our aim is simple: to connect exceptional talent with outstanding opportunities, fostering mutually beneficial relationships that drive success for both candidates and clients. Whether you're a skilled professional seeking your next career adventure or a company in pursuit of top-tier talent, we're here to make the perfect match.</span> 
-                <span>We understand that every individual and organization is unique, which is why we take a personalized approach to recruitment. By truly understanding the needs, goals, and aspirations of our clients and candidates, we ensure that every match is not just a transaction, but a transformative partnership.</span> 
-                <span>At Engenious, success is not measured solely by placements made, but by the lasting impact we have on the lives and careers of those we serve. We are dedicated to empowering individuals to reach their full potential and helping businesses thrive by building high-performing teams.</span> 
-                <span>Join us on this journey as we redefine recruitment, one exceptional match at a time. Together, let's turn aspirations into achievements and dreams into reality.</span>  
+              <div className={styles.text2}>
+                From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
               </div>
+              <button className={styles.button}>
+                Search for a job
+              </button>
             </div>
           </div>
         </Box>
-        <Box className={styles.quoteContainer}>
-          <div className={styles.textBox}>
-            <div className={styles.quote}>
-              <div className={styles.quotationMark1}>
-                <FaQuoteLeft/>
-              </div>
-              <div className={styles.quoteBox}>
-                <div className={styles.quoteText}>
-                At Engenious Recruitment, our priority is our people, enabling them to excel and reach new heights. Join our team, and together, we&apos;ll surpass expectations and redefine success
-                </div>
-                <div className={styles.quoter}>
-                  - Philippa Dickinson, CEO
-                </div>
-              </div>
-              <div className={styles.quotationMark2}>
-                <FaQuoteRight/>
-              </div>
+        <section className={styles.about}>
+          <div className={styles.aboutContent}>
+            <div className={styles.aboutHeader} style={{display: "flex", flexDirection: "column"}}>
+              <span>Investing time in people; </span>
+              <span style={{color: "#008489"}}>it&apos;s in our DNA.</span>
             </div>
           </div>
-        </Box>
+          { isComputer ? <About/> : <AboutSlider/> }
+        </section>
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer2}>
-              <img src="/about/ourPurpose/3.jpg" alt="Image" className={styles.image} />
+              <img src="/about/ourWork/2.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
-              <div className={styles.header}>
+              <div className={styles.header2}>
                 <span>Become part of our journey.</span>
               </div>
-              <div className={styles.text}>
+              <div className={styles.text2}>
                 From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
               </div>
               <button className={styles.button}>
@@ -168,9 +167,18 @@ const OurPurpose = () => {
             </div>
           </div>
         </Box>
+        <section className={styles.testimonials}>
+        <div className={styles.testimonialsContent}>
+          <div className={styles.header1}>
+            <span style={{color: "#008489"}}>Talented people </span>
+            <span >are at the centre of everything we do.</span>
+          </div>
+        </div>
+        <Testimonials/>
+      </section>
       </Box>
     </div>
   )
 }
 
-export default OurPurpose
+export default Join

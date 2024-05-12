@@ -64,7 +64,7 @@ const OurStory = () => {
     {
       id: 5,
       title: "Join the team",
-      url: "/join",
+      url: "/about/join",
     }
   ]; 
 
