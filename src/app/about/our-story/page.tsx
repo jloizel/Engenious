@@ -54,12 +54,12 @@ const OurStory = () => {
     {
       id: 3,
       title: "Our story",
-      url: "/our-story",
+      url: "/about/our-story",
     },
     {
       id: 4,
       title: "Our purpose",
-      url: "/our-purpose",
+      url: "/about/our-purpose",
     },
     {
       id: 5,
