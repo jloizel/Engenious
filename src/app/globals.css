@@ -107,8 +107,8 @@ body { min-height: 100vh; }
   }
 }
 
-/* colour palette
-#002D49
+.colours {
+  color: #002D49
 #005773
 #008489
 #09B089
@@ -118,7 +118,8 @@ body { min-height: 100vh; }
 #C6D5B8
 #92B2A0
 #678F8B
-*/
+}
+
 
 .swiper-pagination-bullet, .swiper-pagination-bullet-active {
   background: #00617C !important;

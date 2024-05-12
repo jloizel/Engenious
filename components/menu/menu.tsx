@@ -145,8 +145,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   <a href="/about" className={styles.subTopicMobile}>Overview</a>
                   <a href="/about/our-work" className={styles.subTopicMobile}>Our work</a>
                   <a href="/about/our-story" className={styles.subTopicMobile}>Our story</a>
-                  <div className={styles.subTopicMobile}>Our purpose</div>
-                  <div className={styles.subTopicMobile}>Join the team</div>
+                  <a href="/about/our-purpose" className={styles.subTopicMobile}>Our purpose</a>
+                  <a href="/about/our-team" className={styles.subTopicMobile}>Our team</a>
                 </div>
               )}
               <div 
@@ -185,7 +185,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                     <div className={styles.subMenu} id="subMenu2">
                       <Overview text={"Find your dream job"} href="/jobs"/>
                       <div className={styles.subTopic}>Search all jobs</div>
-                      <div className={styles.subTopic}>Send your cv</div>
+                      <div className={styles.subTopic}>Upload your cv</div>
                     </div>
                   )}
                   {activeItem === 'About' && (
@@ -193,8 +193,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                       <Overview text={"Learn more about us"} href="/about"/>
                       <a href="/about/our-work" className={styles.subTopic}>Our work</a>
                       <a href="/about/our-story" className={styles.subTopic}>Our story</a>
-                      <div className={styles.subTopic}>Our purpose</div>
-                      <div className={styles.subTopic}>Our commitments</div>
+                      <a href="/about/our-purpose" className={styles.subTopic}>Our purpose</a>
+                      <a href="/about/our-team" className={styles.subTopic}>Our team</a>
                     </div>
                   )}
                   {activeItem === 'Contact' && (

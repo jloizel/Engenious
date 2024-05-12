@@ -1,0 +1,217 @@
+.teamContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.teamHeader {
+  color: #008489;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 40px;
+    margin-top: 40px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 40px;
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 50px;
+    margin-top: 80px;
+    margin-bottom: 40px;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  
+  @media (max-width: 767px) {
+    flex-direction: column;
+    margin-top: 70px;
+    gap: 20px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+}
+
+.evenContainer {
+}
+
+.oddContainer {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    order: 1;
+  }
+  
+  @media (min-width: 1024px) {
+    order: 1;
+  }
+}
+
+.imageContainer {
+  object-fit: cover;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  @media (max-width: 767px) {
+    width: 80%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 60%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 60%;
+  }
+}
+
+.image {
+  height: auto;
+  box-shadow: 0px 8px 24px rgba(62, 53, 82, 0.16);
+  border-radius: 50%;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 70%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 70%;
+  }
+}
+
+.textContainer {
+  display: flex;
+  flex-direction: column;
+  /* background: #09B089; */
+  border-radius: 8px;
+  text-align: left;
+
+
+  @media (max-width: 767px) {
+    width: 80%;
+    /* padding: 20px 0px; */
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 40%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 50%;
+  }
+}
+
+.evenTextContainer {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-right: 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    margin-right: 70px;
+
+  }
+}
+
+.oddTextContainer {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    margin-left: 70px;
+  }
+} 
+
+.name {
+  color: #005773;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 22px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 28px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 37px;
+  }
+}
+
+.role {
+  /* color: white; */
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  color: #005773;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    margin-top: 5px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 22px;
+    margin-top: 10px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 26px;
+    margin-top: 20px;
+  }
+}
+
+.text {
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  /* color: white; */
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 24px;
+    margin-top: 20px;
+    /* padding: 0px 20px; */
+
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+    line-height: 26px;
+    margin-top: 20px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 20px;
+  }
+}
+
+.line {
+  background-color: #002D49;
+  width: 60%;
+}

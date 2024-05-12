@@ -61,8 +61,8 @@ const OurPurpose = () => {
     },
     {
       id: 5,
-      title: "Join the team",
-      url: "/about/join",
+      title: "Our team",
+      url: "/about/our-team",
     }
   ]; 
 

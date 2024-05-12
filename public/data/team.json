@@ -1,0 +1,24 @@
+[
+    {
+      "id": 1,
+      "name": "Philippa Dickinson",
+      "role": "Founder / Managing Director",
+      "src": "/team/1.jpg",
+      "text": "Philippa Dickinson is the visionary force behind Engenious, bringing a wealth of experience and a passion for empowering individuals to achieve their career aspirations. With a keen eye for talent and a commitment to excellence, Philippa leads our team with integrity, innovation, and unwavering dedication. Under her guidance, Engenious has become a beacon of success in the recruitment industry, connecting top-tier talent with exceptional opportunities and driving positive change in the job market."
+    },
+    {
+        "id": 2,
+        "name": "Letitia Jackson",
+        "role": "Recruitment Consultant",
+        "src": "/team/3.jpg",
+        "text": "Letitia Jackson is a dynamic Recruitment Consultant at Engenious, dedicated to helping individuals navigate the complexities of the job market and find their perfect fit. With a warm and empathetic approach, Letitia builds genuine relationships with candidates and clients alike, understanding their unique needs and aspirations to make meaningful connections. Her tireless commitment to excellence and her passion for making a difference have earned her the trust and respect of all who work with her."
+      },
+      {
+        "id": 3,
+        "name": "James McDowell",
+        "role": "Commercial Director",
+        "src": "/team/2.jpg",
+        "text": "James McDowell is the driving force behind Engenious's strategic growth and success as our Commercial Director. With a sharp business acumen and a focus on delivering results, James leads our business development efforts with confidence and vision. His collaborative approach and dedication to fostering long-term partnerships have propelled Engenious to new heights, expanding our reach and impact in the competitive recruitment landscape. James's leadership ensures that we continue to innovate, adapt, and thrive in an ever-evolving market."
+      }
+  ]
+  
