@@ -12,7 +12,7 @@ const Overview: React.FC<OverviewProps> = ({text, href}) => {
 
   const handleOnClick = () => {
     // Redirect to the specified URL
-    const location = useLocation();
+    // const location = useLocation();
     window.location.href = href;
   };
   

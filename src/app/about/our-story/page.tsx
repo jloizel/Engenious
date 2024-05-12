@@ -18,7 +18,7 @@ import StorySlider from '../../../../components/storySlider/storySlider';
 
 const OurStory = () => {
   const pageName = "About"
-  const location = useLocation();
+  // const location = useLocation();
   const currentPath = location.pathname;
   
 

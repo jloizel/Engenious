@@ -9,7 +9,7 @@ import { useLocation } from 'react-router-dom';
 
 const About = () => {
   const pageName = "About"
-  const location = useLocation();
+  // const location = useLocation();
   const currentPath = location.pathname;
   
 
