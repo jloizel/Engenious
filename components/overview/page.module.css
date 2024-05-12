@@ -2,13 +2,16 @@
   display: flex;
   padding: 16px;
   align-items: center;
-  gap: 24px;
+  /* gap: 24px; */
   justify-content: space-between;
   border-radius: 8px;
   background: rgba(0, 0, 0, 0.16);
   transition: all 0.3s ease-in-out;
   margin-bottom: 32px;
+  border: none;
   /* width: 80%; */
+  font-family: "Poppins", sans-serif;
+  text-align: left;
 }
 
 .container:hover {

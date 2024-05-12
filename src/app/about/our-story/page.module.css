@@ -152,7 +152,7 @@
 
 
 
-.aboutBox, .aboutBox2 {
+.aboutBox {
   display: flex;
   width: 100%;
   align-items: center;
@@ -163,7 +163,26 @@
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    flex-direction: row;
+    flex-direction: column;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.aboutBox2 {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: column;
   }
 
   @media (min-width: 1024px) {
@@ -179,11 +198,13 @@
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-
+    margin-bottom: 40px;
+    margin-top: 10px;
   }
 
   @media (min-width: 1024px) {
-
+    margin-bottom: 40px;
+    margin-top: 10px;
   }
 }
 
@@ -212,14 +233,14 @@
     font-size: 30px;
     line-height: 125%;
     margin-top: 40px;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
   }
   
   @media (min-width: 1024px) {
     font-size: 45px;
     line-height: 125%;
-    margin-top: 40px;
-    margin-bottom: 20px;
+    margin-top: 50px;
+    /* margin-bottom: 20px; */
   }
 }
 
@@ -242,25 +263,31 @@
   }
 }
 
-.text {
+.text1 {
   font-weight: 400;
   font-family: "Poppins", sans-serif;
   display: flex;
-  flex-direction: column;
   text-align: left;
 
   @media (max-width: 767px) {
     font-size: 16px;
     line-height: 26px;
     gap: 15px;
+    flex-direction: column;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 28px;
+    gap: 15px;
+    flex-direction: column;
   }
   
   @media (min-width: 1024px) {
-    font-size: 18px;
+    font-size: 20px;
+    line-height: 30px;
+    gap: 15px;
+    flex-direction: row;
   }
 }
 
@@ -279,7 +306,7 @@
 
   @media (min-width: 1024px) {
     width: 50%;
-    padding: 30px;
+    /* padding: 30px; */
   }
 }
 
@@ -291,12 +318,17 @@
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    order: 1;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 80%;
   }
 
   @media (min-width: 1024px) {
-    order: 1;
-    margin-right: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
   }
 }
 
@@ -314,8 +346,9 @@
   }
 
   @media (min-width: 1024px) {
-    height: 100%;
-    width: 100%;
+    height: 400px;
+    width: 80%;
+    object-fit: cover;
   }
 }
 
@@ -331,12 +364,15 @@
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    width: 50%;
+    width: 80%;
     padding: 30px 0;
+    margin-bottom: 60px;
   }
 
   @media (min-width: 1024px) {
-    width: 50%;
+    width: 80%;
+    padding: 30px 0;
+    /* margin-bottom: 60px; */
   }
 }
 
@@ -353,40 +389,51 @@
     gap: 30px;
     line-height: 30px;
     text-align: center;
-
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     flex-direction: column;
     width: 80%;
-    padding: 60px 30px;
+    padding: 20px 30px;
     gap: 30px;
-    line-height: 40px;
-    text-align: left;
+    line-height: 30px;
+    text-align: center;
   }
 
   @media (min-width: 1024px) {
     flex-direction: column;
     width: 80%;
-    padding: 100px 50px;
+    padding: 20px 50px;
     gap: 30px;
-    line-height: 50px;
-    text-align: left;
+    line-height: 40px;
+    text-align: center;
   }
 }
 
 
 .text2 {
+  font-weight: 400;
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 20px;
-    line-height: 30px;
+  @media (max-width: 767px) {
+    font-size: 16px;
+    line-height: 26px;
+    gap: 15px;
   }
-
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+    line-height: 28px;
+    gap: 15px;
+  }
+  
   @media (min-width: 1024px) {
     font-size: 20px;
     line-height: 30px;
+    gap: 15px;
+    margin-bottom: 40px;
   }
 }

@@ -143,8 +143,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               {isMobile && activeItem === 'About' && (
                 <div className={styles.subTopicContainer}>
                   <a href="/about" className={styles.subTopicMobile}>Overview</a>
-                  <div className={styles.subTopicMobile}>Our work</div>
-                  <div className={styles.subTopicMobile}>Our story</div>
+                  <a href="/about/our-work" className={styles.subTopicMobile}>Our work</a>
+                  <a href="/about/our-story" className={styles.subTopicMobile}>Our story</a>
                   <div className={styles.subTopicMobile}>Our purpose</div>
                   <div className={styles.subTopicMobile}>Join the team</div>
                 </div>
@@ -175,7 +175,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                 <div>
                   {activeItem === 'Employers' && (
                     <div className={styles.subMenu} id="subMenu1">
-                      <Overview text={"Learn more about our full talent services"}/>
+                      <Overview text={"Learn more about our full talent services"} href="/employers"/>
                       <div className={styles.subTopic}>Our services</div>
                       <div className={styles.subTopic}>Our expertise</div>
                       <div className={styles.subTopic}>Submit a vacancy</div>
@@ -183,23 +183,23 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   )}
                   {activeItem === 'Jobs' && (
                     <div className={styles.subMenu} id="subMenu2">
-                      <Overview text={"Find your dream job"}/>
+                      <Overview text={"Find your dream job"} href="/jobs"/>
                       <div className={styles.subTopic}>Search all jobs</div>
                       <div className={styles.subTopic}>Send your cv</div>
                     </div>
                   )}
                   {activeItem === 'About' && (
                     <div className={styles.subMenu} id="subMenu3">
-                      <Overview text={"Learn more about us"}/>
-                      <div className={styles.subTopic}>Our work</div>
-                      <div className={styles.subTopic}>Our story</div>
+                      <Overview text={"Learn more about us"} href="/about"/>
+                      <a href="/about/our-work" className={styles.subTopic}>Our work</a>
+                      <a href="/about/our-story" className={styles.subTopic}>Our story</a>
                       <div className={styles.subTopic}>Our purpose</div>
                       <div className={styles.subTopic}>Our commitments</div>
                     </div>
                   )}
                   {activeItem === 'Contact' && (
                     <div className={styles.subMenu} id="subMenu4">
-                      <Overview text={"Ask us any questions"}/>
+                      <Overview text={"Ask us any questions"} href="/contact"/>
                       <a href="/contact" className={styles.subTopic}>Get in touch</a>
                     </div>
                   )}

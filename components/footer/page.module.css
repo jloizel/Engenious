@@ -118,6 +118,10 @@
   }
 }
 
+.button:hover {
+  background: #002D49;
+}
+
 .line {
   width: 80%;
 }

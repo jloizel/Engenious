@@ -362,3 +362,7 @@
     width: 80%;
   }
 }
+
+.button:hover {
+  background: #002D49;
+}

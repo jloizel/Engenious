@@ -108,10 +108,10 @@ const OurStory = () => {
             </div> */}
           </div>
           <div className={styles.imageContainer1}>
-            <img src="/about/ourStory/1.jpg" alt="Image" className={styles.image} />
+            <img src="/about/ourStory/4.jpg" alt="Image" className={styles.image} />
           </div>
           <div className={styles.textContainer}>
-            <div className={styles.text}>
+            <div className={styles.text1}>
               <span>Our journey began with a simple yet profound belief: every individual possesses untapped potential waiting to be discovered and nurtured. Founded in the heart of innovation, our recruitment company emerged as a beacon of hope for both candidates and employers alike. From humble beginnings, we embarked on a mission to redefine the landscape of talent acquisition, guided by principles of integrity, empathy, and a relentless pursuit of excellence.</span>
               <span>Driven by a deep understanding of the transformative power of talent, we forged partnerships with organizations seeking not just employees, but visionary leaders, and with individuals yearning not just for jobs, but for opportunities to thrive. Our early days were characterized by perseverance in the face of adversity, as we navigated the complexities of an ever-evolving market, fueled by a passion to connect the right talent with the right opportunities.</span>
             </div>
@@ -127,9 +127,9 @@ const OurStory = () => {
             {/* <div className={styles.subHeader}>
               We are not a company that sits still. Our goal has always been to best serve our customers.
             </div> */}
-            <div className={styles.text}>
+            <div className={styles.text2}>
               <span>Today, we stand as a testament to the enduring power of resilience and innovation. With years of experience under our belt, our recruitment company has evolved into a trusted partner for companies navigating the complexities of talent acquisition in a rapidly changing world. Our commitment to excellence remains unwavering, as we continue to leverage cutting-edge technology and industry insights to deliver unparalleled solutions to our clients and candidates.</span>
-              <span>Driven by a spirit of adaptability and a forward-thinking mindset, we have expanded our reach beyond borders, serving clients across industries and geographies. Our success lies not just in the numbers, but in the lives we've touched and the futures we've shaped. As we look to the horizon, we remain steadfast in our dedication to empowering individuals and organizations to unlock their full potential, propelling us towards a future defined by limitless possibilities.</span>
+              <span>Driven by a spirit of adaptability and a forward-thinking mindset, we have expanded our reach beyond borders, serving clients across industries and geographies. Our success lies not just in the numbers, but in the lives we&apos;ve touched and the futures we&apos;ve shaped. As we look to the horizon, we remain steadfast in our dedication to empowering individuals and organizations to unlock their full potential, propelling us towards a future defined by limitless possibilities.</span>
             </div>
           </div>
           <div className={styles.imageContainer2}>
