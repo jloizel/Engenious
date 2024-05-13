@@ -9,9 +9,6 @@ import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import ContactMap from '../../../components/contactMap/contactMap'
 import SubmitCVForm from '../../../components/submitCVForm/submitCVForm'
-import EmailForm from '../../../components/submitCVForm/email'
-import { useRouter } from 'next/router'
-import ContactForm2 from '../../../components/ContactForm'
 
 const CVUpload = () => {
 
@@ -84,9 +81,7 @@ const CVUpload = () => {
             </div>
           )} */}
           <div className={styles.submitForm}>
-            {/* <SubmitCVForm/> */}
-            {/* <EmailForm onSubmitSuccess={handleFormSubmitSuccess}/> */}
-            <ContactForm2/>
+            <SubmitCVForm/>
           </div>
         </div>
       </div>
