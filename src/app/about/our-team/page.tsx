@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css"
 import NavbarSub from '../../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
@@ -18,7 +18,14 @@ import Team from '../../../../components/team/team';
 
 const OurTeam = () => {
   const pageName = "About"
-  const currentPath = location.pathname;
+  // const location = useLocation();
+
+  useEffect(() => {
+    // Access location here if needed
+    const currentPath = location.pathname;
+    // Do something with currentPath
+  }, [location]);
+
   
 
   const theme = createTheme({
@@ -73,7 +80,7 @@ const OurTeam = () => {
         <title>Join</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
+      <NavbarSub links={links} pageName={pageName} currentPath={location.pathname}/>
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
