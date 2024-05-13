@@ -66,10 +66,8 @@ const OurWork = () => {
     }
   ];  
 
-  console.log(links)
-
   return (
-    <div className={styles.aboutContainer}>
+    <div className={styles.workContainer}>
       <Helmet>
         <title>Our Work</title>
         <meta name='description' content='' />

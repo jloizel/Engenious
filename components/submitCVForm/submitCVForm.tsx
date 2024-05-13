@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import styles from './page.module.css'
 
-const ContactForm = () => {
+const SubmitCVForm = () => {
   const form = useRef<any>("");
   const [formErrors, setFormErrors] = useState<any>({});
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
@@ -27,6 +27,13 @@ const ContactForm = () => {
     } else {
       setFormErrors((prevErrors: any) => ({ ...prevErrors, email: '' }));
     }
+
+    // Check if attachment is empty or invalid
+    if (!emailValue || !isEmailValid) {
+      setFormErrors({ email: 'Please enter a valid email.' });
+    } else {
+      setFormErrors((prevErrors: any) => ({ ...prevErrors, email: '' }));
+    }
   
     // Check if message is empty
     if (!messageValue) {
@@ -41,6 +48,7 @@ const ContactForm = () => {
     } else {
       setFormErrors((prevErrors: any) => ({ ...prevErrors, checkbox: '' }));
     }
+
   
     // If any field has an error, return without sending email
     if (!emailValue || !isEmailValid || !messageValue || !isCheckboxChecked) {
@@ -50,9 +58,29 @@ const ContactForm = () => {
     // Reset any previous form errors
     setFormErrors({});
 
+    //  // File attachment
+    //  const fileInput = form.current.fileInput;
+    //  const attachment = fileInput.files[0];
+
+     // Check if a file is attached
+    // if (!attachment) {
+    //   setFormErrors((prevErrors: any) => ({
+    //     ...prevErrors,
+    //     attachment: 'Please attach a file.'
+    //   }));
+    //   return; // Stop form submission if no file is attached
+    // }
+
+    // Reset attachment error if a file is attached
+    setFormErrors((prevErrors: any) => ({ ...prevErrors, attachment: '' }));
+ 
+    //  // FormData to append file
+    //  const formData = new FormData(form.current);
+    //  formData.append('attachment', attachment);
+
     emailjs.sendForm(
       'GoFetch',
-      'GoFetchTemplate1',
+      'GoFetchTemplate2',
       form.current,
       'a-Dwrmb6In4hNJHnw'
     ).then(
@@ -74,12 +102,22 @@ const ContactForm = () => {
     <form className={styles.form} ref={form} onSubmit={sendEmail}>
       <div className={styles.inputContainer}>
         <div className={styles.inputTitle}>
-          Full Name
+          Forename
         </div>
         <input
           className={styles.inputBox}
           type="text"
-          name="user_name"
+          name="user_forename"
+        />
+      </div>
+      <div className={styles.inputContainer}>
+        <div className={styles.inputTitle}>
+          Surname
+        </div>
+        <input
+          className={styles.inputBox}
+          type="text"
+          name="user_surname"
         />
       </div>
       <div className={styles.inputContainer}>
@@ -92,6 +130,18 @@ const ContactForm = () => {
           name="user_email"
         />
         {formErrors.email && (<span className={styles.errorMessage}>{formErrors.email}</span>)}
+      </div>
+      <div className={styles.inputContainer}>
+        <div className={styles.inputTitle}>
+          Message *
+        </div>
+        <div className={styles.messageBox}> 
+          <input 
+            type="file" 
+            name="user_cv"
+          /> 
+        </div>
+        {formErrors.message && (<span className={styles.errorMessage}>{formErrors.message}</span>)}
       </div>
       <div className={styles.inputContainer}>
         <div className={styles.inputTitle}>
@@ -123,4 +173,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default SubmitCVForm;

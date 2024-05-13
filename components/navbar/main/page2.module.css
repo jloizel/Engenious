@@ -47,6 +47,21 @@
   }
 }
 
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    gap: 5px;
+  }
+
+  @media (min-width: 768px) {
+    gap: 5px;
+  }
+}
+
 .menu1 {
   background-color: rgba(12, 12, 12, 0.08);
   border-radius: 5px;
@@ -59,10 +74,10 @@
 .menu2 {
   
   @media (max-width: 767px) {
-    width: 100%;
+    /* width: 100%; */
     display: flex;
-    justify-content: flex-end;
-    margin-right: -15px;
+    /* justify-content: flex-end; */
+    /* margin-right: -15px; */
   }
 
   @media (min-width: 768px) {

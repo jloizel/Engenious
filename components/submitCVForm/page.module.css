@@ -1,0 +1,197 @@
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    gap: 20px;
+  } 
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    gap: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 20px;
+  }
+}
+
+.inputContainer {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    gap: 5px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    gap: 5px;
+  }
+  
+  @media (min-width: 1024px) {
+    gap: 5px;
+  }
+}
+
+.inputTitle {
+  font-weight: 600;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    margin-left: 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 10px;
+  }
+  
+  @media (min-width: 1024px) {
+    margin-left: 10px;
+  }
+}
+
+.inputBox {
+  background-color: white;
+  border: none;
+  width: 90%;
+  outline: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    font-size: 25px;
+    line-height: 50px;
+    padding: 0 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: column;
+    font-size: 25px;
+    line-height: 50px;
+    padding: 0 10px;
+  }
+  
+  @media (min-width: 1024px) {
+    flex-direction: column;
+    font-size: 25px;
+    line-height: 50px;
+    padding: 0 15px;
+  }
+}
+
+.messageBox {
+  background-color: white;
+  border: none;
+  width: 90%;
+  display: flex;
+  align-items: flex-start;
+
+  @media (max-width: 767px) {
+    padding: 0 10px;
+    min-height: 200px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0 10px;
+    min-height: 250px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 0 15px;
+    min-height: 250px;
+  }
+}
+
+.message {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 50px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-top: 10px;
+    font-size: 18px;
+    line-height: 50px;
+  }
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 767px) {
+    gap: 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    gap: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 10px;
+  }
+}
+
+.errorMessage {
+  color: red;
+  text-align: left;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-left: 10px;
+    margin-top: 5px;
+  }
+}
+
+.error {
+    color: red;
+}
+
+.button {
+  background-color: #09B089;
+  color: white;
+  padding: 10px 45px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+}

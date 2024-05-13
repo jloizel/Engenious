@@ -65,21 +65,22 @@ const NavbarMain2 = () => {
 
   return (
     <div className={styles.navbar}>
-      {/* {(isTabletOrAbove || isTablet) && ( */}
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
             <Menu color={"#00617C"}/>
           </div>
-          <a href="/">
-            <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
-          </a>
-          <a href="/" className={styles.titleLink}>
-            <div className={styles.companyNameContainer}>
-              <div className={styles.companyName1}>ENGENIOUS</div>
-              <div className={styles.companyName2}>RECRUITMENT</div>
-            </div>
-          </a>
+          <div className={styles.home}>
+            <a href="/">
+              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+            </a>
+            <a href="/" className={styles.titleLink}>
+              <div className={styles.companyNameContainer}>
+                <div className={styles.companyName1}>ENGENIOUS</div>
+                <div className={styles.companyName2}>RECRUITMENT</div>
+              </div>
+            </a>
+          </div>
           <div className={styles.menu2} style={{display: setDisplay2()}}>
             <Menu color={"#00617C"} />
           </div>

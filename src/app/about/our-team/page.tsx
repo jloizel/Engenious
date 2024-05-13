@@ -67,10 +67,8 @@ const OurTeam = () => {
     }
   ];  
 
-  console.log(links)
-
   return (
-    <div className={styles.aboutContainer}>
+    <div className={styles.teamContainer}>
       <Helmet>
         <title>Join</title>
         <meta name='description' content='' />
@@ -105,7 +103,7 @@ const OurTeam = () => {
                 Think you have what it takes to make a difference? We&apos;re always on the lookout for exceptional talent to join our team! Upload your CV below, and if we believe you&apos;re the right fit for our journey, we&apos;ll be in touch. Your next career adventure awaits – seize the opportunity and let&apos;s make magic together!
               </div>
               <button className={styles.button}>
-                Upload your CV
+                Send us your CV
               </button>
             </div>
           </div>

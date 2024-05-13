@@ -80,10 +80,10 @@ const NavbarMain1 = () => {
                 <div className={styles.companyName2}>RECRUITMENT</div>
               </div>
             </a>
-            </div>
-            <div className={styles.menu2} style={{display: setDisplay2()}}>
-              <Menu color={"white"}/>
-            </div>
+          </div>
+          <div className={styles.menu2} style={{display: setDisplay2()}}>
+            <Menu color={"white"}/>
+          </div>
           </div>
         <div className={styles.middle} style={{display: setDisplay()}}>
           <div className={styles.links}>

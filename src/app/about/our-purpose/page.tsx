@@ -66,10 +66,9 @@ const OurPurpose = () => {
     }
   ]; 
 
-  console.log(links)
 
   return (
-    <div className={styles.aboutContainer}>
+    <div className={styles.purposeContainer}>
       <Helmet>
         <title>Our Purpose</title>
         <meta name='description' content='' />
@@ -125,7 +124,7 @@ const OurPurpose = () => {
                 <span>Our aim is simple: to connect exceptional talent with outstanding opportunities, fostering mutually beneficial relationships that drive success for both candidates and clients. Whether you&apos;re a skilled professional seeking your next career adventure or a company in pursuit of top-tier talent, we&apos;re here to make the perfect match.</span> 
                 <span>We understand that every individual and organization is unique, which is why we take a personalized approach to recruitment. By truly understanding the needs, goals, and aspirations of our clients and candidates, we ensure that every match is not just a transaction, but a transformative partnership.</span> 
                 <span>At Engenious, success is not measured solely by placements made, but by the lasting impact we have on the lives and careers of those we serve. We are dedicated to empowering individuals to reach their full potential and helping businesses thrive by building high-performing teams.</span> 
-                <span>Join us on this journey as we redefine recruitment, one exceptional match at a time. Together, let's turn aspirations into achievements and dreams into reality.</span>  
+                <span>Join us on this journey as we redefine recruitment, one exceptional match at a time. Together, let&apos;s turn aspirations into achievements and dreams into reality.</span>  
               </div>
             </div>
           </div>
