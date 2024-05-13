@@ -79,12 +79,12 @@ const OurTeam = () => {
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <img src="/about/join/1.jpg" alt="Image" className={styles.headerImage} />
+            <img src="/about/ourTeam/1.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
               <span style={{color:'#09B089'}}>Our</span>
-              <span style={{color:'white'}}>team.</span>
+              <span style={{color:'white'}}> team.</span>
             </div>
             <div className={styles.mainText}>
               Our team are at the heart of everything we do. Below you&apos;ll find out a little bit more about who you&apos;re dealing with and prove that we&apos;re not just a voice at the end of the phone.
@@ -102,7 +102,7 @@ const OurTeam = () => {
                 <span>Become part of our journey.</span>
               </div>
               <div className={styles.text}>
-                Think you have what it takes to make a difference? We're always on the lookout for exceptional talent to join our team! Upload your CV below, and if we believe you're the right fit for our journey, we'll be in touch. Your next career adventure awaits – seize the opportunity and let's make magic together!
+                Think you have what it takes to make a difference? We&apos;re always on the lookout for exceptional talent to join our team! Upload your CV below, and if we believe you&apos;re the right fit for our journey, we&apos;ll be in touch. Your next career adventure awaits – seize the opportunity and let&apos;s make magic together!
               </div>
               <button className={styles.button}>
                 Upload your CV
