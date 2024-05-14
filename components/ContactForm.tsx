@@ -1,6 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -28,10 +29,12 @@ export default function ContactForm2() {
     resolver: zodResolver(formSchema),
   });
 
+  const [file, setFile] = useState<File | undefined>()
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     // TODO: implement
     console.log(values);
-
+    
     await fetch("/api/send", {
       method: "POST",
       body: JSON.stringify({
@@ -41,6 +44,14 @@ export default function ContactForm2() {
         content: values.content,
       }),
     });
+  }
+  
+  function handleOnChange(e: React.FormEvent<HTMLInputElement>) {
+    const target = e.target as HTMLInputElement & {
+      files: FileList;
+    }
+
+    setFile(target.files[0])
   }
 
   return (
@@ -134,6 +145,24 @@ export default function ContactForm2() {
                   rows={8}
                   id="message"
                   {...register("content")}
+                />
+
+                {errors?.content && (
+                  <p className="px-1 text-xs text-red-600">
+                    {errors.content.message}
+                  </p>
+                )}
+              </div>
+
+              <div>
+                <label className="sr-only" htmlFor="message">
+                  File
+                </label>
+
+                <input
+                  type="file"
+                  name="file"
+                  onChange={handleOnChange}
                 />
 
                 {errors?.content && (
