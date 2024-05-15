@@ -18,6 +18,7 @@ const formSchema = z.object({
   content: z.string().min(2, {
     message: "Content must be at least 2 characters.",
   }),
+  // attachment: z.string().min(1, { message: "Please attach a file." }),
 });
 
 export default function ContactForm2() {
