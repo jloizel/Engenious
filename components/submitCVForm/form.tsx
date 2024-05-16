@@ -22,7 +22,7 @@ const EmailForm = () => {
 
     try {
       // Send form data to the backend for email processing
-      const response = await fetch("sendEmail", {
+      const response = await fetch("http://localhost:5000/sendEmail", {
         method: "POST",
         body: formData,
       });

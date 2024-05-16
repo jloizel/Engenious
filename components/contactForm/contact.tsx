@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { sendEmail } from '../../src/app/utils/send-email';
 
@@ -8,14 +8,47 @@ export type FormData = {
   name: string;
   email: string;
   message: string;
+  file: {
+    name: string;
+    content: string;
+  };
 };
 
 const Contact: FC = () => {
   const { register, handleSubmit } = useForm<FormData>();
+  const [content, setContent] = React.useState<string | null>(null);
+  const [filename, setFilename] = React.useState<string>('');
 
   function onSubmit(data: FormData) {
-    sendEmail(data);
+    const base64Content = content.split(',')[1];
+
+    const formDataWithFile = {
+      ...data,
+      file: {
+        name: filename,
+        content: base64Content,
+      },
+    };
+
+    sendEmail(formDataWithFile);
   }
+  
+  const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+    const files = e.target.files;
+
+    if (files && files[0]) {
+      reader.onload = (r) => {
+        if (r.target && r.target.result) {
+          setContent(r.target.result.toString());
+          setFilename(files[0].name);
+        }
+      };
+
+      reader.readAsDataURL(files[0]);
+    }
+  };
+  
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,6 +94,14 @@ const Contact: FC = () => {
           {...register('message', { required: true })}
         ></textarea>
       </div>
+
+      <input
+        type="file"
+        name="file"
+        onChange={onAddFileAction}
+        accept="application/pdf,application/vnd.ms-excel"
+      />
+
       <div>
         <button className='hover:shadow-form rounded-md bg-purple-500 py-3 px-8 text-base font-semibold text-white outline-none'>
           Submit
