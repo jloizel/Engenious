@@ -8,6 +8,7 @@ import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import ContactMap from '../../../components/contactMap/contactMap'
+import ContactForm2 from '../../../components/contactForm/ContactForm2'
 
 const Contact = () => {
 
@@ -79,7 +80,7 @@ const Contact = () => {
             </div>
           )}
           <div className={styles.contactForm}>
-            <ContactForm/>
+            <ContactForm2/>
           </div>
         </div>
         <div className={styles.contactMap}>

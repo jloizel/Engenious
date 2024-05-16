@@ -36,7 +36,7 @@ export default function ContactForm2() {
     // TODO: implement
     console.log(values);
     
-    await fetch("/api/send", {
+    await fetch("/api/send1", {
       method: "POST",
       body: JSON.stringify({
         name: values.name,
@@ -146,24 +146,6 @@ export default function ContactForm2() {
                   rows={8}
                   id="message"
                   {...register("content")}
-                />
-
-                {errors?.content && (
-                  <p className="px-1 text-xs text-red-600">
-                    {errors.content.message}
-                  </p>
-                )}
-              </div>
-
-              <div>
-                <label className="sr-only" htmlFor="message">
-                  File
-                </label>
-
-                <input
-                  type="file"
-                  name="file"
-                  onChange={handleOnChange}
                 />
 
                 {errors?.content && (
