@@ -14,7 +14,7 @@ import * as React from "react";
 interface ContactMeEmailProps {
   name: string;
   emailAddress: string;
-  phoneNumber: string;
+  // phoneNumber: string;
   content: string;
 }
 
@@ -22,7 +22,7 @@ const ContactMeEmail = ({
   name,
   content,
   emailAddress,
-  phoneNumber,
+  // phoneNumber,
 }: ContactMeEmailProps) => {
   const previewText = `${name} has a message`;
 
@@ -48,7 +48,7 @@ const ContactMeEmail = ({
             <Hr className="border border-solid border-[#eaeaea] my-[26px] mx-0 w-full" />
             <Text className="text-[#666666] text-[12px] leading-[24px]">
               This message was sent by {name}. You can contact him through his
-              email {emailAddress} or his phone number {phoneNumber}
+              email {emailAddress} or his phone number
             </Text>
           </Container>
         </Body>

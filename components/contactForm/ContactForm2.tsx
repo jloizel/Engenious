@@ -1,9 +1,10 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
+import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import styles from './page.module.css'
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -12,9 +13,9 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Email must be in proper format",
   }),
-  phone: z.string().min(2, {
-    message: "Phone number must be at least 2 characters.",
-  }),
+  // phone: z.string().min(2, {
+  //   message: "Phone number must be at least 2 characters.",
+  // }),
   content: z.string().min(2, {
     message: "Content must be at least 2 characters.",
   }),
@@ -26,147 +27,138 @@ export default function ContactForm2() {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
 
-  const [file, setFile] = useState<File | undefined>()
+  const form = useRef<any>("");
+  const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
+  const [checkboxError, setCheckboxError] = useState<string>("");
+  const [messageSent, setMessageSent] = useState<boolean>(false);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // TODO: implement
-    console.log(values);
-    
-    await fetch("/api/send1", {
+    if (!checkboxChecked) {
+      // Set the checkbox error
+      setCheckboxError('You must accept the privacy policy');
+      return;
+    } else {
+      // Clear any existing checkbox error
+      setCheckboxError('');
+    }
+
+    await fetch("/api/send", {
       method: "POST",
       body: JSON.stringify({
         name: values.name,
         emailAddress: values.email,
-        phoneNumber: values.phone,
+        // phoneNumber: values.phone,
         content: values.content,
       }),
     });
-  }
-  
-  function handleOnChange(e: React.FormEvent<HTMLInputElement>) {
-    const target = e.target as HTMLInputElement & {
-      files: FileList;
-    }
 
-    setFile(target.files[0])
+    // Set message sent flag to true
+    setMessageSent(true);
+
+    // Clear form inputs
+    reset();
   }
+
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckboxChecked(e.target.checked);
+    // setFormErrors({}); // Clear checkbox error when checkbox state changes
+    setCheckboxError('');
+  };
 
   return (
-    <section className="bg-gray-100">
-      <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 gap-x-16 gap-y-8 lg:grid-cols-5">
-          <div className="lg:col-span-2 lg:py-12">
-            <p className="max-w-xl text-lg">Want to chat with me?</p>
-
-            <div className="mt-8">
-              <a href="" className="text-2xl font-bold text-pink-600">
-                +1 234 567 8900
-              </a>
-
-              <address className="mt-2 not-italic">123 E Main St</address>
+    <form className={styles.form} ref={form} onSubmit={handleSubmit(onSubmit)}>
+      {!messageSent && (
+        <div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              Name
+            </div>
+            <div className={styles.inputBox}>
+              <input
+                className={styles.input}
+                type="text"
+                id="user_name"
+                {...register("name")}
+              />
+            </div>
+            {errors?.name && (
+              <p className={styles.errorMessage}>
+                {errors.name.message}
+              </p>
+            )}
+          </div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              Email
+            </div>
+            <div className={styles.inputBox}>
+              <input
+                className={styles.input}
+                type="email"
+                id="email"
+                {...register("email")}
+              />
+            </div>
+            {errors?.email && (
+              <p className={styles.errorMessage}>
+                {errors.email.message}
+              </p>
+            )}
+          </div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              Message
+            </div>
+            <div className={styles.messageBox}>
+              <textarea
+                id="contactFormMessage"
+                className={styles.message}
+                name="message"
+                {...register("content")}
+              />
+            </div>
+            {errors?.content && (
+              <div className={styles.errorMessage}>
+                {errors.content.message}
+              </div>
+            )}
+          </div>
+          <div className={styles.checkboxContainer}>
+            <input
+              type="checkbox"
+              checked={checkboxChecked}
+              onChange={handleCheckboxChange}
+            />
+            <div>
+              <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
             </div>
           </div>
-
-          <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-            <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
-              <div>
-                <label className="sr-only" htmlFor="name">
-                  Name
-                </label>
-
-                <input
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Name"
-                  type="text"
-                  id="name"
-                  {...register("name")}
-                />
-
-                {errors?.name && (
-                  <p className="px-1 text-xs text-red-600">
-                    {errors.name.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="sr-only" htmlFor="email">
-                    Email
-                  </label>
-
-                  <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Email address"
-                    type="email"
-                    id="email"
-                    {...register("email")}
-                  />
-
-                  {errors?.email && (
-                    <p className="px-1 text-xs text-red-600">
-                      {errors.email.message}
-                    </p>
-                  )}
-                </div>
-
-                <div>
-                  <label className="sr-only" htmlFor="phone">
-                    Phone
-                  </label>
-
-                  <input
-                    className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                    placeholder="Phone Number"
-                    type="tel"
-                    id="phone"
-                    {...register("phone")}
-                  />
-
-                  {errors?.phone && (
-                    <p className="px-1 text-xs text-red-600">
-                      {errors.phone.message}
-                    </p>
-                  )}
-                </div>
-              </div>
-
-              <div>
-                <label className="sr-only" htmlFor="message">
-                  Message
-                </label>
-
-                <textarea
-                  className="w-full rounded-lg border-gray-200 p-3 text-sm"
-                  placeholder="Message"
-                  rows={8}
-                  id="message"
-                  {...register("content")}
-                />
-
-                {errors?.content && (
-                  <p className="px-1 text-xs text-red-600">
-                    {errors.content.message}
-                  </p>
-                )}
-              </div>
-
-              <div className="mt-4">
-                <button
-                  type="submit"
-                  className="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
-                >
-                  Send Message
-                </button>
-              </div>
-            </form>
+          {checkboxError && (
+              <p className={styles.errorMessage}>
+                {checkboxError}
+              </p>
+            )}
+          <div className={styles.buttonContainer}>
+            <button
+              className={styles.button} type="submit"
+            >
+              Send Message
+            </button>
+          </div>
+      </div>
+      )}
+      {messageSent && (
+        <div className={styles.successMessageContainer}>
+          <div className={styles.successMessage}>
+            Thank you for your message, we will be in contact as soon as possible.
           </div>
         </div>
-      </div>
-    </section>
+      )}
+    </form>
   );
 }

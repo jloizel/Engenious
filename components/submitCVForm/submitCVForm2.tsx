@@ -1,8 +1,9 @@
 'use client';
 
-import React, { FC } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { sendEmail } from '../../src/app/utils/send-email';
+import styles from './page.module.css'
 
 export type FormData = {
   name: string;
@@ -14,12 +15,27 @@ export type FormData = {
   };
 };
 
-const Contact: FC = () => {
+const SubmitCVForm2: FC = () => {
+  const form = useRef<any>("");
   const { register, handleSubmit } = useForm<FormData>();
   const [content, setContent] = React.useState<string | null>(null);
   const [filename, setFilename] = React.useState<string>('');
+  const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
+  const [formErrors, setFormErrors] = useState<Partial<FormData> & { checkbox?: string }>({});
 
   function onSubmit(data: FormData) {
+    const newErrors: Partial<FormData> & { checkbox?: string } = {};
+
+    if (!data.name) newErrors.name = 'Name is required';
+    if (!data.email) newErrors.email = 'Email is required';
+    if (!data.message) newErrors.message = 'Message is required';
+    if (!checkboxChecked) newErrors.checkbox = 'You must accept the privacy policy';
+
+    if (Object.keys(newErrors).length > 0) {
+      setFormErrors(newErrors);
+      return;
+    }
+
     const base64Content = content.split(',')[1];
 
     const formDataWithFile = {
@@ -49,67 +65,79 @@ const Contact: FC = () => {
     }
   };
   
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckboxChecked(e.target.checked);
+    setFormErrors((prevErrors) => ({ ...prevErrors, checkbox: '' })); // Clear checkbox error when checkbox state changes
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className='mb-5'>
-        <label
-          htmlFor='name'
-          className='mb-3 block text-base font-medium text-black'
-        >
-          Full Name
-        </label>
+    <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <div className={styles.inputContainer}>
+        <div className={styles.inputTitle}>
+          Name
+        </div>
         <input
-          type='text'
-          placeholder='Full Name'
-          className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
+          className={styles.inputBox}
+          type="text"
+          name="user_name"
           {...register('name', { required: true })}
         />
       </div>
-      <div className='mb-5'>
-        <label
-          htmlFor='email'
-          className='mb-3 block text-base font-medium text-black'
-        >
-          Email Address
-        </label>
+      {formErrors.name && (<span className={styles.errorMessage}>{formErrors.name}</span>)}
+      <div className={styles.inputContainer}>
+        <div className={styles.inputTitle}>
+          Email Address *
+        </div>
         <input
-          type='email'
-          placeholder='example@domain.com'
-          className='w-full rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
+          className={styles.inputBox}
+          type="text"
+          name="user_email"
           {...register('email', { required: true })}
         />
+        {formErrors.email && (<span className={styles.errorMessage}>{formErrors.email}</span>)}
       </div>
-      <div className='mb-5'>
-        <label
-          htmlFor='message'
-          className='mb-3 block text-base font-medium text-black'
-        >
-          Message
-        </label>
-        <textarea
-          rows={4}
-          placeholder='Type your message'
-          className='w-full resize-none rounded-md border border-gray-300 bg-white py-3 px-6 text-base font-medium text-gray-700 outline-none focus:border-purple-500 focus:shadow-md'
-          {...register('message', { required: true })}
-        ></textarea>
+      <div className={styles.inputContainer}>
+        <div className={styles.inputTitle}>
+          Message *
+        </div>
+        <div className={styles.messageBox}> 
+          <input
+            id="contactFormMessage"
+            className={styles.message}
+            type="text"
+            name="message"
+            {...register('message', { required: true })}
+          />
+        </div>
+        {formErrors.message && (<span className={styles.errorMessage}>{formErrors.message}</span>)}
       </div>
-
-      <input
-        type="file"
-        name="file"
-        onChange={onAddFileAction}
-        accept="application/pdf,application/vnd.ms-excel"
-      />
-
-      <div>
-        <button className='hover:shadow-form rounded-md bg-purple-500 py-3 px-8 text-base font-semibold text-white outline-none'>
-          Submit
-        </button>
+      <div className={styles.inputContainer}>
+        <div className={styles.inputTitle}>
+          File *
+        </div>
+          <input
+            type="file"
+            name="file"
+            onChange={onAddFileAction}
+            accept="application/pdf,application/vnd.ms-excel"
+          />
+        {formErrors.file && (<span className={styles.errorMessage}>{formErrors.file.name}</span>)}
       </div>
+      <div className={styles.checkboxContainer}>
+        <input
+          type="checkbox"
+          checked={checkboxChecked}
+          onChange={handleCheckboxChange}
+        />
+        <div>
+          <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
+        </div>
+      </div>
+      {formErrors.checkbox && (<span className={styles.errorMessage}>{formErrors.checkbox}</span>)}
+      <button className={styles.button} type="submit">Submit</button>
     </form>
   );
 };
 
-export default Contact;
+export default SubmitCVForm2;
 

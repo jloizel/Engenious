@@ -8,12 +8,12 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 const sendRouteSchema = z.object({
   name: z.string().min(2),
   emailAddress: z.string().email(),
-  phoneNumber: z.string().min(2),
+  // phoneNumber: z.string().min(2),
   content: z.string().min(2),
 });
 
 export async function POST(req: NextRequest) {
-  const { name, emailAddress, phoneNumber, content } = await req
+  const { name, emailAddress, content } = await req
     .json()
     .then((body) => sendRouteSchema.parse(body));
 
@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     from: "onboarding@resend.dev",
     to: ["jmloizel@gmail.com"],
     subject: `${name} has a message!`,
-    react: ContactMeEmail({ name, emailAddress, phoneNumber, content }),
+    react: ContactMeEmail({ name, emailAddress, content }),
   });
 
   return NextResponse.json({ data, error: null }, { status: 200 });
