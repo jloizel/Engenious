@@ -40,47 +40,7 @@ const CVUpload = () => {
         <HiMiniArrowLongDown className={styles.arrow} />
       </div>
       <div className={styles.submissionContainer}>
-        {/* {isMobile && (
-          <div className={styles.mobileContainer}>
-            <div className={styles.title}>
-              <span>Thanks for visiting. We&apos;d love to hear from you</span>
-            </div>
-            <div className={styles.text}>
-              If you&apos;d like to get in touch our details are below. Or if you&apos;d rather, put your information in the form below and we&apos;ll get right back to you.
-            </div>
-            <div className={styles.details}>
-              <div>
-                <span style={{fontWeight: "500"}}>Give us a call: </span>
-                <span style={{fontWeight: "500", color: "#008489"}}>+44(0)7748 179242</span>
-              </div>
-              <div>
-                <span style={{fontWeight: "500"}}>Drop us an email: </span>
-                <span style={{fontWeight: "500", color: "#008489"}}>email@engeniousrecruitment.com</span>
-              </div>
-            </div>
-          </div>
-        )} */}
         <div className={styles.topContainer}>
-          {/* {!isMobile && (
-            <div className={styles.textContainer}>
-              <div className={styles.title}>
-                <span>Thanks for visiting. We&apos;d love to hear from you</span>
-              </div>
-              <div className={styles.text}>
-                If you&apos;d like to get in touch our details are below. Or if you&apos;d rather, put your information in the form below and we&apos;ll get right back to you.
-              </div>
-              <div className={styles.details}>
-                <div>
-                  <span style={{fontWeight: "500"}}>Give us a call:</span>
-                  <span style={{fontWeight: "500", color: "#008489"}}> +44(0)7748 179242</span>
-                </div>
-                <div>
-                  <span style={{fontWeight: "500"}}>Drop us an email:</span>
-                  <span style={{fontWeight: "500", color: "#008489"}}> email@engeniousrecruitment.com</span>
-                </div>
-              </div>
-            </div>
-          )} */}
           <div className={styles.submitForm}>
             <SubmitCVForm2 />
           </div>

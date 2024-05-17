@@ -119,7 +119,7 @@ export default function ContactForm2() {
                 id="contactFormMessage"
                 className={styles.message}
                 name="message"
-                {...register("message")}
+                {...register("message", { required: true })}
               />
             </div>
             {errors?.message && (
@@ -150,7 +150,7 @@ export default function ContactForm2() {
               Send Message
             </button>
           </div>
-      </div>
+        </div>
       )}
       {messageSent && (
         <div className={styles.successMessageContainer}>

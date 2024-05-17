@@ -22,6 +22,8 @@ const SubmitCVForm2: FC = () => {
   const [filename, setFilename] = React.useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [formErrors, setFormErrors] = useState<Partial<FormData> & { checkbox?: string }>({});
+  const [messageSent, setMessageSent] = useState<boolean>(false);
+
 
   function onSubmit(data: FormData) {
     const newErrors: Partial<FormData> & { checkbox?: string } = {};
@@ -47,6 +49,9 @@ const SubmitCVForm2: FC = () => {
     };
 
     sendEmail(formDataWithFile);
+
+    setMessageSent(true);
+
   }
   
   const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,69 +77,86 @@ const SubmitCVForm2: FC = () => {
 
   return (
     <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Name
-        </div>
-        <input
-          className={styles.inputBox}
-          type="text"
-          name="user_name"
-          {...register('name', { required: true })}
-        />
-      </div>
-      {formErrors.name && (<span className={styles.errorMessage}>{formErrors.name}</span>)}
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Email Address *
-        </div>
-        <input
-          className={styles.inputBox}
-          type="text"
-          name="user_email"
-          {...register('email', { required: true })}
-        />
-        {formErrors.email && (<span className={styles.errorMessage}>{formErrors.email}</span>)}
-      </div>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Message *
-        </div>
-        <div className={styles.messageBox}> 
-          <input
-            id="contactFormMessage"
-            className={styles.message}
-            type="text"
-            name="message"
-            {...register('message', { required: true })}
-          />
-        </div>
-        {formErrors.message && (<span className={styles.errorMessage}>{formErrors.message}</span>)}
-      </div>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          File *
-        </div>
-          <input
-            type="file"
-            name="file"
-            onChange={onAddFileAction}
-            accept="application/pdf,application/vnd.ms-excel"
-          />
-        {formErrors.file && (<span className={styles.errorMessage}>{formErrors.file.name}</span>)}
-      </div>
-      <div className={styles.checkboxContainer}>
-        <input
-          type="checkbox"
-          checked={checkboxChecked}
-          onChange={handleCheckboxChange}
-        />
+      {!messageSent && (
         <div>
-          <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              Name
+            </div>
+            <div className={styles.inputBox}>
+              <input
+                className={styles.input}
+              type="text"
+              name="user_name"
+              {...register('name', { required: true })}
+            />
+            </div>
+          </div>
+          {formErrors.name && (<span className={styles.errorMessage}>{formErrors.name}</span>)}
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              Email Address *
+            </div>
+            <div className={styles.inputBox}>
+              <input
+                className={styles.input}
+                type="text"
+                name="user_email"
+                {...register('email', { required: true })}
+              />
+            </div>
+            {formErrors.email && (<span className={styles.errorMessage}>{formErrors.email}</span>)}
+          </div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              Message *
+            </div>
+            <div className={styles.messageBox}> 
+              <textarea
+                id="contactFormMessage"
+                className={styles.message}
+                name="message"
+                {...register('message', { required: true })}
+              />
+            </div>
+            {formErrors.message && (<span className={styles.errorMessage}>{formErrors.message}</span>)}
+          </div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              <span>File </span><span style={{fontStyle: "italic"}}>(PDF only)</span><span>*</span>
+            </div>
+            <div className={styles.fileinputBox}>
+              <input
+              className={styles.fileinputButton}
+                type="file"
+                name="file"
+                onChange={onAddFileAction}
+                accept="application/pdf,application/vnd.ms-excel"
+              />
+            </div>
+            {formErrors.file && (<span className={styles.errorMessage}>{formErrors.file.name}</span>)}
+          </div>
+          <div className={styles.checkboxContainer}>
+            <input
+              type="checkbox"
+              checked={checkboxChecked}
+              onChange={handleCheckboxChange}
+            />
+            <div>
+              <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
+            </div>
+          </div>
+          {formErrors.checkbox && (<span className={styles.errorMessage}>{formErrors.checkbox}</span>)}
+          <button className={styles.button} type="submit">Submit</button>
         </div>
-      </div>
-      {formErrors.checkbox && (<span className={styles.errorMessage}>{formErrors.checkbox}</span>)}
-      <button className={styles.button} type="submit">Submit</button>
+      )}
+      {messageSent && (
+        <div className={styles.successMessageContainer}>
+          <div className={styles.successMessage}>
+            Thank you for your message, we will be in contact as soon as possible.
+          </div>
+        </div>
+      )}
     </form>
   );
 };
