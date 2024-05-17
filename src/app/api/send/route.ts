@@ -4,8 +4,8 @@ import * as z from "zod";
 import ContactMeEmail from "../../../../components/Email";
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
-
-const resend = new Resend(process.env.RESEND_API_KEY);
+import { render } from "@react-email/render";
+import { EmailTemplate } from "../../../../components/contactForm/emailTemplate";
 
 const sendRouteSchema = z.object({
   name: z.string().min(2),
@@ -15,7 +15,7 @@ const sendRouteSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const { email, name, message, file } = await request.json();
+  const { email, name, message } = await request.json();
 
   const transport = nodemailer.createTransport({
     service: 'gmail',
@@ -25,13 +25,16 @@ export async function POST(request: NextRequest) {
     },
   });
 
+
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,
     to: process.env.MY_EMAIL,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
-    subject: `Message from ${name} (${email})`,
+    subject: `Message from ${name}`,
     text: message,
+    html: render(EmailTemplate({ name: name, emailAddress: email, message: message }))
   };
+
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {

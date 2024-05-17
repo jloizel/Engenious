@@ -173,3 +173,11 @@ body { min-height: 100vh; }
   position: absolute !important;
   right: calc(50% - 60px) !important;
 }
+
+input:focus {
+  outline:none;
+}
+
+textarea {
+  resize: none;
+}

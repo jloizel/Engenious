@@ -16,7 +16,7 @@ const formSchema = z.object({
   // phone: z.string().min(2, {
   //   message: "Phone number must be at least 2 characters.",
   // }),
-  content: z.string().min(2, {
+  message: z.string().min(2, {
     message: "Content must be at least 2 characters.",
   }),
   // attachment: z.string().min(1, { message: "Please attach a file." }),
@@ -53,7 +53,7 @@ export default function ContactForm2() {
         name: values.name,
         emailAddress: values.email,
         // phoneNumber: values.phone,
-        content: values.content,
+        message: values.message,
       }),
     });
 
@@ -119,12 +119,12 @@ export default function ContactForm2() {
                 id="contactFormMessage"
                 className={styles.message}
                 name="message"
-                {...register("content")}
+                {...register("message")}
               />
             </div>
-            {errors?.content && (
+            {errors?.message && (
               <div className={styles.errorMessage}>
-                {errors.content.message}
+                {errors.message.message}
               </div>
             )}
           </div>
