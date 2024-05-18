@@ -1,6 +1,9 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
+import { render } from "@react-email/render";
+import { EmailTemplate } from '../../../../components/submitCVForm/emailTemplate';
+
 
 export async function POST(request: NextRequest) {
   const { email, name, message, file } = await request.json();
@@ -28,6 +31,7 @@ export async function POST(request: NextRequest) {
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `Message from ${name} (${email})`,
     text: message,
+    html: render(EmailTemplate({ name: name, emailAddress: email, message: message })),
     attachments: file
       ? [
           {

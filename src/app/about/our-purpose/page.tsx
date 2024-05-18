@@ -167,9 +167,11 @@ const OurPurpose = () => {
               <div className={styles.text}>
                 From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
               </div>
-              <button className={styles.button}>
-                Work at Engenious
-              </button>
+              <a href="/jobs/cv-upload" style={{textDecoration: "none"}}>
+                <button className={styles.button}>
+                  Work at Engenious
+                </button>
+              </a>
             </div>
           </div>
         </Box>

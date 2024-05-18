@@ -21,7 +21,7 @@ const formSchema = z.object({
 export type FormData = z.infer<typeof formSchema>;
 
 
-const SubmitCVForm2: FC = () => {
+const SubmitCVForm: FC = () => {
   const form = useRef<any>(null);
   const {
     register,
@@ -183,4 +183,4 @@ const SubmitCVForm2: FC = () => {
   );
 };
 
-export default SubmitCVForm2;
+export default SubmitCVForm;
