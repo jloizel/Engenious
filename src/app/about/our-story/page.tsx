@@ -77,7 +77,7 @@ const OurStory = () => {
   return (
     <div className={styles.storyContainer}>
       <Helmet>
-        <title>Our Work</title>
+        <title>Our Story</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
