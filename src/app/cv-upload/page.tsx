@@ -9,7 +9,6 @@ import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import ContactMap from '../../../components/contactMap/contactMap'
 import SubmitCVForm from '../../../components/submitCVForm/submitCVForm'
-import SubmitCVForm2 from '../../../components/submitCVForm/submitCVForm2'
 
 const CVUpload = () => {
 
@@ -42,7 +41,7 @@ const CVUpload = () => {
       <div className={styles.submissionContainer}>
         <div className={styles.topContainer}>
           <div className={styles.submitForm}>
-            <SubmitCVForm2 />
+            <SubmitCVForm />
           </div>
         </div>
       </div>

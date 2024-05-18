@@ -1,176 +1,186 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
-import styles from './page.module.css'
+'use client';
 
-const SubmitCVForm = () => {
-  const form = useRef<any>("");
-  const [formErrors, setFormErrors] = useState<any>({});
+import React, { FC, useRef, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { sendEmail } from '../../src/app/utils/send-email';
+import styles from './page.module.css';
+
+// Define the schema using zod
+const formSchema = z.object({
+  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Email must be in proper format." }),
+  message: z.string().min(2, { message: "Message must be at least 2 characters." }),
+  file: z.object({
+    name: z.string().nonempty({ message: "File name is required." }),
+    content: z.string().nonempty({ message: "File content is required." }),
+  }),
+});
+
+export type FormData = z.infer<typeof formSchema>;
+
+
+const SubmitCVForm2: FC = () => {
+  const form = useRef<any>(null);
+  const {
+    register,
+    handleSubmit,
+    setError,
+    formState: { errors },
+    setValue,
+    reset,
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema),
+  });
+
+  const [content, setContent] = useState<string | null>(null);
+  const [filename, setFilename] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
+  const [checkboxError, setCheckboxError] = useState<string>('');
+  const [messageSent, setMessageSent] = useState<boolean>(false);
 
-  const sendEmail = (e: any) => {
-    e.preventDefault();
-  
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const emailValue = form.current.user_email.value.trim();
-    const isEmailValid = emailRegex.test(emailValue);
-  
-    // Message validation
-    const messageValue = form.current.message.value.trim();
-  
-    // Checkbox validation
-    const isCheckboxChecked = checkboxChecked;
-  
-    // Check if email is empty or invalid
-    if (!emailValue || !isEmailValid) {
-      setFormErrors({ email: 'Please enter a valid email.' });
+  const onSubmit = (data: FormData) => {
+    let hasError = false;
+
+    if (!checkboxChecked) {
+      setCheckboxError('You must accept the privacy policy');
+      hasError = true;
     } else {
-      setFormErrors((prevErrors: any) => ({ ...prevErrors, email: '' }));
+      setCheckboxError('');
     }
 
-    // Check if attachment is empty or invalid
-    if (!emailValue || !isEmailValid) {
-      setFormErrors({ email: 'Please enter a valid email.' });
-    } else {
-      setFormErrors((prevErrors: any) => ({ ...prevErrors, email: '' }));
-    }
-  
-    // Check if message is empty
-    if (!messageValue) {
-      setFormErrors((prevErrors: any) => ({ ...prevErrors, message: 'Please enter a message.' }));
-    } else {
-      setFormErrors((prevErrors: any) => ({ ...prevErrors, message: '' }));
-    }
-  
-    // Check if checkbox is unchecked
-    if (!isCheckboxChecked) {
-      setFormErrors((prevErrors: any) => ({ ...prevErrors, checkbox: 'Please check the checkbox.' }));
-    } else {
-      setFormErrors((prevErrors: any) => ({ ...prevErrors, checkbox: '' }));
+    if (!content || !filename) {
+      setError('file', { type: 'manual', message: 'File is required.' });
+      hasError = true;
     }
 
-  
-    // If any field has an error, return without sending email
-    if (!emailValue || !isEmailValid || !messageValue || !isCheckboxChecked) {
+    if (hasError) {
       return;
     }
-  
-    // Reset any previous form errors
-    setFormErrors({});
 
-    //  // File attachment
-    //  const fileInput = form.current.fileInput;
-    //  const attachment = fileInput.files[0];
+    const base64Content = content.split(',')[1];
 
-     // Check if a file is attached
-    // if (!attachment) {
-    //   setFormErrors((prevErrors: any) => ({
-    //     ...prevErrors,
-    //     attachment: 'Please attach a file.'
-    //   }));
-    //   return; // Stop form submission if no file is attached
-    // }
-
-    // Reset attachment error if a file is attached
-    setFormErrors((prevErrors: any) => ({ ...prevErrors, attachment: '' }));
- 
-    //  // FormData to append file
-    //  const formData = new FormData(form.current);
-    //  formData.append('attachment', attachment);
-
-    emailjs.sendForm(
-      'GoFetch',
-      'GoFetchTemplate2',
-      form.current,
-      'a-Dwrmb6In4hNJHnw'
-    ).then(
-      (result) => {
-        // Redirect to the "Received" page after successful submission
-        window.location.href = '/received';
+    const formDataWithFile = {
+      ...data,
+      file: {
+        name: filename,
+        content: base64Content,
       },
-      (error) => {
-      }
-    );
+    };
+
+    sendEmail(formDataWithFile);
+    setMessageSent(true);
+    reset();
+  };
+
+  const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+    const files = e.target.files;
+
+    if (files && files[0]) {
+      reader.onload = (r) => {
+        if (r.target && r.target.result) {
+          setContent(r.target.result.toString());
+          setFilename(files[0].name);
+          setValue('file', {
+            name: files[0].name,
+            content: r.target.result.toString(),
+          });
+        }
+      };
+
+      reader.readAsDataURL(files[0]);
+    }
   };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheckboxChecked(e.target.checked);
-    setFormErrors({}); // Clear checkbox error when checkbox state changes
+    setCheckboxError('');
   };
 
   return (
-    <form className={styles.form} ref={form} onSubmit={sendEmail}>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Forename
-        </div>
-        <input
-          className={styles.inputBox}
-          type="text"
-          name="user_forename"
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Surname
-        </div>
-        <input
-          className={styles.inputBox}
-          type="text"
-          name="user_surname"
-        />
-      </div>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Email Address *
-        </div>
-        <input
-          className={styles.inputBox}
-          type="text"
-          name="user_email"
-        />
-        {formErrors.email && (<span className={styles.errorMessage}>{formErrors.email}</span>)}
-      </div>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Message *
-        </div>
-        <div className={styles.messageBox}> 
-          <input 
-            type="file" 
-            name="user_cv"
-          /> 
-        </div>
-        {formErrors.message && (<span className={styles.errorMessage}>{formErrors.message}</span>)}
-      </div>
-      <div className={styles.inputContainer}>
-        <div className={styles.inputTitle}>
-          Message *
-        </div>
-        <div className={styles.messageBox}> 
-          <input
-            id="contactFormMessage"
-            className={styles.message}
-            type="text"
-            name="message"
-          />
-        </div>
-        {formErrors.message && (<span className={styles.errorMessage}>{formErrors.message}</span>)}
-      </div>
-      <div className={styles.checkboxContainer}>
-        <input
-          type="checkbox"
-          checked={checkboxChecked}
-          onChange={handleCheckboxChange}
-        />
+    <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      {!messageSent && (
         <div>
-          <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>Name</div>
+            <div className={styles.inputBox}>
+              <input
+                className={styles.input}
+                type="text"
+                {...register('name')}
+              />
+            </div>
+            {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
+          </div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>Email Address *</div>
+            <div className={styles.inputBox}>
+              <input
+                className={styles.input}
+                type="text"
+                {...register('email')}
+              />
+            </div>
+            {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
+          </div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>Message *</div>
+            <div className={styles.messageBox}>
+              <textarea
+                className={styles.message}
+                {...register('message')}
+              />
+            </div>
+            {errors.message && <p className={styles.errorMessage}>{errors.message.message}</p>}
+          </div>
+          <div className={styles.inputContainer}>
+            <div className={styles.inputTitle}>
+              <span>File*</span>
+            </div>
+            <div className={styles.fileinputBox}>
+              <label htmlFor="fileInput" className={styles.fileinputLabel}>
+                <span className={styles.fileLabel}>PDF format only</span>
+                {filename && <span className={styles.fileName}>{filename}</span>}
+              </label>
+              <input
+                id="fileInput"
+                className={styles.fileinputButton}
+                type="file"
+                onChange={onAddFileAction}
+                accept="application/pdf,application/vnd.ms-excel"
+              />
+            </div>
+            {errors.file && <p className={styles.errorMessage}>{errors.file.message}</p>}
+          </div>
+          <div className={styles.checkboxContainer}>
+            <input
+              type="checkbox"
+              checked={checkboxChecked}
+              onChange={handleCheckboxChange}
+            />
+            <div>
+              <span style={{ fontWeight: "500" }}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span>
+              <span style={{ fontWeight: "500", color: "#008489" }}> Privacy Policy</span>
+              <span style={{ fontWeight: "500" }}>.</span>
+            </div>
+          </div>
+          {checkboxError && <p className={styles.errorMessage}>{checkboxError}</p>}
+          <div className={styles.buttonContainer}>
+            <button className={styles.button} type="submit">Submit</button>
+          </div>
         </div>
-      </div>
-      {formErrors.checkbox && (<span className={styles.errorMessage}>{formErrors.checkbox}</span>)}
-      <button className={styles.button} type="submit">Submit</button>
+      )}
+      {messageSent && (
+        <div className={styles.successMessageContainer}>
+          <div className={styles.successMessage}>
+            Thank you for your message, we will be in contact as soon as possible.
+          </div>
+        </div>
+      )}
     </form>
   );
 };
 
-export default SubmitCVForm;
+export default SubmitCVForm2;
