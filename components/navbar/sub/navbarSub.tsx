@@ -16,9 +16,10 @@ interface NavbarSubProps {
   links: Link[];
   pageName: string
   currentPath: string
+  colour: string
 } 
 
-const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath}) => {
+const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colour}) => {
 
   const theme = createTheme({
     breakpoints: {
@@ -58,13 +59,13 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath}) => 
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
-            <Menu color={"#00617C"}/>
+            <Menu color={colour}/>
           </div>
           <div className={styles.home}>
             <a href="/">
               <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
             </a>
-            <a href="/" className={styles.titleLink}>
+            <a href="/" className={styles.titleLink} style={{color: colour}}>
               <div className={styles.companyNameContainer}>
                 <div className={styles.companyName1}>ENGENIOUS</div>
                 <div className={styles.companyName2}>RECRUITMENT</div>
@@ -72,11 +73,11 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath}) => 
             </a>
             </div>
             <div className={styles.menu2} style={{display: setDisplay2()}}>
-              <Menu color={"#00617C"}/>
+              <Menu color={colour}/>
             </div>
           </div>
         <div className={styles.middle} style={{display: setDisplay()}}>
-          <div className={styles.pageName}>
+          <div className={styles.pageName} style={{color: colour}}>
             {pageName}
           </div>
           <div className={styles.links}>
@@ -85,13 +86,14 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath}) => 
                 key={link.id} 
                 href={link.url} 
                 className={`${styles.link} ${link.url === currentPath ? styles.active : ''}`}
+                style={{color: colour}}
                 >{link.title}
               </a>
             ))}
           </div>
         </div>
         <div className={styles.right}>
-          <SearchIcon className={styles.searchIcon} style={{display: setDisplay()}}/>
+          <SearchIcon className={styles.searchIcon} style={{display: setDisplay(), color: colour}}/>
         </div>
       </div>
     </div>

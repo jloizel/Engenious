@@ -79,7 +79,7 @@ const OurTeam = () => {
         <title>Join</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
+      <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>

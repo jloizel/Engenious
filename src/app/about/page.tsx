@@ -35,8 +35,6 @@ const About = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
-  
-
   const links = [
     {
       id: 1,
@@ -71,7 +69,7 @@ const About = () => {
         <title>About</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
+      <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.aboutContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>

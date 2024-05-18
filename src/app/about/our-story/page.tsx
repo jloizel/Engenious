@@ -80,7 +80,7 @@ const OurStory = () => {
         <title>Our Story</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
+      <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <StorySlider/>
       <Box className={styles.quoteContainer}>
         <div className={styles.textBox}>
