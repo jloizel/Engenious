@@ -11,7 +11,7 @@ const formSchema = z.object({
     message: "Name must be at least 2 characters.",
   }),
   email: z.string().email({
-    message: "Email must be in proper format",
+    message: "Email must be in proper format.",
   }),
   // phone: z.string().min(2, {
   //   message: "Phone number must be at least 2 characters.",
@@ -19,7 +19,6 @@ const formSchema = z.object({
   message: z.string().min(2, {
     message: "Content must be at least 2 characters.",
   }),
-  // attachment: z.string().min(1, { message: "Please attach a file." }),
 });
 
 export default function ContactForm2() {
@@ -135,7 +134,7 @@ export default function ContactForm2() {
               onChange={handleCheckboxChange}
             />
             <div>
-              <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
+              <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489", cursor: "pointer"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
             </div>
           </div>
           {checkboxError && (
