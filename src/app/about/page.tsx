@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css"
 import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
@@ -9,8 +9,14 @@ import { useLocation } from 'react-router-dom';
 
 const About = () => {
   const pageName = "About"
-  // const location = useLocation();
-  const currentPath = location.pathname;
+  
+  const [currentPath, setCurrentPath] = useState('')
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setCurrentPath(window.location.pathname)
+    }
+  }, [])
   
 
   const theme = createTheme({
