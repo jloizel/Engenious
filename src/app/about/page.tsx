@@ -150,9 +150,11 @@ const About = () => {
               <div className={styles.text2}>
                 We put our people first, so our people go further. Why not further your career with us?
               </div>
-              <button className={styles.button}>
-                Work at Engenious
-              </button>
+              <a href="/cv-upload" style={{textDecoration: "none"}}>
+                <button className={styles.button}>
+                  Work at Engenious
+                </button>
+              </a>
             </div>
           </div>
         </Box>
