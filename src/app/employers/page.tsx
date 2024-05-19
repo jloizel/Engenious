@@ -60,7 +60,7 @@ const Employers = () => {
   ]; 
 
   return (
-    <div className={styles.aboutContainer}>
+    <div className={styles.employersContainer}>
       <Helmet>
         <title>Employers</title>
         <meta name='description' content='' />
@@ -77,12 +77,35 @@ const Employers = () => {
               It&apos;s time to find your human edge.
             </div>
             <div className={styles.mainText}>
-              We are a global talent services company, offering the full spectrum of solutions to meet your resourcing needs. Each and every one of our employees shares a belief in the power of helping others realise their goals.
+              Find the right people to help your business thrive - today and in the future. We provide a full range of flexible Talent Services, so whatever your workforce needs are, we are well placed to help. It&apos;s time to pioneer through your people.
             </div>
-          </div>
+            <button className={styles.button}>
+              Hire talent
+            </button>
+          </div>          
         </Box>
         <Box className={styles.servicesContainer}>
+          <div className={styles.servicesTextContainer}>
+            <div className={styles.servicesHeader}>
+              Adaptable. Impactful. Unmatched.
+            </div>
+            <div className={styles.servicesText}>
+              Whether you need to scale up your teams with new talent or seek specialized skills to quickly adapt your business, our comprehensive talent services deliver results. We go the extra mile to find the perfect fit for you.
+            </div>
+          </div>
           { isComputer ? <Services/> : <ServicesSlider/> }
+        </Box>
+        <Box className={styles.stats}>
+          <div className={styles.imageContainer}>
+            <img src="./employers/5.jpg" alt="Image" className={styles.statsImage} />
+            <div className={styles.gradientLine}></div>
+          </div>
+          <div className={styles.statsHeader}>
+            <span>Helping your business </span><span style={{color: "##008489"}}>evolve.</span>
+          </div>
+          <div className={styles.statsText}>
+            
+          </div>
         </Box>
       </Box>
     </div>
