@@ -101,10 +101,14 @@ const Employers = () => {
             <div className={styles.gradientLine}></div>
           </div>
           <div className={styles.statsHeader}>
-            <span>Helping your business </span><span style={{color: "##008489"}}>evolve.</span>
+            <span>Helping your business </span>
+            <span style={{color: "#008489"}}>evolve.</span>
           </div>
           <div className={styles.statsText}>
-            
+            <li>Placements with over <span className={styles.statsText2}>100</span> clients</li>
+            <li>Over <span className={styles.statsText2}>1000</span> candidates</li>
+            <li><span className={styles.statsText2}>10+ </span> years of experience</li>
+
           </div>
         </Box>
       </Box>

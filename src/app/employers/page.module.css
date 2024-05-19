@@ -284,7 +284,38 @@
 
 .statsHeader {
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  color: #00617C;
+  font-weight: 700;
+  color: #002D49;
+  width: 80%;
 
+  @media (max-width: 767px) {
+    font-size: 24px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+}
+
+.statsText {
+  color: #002D49;
+  font-weight: 300;
+  width: 80%;
+
+  @media (max-width: 767px) {
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.statsText2 {
+  color: #008489;
+  font-weight: 700;
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
+}
+
+.statsText li {
+  margin-bottom: 30px; /* Adjust the value to set the desired gap */
 }
