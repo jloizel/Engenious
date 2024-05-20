@@ -9,12 +9,12 @@ import styles from './page2.module.css';
 
 // Define the schema using zod
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Email must be in proper format." }),
-  message: z.string().min(2, { message: "Message must be at least 2 characters." }),
+  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+  email: z.string().email({ message: "Please enter a valid email address" }),
+  message: z.string().min(2, { message: "Message must be at least 2 characters" }),
   file: z.object({
-    name: z.string().nonempty({ message: "File name is required." }),
-    content: z.string().nonempty({ message: "File content is required." }),
+    name: z.string().nonempty({ message: "File name is required" }),
+    content: z.string().nonempty({ message: "File content is required" }),
   }),
 });
 
