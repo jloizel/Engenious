@@ -13,15 +13,15 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Email must be in proper format.",
   }),
-  // phone: z.string().min(2, {
-  //   message: "Phone number must be at least 2 characters.",
-  // }),
-  message: z.string().min(2, {
-    message: "Content must be at least 2 characters.",
+  phone: z.string().min(2, {
+    message: "Phone number must be at least 2 characters.",
+  }),
+  message: z.string().min(10, {
+    message: "Content must be in proper format.",
   }),
 });
 
-export default function ContactForm2() {
+export default function ConsultationForm() {
   const {
     register,
     handleSubmit,
@@ -46,12 +46,12 @@ export default function ContactForm2() {
       setCheckboxError('');
     }
 
-    await fetch("/api/send", {
+    await fetch("/api/send2", {
       method: "POST",
       body: JSON.stringify({
         name: values.name,
         emailAddress: values.email,
-        // phoneNumber: values.phone,
+        phoneNumber: values.phone,
         message: values.message,
       }),
     });

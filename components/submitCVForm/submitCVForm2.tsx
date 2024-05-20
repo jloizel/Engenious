@@ -103,19 +103,20 @@ const SubmitCVForm2: FC = () => {
     <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       {!messageSent && (
         <div>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>Name *</div>
-            <div className={styles.inputBox}>
-              <input
-                className={styles.input}
-                type="text"
-                {...register('name')}
-              />
+          <div className={styles.topContainer}>
+            <div className={styles.inputContainer}>
+              <div className={styles.inputTitle}>Name</div>
+              <div className={styles.inputBox}>
+                <input
+                  className={styles.input}
+                  type="text"
+                  {...register('name')}
+                />
+              </div>
+              {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
             </div>
-            {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
-          </div>
           <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>Email Address *</div>
+            <div className={styles.inputTitle}>Email Address</div>
             <div className={styles.inputBox}>
               <input
                 className={styles.input}
@@ -125,8 +126,9 @@ const SubmitCVForm2: FC = () => {
             </div>
             {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
           </div>
+          </div>
           <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>Message *</div>
+            <div className={styles.inputTitle}>Message</div>
             <div className={styles.messageBox}>
               <textarea
                 className={styles.message}
@@ -137,7 +139,7 @@ const SubmitCVForm2: FC = () => {
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              <span>File*</span>
+              <span>Upload CV</span>
             </div>
             <div className={styles.fileinputBox}>
               <label htmlFor="fileInput" className={styles.fileinputLabel}>
