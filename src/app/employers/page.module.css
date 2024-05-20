@@ -4,12 +4,22 @@
   overflow: hidden;
   width: 100%;
   height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 
 .headerContainer {
   position: relative;
-  margin-top: 60px; /* Adjust based on the height of your navbar */
+
+  @media (max-width: 767px) {
+    margin-top: 60px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 20px;
+  }
 
 }
 
@@ -24,7 +34,8 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    height: 600px;
+    margin-top: -100px;
   }
   
   @media (min-width: 1024px) {
@@ -40,7 +51,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Adjust the opacity and color as needed */
+  background: rgba(0, 0, 0, 0.6); /* Adjust the opacity and color as needed */
   z-index: 1;
 }
 
@@ -85,11 +96,13 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    margin-top: 40px;
+    gap: 20px;
   }
   
   @media (min-width: 1024px) {
-
+    margin-top: 120px;
+    gap: 30px;
   }
 }
 
@@ -104,16 +117,18 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    font-size: 42px;
+    line-height: 45px;
   }
   
   @media (min-width: 1024px) {
-
+    font-size: 45px;
+    line-height: 45px;
   }
 }
 
 .mainText {
-  font-weight: 400;
+  font-weight: 500;
   font-family: "Poppins", sans-serif;
   width: 80%;
 
@@ -123,11 +138,12 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    font-size: 18px;
   }
   
   @media (min-width: 1024px) {
-
+    font-size: 18px;
+    line-height: 26px;
   }
 }
 
@@ -151,18 +167,17 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 16px;
+    font-size: 20px;
     margin-top: 20px;
-    padding: 0 50px;
+    padding: 0 70px;
     margin-bottom: 20px;
   }
   
   @media (min-width: 1024px) {
-    font-size: 20px;
+    font-size: 22px;
     margin-top: 20px;
-    /* padding: 0 60px; */
+    padding: 0 70px;
     margin-bottom: 20px;
-    width: 250px;
   }
 }
 
@@ -186,6 +201,14 @@
 
   @media (max-width: 767px) {
     margin-bottom: 40px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 80px;
   }
 }
 
@@ -212,58 +235,104 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 16px;
-    
+    font-size: 32px;
+    line-height: 32px;
+    margin-top: 80px;
   }
   
   @media (min-width: 1024px) {
-    font-size: 20px;
-    
+    font-size: 35px;
+    line-height: 32px;
+    margin-top: 80px;
   }
 }
 
 .servicesText {
-  width: 80%;
+  
   font-family: "Poppins", sans-serif;
-  font-weight: 400;
-  color: #00617C;
+  font-weight: 300;
+  /* color: #00617C; */
 
   @media (max-width: 767px) {
     font-size: 16px;
     line-height: 25px;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 80%;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 16px;
-    
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 90%;
   }
   
   @media (min-width: 1024px) {
-    font-size: 20px;
-    
+    font-size: 18px;
+    line-height: 25px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 90%;
   }
 }
 
-.stats, .expertise {
+.stats {
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: column;
+  }
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 40px;
+    padding: 0px 40px;
+  }
+}
+
+.statsTextContainer {
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 767px) {
+    width: 80%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+}
+
+.expertise {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
 .expertise {
 
   @media (max-width: 767px) {
-    margin-top: 50px;
+    margin-top: 20px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    margin-top: 20px;
+    margin-top: 40px;
   }
   
   @media (min-width: 1024px) {
-    margin-top: 20px;
+    margin-top: 60px;
   }
 }
 
@@ -274,6 +343,15 @@
 
   @media (max-width: 767px) {
     height: 200px;
+    width: 80%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 800px;
   }
 }
 
@@ -286,15 +364,25 @@
 
 .gradientLine {
   position: absolute;
-  bottom: 0;
   left: 0;
   width: 100%;
   height: 5px; /* Adjust the height as needed */
   background-image: linear-gradient(to right, #002D49, #008489, #09B089, #8CD87A, #F9F871);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
-}
 
+  @media (max-width: 767px) {
+    bottom: 0;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    bottom: 7px;
+  }
+
+  @media (min-width: 1024px) {
+    bottom: 7px;
+  }
+}
 
 .statsHeader {
   font-family: "Poppins", sans-serif;
@@ -304,6 +392,18 @@
 
   @media (max-width: 767px) {
     font-size: 24px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 35px;
     margin-top: 40px;
     line-height: 30px;
   }
@@ -319,6 +419,18 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 22px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 24px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
 }
 
 .statsText2 {
@@ -328,18 +440,33 @@
   @media (max-width: 767px) {
     font-size: 24px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
 }
 
 .statsText li {
-  margin-bottom: 30px; /* Adjust the value to set the desired gap */
   list-style: none; /* Remove default bullets */
   padding: 0;
-}
-
-.statsText li {
   position: relative;
-  padding-left: 20px; /* Adjust to create space for the custom bullet */
-  margin-bottom: 10px; /* Adjust the value to set the desired gap */
+  padding-left: 20px;
+
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 30px;
+  }
 }
 
 .statsText li::before {
@@ -354,14 +481,25 @@
 
 .cardContainer {
   display: flex;
-  width: 100%;
+  
   text-decoration: none;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 767px) {
+    width: 80%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 500px;
+  }
 }
 
 .card {
-  width: 80%;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
   border-radius: 8px;
 
@@ -369,14 +507,22 @@
     height: 360px;
     margin-top: 20px;
     margin-bottom: 80px;
+    width: 100%;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    width: 400px;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    width: 100%;
   }
   
   @media (min-width: 1024px) {
-    
+    width: 100%;
+    height: 400px;
+    margin-top: 20px;
+    margin-bottom: 80px;
   }
 }
 
@@ -385,6 +531,14 @@
   overflow: hidden;
 
   @media (max-width: 767px) {
+    height: 250px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 250px;
+  }
+
+  @media (min-width: 1024px) {
     height: 250px;
   }
 }
@@ -414,6 +568,24 @@
     line-height: 30px;
     margin-bottom: 20px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 26px;
+    margin-top: 60px;
+    line-height: 30px;
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 26px;
+    margin-top: 60px;
+    line-height: 30px;
+    margin-bottom: 60px;
+  }
+}
+
+.cardText:hover {
+  color: #00617C;
 }
 
 .expertiseHeader {
@@ -425,6 +597,18 @@
 
   @media (max-width: 767px) {
     font-size: 24px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 36px;
+    margin-top: 40px;
+    line-height: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 35px;
     margin-top: 40px;
     line-height: 30px;
   }
@@ -441,6 +625,20 @@
     margin-bottom: 20px;
     text-align: center;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+    margin-top: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
 }
 
 .consultation {
@@ -454,6 +652,16 @@
     height: 250px;
     gap: 20px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 300px;
+    gap: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    height: 300px;
+    gap: 30px;
+  }
 }
 
 .consultationHeader {
@@ -462,24 +670,39 @@
   color: white;
   text-align: center;
   display: flex;
-  flex-direction: column;
 
   @media (max-width: 767px) {
     font-size: 24px;
     padding-top: 40px;
     line-height: 30px;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 34px;
+    padding-top: 80px;
+    line-height: 40px;
+    gap: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 40px;
+    /* padding-top: 40px; */
+    line-height: 40px;
+    gap: 10px;
   }
 }
 
 .consultationButton {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: white;
+  color: #09B089;
   display: flex;
   align-items: center;
-  background: none;
+  background: white;
   border: solid 1px white;
   border-radius: 4px;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -487,11 +710,25 @@
     padding: 10px 50px;
     margin-bottom: 40px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 20px;
+    line-height: 30px;
+    padding: 10px 50px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 22px;
+    line-height: 30px;
+    padding: 15px 50px;
+    /* margin-bottom: 40px; */
+  }
 }
 
 .consultationButton:hover {
-  color: #09B089;
-  background: white;
+  color: white;
+  background: none;
 }
 
 .testimonials {

@@ -99,19 +99,21 @@ const Employers = () => {
           { isComputer ? <Services/> : <ServicesSlider/> }
         </Box>
         <Box className={styles.stats}>
-          <div className={styles.imageContainer}>
-            <img src="./employers/5.jpg" alt="Image" className={styles.statsImage} />
-            <div className={styles.gradientLine}></div>
-          </div>
-          <div className={styles.statsHeader}>
-            <span>Helping your business </span>
-            <span style={{color: "#008489"}}>evolve.</span>
-          </div>
-          <div className={styles.statsText}>
-            <li>Placements with over <span className={styles.statsText2}>100</span> clients</li>
-            <li>Over <span className={styles.statsText2}>1000</span> candidates</li>
-            <li><span className={styles.statsText2}>10+ </span> years of experience</li>
-          </div>
+            <div className={styles.imageContainer}>
+              <img src="./employers/5.jpg" alt="Image" className={styles.statsImage} />
+              <div className={styles.gradientLine}></div>
+            </div>
+            <div className={styles.statsTextContainer}>
+              <div className={styles.statsHeader}>
+                <span>Helping your business </span>
+                <span style={{color: "#008489"}}>evolve.</span>
+              </div>
+              <div className={styles.statsText}>
+                <li>Placements with over <span className={styles.statsText2}>100</span> clients</li>
+                <li>Over <span className={styles.statsText2}>1000</span> candidates</li>
+                <li><span className={styles.statsText2}>10+ </span> years of experience</li>
+              </div>
+            </div>
         </Box>
         <Box className={styles.expertise}>
           <div className={styles.expertiseHeader}>
@@ -151,7 +153,7 @@ const Employers = () => {
             </div>
           </div>
           <Testimonials/>
-      </section>
+        </section>
       </Box>
     </div>
   )

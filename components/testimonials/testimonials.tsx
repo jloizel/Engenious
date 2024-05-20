@@ -57,6 +57,7 @@ const Testimonials: React.FC = ({}) => {
         modules={[Navigation]}
         className={styles.swiper}
         style={{marginLeft: "0px"}}
+        speed={800}
       >
         {data.map((testimonial, index) => (
           <SwiperSlide key={testimonial.id} className={styles.swiperSlide}>
