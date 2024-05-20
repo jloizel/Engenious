@@ -143,7 +143,8 @@ const SubmitCVForm2: FC = () => {
             </div>
             <div className={styles.fileinputBox}>
               <label htmlFor="fileInput" className={styles.fileinputLabel}>
-                <span className={styles.fileLabel}>PDF format only</span>
+                <span className={styles.fileLabel}>Allowed file types:</span>
+                <span className={styles.fileLabel} style={{fontStyle: "italic", color: "#008489"}}>pdf, docx, doc</span>
                 {filename && <span className={styles.fileName}>{filename}</span>}
               </label>
               <input
@@ -151,7 +152,7 @@ const SubmitCVForm2: FC = () => {
                 className={styles.fileinputButton}
                 type="file"
                 onChange={onAddFileAction}
-                accept="application/pdf,application/vnd.ms-excel"
+                accept="application/pdf,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </div>
             {errors.file && <p className={styles.errorMessage}>{errors.file.message}</p>}
