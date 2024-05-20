@@ -8,7 +8,7 @@ import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import ContactMap from '../../../../components/contactMap/contactMap'
-import SubmitCVForm from '../../../../components/submitCVForm/submitCVForm'
+import SubmitCVForm from '../../../../components/submitCVForm/submitCVForm2'
 import NavbarSub from '../../../../components/navbar/sub/navbarSub'
 
 const CVUpload = () => {

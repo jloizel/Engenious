@@ -149,7 +149,10 @@
 }
 
 .submitForm {
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 
   @media (max-width: 767px) {
     padding: 30px;
