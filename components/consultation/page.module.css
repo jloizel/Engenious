@@ -1,0 +1,238 @@
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  @media (max-width: 767px) {
+    gap: 20px;
+  } 
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    gap: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 20px;
+  }
+}
+
+.inputContainer {
+  width: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.inputTitle {
+  font-weight: 600;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.inputBox {
+  background-color: white;
+  border: none;
+  width: 100%;
+  outline: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+}
+
+.input {
+  background-color: white;
+  border: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 25px;
+    padding: 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 25px;
+    line-height: 50px;
+    padding: 10px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 25px;
+    line-height: 50px;
+    padding: 10px;
+  }
+}
+
+.messageBox {
+  background-color: white;
+  border: none;
+  width: 100%;
+  display: flex;
+
+  @media (max-width: 767px) {
+    min-height: 200px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    min-height: 250px;
+  }
+  
+  @media (min-width: 1024px) {
+    min-height: 250px;
+  }
+}
+
+.message {
+  height: 100%;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  justify-self: start;
+
+  @media (max-width: 767px) {
+    padding: 10px;
+    font-size: 18px;
+    min-height: 200px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 10px;    
+    font-size: 18px;
+    line-height: 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 10px;    
+    font-size: 18px;
+    line-height: 50px;
+  }
+}
+
+.checkboxContainer {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 767px) {
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    gap: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 1024px) {
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+}
+
+.errorMessage {
+  color: red;
+  text-align: left;
+  width: 100%;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    margin-top: 5px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 5px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 5px;
+  }
+}
+
+.error {
+  color: red;
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.button {
+  background-color: #09B089;
+  color: white;
+  padding: 10px 45px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+.successMessageContainer {
+  width: 100%;
+  text-align: center;
+  
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+}
+
+.successMessage {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+.emailContainer {
+  border: solid 1px black;
+  border-radius: 10px;
+  outline: #002D49;
+}
+
+.line {
+  background: #002D49;
+}
+
+.emailHeader {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+}
+
+.emailText {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.emailInfo {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+}

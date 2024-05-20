@@ -55,7 +55,7 @@ const CVUpload = () => {
         <title>CV upload</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
+      <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <div className={styles.pageHeader}>
         <div className={styles.header}>CV Upload</div>
           <div className={styles.headerText}>If you&apos;d like to send your CV directly to our team, fill out the form below.</div>

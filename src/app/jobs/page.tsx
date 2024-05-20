@@ -56,7 +56,7 @@ const Jobs = () => {
         <title>Jobs</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName} currentPath={currentPath}/>
+      <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.pageHeader}>
         <div className={styles.headerTitle}>
           Find your dream job!

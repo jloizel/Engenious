@@ -7,6 +7,9 @@ import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import Services from '../../../components/services/services';
 import ServicesSlider from '../../../components/services/servicesSlider';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import Testimonials from '../../../components/testimonials/testimonials';
+
 
 const Employers = () => {
   const pageName = "Employers"
@@ -108,9 +111,47 @@ const Employers = () => {
             <li>Placements with over <span className={styles.statsText2}>100</span> clients</li>
             <li>Over <span className={styles.statsText2}>1000</span> candidates</li>
             <li><span className={styles.statsText2}>10+ </span> years of experience</li>
-
           </div>
         </Box>
+        <Box className={styles.expertise}>
+          <div className={styles.expertiseHeader}>
+            <span>Our recruitment </span>
+            <span style={{color: "#008489"}}>expertise.</span>
+          </div>
+          <div className={styles.expertiseText}>
+            Our reputation is built on finding you the right people. Talented people who stand out, who make a real difference. With the right people, your business can realise its ambitions and go further than you ever thought possible.
+          </div>
+          <a href="/employers/expertise" className={styles.cardContainer}>
+            <div className={styles.card}>
+              <div className={styles.cardImageContainer}>
+                <img src="./employers/6.jpg" alt="Image" className={styles.cardImage} />
+              </div>
+              <div className={styles.cardText}>
+                Construction Recruitment
+              </div>
+            </div>
+          </a>
+        </Box>
+        <Box className={styles.consultation}>
+          <div className={styles.consultationHeader}>
+            <span>Not sure where to start?</span>
+            <span>Reach out.</span>
+          </div>
+          <a href="/consultation" style={{textDecoration: "none"}}>
+            <button className={styles.consultationButton}>
+              Arrange free consultation <KeyboardArrowRightIcon/>
+            </button>
+          </a>
+        </Box>
+        <section className={styles.testimonials}>
+          <div className={styles.testimonialsContent}>
+            <div className={styles.testimonialsHeader}>
+              <span style={{color: "#008489"}}>Talented people </span>
+              <span >are at the centre of everything we do.</span>
+            </div>
+          </div>
+          <Testimonials/>
+      </section>
       </Box>
     </div>
   )
