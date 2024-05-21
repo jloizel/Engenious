@@ -93,23 +93,13 @@ export default function ConsultationForm() {
   };
 
   const handleNext = async () => {
-    let valid = false;
-    switch (currentStep) {
-      case 1:
-        valid = await trigger(['name', 'email', 'phone']);
-        break;
-      case 2:
-        // valid = await trigger(['positionType', 'details']);
-        break;
-      case 3:
-        // valid = await trigger(['roleDetails', 'contactInfo']);
-        break;
-      default:
-        valid = true;
-    }
-    if (valid) {
-      setCurrentStep(prev => prev + 1);
-    }
+    // Check if there are errors in the form inputs
+    const isValid = await trigger();
+
+    // If there are errors, prevent navigating to the next step
+    if (!isValid) return;
+
+    setCurrentStep(prev => prev + 1);
   };
 
   const handleBack = () => {
@@ -131,6 +121,21 @@ export default function ConsultationForm() {
     }
   };
 
+  const handleStepNumber2 = () => {
+    if (currentStep === 2) {
+      return styles.stepNumberActive;
+    } else if (currentStep > 2) {
+      return styles.stepNumberCompleted;
+    } else {
+      return styles.stepNumber;
+    }
+  };
+
+  const getInputClassName = (inputName: keyof FormData) => {
+    // Check if there is an error for the input
+    return errors[inputName] ? styles.inputError : '';
+  };
+
   return (
     <div className={styles.formContainer}>
       <div className={styles.steps}>
@@ -144,12 +149,12 @@ export default function ConsultationForm() {
           </div>
         </div>
         <div className={styles.stepContainer}>
-          <div className={ currentStep === 2 ? styles.stepNumberActive : styles.stepNumber} >
+          <div className={handleStepNumber2()} >
             2
           </div>
           <div className={`${styles.stepConnector} ${currentStep > 2 ? styles.completed : ''}`}></div>
           <div className={ currentStep === 2 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(2)}>
-          Role details
+            Role details
           </div>
         </div>
         <div className={styles.stepContainer}>
@@ -157,19 +162,19 @@ export default function ConsultationForm() {
             3
           </div>
           <div className={ currentStep === 3 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(3)}>
-          Contacting you
+            Contacting you
           </div>
         </div>
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         {currentStep === 1 && (
-          <Step1 data={formData} handleChange={handleChange} />
+          <Step1 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName}/>
         )}
         {currentStep === 2 && (
-          <Step2 data={formData} handleChange={handleChange} />
+          <Step2 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName}/>
         )}
         {currentStep === 3 && (
-          <Step3 data={formData} handleChange={handleChange} />
+          <Step3 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName}/>
         )}
         <div className={styles.navigation}>
           {currentStep > 1 && (

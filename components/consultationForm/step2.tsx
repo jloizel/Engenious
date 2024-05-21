@@ -1,15 +1,25 @@
 import React from 'react';
-import styles from './step.module.css';
 
-const Step2 = ({ data, handleChange }) => (
-  <div className={styles.stepContainer}>
-    <div className={styles.inputContainer}>
-      <label>Role details</label>
-      <textarea
-        name="roleDetails"
-        value={data.roleDetails}
+const Step2 = ({ data, handleChange, register, errors, getInputClassName }) => (
+  <div>
+    <div>
+      <input
+        type="text"
+        placeholder="Position Type"
+        {...register('positionType')}
+        value={data.positionType}
         onChange={handleChange}
       />
+      {errors.positionType && <p>{errors.positionType.message}</p>}
+    </div>
+    <div>
+      <textarea
+        placeholder="Details"
+        {...register('details')}
+        value={data.details}
+        onChange={handleChange}
+      />
+      {errors.details && <p>{errors.details.message}</p>}
     </div>
   </div>
 );
