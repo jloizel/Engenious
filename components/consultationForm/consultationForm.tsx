@@ -5,6 +5,9 @@ import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import styles from './page.module.css'
+import Step1 from "./step1";
+import Step2 from "./step2";
+import Step3 from "./step3";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -21,14 +24,38 @@ const formSchema = z.object({
   }),
 });
 
+interface FormData {
+  name: string;
+  email: string;
+  phone: string;
+  message: string;
+  positionType: string;
+  details: string;
+  roleDetails: string;
+  contactInfo: string;
+}
+
 export default function ConsultationForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
+    trigger,
   } = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+  });
+
+  const [currentStep, setCurrentStep] = useState(1);
+  const [formData, setFormData] = useState<FormData>({
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    positionType: '',
+    details: '',
+    roleDetails: '',
+    contactInfo: '',
   });
 
   const form = useRef<any>("");
@@ -56,108 +83,112 @@ export default function ConsultationForm() {
       }),
     });
 
-    // Set message sent flag to true
     setMessageSent(true);
-
-    // Clear form inputs
     reset();
   }
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheckboxChecked(e.target.checked);
-    // setFormErrors({}); // Clear checkbox error when checkbox state changes
     setCheckboxError('');
   };
 
+  const handleNext = async () => {
+    let valid = false;
+    switch (currentStep) {
+      case 1:
+        valid = await trigger(['name', 'email', 'phone']);
+        break;
+      case 2:
+        // valid = await trigger(['positionType', 'details']);
+        break;
+      case 3:
+        // valid = await trigger(['roleDetails', 'contactInfo']);
+        break;
+      default:
+        valid = true;
+    }
+    if (valid) {
+      setCurrentStep(prev => prev + 1);
+    }
+  };
+
+  const handleBack = () => {
+    setCurrentStep(prev => prev - 1);
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleStepNumber1 = () => {
+    if (currentStep === 1) {
+      return styles.stepNumberActive;
+    } else if (currentStep > 1) {
+      return styles.stepNumberCompleted;
+    } else {
+      return styles.stepNumber;
+    }
+  };
+
   return (
-    <form className={styles.form} ref={form} onSubmit={handleSubmit(onSubmit)}>
-      {!messageSent && (
-        <div>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>
-              Name
-            </div>
-            <div className={styles.inputBox}>
-              <input
-                className={styles.input}
-                type="text"
-                id="user_name"
-                {...register("name")}
-              />
-            </div>
-            {errors?.name && (
-              <p className={styles.errorMessage}>
-                {errors.name.message}
-              </p>
-            )}
+    <div className={styles.formContainer}>
+      <div className={styles.steps}>
+        <div className={styles.stepContainer}>
+          <div className={handleStepNumber1()} >
+            1
           </div>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>
-              Email
-            </div>
-            <div className={styles.inputBox}>
-              <input
-                className={styles.input}
-                type="email"
-                id="email"
-                {...register("email")}
-              />
-            </div>
-            {errors?.email && (
-              <p className={styles.errorMessage}>
-                {errors.email.message}
-              </p>
-            )}
+          <div className={`${styles.stepConnector} ${currentStep > 1 ? styles.completed : ''}`}></div>
+          <div className={ currentStep === 1 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(1)}>
+            Type of hire
           </div>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>
-              Message
-            </div>
-            <div className={styles.messageBox}>
-              <textarea
-                id="contactFormMessage"
-                className={styles.message}
-                name="message"
-                {...register("message", { required: true })}
-              />
-            </div>
-            {errors?.message && (
-              <div className={styles.errorMessage}>
-                {errors.message.message}
-              </div>
-            )}
+        </div>
+        <div className={styles.stepContainer}>
+          <div className={ currentStep === 2 ? styles.stepNumberActive : styles.stepNumber} >
+            2
           </div>
-          <div className={styles.checkboxContainer}>
-            <input
-              type="checkbox"
-              checked={checkboxChecked}
-              onChange={handleCheckboxChange}
-            />
-            <div>
-              <span style={{fontWeight: "500"}}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{fontWeight: "500", color: "#008489", cursor: "pointer"}}> Privacy Policy</span><span style={{fontWeight: "500"}}>.</span>
-            </div>
+          <div className={`${styles.stepConnector} ${currentStep > 2 ? styles.completed : ''}`}></div>
+          <div className={ currentStep === 2 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(2)}>
+          Role details
           </div>
-          {checkboxError && (
-              <p className={styles.errorMessage}>
-                {checkboxError}
-              </p>
-            )}
-          <div className={styles.buttonContainer}>
-            <button
-              className={styles.button} type="submit"
-            >
-              Send Message
+        </div>
+        <div className={styles.stepContainer}>
+          <div className={ currentStep === 3 ? styles.stepNumberActive : styles.stepNumber} >
+            3
+          </div>
+          <div className={ currentStep === 3 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(3)}>
+          Contacting you
+          </div>
+        </div>
+      </div>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        {currentStep === 1 && (
+          <Step1 data={formData} handleChange={handleChange} />
+        )}
+        {currentStep === 2 && (
+          <Step2 data={formData} handleChange={handleChange} />
+        )}
+        {currentStep === 3 && (
+          <Step3 data={formData} handleChange={handleChange} />
+        )}
+        <div className={styles.navigation}>
+          {currentStep > 1 && (
+            <button type="button" onClick={handleBack}>
+              Back
             </button>
-          </div>
+          )}
+          {currentStep < 3 && (
+            <button type="button" onClick={handleNext}>
+              Next
+            </button>
+          )}
+          {currentStep === 3 && (
+            <button type="submit">
+              Submit
+            </button>
+          )}
         </div>
-      )}
-      {messageSent && (
-        <div className={styles.successMessageContainer}>
-          <div className={styles.successMessage}>
-            Thank you for your message, we will be in contact as soon as possible.
-          </div>
-        </div>
-      )}
-    </form>
+      </form>
+    </div>
   );
-}
+};
