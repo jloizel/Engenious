@@ -4,7 +4,7 @@ import React, { FC, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { sendEmail } from '../../src/app/utils/send-email';
+import { sendCV } from '../../src/app/utils/sendCV';
 import styles from './page2.module.css';
 
 // Define the schema using zod
@@ -69,7 +69,7 @@ const SubmitCVForm2: FC = () => {
       },
     };
 
-    sendEmail(formDataWithFile);
+    sendCV(formDataWithFile);
     setMessageSent(true);
     reset();
   };

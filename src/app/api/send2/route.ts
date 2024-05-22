@@ -1,20 +1,12 @@
-import { NextRequest, NextResponse } from "next/server";
-import { Resend } from "resend";
-import * as z from "zod";
+import { type NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 import { render } from "@react-email/render";
-import { EmailTemplate } from "../../../../components/contactForm/emailTemplate";
+import { EmailTemplate } from '../../../../components/submitCVForm/emailTemplate';
 
-const sendRouteSchema = z.object({
-  name: z.string().min(2),
-  emailAddress: z.string().email(),
-  phoneNumber: z.string().min(2),
-  content: z.string().min(2),
-});
 
 export async function POST(request: NextRequest) {
-  const { email, name, message, phoneNumber } = await request.json();
+  const { company, job, file = null, message, name, email, phoneNumber,  } = await request.json();
 
   const transport = nodemailer.createTransport({
     service: 'gmail',
@@ -24,22 +16,28 @@ export async function POST(request: NextRequest) {
     },
   });
 
-
   const mailOptions: Mail.Options = {
     from: process.env.MY_EMAIL,
     to: process.env.MY_EMAIL,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
-    subject: `Message from ${name}`,
-    text: message,
-    html: render(EmailTemplate({ name: name, emailAddress: email, message: message }))
+    subject: `Message from ${name} from (${company})`,
+    text: `${message}`,
+    html: render(EmailTemplate({ name: name, emailAddress: email, message: message })),
+    attachments: file
+      ? [
+          {
+            filename: file.name,
+            content: Buffer.from(file.content, 'base64'),
+          },
+        ]
+      : [],
   };
-
 
   const sendMailPromise = () =>
     new Promise<string>((resolve, reject) => {
       transport.sendMail(mailOptions, function (err) {
         if (!err) {
-          resolve('Email sent');
+          // resolve('Email sent');
         } else {
           reject(err.message);
         }

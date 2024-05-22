@@ -1,7 +1,7 @@
 import { FormData } from '../../../components/submitCVForm/submitCVForm';
 
-export function sendEmail(data: FormData) {
-  const apiEndpoint = '/api/email';
+export function sendVacancy(data: FormData) {
+  const apiEndpoint = '/api/send2';
 
   fetch(apiEndpoint, {
     method: 'POST',

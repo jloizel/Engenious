@@ -4,87 +4,114 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { sendVacancy } from '../../src/app/utils/sendVacancy';
 import styles from './page.module.css'
 import Step1 from "./step1";
 import Step2 from "./step2";
 
 const formSchema = z.object({
+  company: z.string().min(2, {
+    message: "This field cannot be left blank.",
+  }),
+  job: z.string().min(2, {
+    message: "This field cannot be left blank.",
+  }),
+  message: z.string().optional(),
   name: z.string().min(2, {
     message: "This field cannot be left blank.",
   }),
   email: z.string().email({
     message: "Email must be in proper format.",
   }),
-  phone: z.string().min(2, {
-    message: "Phone number must be at least 2 characters.",
+  phoneNumber: z.string().min(2, {
+    message: "Phone number must be in proper format.",
   }),
-  message: z.string().min(10, {
-    message: "Content must be in proper format.",
-  }),
+  file: z.object({
+    name: z.string().optional(),
+    content: z.string().optional(),
+  }).optional()
 });
 
-interface FormData {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  positionType: string;
-  details: string;
-  roleDetails: string;
-  contactInfo: string;
-}
+export type FormData = z.infer<typeof formSchema>;
 
 export default function ConsultationForm() {
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
+    setValue,
     reset,
     trigger,
-  } = useForm<z.infer<typeof formSchema>>({
+  } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
 
   const [currentStep, setCurrentStep] = useState(1);
   const [formData, setFormData] = useState<FormData>({
+    company: '',
+    job: '',
+    message: '',
     name: '',
     email: '',
-    phone: '',
-    message: '',
-    positionType: '',
-    details: '',
-    roleDetails: '',
-    contactInfo: '',
+    phoneNumber: '',
+    file: { name: '', content: '' }
   });
 
-  const form = useRef<any>("");
+  const [content, setContent] = useState<string | null>(null);
+  const [filename, setFilename] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
-  const [checkboxError, setCheckboxError] = useState<string>("");
+  const [checkboxError, setCheckboxError] = useState<string>('');
   const [messageSent, setMessageSent] = useState<boolean>(false);
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = (data: FormData) => {
+    let hasError = false;
+
     if (!checkboxChecked) {
-      // Set the checkbox error
       setCheckboxError('You must accept the privacy policy');
-      return;
+      hasError = true;
     } else {
-      // Clear any existing checkbox error
       setCheckboxError('');
     }
 
-    await fetch("/api/send2", {
-      method: "POST",
-      body: JSON.stringify({
-        name: values.name,
-        emailAddress: values.email,
-        phoneNumber: values.phone,
-        message: values.message,
-      }),
-    });
+    if (hasError) {
+      return;
+    }
 
+    const base64Content = content.split(',')[1];
+
+    const formDataWithFile = {
+      ...data,
+      file: {
+        name: filename,
+        content: base64Content,
+      },
+    };
+
+    sendVacancy(formDataWithFile);
     setMessageSent(true);
     reset();
-  }
+  };
+
+  const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const reader = new FileReader();
+    const files = e.target.files;
+
+    if (files && files[0]) {
+      reader.onload = (r) => {
+        if (r.target && r.target.result) {
+          setContent(r.target.result.toString());
+          setFilename(files[0].name);
+          setValue('file', {
+            name: files[0].name,
+            content: r.target.result.toString(),
+          });
+        }
+      };
+
+      reader.readAsDataURL(files[0]);
+    }
+  };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheckboxChecked(e.target.checked);
@@ -92,12 +119,25 @@ export default function ConsultationForm() {
   };
 
   const handleNext = async () => {
-    // Check if there are errors in the form inputs
-    const isValid = await trigger();
-
-    // If there are errors, prevent navigating to the next step
-    if (!isValid) return;
-
+    // If current step is 1, check if there are errors in step 1
+    if (currentStep === 1) {
+      // Check if there are errors in step 1
+      const isStep1Valid = await trigger();
+  
+      // If there are errors in step 1, prevent navigating to step 2
+      if (!isStep1Valid) return;
+    }
+  
+    // If current step is 2, check if there are errors in step 2
+    if (currentStep === 2) {
+      // Check if there are errors in step 2
+      const isStep2Valid = await trigger();
+  
+      // If there are errors in step 2, prevent navigating to the next step
+      if (!isStep2Valid) return;
+    }
+  
+    // If there are no errors, proceed to the next step
     setCurrentStep(prev => prev + 1);
   };
 
@@ -148,31 +188,31 @@ export default function ConsultationForm() {
   return (
     <div className={styles.formContainer}>
       <div className={styles.steps}>
-        <div className={styles.stepContainer}>
-          <div className={handleStepNumber1()} >
+        <div className={styles.stepContainer} >
+          <div className={handleStepNumber1()} onClick={() => handleNext()}>
             1
           </div>
           <div className={`${styles.stepConnector} ${currentStep > 1 ? styles.completed : ''}`}></div>
-          <div className={handleStepText1()} onClick={() => setCurrentStep(1)}>
-          Role details
+          <div className={handleStepText1()} onClick={() => handleNext()}>
+            Role details
           </div>
         </div>
-        <div className={styles.stepContainer}>
-          <div className={handleStepNumber2()} >
+        <div className={styles.stepContainer} >
+          <div className={handleStepNumber2()} onClick={() => handleNext()}>
             2
           </div>
           <div className={`${styles.stepConnector} ${currentStep > 1 ? styles.completed : ''}`}></div>
-          <div className={ currentStep === 2 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(2)}>
+          <div className={ currentStep === 2 ? styles.stepTextActive : styles.stepText} onClick={() => handleNext()}>
             Contacting you
           </div>
         </div>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className={styles.form2}>
         {currentStep === 1 && (
-          <Step1 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName}/>
+          <Step1 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName} onAddFileAction={onAddFileAction}/>
         )}
         {currentStep === 2 && (
-          <Step2 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName}/>
+          <Step2 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName} checkboxError={checkboxError}/>
         )}
         <div className={styles.navigation}>
           {currentStep < 2 && (
@@ -184,7 +224,7 @@ export default function ConsultationForm() {
           )}
           {currentStep > 1 && (
             <div className={styles.buttonContainer}>
-              <button type="button" onClick={handleBack} className={styles.button}>
+              <button type="submit" className={styles.button}>
                 Send
               </button>
             </div>

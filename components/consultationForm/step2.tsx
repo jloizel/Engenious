@@ -4,30 +4,37 @@ import { FieldErrors } from 'react-hook-form';
 
 interface Step2Props {
   data: {
-    name: string;
-    email: string;
-    phone: string;
-    positionType: string;
-    details: string;
-    roleDetails: string;
-    contactInfo: string;
+    company?: string;
+    job?: string;
+    name?: string;
+    email?: string;
+    phoneNumber?: string;
+    file?: ({
+      name?: string,
+      content?: string,
+    })
   };
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   register: any;
   errors: FieldErrors<{
-    name: string;
-    email: string;
-    phone: string;
-    message: string;
+    company?: string;
+    job?: string;
+    name?: string;
+    email?: string;
+    phoneNumber?: string;
+    file?: {
+        name?: string;
+        content?: string;
+    };
   }>;
   getInputClassName: (name: string) => string;
+  checkboxError: string
 }
 
-const Step2: React.FC<Step2Props> = ({ data, handleChange, register, errors, getInputClassName }) => {
+const Step2: React.FC<Step2Props> = ({ data, handleChange, register, errors, getInputClassName, checkboxError }) => {
   const [content, setContent] = useState<string | null>(null);
   const [filename, setFilename] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
-  const [checkboxError, setCheckboxError] = useState<string>('');
 
   const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
     const reader = new FileReader();
@@ -51,13 +58,12 @@ const Step2: React.FC<Step2Props> = ({ data, handleChange, register, errors, get
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheckboxChecked(e.target.checked);
-    setCheckboxError('');
   };
 
   return (
     <div className={styles.step}>
       <div className={styles.inputContainer}>
-        <div className={styles.label}>Full Name</div>
+        <div className={styles.label}>Full Name *</div>
         <input
           type="text"
           {...register('name')}
@@ -65,65 +71,43 @@ const Step2: React.FC<Step2Props> = ({ data, handleChange, register, errors, get
           onChange={handleChange}
           className={getInputClassName('name')}
         />
-        {errors.name && <p>{errors.name.message}</p>}
+        {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
       </div>
       <div className={styles.inputContainer}>
-        <div className={styles.label}>Work Email Address</div>
+        <div className={styles.label}>Work Email Address *</div>
         <input
           type="text"
-          {...register('positionType')}
-          value={data.positionType}
-          onChange={handleChange}
-          className={getInputClassName('positionType')}
-        />
-        {/* {errors.positionType && <p>{errors.positionType.message}</p>} */}
-      </div>
-      <div className={styles.inputContainer}>
-        <div className={styles.label}>Phone Number</div>
-        <input
-          type="text"
-          {...register('positionType')}
-          value={data.positionType}
-          onChange={handleChange}
-          className={getInputClassName('positionType')}
-        />
-        {/* {errors.positionType && <p>{errors.positionType.message}</p>} */}
-      </div>
-      <div className={styles.checkboxContainer}>
-            <input
-              type="checkbox"
-              checked={checkboxChecked}
-              onChange={handleCheckboxChange}
-            />
-            <div>
-              <span style={{ fontWeight: "500" }}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span>
-              <span style={{ fontWeight: "500", color: "#008489" }}> Privacy Policy</span>
-              <span style={{ fontWeight: "500" }}>.</span>
-            </div>
-          </div>
-          {checkboxError && <p className={styles.errorMessage}>{checkboxError}</p>}
-      {/* <div>
-        <input
-          type="text"
-          placeholder="Email"
           {...register('email')}
           value={data.email}
           onChange={handleChange}
           className={getInputClassName('email')}
         />
-        {errors.email && <p>{errors.email.message}</p>}
+        {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
       </div>
-      <div>
+      <div className={styles.inputContainer}>
+        <div className={styles.label}>Phone Number *</div>
         <input
           type="text"
-          placeholder="Phone"
-          {...register('phone')}
-          value={data.phone}
+          {...register('phoneNumber')}
+          value={data.phoneNumber}
           onChange={handleChange}
-          className={getInputClassName('phone')}
+          className={getInputClassName('phoneNumber')}
         />
-        {errors.phone && <p>{errors.phone.message}</p>}
-      </div> */}
+        {errors.phoneNumber && <p className={styles.errorMessage}>{errors.phoneNumber.message}</p>}
+      </div>
+      <div className={styles.checkboxContainer}>
+        <input
+          type="checkbox"
+          checked={checkboxChecked}
+          onChange={handleCheckboxChange}
+        />
+        <div>
+          <span style={{ fontWeight: "500" }}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span>
+          <span style={{ fontWeight: "500", color: "#008489" }}> Privacy Policy</span>
+          <span style={{ fontWeight: "500" }}>.</span>
+        </div>
+      </div>
+      {<p className={styles.errorMessage}>{checkboxError}</p>}
     </div>
   );
 };

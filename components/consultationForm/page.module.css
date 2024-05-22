@@ -129,6 +129,18 @@
     margin-top: 40px;
     margin-bottom: 40px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 600px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 700px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
 }
 
 .steps {
@@ -136,6 +148,14 @@
   justify-content: space-between;
   margin-bottom: 20px;
   position: relative;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-top: 10px;
+  }
 }
 
 .stepContainer {
@@ -145,9 +165,8 @@
   position: relative;
   flex: 1;
   text-align: center;
+  gap: 5px;
 }
-
-
 
 .stepNumber {
   font-weight: 700;
@@ -157,11 +176,26 @@
   text-align: center;
   z-index: 1;
   background-color: white;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 12px;
     height: 22px;
     width: 22px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
+    height: 26px;
+    width: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 16px;
+    height: 26px;
+    width: 26px;
   }
 }
 
@@ -173,11 +207,24 @@
   text-align: center;
   z-index: 1;
   background-color: white;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 12px;
     height: 22px;
     width: 22px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
+    height: 26px;
+    width: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 16px;
+    height: 26px;
+    width: 26px;
   }
 }
 
@@ -189,29 +236,60 @@
   border-radius: 50%;
   text-align: center;
   z-index: 1;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 12px;
     height: 22px;
     width: 22px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px;
+    height: 26px;
+    width: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 16px;
+    height: 26px;
+    width: 26px;
+  }
 }
 
 .stepText {
   color: grey;
   font-weight: 400;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 12px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 16px;
   }
 }
 
 .stepTextActive {
   color: #002D49;
   font-weight: 500;
+  cursor: pointer;
 
   @media (max-width: 767px) {
     font-size: 12px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 16px;
   }
 }
 
@@ -224,13 +302,32 @@
   height: 100px;
 }
 
-.navigation {
+.form2 {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
 }
 
+.navigation {
+  display: flex;
+  width: 100%;
 
+  @media (max-width: 767px) {
+    flex-direction: column;
+    margin-bottom: 20px;
+    gap: 5px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: row;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+}
 
 .button:disabled {
   background-color: #ccc;
@@ -249,6 +346,14 @@
   @media (max-width: 767px) {
     top: 12px;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    top: 14px;
+  }
+
+  @media (min-width: 1024px) {
+    top: 14px;
+  }
 }
 
 .stepConnector.completed {
@@ -260,14 +365,15 @@
 }
 
 .stepContainer:last-child .stepConnector {
-  width: 50%;
+  width: 0%;
   left: 0;
 }
 
-.inputError {
+/* .inputError {
   color: red;
-  background-color: #e6007e;
-}
+  border: 2px solid #ED553D !important;
+  background-color: #fdf2f0 !important;
+} */
 
 .buttonContainer {
   width: 100%;
@@ -275,10 +381,22 @@
   align-items: center;
   justify-content: center;
   align-content: center;
+
+  @media (max-width: 767px) {
+    margin-top: 10px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 40px;
+  }
 }
 
 .button, .button2 {
-  width: 90%;
+
   border: none;
   font-weight: 700;
   cursor: pointer;
@@ -287,21 +405,22 @@
 
   @media (max-width: 767px) {
     font-size: 16px;
-    /* margin-bottom: 20px; */
-    /* margin-top: 20px; */
     padding: 10px 20px;
+    width: 90%;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 10px 15px;
+    margin-top: 10px;
+    width: 80%;
   }
 
   @media (min-width: 1024px) {
     font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding: 10px 0px;
+    margin-top: 10px;
+    width: 80%;
   }
 }
 
