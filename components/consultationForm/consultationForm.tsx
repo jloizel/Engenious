@@ -43,6 +43,7 @@ export default function ConsultationForm() {
     setValue,
     reset,
     trigger,
+    clearErrors
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -118,28 +119,47 @@ export default function ConsultationForm() {
     setCheckboxError('');
   };
 
+  // const handleNext = async () => {
+  //   // If current step is 1, check if there are errors in step 1
+  //   if (currentStep === 1) {
+  //     // Check if there are errors in step 1
+  //     const isStep1Valid = await trigger();
+  
+  //     // If there are errors in step 1, prevent navigating to step 2
+  //     if (!isStep1Valid) return;
+  //   }
+  
+  //   // If current step is 2, check if there are errors in step 2
+  //   if (currentStep === 2) {
+  //     // Check if there are errors in step 2
+  //     const isStep2Valid = await trigger();
+  
+  //     // If there are errors in step 2, prevent navigating to the next step
+  //     if (!isStep2Valid) return;
+  //   }
+  
+  //   // If there are no errors, proceed to the next step
+  //   setCurrentStep(prev => prev + 1);
+  // };
+
   const handleNext = async () => {
-    // If current step is 1, check if there are errors in step 1
     if (currentStep === 1) {
-      // Check if there are errors in step 1
-      const isStep1Valid = await trigger();
-  
-      // If there are errors in step 1, prevent navigating to step 2
-      if (!isStep1Valid) return;
-    }
-  
-    // If current step is 2, check if there are errors in step 2
-    if (currentStep === 2) {
-      // Check if there are errors in step 2
+      // Trigger validation for step 1 fields only
+      const isStep1Valid = await trigger(['company', 'job']);
+      if (isStep1Valid) {
+        clearErrors(); // Clear all errors before moving to the next step
+        setCurrentStep(2);
+      }
+    } else if (currentStep === 2) {
+      // Trigger validation for step 2 fields only
       const isStep2Valid = await trigger();
-  
-      // If there are errors in step 2, prevent navigating to the next step
-      if (!isStep2Valid) return;
+      if (isStep2Valid) {
+        setCurrentStep(3); // Move to next step or handle submit if final step
+      }
     }
-  
-    // If there are no errors, proceed to the next step
-    setCurrentStep(prev => prev + 1);
   };
+
+  console.log(Object.keys(errors))
 
   const handleBack = () => {
     setCurrentStep(prev => prev - 1);
@@ -209,7 +229,7 @@ export default function ConsultationForm() {
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className={styles.form2}>
         {currentStep === 1 && (
-          <Step1 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName} onAddFileAction={onAddFileAction}/>
+          <Step1 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName} onAddFileAction={onAddFileAction} setValue={setValue}/>
         )}
         {currentStep === 2 && (
           <Step2 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName} checkboxError={checkboxError}/>

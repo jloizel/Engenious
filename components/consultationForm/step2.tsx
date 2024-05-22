@@ -31,33 +31,15 @@ interface Step2Props {
   checkboxError: string
 }
 
-const Step2: React.FC<Step2Props> = ({ data, handleChange, register, errors, getInputClassName, checkboxError }) => {
+const Step2: React.FC<Step2Props> = ({ data, handleChange, register, errors, getInputClassName }) => {
   const [content, setContent] = useState<string | null>(null);
   const [filename, setFilename] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
-
-  const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const reader = new FileReader();
-    const files = e.target.files;
-
-    if (files && files[0]) {
-      reader.onload = (r) => {
-        if (r.target && r.target.result) {
-          setContent(r.target.result.toString());
-          setFilename(files[0].name);
-          // setValue('file', {
-          //   name: files[0].name,
-          //   content: r.target.result.toString(),
-          // });
-        }
-      };
-
-      reader.readAsDataURL(files[0]);
-    }
-  };
+  const [checkboxError, setCheckboxError] = useState<string>('');
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheckboxChecked(e.target.checked);
+    setCheckboxError('');
   };
 
   return (

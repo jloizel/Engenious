@@ -1,4 +1,4 @@
-import { FormData } from '../../../components/submitCVForm/submitCVForm';
+import { FormData } from '../../../components/consultationForm/consultationForm';
 
 export function sendVacancy(data: FormData) {
   const apiEndpoint = '/api/send2';
