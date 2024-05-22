@@ -7,11 +7,10 @@ import * as z from "zod";
 import styles from './page.module.css'
 import Step1 from "./step1";
 import Step2 from "./step2";
-import Step3 from "./step3";
 
 const formSchema = z.object({
   name: z.string().min(2, {
-    message: "Name must be at least 2 characters.",
+    message: "This field cannot be left blank.",
   }),
   email: z.string().email({
     message: "Email must be in proper format.",
@@ -121,6 +120,16 @@ export default function ConsultationForm() {
     }
   };
 
+  const handleStepText1 = () => {
+    if (currentStep === 1) {
+      return styles.stepTextActive;
+    } else if (currentStep > 1) {
+      return styles.stepTextActive;
+    } else {
+      return styles.stepText;
+    }
+  };
+
   const handleStepNumber2 = () => {
     if (currentStep === 2) {
       return styles.stepNumberActive;
@@ -144,24 +153,16 @@ export default function ConsultationForm() {
             1
           </div>
           <div className={`${styles.stepConnector} ${currentStep > 1 ? styles.completed : ''}`}></div>
-          <div className={ currentStep === 1 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(1)}>
-            Type of hire
+          <div className={handleStepText1()} onClick={() => setCurrentStep(1)}>
+          Role details
           </div>
         </div>
         <div className={styles.stepContainer}>
           <div className={handleStepNumber2()} >
             2
           </div>
-          <div className={`${styles.stepConnector} ${currentStep > 2 ? styles.completed : ''}`}></div>
+          <div className={`${styles.stepConnector} ${currentStep > 1 ? styles.completed : ''}`}></div>
           <div className={ currentStep === 2 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(2)}>
-            Role details
-          </div>
-        </div>
-        <div className={styles.stepContainer}>
-          <div className={ currentStep === 3 ? styles.stepNumberActive : styles.stepNumber} >
-            3
-          </div>
-          <div className={ currentStep === 3 ? styles.stepTextActive : styles.stepText} onClick={() => setCurrentStep(3)}>
             Contacting you
           </div>
         </div>
@@ -173,24 +174,27 @@ export default function ConsultationForm() {
         {currentStep === 2 && (
           <Step2 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName}/>
         )}
-        {currentStep === 3 && (
-          <Step3 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName}/>
-        )}
         <div className={styles.navigation}>
+          {currentStep < 2 && (
+            <div className={styles.buttonContainer}>
+              <button type="button" onClick={handleNext} className={styles.button}>
+                Next
+              </button>
+            </div>
+          )}
           {currentStep > 1 && (
-            <button type="button" onClick={handleBack}>
-              Back
-            </button>
+            <div className={styles.buttonContainer}>
+              <button type="button" onClick={handleBack} className={styles.button}>
+                Send
+              </button>
+            </div>
           )}
-          {currentStep < 3 && (
-            <button type="button" onClick={handleNext}>
-              Next
-            </button>
-          )}
-          {currentStep === 3 && (
-            <button type="submit">
-              Submit
-            </button>
+          {currentStep > 1 && (
+            <div className={styles.buttonContainer}>
+              <button type="button" onClick={handleBack} className={styles.button2}>
+                Go Back
+              </button>
+            </div>
           )}
         </div>
       </form>
