@@ -1,7 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import React, { useRef, useState } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { sendVacancy } from '../../src/app/utils/sendVacancy';
@@ -34,7 +34,7 @@ const formSchema = z.object({
 
 export type FormData = z.infer<typeof formSchema>;
 
-export default function ConsultationForm() {
+const ConsultationForm: FC = () => {
   const {
     register,
     handleSubmit,
@@ -113,34 +113,6 @@ export default function ConsultationForm() {
       reader.readAsDataURL(files[0]);
     }
   };
-
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCheckboxChecked(e.target.checked);
-    setCheckboxError('');
-  };
-
-  // const handleNext = async () => {
-  //   // If current step is 1, check if there are errors in step 1
-  //   if (currentStep === 1) {
-  //     // Check if there are errors in step 1
-  //     const isStep1Valid = await trigger();
-  
-  //     // If there are errors in step 1, prevent navigating to step 2
-  //     if (!isStep1Valid) return;
-  //   }
-  
-  //   // If current step is 2, check if there are errors in step 2
-  //   if (currentStep === 2) {
-  //     // Check if there are errors in step 2
-  //     const isStep2Valid = await trigger();
-  
-  //     // If there are errors in step 2, prevent navigating to the next step
-  //     if (!isStep2Valid) return;
-  //   }
-  
-  //   // If there are no errors, proceed to the next step
-  //   setCurrentStep(prev => prev + 1);
-  // };
 
   const handleNext = async () => {
     if (currentStep === 1) {
@@ -261,3 +233,5 @@ export default function ConsultationForm() {
     </div>
   );
 };
+
+export default ConsultationForm

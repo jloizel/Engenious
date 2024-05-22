@@ -6,7 +6,7 @@ import { EmailTemplate } from '../../../../components/submitCVForm/emailTemplate
 
 
 export async function POST(request: NextRequest) {
-  const { company, job, file = null, message, name, email, phoneNumber,  } = await request.json();
+  const { company, job, file, message, name, email, phoneNumber,  } = await request.json();
 
   const transport = nodemailer.createTransport({
     service: 'gmail',
