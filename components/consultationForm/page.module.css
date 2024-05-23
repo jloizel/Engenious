@@ -312,7 +312,7 @@
 
 .navigation {
   display: flex;
-  width: 100%;
+  width: 90%;
 
   @media (max-width: 767px) {
     flex-direction: column;
@@ -375,7 +375,7 @@
   background-color: #fdf2f0 !important;
 } */
 
-.buttonContainer {
+.buttonContainer1 {
   width: 100%;
   display: flex;
   align-items: center;
@@ -395,6 +395,32 @@
   }
 }
 
+.buttonContainer2 {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  @media (max-width: 767px) {
+    margin-top: 10px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 40px;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 40px;
+    flex-direction: row;
+    gap: 20px;
+  }
+}
+
 .button, .button2 {
 
   border: none;
@@ -406,21 +432,21 @@
   @media (max-width: 767px) {
     font-size: 16px;
     padding: 10px 20px;
-    width: 90%;
+    width: 100%;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px;
     padding: 10px 15px;
     margin-top: 10px;
-    width: 80%;
+    width: 100%;
   }
 
   @media (min-width: 1024px) {
     font-size: 20px;
     padding: 10px 0px;
     margin-top: 10px;
-    width: 80%;
+    width: 100%;
   }
 }
 
@@ -431,4 +457,31 @@
 
 .button2 {
   background-color: lightgray;
+}
+
+.successMessageContainer {
+  width: 100%;
+  text-align: center;
+  
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 40px;
+    margin-top: 40px; 
+    font-size: 18px;  
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 60px;
+    margin-top: 60px;  
+    font-size: 20px;  
+  }
+}
+
+.successMessage {
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
 }

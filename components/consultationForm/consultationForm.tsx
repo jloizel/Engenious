@@ -6,24 +6,26 @@ import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { sendVacancy } from '../../src/app/utils/sendVacancy';
 import styles from './page.module.css'
-import Step1 from "./step1";
-import Step2 from "./step2";
+import stepStyles from './step.module.css'
+import { createTheme, useMediaQuery } from "@mui/material";
 
 const formSchema = z.object({
-  company: z.string().min(2, {
+  company: z.string().min(1, {
     message: "This field cannot be left blank.",
   }),
-  job: z.string().min(2, {
+  job: z.string().min(1, {
     message: "This field cannot be left blank.",
   }),
-  message: z.string().optional(),
-  name: z.string().min(2, {
+  message: z.string(),
+  name: z.string().min(1, {
     message: "This field cannot be left blank.",
   }),
   email: z.string().email({
     message: "Email must be in proper format.",
   }),
-  phoneNumber: z.string().min(2, {
+  phoneNumber: z.string().min(9, {
+    message: "Phone number must be in proper format.",
+  }).regex(/^\+?[0-9]{1,4}?[-.\s]?[0-9]{1,3}?[-.\s]?[0-9]{3,5}?[-.\s]?[0-9]{4,6}?$/, {
     message: "Phone number must be in proper format.",
   }),
   file: z.object({
@@ -35,6 +37,7 @@ const formSchema = z.object({
 export type FormData = z.infer<typeof formSchema>;
 
 const ConsultationForm: FC = () => {
+  const form = useRef<any>(null);
   const {
     register,
     handleSubmit,
@@ -79,8 +82,7 @@ const ConsultationForm: FC = () => {
       return;
     }
 
-    const base64Content = content.split(',')[1];
-
+    const base64Content = content ? content.split(',')[1] : '';
     const formDataWithFile = {
       ...data,
       file: {
@@ -125,9 +127,7 @@ const ConsultationForm: FC = () => {
     } else if (currentStep === 2) {
       // Trigger validation for step 2 fields only
       const isStep2Valid = await trigger();
-      if (isStep2Valid) {
-        setCurrentStep(3); // Move to next step or handle submit if final step
-      }
+      
     }
   };
 
@@ -172,13 +172,34 @@ const ConsultationForm: FC = () => {
     }
   };
 
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 767,
+        md: 1024,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
+  
+  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
+
   const getInputClassName = (inputName: keyof FormData) => {
     // Check if there is an error for the input
     return errors[inputName] ? styles.inputError : '';
   };
 
+  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setCheckboxChecked(e.target.checked);
+    setCheckboxError('');
+  };
+
   return (
     <div className={styles.formContainer}>
+      {!messageSent && (
+        <div>
       <div className={styles.steps}>
         <div className={styles.stepContainer} >
           <div className={handleStepNumber1()} onClick={() => handleNext()}>
@@ -199,30 +220,137 @@ const ConsultationForm: FC = () => {
           </div>
         </div>
       </div>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form2}>
-        {currentStep === 1 && (
+      <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form2}>
+        {/* {currentStep === 1 && (
           <Step1 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName} onAddFileAction={onAddFileAction} setValue={setValue}/>
+        )} */}
+        {currentStep === 1 && (
+          <div className={stepStyles.stepContainer}>
+            <div className={stepStyles.step}>
+              <div className={stepStyles.inputContainer}>
+                <div className={stepStyles.label}>Company Name *</div>
+                <input
+                  type="text"
+                  {...register('company')}
+                  value={formData.company}
+                  onChange={handleChange}
+                  className={getInputClassName('company')}
+                />
+                {errors.company && <p className={stepStyles.errorMessage}>{errors.company.message}</p>}
+              </div>
+              <div className={stepStyles.inputContainer}>
+                <div className={stepStyles.label}>Job Title *</div>
+                <input
+                  type="text"
+                  {...register('job')}
+                  value={formData.job}
+                  onChange={handleChange}
+                  className={getInputClassName('job')}
+                />
+                {errors.job && <p className={stepStyles.errorMessage}>{errors.job.message}</p>}
+              </div>
+              <div className={stepStyles.inputContainer}>
+                <div className={stepStyles.label}>Upload Job Description</div>
+                <div className={stepStyles.fileinputBox}>
+                  <label htmlFor="fileInput" className={stepStyles.fileinputLabel}>
+                    <span className={stepStyles.fileLabel}>Allowed file types:</span>
+                    <span className={stepStyles.fileLabel} style={{ fontStyle: "italic", color: "#008489" }}>pdf, docx, doc</span>
+                    {filename && <span className={stepStyles.fileName}>{filename}</span>}
+                  </label>
+                  <input
+                    id="fileInput"
+                    className={stepStyles.fileinputButton}
+                    type="file"
+                    onChange={onAddFileAction}
+                    accept="application/pdf,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  />
+                </div>
+                {/* {errors.file && <p className={styles.errorMessage}>{errors.file.message}</p>} */}
+              </div>
+              <div className={stepStyles.messageInputContainer}>
+                <div className={stepStyles.label}>Message</div>
+                <textarea
+                  {...register('message')}
+                  value={formData.message}
+                  onChange={handleChange}
+                  className={stepStyles.messageInput}
+                  placeholder='Any specific details? Urgency of turnaround, position type etc.'
+                />
+              </div>
+            </div>
+          </div>
         )}
-        {currentStep === 2 && (
+        {/* {currentStep === 2 && (
           <Step2 data={formData} handleChange={handleChange} register={register} errors={errors} getInputClassName={getInputClassName} checkboxError={checkboxError}/>
+        )} */}
+        {currentStep === 2 && (
+          <div className={stepStyles.step}>
+            <div className={stepStyles.inputContainer}>
+              <div className={stepStyles.label}>Full Name *</div>
+              <input
+                type="text"
+                {...register('name')}
+                value={formData.name}
+                onChange={handleChange}
+                className={getInputClassName('name')}
+                autoComplete="new-password"
+              />
+              {errors.name && <p className={stepStyles.errorMessage}>{errors.name.message}</p>}
+            </div>
+            <div className={stepStyles.inputContainer}>
+              <div className={stepStyles.label}>Work Email Address *</div>
+              <input
+                type="text"
+                {...register('email')}
+                value={formData.email}
+                onChange={handleChange}
+                className={getInputClassName('email')}
+                autoComplete="new-password"
+              />
+              {errors.email && <p className={stepStyles.errorMessage}>{errors.email.message}</p>}
+            </div>
+            <div className={stepStyles.inputContainer}>
+              <div className={stepStyles.label}>Phone Number *</div>
+              <input
+                type="text"
+                {...register('phoneNumber')}
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                className={getInputClassName('phoneNumber')}
+                autoComplete="new-password"
+              />
+              {errors.phoneNumber && <p className={stepStyles.errorMessage}>{errors.phoneNumber.message}</p>}
+            </div>
+            <div className={stepStyles.checkboxContainer}>
+              <input
+                type="checkbox"
+                checked={checkboxChecked}
+                onChange={handleCheckboxChange}
+              />
+              <div>
+                <span style={{ fontWeight: "500" }}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span>
+                <span style={{ fontWeight: "500", color: "#008489" }}> Privacy Policy</span>
+                <span style={{ fontWeight: "500" }}>.</span>
+              </div>
+            </div>
+            <div className={stepStyles.checkboxError}>
+              {<p className={stepStyles.errorMessage}>{checkboxError}</p>}
+            </div>
+          </div>
         )}
         <div className={styles.navigation}>
           {currentStep < 2 && (
-            <div className={styles.buttonContainer}>
-              <button type="button" onClick={handleNext} className={styles.button}>
+            <div className={styles.buttonContainer1}>
+              <button type="button" onClick={handleNext} className={styles.button} >
                 Next
               </button>
             </div>
           )}
           {currentStep > 1 && (
-            <div className={styles.buttonContainer}>
+            <div className={styles.buttonContainer2}>
               <button type="submit" className={styles.button}>
                 Send
               </button>
-            </div>
-          )}
-          {currentStep > 1 && (
-            <div className={styles.buttonContainer}>
               <button type="button" onClick={handleBack} className={styles.button2}>
                 Go Back
               </button>
@@ -230,6 +358,15 @@ const ConsultationForm: FC = () => {
           )}
         </div>
       </form>
+      </div>
+      )}
+      {messageSent && (
+        <div className={styles.successMessageContainer}>
+          <div className={styles.successMessage}>
+            Thank you for your message, we will be in contact as soon as possible.
+          </div>
+        </div>
+      )}
     </div>
   );
 };

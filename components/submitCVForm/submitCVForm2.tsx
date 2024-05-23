@@ -9,9 +9,9 @@ import styles from './page2.module.css';
 
 // Define the schema using zod
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters" }),
-  email: z.string().email({ message: "Please enter a valid email address" }),
-  message: z.string().min(2, { message: "Message must be at least 2 characters" }),
+  name: z.string().min(2, { message: "This field cannot be left blank." }),
+  email: z.string().email({ message: "Email must be in proper format." }),
+  message: z.string(),
   file: z.object({
     name: z.string().nonempty({ message: "File name is required" }),
     content: z.string().nonempty({ message: "File content is required" }),
@@ -105,7 +105,7 @@ const SubmitCVForm2: FC = () => {
         <div>
           <div className={styles.topContainer}>
             <div className={styles.inputContainer}>
-              <div className={styles.inputTitle}>Name</div>
+              <div className={styles.inputTitle}>Name *</div>
               <div className={styles.inputBox}>
                 <input
                   className={styles.input}
@@ -116,7 +116,7 @@ const SubmitCVForm2: FC = () => {
               {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
             </div>
           <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>Email Address</div>
+            <div className={styles.inputTitle}>Email Address *</div>
             <div className={styles.inputBox}>
               <input
                 className={styles.input}
@@ -139,7 +139,7 @@ const SubmitCVForm2: FC = () => {
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              <span>Upload CV</span>
+              <span>Upload CV *</span>
             </div>
             <div className={styles.fileinputBox}>
               <label htmlFor="fileInput" className={styles.fileinputLabel}>
