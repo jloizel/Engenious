@@ -1,8 +1,10 @@
 .servicesContainer {
   display: flex;
   flex-direction: row;
-  gap: 20px;
+  gap: 60px;
   width: 90%;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
@@ -31,6 +33,7 @@
   
   @media (min-width: 1024px) {
     padding: 40px 25px;
+    width: 350px;
   }
 }
 

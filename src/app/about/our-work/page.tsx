@@ -98,7 +98,7 @@ const OurWork = () => {
         <Box className={styles.services}>
           <div className={styles.servicesContent}>
               <div className={styles.header1}>
-                <span >A full range of </span>
+                <span >A range of </span>
                 <span style={{color: "#008489"}}>Talent Services..</span>
               </div>
               <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
