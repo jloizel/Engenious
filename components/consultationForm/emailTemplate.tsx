@@ -39,12 +39,12 @@ export function EmailTemplate({ company, job, name, emailAddress, phoneNumber, m
             <strong>{message}</strong>
           </Text>
           <Text className={styles.emailText}>
-            <strong>Job title: {message}</strong>
+            <strong>Job title: {job}</strong>
           </Text>
           <Hr style={{backgroundColor: "#002D49"}} />
           <Text className={styles.emailInfo}>
-            This message was sent by {name} from ${company}. You can contact them through their
-            email {emailAddress} or phone number {phoneNumber}
+            This message was sent by {name} from {company}. You can contact them through their
+            email {emailAddress} or phone number <strong>{phoneNumber}</strong>
           </Text>
         </Container>
       </Tailwind>
