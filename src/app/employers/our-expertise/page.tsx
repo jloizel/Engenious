@@ -40,6 +40,14 @@ const OurExpertise = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
+  const handleFlexDirection = () => {
+    if (isMobile) {
+      return "column"
+    } else {
+      return "row"
+    }
+  }
+
   const links = [
     {
       id: 1,
@@ -65,13 +73,13 @@ const OurExpertise = () => {
 
 
   return (
-    <div className={styles.storyContainer}>
+    <div className={styles.expertiseContainer}>
       <Helmet>
         <title>Our Story</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      <Box className={styles.expertise}>
+      <Box className={styles.expertise} style={{flexDirection: handleFlexDirection()}}>
         <div className={styles.expertiseTextContainer}>
           <div className={styles.expertiseHeader}>
             <span style={{color: "#008489"}}>Construction</span>
@@ -136,6 +144,16 @@ const OurExpertise = () => {
         </div>
         <Testimonials/>
       </section>
+      <section className={styles.services}>
+        <div className={styles.servicesContent}>
+          <div className={styles.header}>
+            <span >A range of </span>
+            <span style={{color: "#008489"}}>Talent Services..</span>
+          </div>
+          <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We go above and beyond to find you the right people.</p>
+        </div>
+        { isComputer ? <Services/> : <ServicesSlider/> }
+      </section>
       <Box className={styles.consultation}>
         <div className={styles.consultationHeader}>
           <span>Not sure where to start?</span>
@@ -149,16 +167,6 @@ const OurExpertise = () => {
             </button>
           </a>
       </Box>
-      <section className={styles.services}>
-        <div className={styles.servicesContent}>
-          <div className={styles.header}>
-            <span >A range of </span>
-            <span style={{color: "#008489"}}>Talent Services..</span>
-          </div>
-          <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We go above and beyond to find you the right people.</p>
-        </div>
-        { isComputer ? <Services/> : <ServicesSlider/> }
-      </section>
     </div>
   )
 }
