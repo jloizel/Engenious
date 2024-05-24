@@ -89,10 +89,10 @@ const OurExpertise = () => {
         </div>
       </Box>
       <Box className={styles.listContainer}>
-        <div className={styles.expertiseSubHeader}>
+        <div className={styles.listHeader}>
           Our recruiters can help you hire across...
           <div className={styles.list}>
-            <div className={styles.listHeader}>
+            <div className={styles.listSubHeader}>
               Commercial Roles
             </div>
             <li>Estimators</li>
@@ -101,7 +101,7 @@ const OurExpertise = () => {
             <li>Commercial Managers</li>
           </div>
           <div className={styles.list}>
-            <div className={styles.listHeader}>
+            <div className={styles.listSubHeader}>
               Production Roles
             </div>
             <li>Site Managers</li>
@@ -112,13 +112,14 @@ const OurExpertise = () => {
             <li>Operations Managers</li>
           </div>  
           <div className={styles.list}>
-            <div className={styles.listHeader}>
+            <div className={styles.listSubHeader}>
               Trades & Labour
             </div>
-            <li>Estimators</li>
-            <li>Quantity Surveyors</li>
-            <li>Senior/ Managing Surveyors</li>
-            <li>Commercial Managers</li>
+            <li>Labourers</li>
+            <li>Groundworkers</li>
+            <li>Steel fixers</li>
+            <li>Carpenters</li>
+            And many more
           </div>  
         </div>
       </Box>
