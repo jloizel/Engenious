@@ -10,6 +10,8 @@ import { FaQuoteRight } from "react-icons/fa";
 import Testimonials from '../../../../components/testimonials/testimonials';
 import ContractSlider from '../../../../components/contractSlider/contractSlider';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import Services from '../../../../components/services/services';
+import ServicesSlider from '../../../../components/services/servicesSlider';
 
 const OurExpertise = () => {
   const pageName = "About"
@@ -78,11 +80,6 @@ const OurExpertise = () => {
           <div className={styles.expertiseText}>
             Our Construction Recruitment service specializes in finding top-tier professionals for the construction industry. Whether you need project managers, engineers, or skilled tradespeople, we ensure every candidate is the right fit for your project. We are committed to helping you build a capable team that delivers on time and within budget.
           </div>
-          <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor1}>
-            <button className={styles.button}>
-              Hire talent
-            </button>
-          </a>
         </div>
         <div className={styles.cardImageContainer}>
           <img src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
@@ -91,59 +88,54 @@ const OurExpertise = () => {
       <Box className={styles.listContainer}>
         <div className={styles.listHeader}>
           Our recruiters can help you hire across...
-          <div className={styles.list}>
-            <div className={styles.listSubHeader}>
-              Commercial Roles
-            </div>
-            <li>Estimators</li>
-            <li>Quantity Surveyors</li>
-            <li>Senior/ Managing Surveyors</li>
-            <li>Commercial Managers</li>
+        </div>  
+        <div className={styles.list}>
+          <div className={styles.listSubHeader}>
+            Commercial Roles
           </div>
-          <div className={styles.list}>
-            <div className={styles.listSubHeader}>
-              Production Roles
-            </div>
-            <li>Site Managers</li>
-            <li>Site Agents</li>
-            <li>Site Engineers</li>
-            <li>Foreman</li>
-            <li>Contracts Managers</li>
-            <li>Operations Managers</li>
-          </div>  
-          <div className={styles.list}>
-            <div className={styles.listSubHeader}>
-              Trades & Labour
-            </div>
-            <li>Labourers</li>
-            <li>Groundworkers</li>
-            <li>Steel fixers</li>
-            <li>Carpenters</li>
+          <li>Estimators</li>
+          <li>Quantity Surveyors</li>
+          <li>Senior/ Managing Surveyors</li>
+          <li>Commercial Managers</li>
+        </div>
+        <div className={styles.list}>
+          <div className={styles.listSubHeader}>
+            Production Roles
+          </div>
+          <li>Site Managers</li>
+          <li>Site Agents</li>
+          <li>Site Engineers</li>
+          <li>Foreman</li>
+          <li>Contracts Managers</li>
+          <li>Operations Managers</li>
+        </div>  
+        <div className={styles.list}>
+          <div className={styles.listSubHeader}>
+            Trades & Labour
+          </div>
+          <li>Labourers</li>
+          <li>Groundworkers</li>
+          <li>Steel fixers</li>
+          <li>Carpenters</li>
+          <div className={styles.listHeader2}>
             And many more
-          </div>  
-        </div>
-      </Box>
-      
-      <Box className={styles.quoteContainer}>
-        <div className={styles.textBox}>
-          <div className={styles.quote}>
-            <div className={styles.quotationMark1}>
-              <FaQuoteLeft/>
-            </div>
-            <div className={styles.quoteBox}>
-              <div className={styles.quoteText}>
-                Be the unicorn in a sea of donkeys; sprinkle your magic dust of innovation and sparkle your way to the rainbow of profits!
-              </div>
-              <div className={styles.quoter}>
-                - Philippa Dickinson, CEO
-              </div>
-            </div>
-            <div className={styles.quotationMark2}>
-              <FaQuoteRight/>
-            </div>
           </div>
         </div>
+        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor2}>
+          <button className={styles.button}>
+            Hire talent
+          </button>
+        </a>
       </Box>
+      <section className={styles.testimonials}>
+        <div className={styles.testimonialsContent}>
+          <div className={styles.header}>
+            <span style={{color: "#008489"}}>Talented people </span>
+            <span >are at the centre of everything we do.</span>
+          </div>
+        </div>
+        <Testimonials/>
+      </section>
       <Box className={styles.consultation}>
         <div className={styles.consultationHeader}>
           <span>Not sure where to start?</span>
@@ -157,14 +149,15 @@ const OurExpertise = () => {
             </button>
           </a>
       </Box>
-      <section className={styles.testimonials}>
-        <div className={styles.testimonialsContent}>
+      <section className={styles.services}>
+        <div className={styles.servicesContent}>
           <div className={styles.header}>
-            <span style={{color: "#008489"}}>Talented people </span>
-            <span >are at the centre of everything we do.</span>
+            <span >A range of </span>
+            <span style={{color: "#008489"}}>Talent Services..</span>
           </div>
+          <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We go above and beyond to find you the right people.</p>
         </div>
-        <Testimonials/>
+        { isComputer ? <Services/> : <ServicesSlider/> }
       </section>
     </div>
   )

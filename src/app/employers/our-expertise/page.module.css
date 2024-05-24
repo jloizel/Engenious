@@ -658,7 +658,18 @@
 }
 
 .listContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
 
+.list {
+  display: flex;
+
+  text-align: left;
 }
 
 .listHeader {
@@ -667,13 +678,44 @@
   color: #002D49;
 
   @media (max-width: 767px) {
-    font-size: 40px;
+    font-size: 26px;
     margin-top: 40px;
-    line-height: 40px;
+    line-height: 35px;
     margin-bottom: 20px;
     text-align: left;
     display: flex;
     flex-direction: column;
+    width: 85%;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 36px;
+    margin-top: 40px;
+    line-height: 45px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 38px;
+    margin-top: 40px;
+    line-height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+.listHeader2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #002D49;
+  font-style: italic;
+  align-self: flex-start;
+
+  @media (max-width: 767px) {
+    font-size: 20px;
+    margin-top: 20px;
+    text-align: left;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -694,15 +736,47 @@
 }
 
 .list {
-
+  display: flex;
+  
+  @media (max-width: 767px) {
+    width: 85%;
+    margin-bottom: 20px;
+  }
 }
 
 .listSubHeader {
+  align-self: flex-start;
+  color: #008489;
+  font-weight: 600;
 
+  @media (max-width: 767px) {
+    font-size: 18px;
+
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 36px;
+
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 38px;
+
+  }
 }
 
 .list li {
-  color: red;
+  text-align: left;
+  align-self: flex-start;
+  font-weight: 300;
+
+  @media (max-width: 767px) {
+    padding: 10px 0px;
+  }
+}
+
+.list li::marker {
+  color: #09B089; /* Color for the bullet point */
 }
 
 .button {
@@ -743,7 +817,7 @@
   }
 }
 
-.testimonials {
+.testimonials, .services {
   /* position: absolute; */
   z-index: 10;
   display: flex;
@@ -758,7 +832,7 @@
   background: #EFF0F0;
 }
 
-.testimonialsContent {
+.testimonialsContent, .servicesContent {
   width: 80%;
 }
 
@@ -906,7 +980,6 @@
 
   @media (max-width: 767px) {
     width: 90%;
-    margin-top: 10px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -976,5 +1049,22 @@
   }
   
   @media (min-width: 1024px) {
+  }
+}
+
+.text {
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
   }
 }

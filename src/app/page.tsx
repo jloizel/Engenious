@@ -62,7 +62,7 @@ export default function Home() {
             <span >A range of </span>
             <span style={{color: "#008489"}}>Talent Services..</span>
           </div>
-          <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
+          <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We go above and beyond to find you the right people.</p>
         </div>
         { isComputer ? <Services/> : <ServicesSlider/> }
       </section>
