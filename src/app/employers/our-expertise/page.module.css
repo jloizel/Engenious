@@ -12,7 +12,6 @@
   align-content: center;
   justify-content: center;
   background: #EFF0F0;
-  margin-top: 20px ;
 }
 
 .textBox {
@@ -435,12 +434,24 @@
   }
 }
 
-.expertise, .service {
+.expertise {
   display: flex;
-  flex-direction: column;
+  
   align-items: center;
   justify-content: center;
   align-content: center;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: row;
+  }
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
 }
 
 .expertise {
@@ -508,9 +519,12 @@
 .cardImageContainer {
   position: relative;
   overflow: hidden;
+  box-shadow: 0px 8px 24px rgba(62, 53, 82, 0.3);
+  border-radius: 8px;
 
   @media (max-width: 767px) {
-    height: 250px;
+    height: 350px;
+    width: 85%;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -526,8 +540,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -567,18 +580,37 @@
   color: #00617C;
 }
 
-.expertiseHeader, .serviceHeader {
+.expertiseTextContainer {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+
+  @media (max-width: 767px) {
+    order: 2;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+
+  @media (min-width: 1024px) {
+    
+  }
+}
+
+.expertiseHeader {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #002D49;
-  text-align: center;
 
   @media (max-width: 767px) {
-    font-size: 24px;
-    margin-top: 20px;
-    line-height: 30px;
-    width: 85%;
+    font-size: 40px;
+    margin-top: 40px;
+    line-height: 40px;
     margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -598,12 +630,39 @@
   }
 }
 
-.serviceHeader {
-  display: flex;
-  flex-direction: column;
+.expertiseSubHeader {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #002D49;
+
+  @media (max-width: 767px) {
+    font-size: 40px;
+    margin-top: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 36px;
+    margin-top: 40px;
+    line-height: 45px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 38px;
+    margin-top: 40px;
+    line-height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
 }
 
-.expertiseText, .serviceText {
+.expertiseText {
   color: #002D49;
   font-weight: 300;
 
@@ -611,9 +670,6 @@
   @media (max-width: 767px) {
     font-size: 16px;
     margin-top: 20px;
-    margin-bottom: 20px;
-    text-align: center;
-    width: 80%;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -812,8 +868,7 @@
   justify-content: center;
 
   @media (max-width: 767px) {
-    width: 90%;
-    margin-top: 10px;
+    width: 100%;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -889,4 +944,21 @@
 .consultationButton:hover {
   color: white;
   background: none;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  @media (max-width: 767px) {
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+  }
+  
+  @media (min-width: 1024px) {
+  }
 }

@@ -11,7 +11,7 @@ import Testimonials from '../../../../components/testimonials/testimonials';
 import ContractSlider from '../../../../components/contractSlider/contractSlider';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-const OurServices = () => {
+const OurExpertise = () => {
   const pageName = "About"
   
   const [currentPath, setCurrentPath] = useState('')
@@ -69,60 +69,60 @@ const OurServices = () => {
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      <ContractSlider/>
       <Box className={styles.expertise}>
-        <div className={styles.expertiseHeader}>
-          <span style={{color: "#008489"}}>Helping your business</span>
-          <span> evolve across: </span>
-        </div>
-        {/* <div className={styles.expertiseText}>
-          Our reputation is built on finding you the right people. Talented people who stand out, who make a real difference. With the right people, your business can realise its ambitions and go further than you ever thought possible.
-        </div> */}
-        <a href="/employers/expertise" className={styles.cardContainer}>
-          <div className={styles.card}>
-            <div className={styles.cardImageContainer}>
-              <img src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
-            </div>
-            <div className={styles.cardText}>
-              Construction Recruitment
-            </div>
+        <div className={styles.expertiseTextContainer}>
+          <div className={styles.expertiseHeader}>
+            <span style={{color: "#008489"}}>Construction</span>
+            <span> Recruitment. </span>
           </div>
-        </a>
+          <div className={styles.expertiseText}>
+            Our Construction Recruitment service specializes in finding top-tier professionals for the construction industry. Whether you need project managers, engineers, or skilled tradespeople, we ensure every candidate is the right fit for your project. We are committed to helping you build a capable team that delivers on time and within budget.
+          </div>
+          <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor1}>
+            <button className={styles.button}>
+              Hire talent
+            </button>
+          </a>
+        </div>
+        <div className={styles.cardImageContainer}>
+          <img src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
+        </div>
       </Box>
-      <Box className={styles.service} id="permanent-recruitment">
-        <div className={styles.serviceHeader}>
-        <span>Our permanent recruitment process: </span>
-          <span style={{color: "#008489"}}>Recruit. Develop. Succeed.</span>
+      <Box className={styles.listContainer}>
+        <div className={styles.expertiseSubHeader}>
+          Our recruiters can help you hire across...
+          <div className={styles.list}>
+            <div className={styles.listHeader}>
+              Commercial Roles
+            </div>
+            <li>Estimators</li>
+            <li>Quantity Surveyors</li>
+            <li>Senior/ Managing Surveyors</li>
+            <li>Commercial Managers</li>
+          </div>
+          <div className={styles.list}>
+            <div className={styles.listHeader}>
+              Production Roles
+            </div>
+            <li>Site Managers</li>
+            <li>Site Agents</li>
+            <li>Site Engineers</li>
+            <li>Foreman</li>
+            <li>Contracts Managers</li>
+            <li>Operations Managers</li>
+          </div>  
+          <div className={styles.list}>
+            <div className={styles.listHeader}>
+              Trades & Labour
+            </div>
+            <li>Estimators</li>
+            <li>Quantity Surveyors</li>
+            <li>Senior/ Managing Surveyors</li>
+            <li>Commercial Managers</li>
+          </div>  
         </div>
-        <div className={styles.serviceText}>
-          Our consultants take a consultative approach to your hiring, taking the time to establish exactly what your business is looking to achieve. They become your talent advisors, partnering with you to get it right. Every time.
-        </div>
-        <div className={styles.serviceText}>
-          We find you talented people to take your business beyond expectations. But we also look at things more holistically, mapping the skills you need and the salaries to pay. We have all the market intelligence to help you build a compelling attraction strategy.
-        </div>
-        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor1}>
-          <button className={styles.button}>
-            Hire talent
-          </button>
-        </a>
       </Box>
-      <Box className={styles.service} id="contract-recruitment">
-        <div className={styles.serviceHeader}>
-        <span>Our contract recruitment process: </span>
-          <span style={{color: "#8CD87A"}}>Right skills, right time.</span>
-        </div>
-        <div className={styles.serviceText}>
-          We &apos;ve been helping companies like yours hire contract and temporary staff for over 10 years. We &apos;re always on top of regulatory changes and know what works best, so you don&apos;t have to worry.
-        </div>
-        <div className={styles.serviceText}>
-          Our dedicated team provides a responsive, personalised service - taking the stress and risk away from you and your teams.
-        </div>
-        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor1}>
-          <button className={styles.button}>
-            Hire talent
-          </button>
-        </a>
-      </Box>
+      
       <Box className={styles.quoteContainer}>
         <div className={styles.textBox}>
           <div className={styles.quote}>
@@ -169,4 +169,4 @@ const OurServices = () => {
   )
 }
 
-export default OurServices
+export default OurExpertise

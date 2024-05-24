@@ -263,11 +263,15 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    align-self: flex-end;
+    margin-right: 10px;
+    font-size: 40px;
   }
   
   @media (min-width: 1024px) {
-    margin-right: 30px;
+    align-self: flex-end;
+    margin-right: 10px;
+    font-size: 100px;
   }
   
 }
@@ -280,7 +284,8 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    margin-left: 10px;
+    font-size: 40px;
   }
   
   @media (min-width: 1024px) {
