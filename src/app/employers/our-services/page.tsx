@@ -112,10 +112,27 @@ const OurServices = () => {
           <span style={{color: "#8CD87A"}}>Right skills, right time.</span>
         </div>
         <div className={styles.serviceText}>
-          We &apos;ve been helping companies like yours hire contract and temporary staff for over 10 years. We &apos;re always on top of regulatory changes and know what works best, so you don&apos;t have to worry.
+          We &apos;ve been helping companies like yours hire contract and temporary staff for over 10 years. We&apos;re always on top of regulatory changes and know what works best, so you don&apos;t have to worry.
         </div>
         <div className={styles.serviceText}>
           Our dedicated team provides a responsive, personalised service - taking the stress and risk away from you and your teams.
+        </div>
+        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor1}>
+          <button className={styles.button}>
+            Hire talent
+          </button>
+        </a>
+      </Box>
+      <Box className={styles.service} id="search-select">
+        <div className={styles.serviceHeader}>
+        <span>Our search and select process: </span>
+          <span style={{color: "#8CD87A"}}>Identify, attract, source.</span>
+        </div>
+        <div className={styles.serviceText}>
+          Our meticulous approach begins with a deep understanding of your organization&apos;s culture, goals, and specific needs for each position. Utilizing a blend of advanced search techniques, extensive industry networks, and detailed candidate assessments, we go beyond traditional recruitment methods to find exceptional talent. Our dedicated team of recruiters leverages their expertise and connections to uncover passive candidates who might not be actively seeking new opportunities but possess the exact skills and experience required for your critical roles.
+        </div>
+        <div className={styles.serviceText}>
+          From initial contact to final placement, we manage the entire recruitment process, ensuring a seamless and efficient experience. We conduct thorough interviews, reference checks, and skill evaluations to ensure each candidate not only meets but exceeds your expectations. Our goal is to provide you with leaders and specialists who will drive innovation, improve performance, and contribute significantly to your organization&apos;s success.
         </div>
         <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor1}>
           <button className={styles.button}>
