@@ -40,14 +40,6 @@ const OurExpertise = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
-  const handleFlexDirection = () => {
-    if (isMobile) {
-      return "column"
-    } else {
-      return "row"
-    }
-  }
-
   const links = [
     {
       id: 1,
@@ -79,7 +71,7 @@ const OurExpertise = () => {
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      <Box className={styles.expertise} style={{flexDirection: handleFlexDirection()}}>
+      <Box className={styles.expertise}>
         <div className={styles.expertiseTextContainer}>
           <div className={styles.expertiseHeader}>
             <span style={{color: "#008489"}}>Construction</span>
@@ -93,40 +85,40 @@ const OurExpertise = () => {
           <img src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
         </div>
       </Box>
-      <Box className={styles.listContainer}>
+      <Box className={styles.listBox}>
         <div className={styles.listHeader}>
           Our recruiters can help you hire across...
-        </div>  
-        <div className={styles.list}>
-          <div className={styles.listSubHeader}>
-            Commercial Roles
-          </div>
-          <li>Estimators</li>
-          <li>Quantity Surveyors</li>
-          <li>Senior/ Managing Surveyors</li>
-          <li>Commercial Managers</li>
         </div>
-        <div className={styles.list}>
-          <div className={styles.listSubHeader}>
-            Production Roles
-          </div>
-          <li>Site Managers</li>
-          <li>Site Agents</li>
-          <li>Site Engineers</li>
-          <li>Foreman</li>
-          <li>Contracts Managers</li>
-          <li>Operations Managers</li>
-        </div>  
-        <div className={styles.list}>
-          <div className={styles.listSubHeader}>
-            Trades & Labour
-          </div>
-          <li>Labourers</li>
-          <li>Groundworkers</li>
-          <li>Steel fixers</li>
-          <li>Carpenters</li>
-          <div className={styles.listHeader2}>
-            And many more
+        <div className={styles.listContainer}>
+          <div className={styles.list1}>
+            <div className={styles.listSubHeader}>
+              Commercial Roles
+            </div>
+            <li>Estimators</li>
+            <li>Quantity Surveyors</li>
+            <li>Senior/ Managing Surveyors</li>
+            <li>Commercial Managers</li>
+            <div className={styles.listSubHeader}>
+              Production Roles
+            </div>
+            <li>Site Managers</li>
+            <li>Site Agents</li>
+            <li>Site Engineers</li>
+            <li>Foreman</li>
+            <li>Contracts Managers</li>
+            <li>Operations Managers</li>
+          </div>  
+          <div className={styles.list2}>
+            <div className={styles.listSubHeader}>
+              Trades & Labour
+            </div>
+            <li>Labourers</li>
+            <li>Groundworkers</li>
+            <li>Steel fixers</li>
+            <li>Carpenters</li>
+            <div className={styles.listHeader2}>
+              And many more
+            </div>
           </div>
         </div>
         <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor2}>
