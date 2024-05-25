@@ -116,10 +116,10 @@ const OurExpertise = () => {
             <li>Groundworkers</li>
             <li>Steel fixers</li>
             <li>Carpenters</li>
-            <div className={styles.listHeader2}>
-              And many more
-            </div>
           </div>
+        </div>
+        <div className={styles.listHeader2}>
+          And many more
         </div>
         <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor2}>
           <button className={styles.button}>
