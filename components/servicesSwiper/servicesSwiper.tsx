@@ -11,7 +11,7 @@ import { HiOutlineArrowLongRight } from "react-icons/hi2";
 import { HiOutlineArrowLongLeft} from "react-icons/hi2";
 
 
-const ContractSlider: React.FC = () => {
+const ServicesSwiper: React.FC = () => {
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -66,7 +66,6 @@ const ContractSlider: React.FC = () => {
           <div className={styles.container}>
             <div className={styles.imageContainer2}>
               <img src="/employers/ourServices/2.jpg" alt="Image" className={styles.image}/>
-              <HiOutlineArrowLongLeft className={styles.arrow2}/>
             </div>
             <div className={styles.textContainer}>
               <div className={styles.content}>
@@ -79,9 +78,26 @@ const ContractSlider: React.FC = () => {
             </div>
           </div>
         </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.container}>
+            <div className={styles.imageContainer2}>
+              <img src="/employers/ourServices/3.jpg" alt="Image" className={styles.image}/>
+              <HiOutlineArrowLongLeft className={styles.arrow2}/>
+            </div>
+            <div className={styles.textContainer}>
+              <div className={styles.content}>
+                <div className={styles.title}>Search & Select</div>
+                <div className={styles.text}>We offer a comprehensive search & select service designed to identify, attract, and source senior-level candidates or those for specifically hard-to-place roles. Our meticulous approach begins with a deep understanding of your organization&apos;s culture, goals, and specific needs for each position.</div>
+                <button className={styles.button} onClick={() => scrollToSection('search-select')}>
+                  Learn more <IoIosArrowForward/>
+                </button>
+              </div>
+            </div>
+          </div>
+        </SwiperSlide>
       </Swiper>
     </div>
   )
 }
 
-export default ContractSlider;
+export default ServicesSwiper;

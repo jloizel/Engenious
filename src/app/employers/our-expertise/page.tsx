@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
 import Testimonials from '../../../../components/testimonials/testimonials';
-import ContractSlider from '../../../../components/contractSlider/contractSlider';
+import ContractSlider from '../../../../components/servicesSwiper/servicesSwiper';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Services from '../../../../components/services/services';
 import ServicesSlider from '../../../../components/services/servicesSlider';

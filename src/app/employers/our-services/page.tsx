@@ -8,7 +8,7 @@ import { Helmet } from 'react-helmet';
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
 import Testimonials from '../../../../components/testimonials/testimonials';
-import ContractSlider from '../../../../components/contractSlider/contractSlider';
+import ServicesSwiper from '../../../../components/servicesSwiper/servicesSwiper';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const OurServices = () => {
@@ -69,7 +69,7 @@ const OurServices = () => {
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      <ContractSlider/>
+      <ServicesSwiper/>
       <Box className={styles.expertise}>
         <div className={styles.expertiseHeader}>
           <span style={{color: "#008489"}}>Helping your business</span>
@@ -109,7 +109,7 @@ const OurServices = () => {
       <Box className={styles.service} id="contract-recruitment">
         <div className={styles.serviceHeader}>
         <span>Our contract recruitment process: </span>
-          <span style={{color: "#8CD87A"}}>Right skills, right time.</span>
+          <span style={{color: "#09B089"}}>Right skills, right time.</span>
         </div>
         <div className={styles.serviceText}>
           We &apos;ve been helping companies like yours hire contract and temporary staff for over 10 years. We&apos;re always on top of regulatory changes and know what works best, so you don&apos;t have to worry.
@@ -125,7 +125,7 @@ const OurServices = () => {
       </Box>
       <Box className={styles.service} id="search-select">
         <div className={styles.serviceHeader}>
-        <span>Our search and select process: </span>
+        <span>Our search & select process: </span>
           <span style={{color: "#8CD87A"}}>Identify, attract, source.</span>
         </div>
         <div className={styles.serviceText}>
