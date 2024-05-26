@@ -14,6 +14,18 @@
   justify-content: center;
   text-align: center;
   align-items: center;
+
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    height: 250px;
+  }
 }
 
 .headerTitle {
@@ -33,13 +45,14 @@
   }
   
   @media (min-width: 1024px) {
-    font-size: 80px;
-    padding: 35px 8px;
+    font-size: 45px;
+    /* margin-top: 40px; */
+    margin-bottom: 40px;
   }
 }
 
 .headerText {
-  font-weight: 400;
+  font-weight: 500;
   color: white;
   font-family: "Poppins", sans-serif;
   width: 80%;
@@ -56,8 +69,10 @@
   }
   
   @media (min-width: 1024px) {
-    font-size: 80px;
-    padding: 35px 8px;
+    font-size: 14px;
+    line-height: 150%;
+    max-width: 600px;
+    margin-bottom: 20px;
   }
 }
 
