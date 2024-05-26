@@ -6,6 +6,7 @@ import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
+import JobSearch from '../../../components/jobSearch/jobSearch';
 
 const Jobs = () => {
   const pageName = "Jobs"
@@ -65,6 +66,7 @@ const Jobs = () => {
           We offer a wide range of job opportunities across various industries. Apply now and take the first step towards your dream career.
         </div>
       </Box>
+      <JobSearch />
     </div>
   )
 }
