@@ -58,14 +58,6 @@ const Jobs = () => {
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      <Box className={styles.pageHeader}>
-        <div className={styles.headerTitle}>
-          Find your dream job!
-        </div>
-        <div className={styles.headerText}>
-          We offer a wide range of job opportunities across various industries. Apply now and take the first step towards your dream career.
-        </div>
-      </Box>
       <Box className={styles.jobSearchContainer}>
         <JobSearch />
       </Box>

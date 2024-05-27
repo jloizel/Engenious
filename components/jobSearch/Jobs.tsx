@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import JobCard from "./jobCard";
 import styles from "./page.module.css"
+import { BiSolidCarousel } from "react-icons/bi";
+import { HiSquare3Stack3D } from "react-icons/hi2";
+
+
+
 
 // Define the types for the job data
 interface JobCardData {
@@ -27,6 +32,7 @@ interface JobsProps {
 
 const Jobs: React.FC<JobsProps> = ({ data, setKeywords, keywords }) => {
   const [filteredData, setFilteredData] = useState<JobCardData[]>([]);
+  const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
 
   const modifiedData = () => {
     if (keywords.length > 0) {
@@ -47,14 +53,35 @@ const Jobs: React.FC<JobsProps> = ({ data, setKeywords, keywords }) => {
   };
 
   useEffect(() => {
+    setVisibleJobs(data.slice(0, 6));
+  }, [data]);
+
+  useEffect(() => {
     modifiedData();
   }, [keywords, data]);
+  
+  const handleViewAllJobs = () => {
+    // Show all jobs
+    setVisibleJobs(data);
+  };
 
   return (
-    <div className="jobs">
-      {filteredData.map((d) => (
+    <div>
+    <div>
+      <HiSquare3Stack3D/>
+        Latest job opportunities
+        <button onClick={handleViewAllJobs} className={styles.viewAllButton}>
+          View all jobs
+        </button>
+      </div>
+    <div className={styles.jobsContainer}>
+      
+
+      {visibleJobs.map((d) => (
         <JobCard key={d.id} data={d} setkeywords={setKeywords} />
       ))}
+      
+    </div>
     </div>
   );
 };

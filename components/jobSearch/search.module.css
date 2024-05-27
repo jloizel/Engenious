@@ -1,0 +1,33 @@
+.searchFormContainer {
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    width: 90%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 500px;
+    padding: 18px;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.icon {
+  color: #958E98;
+
+  @media (min-width: 1024px) {
+    font-size: 20px;
+  }
+}

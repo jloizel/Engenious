@@ -8,6 +8,7 @@
   min-height: 200px;
   border: 1px solid #EFF0F0;
   position: relative;
+  transition: box-shadow 0.3s ease;
 
   @media (max-width: 767px) {
    
@@ -22,8 +23,8 @@
   }
 }
 
-/* .container:hover {
-  color: var(--primary);
+.container:hover {
+  cursor: pointer;
   box-shadow: 0px 24px 16px -16px rgba(216, 63, 99, 0.16), 0px 0px 0px 1px #EFF0F0 inset, 0px 0px 8px 0px rgba(62, 53, 82, 0.16);
 }
 
@@ -37,7 +38,12 @@
   font-size: 0;
   left: 0;
   border-radius: 8px;
-} */
+}
+
+.container:hover .button {
+  background-color: #005773; /* Change to your desired hover color */
+  color: white; /* Change the text color if needed */
+}
 
 .position {
   font-family: "Poppins", sans-serif;
@@ -116,17 +122,12 @@
   padding: 0 16px;
   border-radius: 4px;
   text-align: center;
-  transition: all 0.3s ease-in-out;
+  transition: background-color 0.3s ease, color 0.3s ease;
   white-space: nowrap;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-}
-
-.button:hover {
-  background: #005773;
-  color: white;
 }
 
 .tags {
