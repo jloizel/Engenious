@@ -4,13 +4,14 @@ import data from "./jobs.json";
 import { useState } from "react";
 import Jobs from "./Jobs";
 import Header from "./Header";
+import Search from "./Search";
 
 const JobSearch: React.FC = () => {
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
 
-  // const setSearchKeyword = (data: string) => {
-  //   setFilterKeywords(data);
-  // };
+  const setSearchKeyword = (data: string) => {
+    setFilterKeywords([data]);
+  };
 
   const addFilterKeywords = (data: string) => {
     if (!filterKeywords.includes(data)) {
@@ -31,7 +32,7 @@ const JobSearch: React.FC = () => {
     <div>
       <div className="header"></div>
 
-      {/* <Search setSearchKeyword={setSearchKeyword} /> */}
+      <Search setSearchKeyword={(keyword: string) => setSearchKeyword(keyword)} />
 
       {filterKeywords.length > 0 && (
         <Header
@@ -46,6 +47,7 @@ const JobSearch: React.FC = () => {
         data={data}
         setKeywords={addFilterKeywords}
       />
+      {/* <Search/> */}
     </div>
   );
 };

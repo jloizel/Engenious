@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Job from "./Job";
+import JobCard from "./jobCard";
+import styles from "./page.module.css"
 
 // Define the types for the job data
-interface JobData {
+interface JobCardData {
   id: number;
   company: string;
   contract: string;
-  featured: boolean;
   languages: string[];
   level: string;
   location: string;
-  logo: string;
+  salary: string;
   position: string;
   postedAt: string;
   role: string;
@@ -20,13 +20,13 @@ interface JobData {
 
 // Define the types for the props
 interface JobsProps {
-  data: JobData[];
+  data: JobCardData[];
   setKeywords: (keyword: string) => void;
   keywords: string[];
 }
 
 const Jobs: React.FC<JobsProps> = ({ data, setKeywords, keywords }) => {
-  const [filteredData, setFilteredData] = useState<JobData[]>([]);
+  const [filteredData, setFilteredData] = useState<JobCardData[]>([]);
 
   const modifiedData = () => {
     if (keywords.length > 0) {
@@ -53,7 +53,7 @@ const Jobs: React.FC<JobsProps> = ({ data, setKeywords, keywords }) => {
   return (
     <div className="jobs">
       {filteredData.map((d) => (
-        <Job key={d.id} data={d} setkeywords={setKeywords} />
+        <JobCard key={d.id} data={d} setkeywords={setKeywords} />
       ))}
     </div>
   );

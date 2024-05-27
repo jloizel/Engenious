@@ -66,7 +66,9 @@ const Jobs = () => {
           We offer a wide range of job opportunities across various industries. Apply now and take the first step towards your dream career.
         </div>
       </Box>
-      <JobSearch />
+      <Box className={styles.jobSearchContainer}>
+        <JobSearch />
+      </Box>
     </div>
   )
 }

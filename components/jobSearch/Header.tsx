@@ -1,5 +1,7 @@
 import React from "react";
 // import close from "./images/icon-remove.svg";
+import CloseIcon from '@mui/icons-material/Close';
+
 
 // Define the types for the props
 interface HeaderProps {
@@ -17,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ keywords, removeKeywords, clearAll }) =
             <li key={id}>
               {key}
               <button className="close" onClick={() => removeKeywords(key)}>
-                <img src={close} alt="" />
+                <CloseIcon/>
               </button>
             </li>
           );
