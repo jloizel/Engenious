@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import styles from "./search.module.css"
 import { IoBriefcase } from "react-icons/io5";
+import SearchIcon from '@mui/icons-material/Search';
+import { IoSearchOutline } from "react-icons/io5";
+import { GoSearch } from "react-icons/go";
+import { IoMdSearch } from "react-icons/io";
+import { IoSearchSharp } from "react-icons/io5";
+
 
 interface SearchProps {
   setSearchKeyword: (keyword: string) => void;
   data: string[]; // Array of job positions from the data file
+  handleButtonClick: () => void
 }
 
-const Search: React.FC<SearchProps> = ({ setSearchKeyword, data }) => {
+const Search: React.FC<SearchProps> = ({ setSearchKeyword, data, handleButtonClick }) => {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
 
@@ -34,15 +41,23 @@ const Search: React.FC<SearchProps> = ({ setSearchKeyword, data }) => {
 
   return (
     <div className={styles.searchFormContainer}>
-      <div className={styles.left}>
-        <IoBriefcase className={styles.icon}/>
-        <input
-          type="text"
-          value={input}
-          onChange={handleSearch}
-          placeholder="Search jobs..."
-          className={styles.input}
-        />
+      <div className={styles.form}>
+        <div className={styles.left}>
+          <IoBriefcase className={styles.icon}/>
+          <input
+            type="text"
+            value={input}
+            onChange={handleSearch}
+            placeholder="Search by title, skill or keyword"
+            className={styles.input}
+          />
+        </div>
+        <div className={styles.buttonContainer}>
+          <button onClick={handleButtonClick} className={styles.button}>
+            Search
+            <IoSearchSharp className={styles.searchIcon}/>
+          </button>
+        </div>
       </div>
       {suggestions.length > 0 && (
         <ul>

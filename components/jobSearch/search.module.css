@@ -15,13 +15,23 @@
   
   @media (min-width: 1024px) {
     width: 500px;
-    padding: 18px;
+    padding: 6px;
   }
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .left {
   display: flex;
   align-items: center;
+  gap: 10px;
+  width: 70%;
+  margin-left: 5px;
 }
 
 .icon {
@@ -29,5 +39,70 @@
 
   @media (min-width: 1024px) {
     font-size: 20px;
+  }
+}
+
+.input {
+  border: none;
+  width: 100%;
+}
+
+.input::placeholder {
+  font-family: "Poppins", sans-serif;
+  opacity: 0.6;
+  width: 100%;
+  font-size: 14px !important;
+}
+
+.buttonContainer {
+  display: flex;
+  /* align-items: center; */
+  background-color: #09B089;
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  /* height: 50px; */
+  /* align-self: flex-end; */
+}
+
+.button {
+  background: none;
+  border: none;
+  font-weight: 700;
+  color: white;
+  padding: 14px 30px;
+  font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 16px;
+    
+  }
+}
+
+.searchIcon {
+  color: white;
+  font-weight: 200;
+  margin-left: 8px;
+
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    transform: translateY(4px);
+    font-size: 18px;
   }
 }

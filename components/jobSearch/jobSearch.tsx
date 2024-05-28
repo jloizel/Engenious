@@ -11,6 +11,7 @@ import styles from "./page.module.css"
 const JobSearch: React.FC = () => {
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
   const [jobs, setJobs] = useState(data);
+  const [showAllJobs, setShowAllJobs] = useState(false)
 
   const setSearchKeyword = (data: string) => {
     setFilterKeywords([data]);
@@ -33,8 +34,12 @@ const JobSearch: React.FC = () => {
 
   const sortedJobs = [...jobs].sort((a, b) => new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime());
 
+  const handleButtonClick = () => {
+    setShowAllJobs(true)
+  }
+
   return (
-    <div>
+    <div className={styles.container}>
       <Box className={styles.pageHeader}>
         <div className={styles.headerTitle}>
           Find your dream job!
@@ -43,8 +48,9 @@ const JobSearch: React.FC = () => {
           We offer a wide range of job opportunities across various industries. Apply now and take the first step towards your dream career.
         </div>
         <Search 
-        setSearchKeyword={(keyword: string) => setSearchKeyword(keyword)}
-        data={jobs.map(job => job.position)}
+          setSearchKeyword={(keyword: string) => setSearchKeyword(keyword)}
+          data={jobs.map(job => job.position)}
+          handleButtonClick={handleButtonClick}
         />
       </Box>
 
@@ -56,13 +62,14 @@ const JobSearch: React.FC = () => {
         />
       )} */}
       
-
-      <Jobs
-        keywords={filterKeywords}
-        data={sortedJobs}
-        setKeywords={addFilterKeywords}
-      />
-      {/* <Search/> */}
+      <div className={styles.jobsMainContainer}>
+        <Jobs
+          keywords={filterKeywords}
+          data={sortedJobs}
+          setKeywords={addFilterKeywords}
+          showAllJobs={showAllJobs}
+        />
+      </div>
     </div>
   );
 };

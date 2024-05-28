@@ -1,7 +1,25 @@
+.container {
+  width: 100%;
+}
+
+.jobsMainContainer {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
 .jobsContainer {
-  display: flex;
+  max-width: 1200px;
+  margin: auto;
+  width: 100%;
+  padding: 0;
+}
+
+.jobCardsContainer {
   flex-flow: wrap;
-  gap: 20px;
+  display: flex;
+  gap: 27.2px;
+  /* max-width: 1200px; */
+  /* width: 100%; */
 }
 
 .pageHeader {
@@ -72,4 +90,80 @@
     max-width: 600px;
     margin-bottom: 20px;
   }
+}
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px 0px;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.leftIcon {
+  font-family: "Poppins", sans-serif;
+  color: #005773;
+
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 30px;
+    
+  }
+}
+
+.leftText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #005773;
+
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 26px;
+    
+  }
+}
+
+.viewAllButton {
+  border: none;
+  background-color: #EBEBEB;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+} 
+
+.viewAllButton:hover {
+  background: #005773;
+  color: white;
+}
+
+.searchIcon {
+  font-size: 16px;
 }
