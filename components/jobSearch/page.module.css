@@ -148,6 +148,7 @@
 .viewAllButton {
   border: none;
   background-color: #EBEBEB;
+  color: #005773;
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: row;
