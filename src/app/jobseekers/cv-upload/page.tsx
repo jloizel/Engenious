@@ -40,12 +40,12 @@ const CVUpload = () => {
     {
       id: 1,
       title: "Search jobs",
-      url: "/jobs",
+      url: "/jobseekers",
     },
     {
       id: 2,
       title: "Upload your CV",
-      url: "/jobs/cv-upload",
+      url: "/jobseekers/cv-upload",
     }
   ]; 
 

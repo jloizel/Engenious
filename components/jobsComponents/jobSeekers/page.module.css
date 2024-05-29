@@ -1,0 +1,79 @@
+.container {
+  width: 100%;
+}
+
+.jobsMainContainer {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+.pageHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(147deg, rgba(0,45,73,1) 0%, rgba(0,87,115,1) 25%, rgba(0,132,137,1) 50%);
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    height: 250px;
+  }
+}
+
+.headerTitle {
+  font-weight: 700;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  width: 80%;
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+    margin-top: 40px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 60px;
+    padding: 15px 6px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+    /* margin-top: 40px; */
+    margin-bottom: 40px;
+  }
+}
+
+.headerText {
+  font-weight: 500;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  width: 80%;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 60px;
+    padding: 15px 6px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 14px;
+    line-height: 150%;
+    max-width: 600px;
+    margin-bottom: 20px;
+  }
+}
+

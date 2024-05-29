@@ -1,10 +1,10 @@
 "use client"
 
-import data from "./jobs.json";
+import data from "../jobs.json";
 import { useState } from "react";
-import Jobs from "./Jobs";
-import Header from "./Header";
-import Search from "./Search";
+import Jobs from "../jobCard/jobCardsContainer";
+import Header from "../Header";
+import Search from "../search/Search";
 import { Box } from "@mui/material";
 import styles from "./page.module.css"
 

@@ -1,0 +1,138 @@
+/* general */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100%;
+
+  @media (max-width: 767px) {
+    justify-content: center;
+    width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 10px;
+    column-gap: 20px;
+    margin-left: 10px;
+  }
+}
+
+/* left side of navbar */
+
+.left {
+  display: flex !important;  
+  gap: 10px;
+
+  @media (max-width: 767px) {
+    width: 90%;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 767px) {
+    gap: 5px;
+  }
+
+  @media (min-width: 768px) {
+    gap: 5px;
+  }
+}
+
+.menu1 {
+  background-color: rgba(12, 12, 12, 0.08);
+  border-radius: 5px;
+
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+
+.menu2 {
+  height: 100%;
+  
+  @media (max-width: 767px) {
+    /* width: 100%; */
+    display: flex;
+    /* justify-content: flex-end; */
+    /* margin-right: -15px; */
+    /* align-items: flex-end; */
+    
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.logo {
+  @media (max-width: 767px) {
+    height: 60px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 60px;
+  }
+  
+  @media (min-width: 1024px) {
+    height: 70px;
+  }
+}
+
+.companyNameContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: 18px;
+}
+
+.companyName1 {
+  font-weight: 600;
+}
+
+.companyName2 {
+  font-weight: 300;
+}
+
+.titleLink {
+  font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  color: #00617C;
+  font-weight: 500;
+  position: relative;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.searchInputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.searchDropdownContainer {
+
+}
+
+.searchIconContainer {
+
+}
+
+.searchIcon {
+
+}

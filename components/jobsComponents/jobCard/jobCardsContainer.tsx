@@ -30,7 +30,7 @@ interface JobsProps {
   showAllJobs: boolean;
 }
 
-const Jobs: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs }) => {
+const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs }) => {
   const [filteredData, setFilteredData] = useState<JobCardData[]>([]);
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
 
@@ -92,4 +92,4 @@ const Jobs: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs })
   );
 };
 
-export default Jobs;
+export default JobCardsContainer;

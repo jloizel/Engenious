@@ -2,11 +2,10 @@
 
 import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css"
+import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
-import Menu from '../../../components/menu/menu';
-import JobsBar from '../../../components/navbar/jobs/jobsBar';
 import JobSeekers from '../../../components/jobsComponents/jobSeekers/jobSeekers';
 
 const Jobs = () => {
@@ -36,39 +35,21 @@ const Jobs = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
-  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
-  
-  const setDisplay  = () => {
-    if (isMobile) {
-        return 'none';
-    } else {
-        return '';
-    }
-  }; 
 
-  const setDisplay2  = () => {
-    if (isTabletOrAbove) {
-        return 'none';
-    } else {
-        return '';
-    }
-  }; 
+  
 
   const links = [
     {
       id: 1,
       title: "Search jobs",
-      url: "/jobs",
+      url: "/jobseekers",
     },
     {
       id: 2,
       title: "Upload your CV",
-      url: "/jobs/cv-upload",
+      url: "/jobseekers/cv-upload",
     }
   ]; 
-
-
-
 
   return (
     <div className={styles.jobsContainer}>
@@ -76,8 +57,7 @@ const Jobs = () => {
         <title>Jobs</title>
         <meta name='description' content='' />
       </Helmet>
-      
-    {/* </div> */}
+      <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.jobSearchContainer}>
         <JobSeekers />
       </Box>

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react";
-import styles from "./card.module.css"
+import styles from "./page.module.css"
 import { GoLocation } from "react-icons/go";
 import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
