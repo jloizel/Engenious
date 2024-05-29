@@ -125,6 +125,33 @@
   flex-direction: column;
 }
 
+.searchInputContainer span {
+  font-size: 12px;
+  cursor: default;
+  color: #aaa;
+}
+
+.input {
+  color: #005773;
+  height: 48px;
+  outline: none;
+  font-size: 16px;
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  border: none;
+  background: transparent;
+  text-align: left;
+  box-shadow: none;
+  padding: 15px 15px 0;
+  font-family: inherit;
+}
+
+.input::placeholder {
+  color: #005773;
+}
+
 .searchDropdownContainer {
 
 }

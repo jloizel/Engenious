@@ -69,7 +69,6 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
       <div className={styles.navbarContainer}>
         <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       </div>
-      
       <Box className={styles.pageHeader}>
         <div className={styles.headerTitle}>
           Find your dream job!
