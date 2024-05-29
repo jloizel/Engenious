@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import JobCard from "./jobCard";
-import styles from "./page.module.css"
-import { BiSolidCarousel } from "react-icons/bi";
+import styles from "./page.module.css";
 import { HiSquare3Stack3D } from "react-icons/hi2";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-
+import { Box, Skeleton } from "@mui/material";
 
 // Define the types for the job data
 interface JobCardData {
@@ -33,39 +32,56 @@ interface JobsProps {
 const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs }) => {
   const [filteredData, setFilteredData] = useState<JobCardData[]>([]);
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
-
-  const modifiedData = () => {
-    if (keywords.length > 0) {
-      const newData = data.filter((d) => {
-        return keywords.every((key) => {
-          return (
-            d.role === key ||
-            d.level === key ||
-            d.languages.includes(key) ||
-            d.tools.includes(key)
-          );
-        });
-      });
-      setFilteredData(newData);
-    } else {
-      setFilteredData(data);
-    }
-  };
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (showAllJobs) {
-      setVisibleJobs(data);
-    } else {
-      setVisibleJobs(data.slice(0, 6));
-    }
-  }, [data]);
+    // Show skeleton initially
+    setLoading(true);
+    
+    // Set timer to hide skeleton after 1000 milliseconds
+    const skeletonTimer = setTimeout(() => {
+      setLoading(false);
+    }, 200);
+
+    // Clean up timer when component unmounts or when it is re-rendered
+    return () => clearTimeout(skeletonTimer);
+  }, []);
 
   useEffect(() => {
-    modifiedData();
-  }, [keywords, data]);
-  
+    if (!loading) {
+      if (showAllJobs) {
+        setVisibleJobs(data);
+      } else {
+        setVisibleJobs(data.slice(0, 6));
+      }
+    }
+  }, [loading, showAllJobs, data]);
+
+  useEffect(() => {
+    if (!loading) {
+      const modifiedData = () => {
+        if (keywords.length > 0) {
+          const newData = data.filter((d) => {
+            return keywords.every((key) => {
+              return (
+                d.role === key ||
+                d.level === key ||
+                d.languages.includes(key) ||
+                d.tools.includes(key)
+              );
+            });
+          });
+          setFilteredData(newData);
+        } else {
+          setFilteredData(data);
+        }
+      };
+
+      modifiedData();
+    }
+  }, [loading, keywords, data]);
+
   const handleViewAllJobs = () => {
-    // Show all jobs
     setVisibleJobs(data);
   };
 
@@ -81,13 +97,18 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
         </button>
       </div>
       <div className={styles.jobCardsContainer}>
-      
-
-      {visibleJobs.map((d) => (
-        <JobCard key={d.id} data={d} setkeywords={setKeywords} />
-      ))}
-      
-    </div>
+        {loading ? (
+          <Box className={styles.skeletonContainer}>
+            {[...Array(3)].map((_, index) => (
+              <Skeleton key={index} variant="rounded" width="60%" height={10}/>
+            ))}
+          </Box>
+        ) : (
+          visibleJobs.map((d) => (
+            <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+          ))
+        )}
+      </div>
     </div>
   );
 };

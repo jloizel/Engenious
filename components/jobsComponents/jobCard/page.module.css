@@ -241,3 +241,13 @@
 .searchIcon {
   font-size: 16px;
 }
+
+.skeletonContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+  flex-direction: column;
+}

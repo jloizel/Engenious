@@ -10,7 +10,6 @@ import JobSeekers from '../../../components/jobsComponents/jobSeekers/jobSeekers
 
 const Jobs = () => {
   const pageName = "Jobs"
-  
   const [currentPath, setCurrentPath] = useState('')
 
   useEffect(() => {
@@ -36,8 +35,6 @@ const Jobs = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
-  
-
   const links = [
     {
       id: 1,
@@ -57,9 +54,9 @@ const Jobs = () => {
         <title>Jobs</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
+
       <Box className={styles.jobSearchContainer}>
-        <JobSeekers />
+        <JobSeekers links={links} currentPath={currentPath} pageName={pageName}/>
       </Box>
     </div>
   )

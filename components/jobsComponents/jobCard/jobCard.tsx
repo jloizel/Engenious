@@ -26,7 +26,7 @@ interface JobData {
 // Define the types for the props
 interface JobProps {
   data: JobData;
-  setkeywords: (keyword: string) => void;
+  setKeywords: (keyword: string) => void;
 }
 
 const JobCard: React.FC<JobProps> = (props) => {

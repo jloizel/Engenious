@@ -1,5 +1,6 @@
+// Search.tsx
 import React, { useState } from "react";
-import styles from "./search.module.css"
+import styles from "./search.module.css";
 import { IoBriefcase } from "react-icons/io5";
 import SearchIcon from '@mui/icons-material/Search';
 import { IoSearchOutline } from "react-icons/io5";
@@ -7,22 +8,22 @@ import { GoSearch } from "react-icons/go";
 import { IoMdSearch } from "react-icons/io";
 import { IoSearchSharp } from "react-icons/io5";
 
-
 interface SearchProps {
-  setSearchKeyword: (keyword: string) => void;
+  setSearchKeywords: (keywords: string[]) => void;
   data: string[]; // Array of job positions from the data file
-  handleButtonClick: () => void
+  handleButtonClick: () => void;
 }
 
-const Search: React.FC<SearchProps> = ({ setSearchKeyword, data, handleButtonClick }) => {
+const Search: React.FC<SearchProps> = ({ data, handleButtonClick, setSearchKeywords }) => {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setInput(inputValue);
-    setSearchKeyword(inputValue);
-
+    setFilterKeywords([inputValue])
+    setSearchKeywords([inputValue]);
     // Filter job positions from data that contain the user's input letters
     const matchedSuggestions = inputValue.length >= 3
       ? data.filter(position =>
@@ -35,9 +36,10 @@ const Search: React.FC<SearchProps> = ({ setSearchKeyword, data, handleButtonCli
 
   const handleSuggestionClick = (position: string) => {
     setInput(position);
-    setSearchKeyword(position);
+    // setSearchKeyword([position]);
     setSuggestions([]);
   };
+
 
   return (
     <div className={styles.searchFormContainer}>
@@ -53,10 +55,12 @@ const Search: React.FC<SearchProps> = ({ setSearchKeyword, data, handleButtonCli
           />
         </div>
         <div className={styles.buttonContainer}>
-          <button onClick={handleButtonClick} className={styles.button}>
-            Search
-            <IoSearchSharp className={styles.searchIcon}/>
-          </button>
+          {/* <a href="/jobs"> */}
+            <button onClick={handleButtonClick} className={styles.button}>
+              Search
+              <IoSearchSharp className={styles.searchIcon}/>
+            </button>
+          {/* </a> */}
         </div>
       </div>
       {suggestions.length > 0 && (

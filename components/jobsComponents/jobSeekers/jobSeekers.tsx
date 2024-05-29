@@ -3,18 +3,33 @@
 import data from "../jobs.json";
 import { useState } from "react";
 import Jobs from "../jobCard/jobCardsContainer";
-import Header from "../Header";
 import Search from "../search/Search";
 import { Box } from "@mui/material";
 import styles from "./page.module.css"
+import JobSearch from "../jobSearch/JobSearch";
+import NavbarSub from "../../navbar/sub/navbarSub";
 
-const JobSeekers: React.FC = () => {
+interface Link {
+  id: number;
+  title: string;
+  url: string;
+}
+
+interface JobSeekersProps {
+  links: Link[];
+  pageName: string;
+  currentPath: string;
+}
+const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) => {
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
   const [jobs, setJobs] = useState(data);
   const [showAllJobs, setShowAllJobs] = useState(false)
+  const [searchButtonClicked, setSearchButtonClicked] = useState(false)
+  const [keyword, setKeyword] = useState<string>("");
 
-  const setSearchKeyword = (data: string) => {
-    setFilterKeywords([data]);
+  const setSearchKeywords = (keywords: string[]) => {
+    setFilterKeywords(keywords);
+    setKeyword(keywords.join(', '));
   };
 
   const addFilterKeywords = (data: string) => {
@@ -36,10 +51,21 @@ const JobSeekers: React.FC = () => {
 
   const handleButtonClick = () => {
     setShowAllJobs(true)
+    setSearchButtonClicked(true)
   }
+
+  if (searchButtonClicked) {
+    return <JobSearch keyword={keyword}/>;
+  }
+
+  console.log(keyword)
 
   return (
     <div className={styles.container}>
+      <div className={styles.navbarContainer}>
+        <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
+      </div>
+      
       <Box className={styles.pageHeader}>
         <div className={styles.headerTitle}>
           Find your dream job!
@@ -48,7 +74,7 @@ const JobSeekers: React.FC = () => {
           We offer a wide range of job opportunities across various industries. Apply now and take the first step towards your dream career.
         </div>
         <Search 
-          setSearchKeyword={(keyword: string) => setSearchKeyword(keyword)}
+          setSearchKeywords={setSearchKeywords}
           data={jobs.map(job => job.position)}
           handleButtonClick={handleButtonClick}
         />
