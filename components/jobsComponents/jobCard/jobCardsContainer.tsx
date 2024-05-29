@@ -27,9 +27,10 @@ interface JobsProps {
   setKeywords: (keyword: string) => void;
   keywords: string[];
   showAllJobs: boolean;
+  handleButtonClick: () => void
 }
 
-const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs }) => {
+const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs, handleButtonClick }) => {
   const [filteredData, setFilteredData] = useState<JobCardData[]>([]);
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -85,6 +86,8 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
     setVisibleJobs(data);
   };
 
+
+
   return (
     <div className={styles.jobsContainer}>
       <div className={styles.header}>
@@ -92,7 +95,7 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
           <HiSquare3Stack3D className={styles.leftIcon}/> 
           <span className={styles.leftText}>Latest job opportunities</span>
         </div>
-        <button onClick={handleViewAllJobs} className={styles.viewAllButton}>
+        <button onClick={handleButtonClick} className={styles.viewAllButton}>
           View all jobs <KeyboardArrowRightIcon className={styles.searchIcon}/>
         </button>
       </div>

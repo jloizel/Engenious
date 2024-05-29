@@ -39,12 +39,12 @@ const Jobs = () => {
     {
       id: 1,
       title: "Search jobs",
-      url: "/jobseekers",
+      url: "/jobs",
     },
     {
       id: 2,
       title: "Upload your CV",
-      url: "/jobseekers/cv-upload",
+      url: "/jobs/cv-upload",
     }
   ]; 
 

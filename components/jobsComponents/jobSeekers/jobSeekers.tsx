@@ -51,7 +51,7 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
   const sortedJobs = [...jobs].sort((a, b) => new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime());
 
   const handleButtonClick = () => {
-    setShowAllJobs(true)
+    // setShowAllJobs(true)
     setSearchButtonClicked(true)
   }
 
@@ -97,6 +97,7 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
           data={sortedJobs}
           setKeywords={addFilterKeywords}
           showAllJobs={showAllJobs}
+          handleButtonClick={handleButtonClick}
         />
       </div>
     </div>
