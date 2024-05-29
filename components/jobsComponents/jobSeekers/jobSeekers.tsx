@@ -1,7 +1,7 @@
 "use client"
 
 import data from "../jobs.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Jobs from "../jobCard/jobCardsContainer";
 import Search from "../search/Search";
 import { Box } from "@mui/material";
@@ -26,6 +26,7 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
   const [showAllJobs, setShowAllJobs] = useState(false)
   const [searchButtonClicked, setSearchButtonClicked] = useState(false)
   const [keyword, setKeyword] = useState<string>("");
+  const [locations, setLocations] = useState<string[]>([]);
 
   const setSearchKeywords = (keywords: string[]) => {
     setFilterKeywords(keywords);
@@ -54,11 +55,14 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
     setSearchButtonClicked(true)
   }
 
-  if (searchButtonClicked) {
-    return <JobSearch keyword={keyword}/>;
-  }
+  useEffect(() => {
+    const extractedLocations = [...new Set(data.map(job => job.location))];
+    setLocations(extractedLocations);
+  }, []);
 
-  console.log(keyword)
+  if (searchButtonClicked) {
+    return <JobSearch keyword={keyword} locations={locations}/>;
+  }
 
   return (
     <div className={styles.container}>

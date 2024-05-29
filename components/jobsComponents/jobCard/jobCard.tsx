@@ -95,7 +95,7 @@ const JobCard: React.FC<JobProps> = (props) => {
           </button>
         </a>
       </div>
-
+        
       {/* <div className={styles.tags}>
         {keywords.map((key, id) => (
           <span onClick={() => props.setkeywords(key)} key={id} className={styles.tag}>

@@ -11,8 +11,14 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { IoSearchSharp } from "react-icons/io5";
+import DropdownButton from '../../dropdown/dropdown';
 
-const JobsBar: React.FC = () => {
+interface JobsBarProps {
+  locations: string[]
+  onSelect: (string) => void
+}
+
+const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect}) => {
 
   const theme = createTheme({
     breakpoints: {
@@ -97,6 +103,7 @@ const JobsBar: React.FC = () => {
                 </Select>
               </FormControl>
             </Box> */}
+            <DropdownButton locations={locations} onSelect={onSelect}/>
             </div>
             <div className={styles.searchIconContainer}>
               <IoSearchSharp className={styles.searchIcon}/>
