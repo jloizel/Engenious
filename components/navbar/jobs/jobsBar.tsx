@@ -76,7 +76,7 @@ const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect}) => {
           </div>
           <div className={styles.searchContainer}>
             <div className={styles.searchInputContainer}>
-              <span>Job Title</span>
+              <span >Job Title</span>
               <input
                 type="text"
                 // value={input}
@@ -85,7 +85,9 @@ const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect}) => {
                 className={styles.input}
               />
             </div>
+            <span className={styles.verticalLine}></span>
             <div className={styles.searchDropdownContainer}>
+              {/* <span>Job Location</span> */}
               <DropdownButton locations={locations} onSelect={onSelect}/>
             </div>
             <div className={styles.searchIconContainer}>

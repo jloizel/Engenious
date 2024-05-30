@@ -2,34 +2,61 @@
 
 .dropdownContainer {
   position: relative;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  min-width: 220px;
+  height: 100%;
+  margin-left: 20px;
+}
+
+.dropdownContainer span {
+  font-size: 12px;
+  cursor: default;
+  color: #aaa;
+  line-height: 10px;
+  /* padding: 0px 2px; */
+}
+
+.arrow {
+  margin-left: 70px; /* Space between text and arrow */
+  transform: rotate(90deg);
+  font-size: 18px;
+}
+
+.arrow.open {
+  transform: rotate(270deg); /* Rotate arrow when dropdown is open */
 }
 
 .dropdownButton {
-  background-color: #005773;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
+  color: #005773;
+  font-size: 15px;
   border: none;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.dropdownButton:hover {
-  background-color: #004a61;
+  background: transparent;
+  font-family: inherit;
+  text-align: left !important;
+  align-items: flex-start;
+  display: flex;
+  padding: 0; /* Ensure padding is set to 0 */
+  margin: 0;  /* Ensure margin is set to 0 */
+  justify-content: left;
+  cursor: pointer; /* Add cursor pointer for better UX */
 }
 
 .dropdownList {
   position: absolute;
-  background-color: white;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  top: 100%; /* Position list below the button */
+  left: 0;
+  background: white;
+  border-radius: 10px;
+  width: 100%;
   list-style: none;
   padding: 0;
-  margin: 0;
-  border-radius: 4px;
-  border: 1px solid #ccc;
+  margin: 10px 0 0 0; /* Add margin-top of 20px */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease-in-out;
 }
 
 .dropdownItem {
@@ -38,5 +65,15 @@
 }
 
 .dropdownItem:hover {
-  background-color: #f1f1f1;
+  background: #e7e6e6;
+}
+
+.dropdownItem:first-child:hover {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.dropdownItem:last-child:hover {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }

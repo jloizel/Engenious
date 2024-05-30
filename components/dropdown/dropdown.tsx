@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./page.module.css"; // Assume this file contains the necessary CSS
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 
 interface DropdownButtonProps {
   locations: string[];
@@ -9,6 +11,7 @@ interface DropdownButtonProps {
 const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleButtonClick = () => {
     setIsOpen(!isOpen);
@@ -20,10 +23,25 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) 
     setIsOpen(false);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={styles.dropdownContainer}>
+    <div className={styles.dropdownContainer} ref={dropdownRef}>
+      <span>Job Location</span>
       <button onClick={handleButtonClick} className={styles.dropdownButton}>
         {selectedLocation || "Select Location"}
+        <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
       </button>
       {isOpen && (
         <ul className={styles.dropdownList}>
