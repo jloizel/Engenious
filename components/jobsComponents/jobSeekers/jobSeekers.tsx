@@ -61,7 +61,7 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
   }, []);
 
   if (searchButtonClicked) {
-    return <JobSearch keyword={keyword} locations={locations}/>;
+    return <JobSearch keyword={keyword} locations={locations} data={sortedJobs}/>;
   }
 
   return (

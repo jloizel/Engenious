@@ -1,0 +1,28 @@
+.filtersContainer {
+  padding: 12px 0;
+  border-bottom: 1px solid #d6d6d6;
+  border-top: 1px solid #d6d6d6;
+  display: flex;
+  flex-direction: row;
+}
+
+.filtersHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.filtersHeader span {
+  display: flex;
+  flex-direction: row;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #005773;
+  font-size: 18px;
+}
+
+.filterIcon {
+  color: #005773;
+  font-size: 20px;
+}

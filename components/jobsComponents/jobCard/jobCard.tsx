@@ -9,18 +9,13 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 // Define the types for the job data
 interface JobData {
-  company: string;
-  contract: string;
   id: number;
-  languages: string[];
-  level: string;
-  location: string;
-  salary: string;
   position: string;
   postedAt: string;
-  role: string;
-  tools: string[];
-  new: boolean; // Assuming 'new' is a boolean property in the job data
+  contractType: string;
+  location: string;
+  specialisation: string;
+  salary: string; // Assuming 'new' is a boolean property in the job data
 }
 
 // Define the types for the props
@@ -31,19 +26,16 @@ interface JobProps {
 
 const JobCard: React.FC<JobProps> = (props) => {
   const {
-    company,
-    contract,
-    languages,
-    level,
-    location,
-    salary,
+    id,
     position,
     postedAt,
-    role,
-    tools,
+    contractType,
+    location,
+    specialisation,
+    salary,
   } = props.data;
 
-  let keywords = [role, level, ...languages, ...tools];
+  // let keywords = [role, level, ...languages, ...tools];
 
   const [icon, setIcon] = useState<string>("");
   const [newJob, setNewJob] = useState(false)
@@ -80,7 +72,7 @@ const JobCard: React.FC<JobProps> = (props) => {
       <div className={styles.position}>{position}</div>
       <div className={styles.jobInfo}>
         <span><GoLocation className={styles.icon}/> {location}</span>
-        <span><LuClock3 className={styles.icon}/>{contract}</span>
+        <span><LuClock3 className={styles.icon}/>{contractType}</span>
         <span><GiMoneyStack className={styles.icon}/>{salary}</span>
       </div>
       <div className={styles.bottomInfo}>
