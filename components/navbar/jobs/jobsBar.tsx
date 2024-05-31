@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react'
-import styles from './page.module.css'
+import React, { useEffect, useRef, useState } from 'react';
+import styles from './page.module.css';
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '../../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
@@ -10,16 +10,17 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import { IoSearchSharp } from "react-icons/io5";
+import { IoSearchSharp, IoClose } from "react-icons/io5";
 import DropdownButton from '../../dropdown/dropdown';
 
 interface JobsBarProps {
-  locations: string[]
-  onSelect: (string) => void
+  locations: string[];
+  positions: string[];
+  onSelect: (location: string) => void;
   setSearchKeywords: (keywords: string[]) => void;
 }
 
-const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect, setSearchKeywords}) => {
+const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSearchKeywords }) => {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
@@ -29,12 +30,12 @@ const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect, setSearchKeywords
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setInput(inputValue);
-    setFilterKeywords([inputValue])
+    setFilterKeywords([inputValue]);
     setSearchKeywords([inputValue]);
-    setIsOpen(true)
-    // Filter job positions from data that contain the user's input letters
+    setIsOpen(true);
+
     const matchedSuggestions = inputValue.length >= 3
-      ? data.filter(position =>
+      ? positions.filter(position =>
           position.toLowerCase().includes(inputValue.toLowerCase())
         )
       : [];
@@ -61,11 +62,12 @@ const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect, setSearchKeywords
     setSearchKeywords([position]);
   };
 
+
   const getHighlightedText = (text: string, highlight: string) => {
     const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
     return (
       <span>
-        {parts.map((part, i) => 
+        {parts.map((part, i) =>
           part.toLowerCase() === highlight.toLowerCase() ? <strong key={i}>{part}</strong> : part
         )}
       </span>
@@ -79,7 +81,6 @@ const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect, setSearchKeywords
     setSearchKeywords([]);
   };
 
-
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -91,71 +92,80 @@ const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect, setSearchKeywords
       },
     },
   });
-  
+
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
 
-  const setDisplay  = () => {
-    if (isMobile) {
-        return 'none';
-    } else {
-        return '';
-    }
-  }; 
+  const setDisplay = () => {
+    return isMobile ? 'none' : '';
+  };
 
-  const setDisplay2  = () => {
-    if (isTabletOrAbove) {
-        return 'none';
-    } else {
-        return '';
-    }
-  }; 
-
+  const setDisplay2 = () => {
+    return isTabletOrAbove ? 'none' : '';
+  };
 
   return (
-      <div className={styles.container}>
-        <div className={styles.left}>
-          <div className={styles.menu1} style={{display: setDisplay()}}>
-            <Menu color="#00617C"/>
-          </div>
-          <div className={styles.home}>
-            <a href="/">
-              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
-            </a>
-            <a href="/" className={styles.titleLink} style={{color: "#00617C"}}>
-              <div className={styles.companyNameContainer}>
-                <div className={styles.companyName1}>ENGENIOUS</div>
-                <div className={styles.companyName2}>RECRUITMENT</div>
-              </div>
-            </a>
+    <div className={styles.container}>
+      <div className={styles.left}>
+        <div className={styles.menu1} style={{ display: setDisplay() }}>
+          <Menu color="#00617C" />
+        </div>
+        <div className={styles.home}>
+          <a href="/">
+            <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+          </a>
+          <a href="/" className={styles.titleLink} style={{ color: "#00617C" }}>
+            <div className={styles.companyNameContainer}>
+              <div className={styles.companyName1}>ENGENIOUS</div>
+              <div className={styles.companyName2}>RECRUITMENT</div>
             </div>
-            <div className={styles.menu2} style={{display: setDisplay2()}}>
-              <Menu color="#00617C"/>
-            </div>
-          </div>
-          <div className={styles.searchContainer}>
-            <div className={styles.searchInputContainer}>
-              <span >Job Title</span>
-              <input
-                type="text"
-                // value={input}
-                // onChange={handleSearch}
-                placeholder="Search by title, skill or keyword"
-                className={styles.input}
-              />
-            </div>
-            <span className={styles.verticalLine}></span>
-            <div className={styles.searchDropdownContainer}>
-              {/* <span>Job Location</span> */}
-              <DropdownButton locations={locations} onSelect={onSelect}/>
-            </div>
-            <div className={styles.searchIconContainer}>
-              <IoSearchSharp className={styles.searchIcon}/>
-            </div>
-          </div>
+          </a>
+        </div>
+        <div className={styles.menu2} style={{ display: setDisplay2() }}>
+          <Menu color="#00617C" />
+        </div>
       </div>
-  )
-}
+      <div className={styles.searchContainer}>
+        <div className={styles.searchInputContainer}>
+          <span>Job Title</span>
+          <input
+            type="text"
+            value={input}
+            onChange={handleSearch}
+            placeholder="Search by title, skill or keyword"
+            className={styles.input}
+          />
+          {input && (
+            <IoClose className={styles.clearIcon} onClick={clearInput} />
+          )}
+        </div>
+        <span className={styles.verticalLine}></span>
+        <div className={styles.searchDropdownContainer}>
+          <DropdownButton locations={locations} onSelect={onSelect} />
+        </div>
+        <div className={styles.searchIconContainer}>
+          <IoSearchSharp className={styles.searchIcon} />
+        </div>
+        {isOpen && (
+          <div className={styles.suggestionsContainer} ref={suggestionsRef}>
+            {input.length >= 3 && suggestions.length === 0 && (
+              <div className={styles.noDataFound}>No Data Found</div>
+            )}
+            {suggestions.length > 0 && (
+              <ul>
+                {suggestions.map((position, index) => (
+                  <li key={index} onClick={() => handleSuggestionClick(position)}>
+                    {getHighlightedText(position, input)}
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default JobsBar
+export default JobsBar;

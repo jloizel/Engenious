@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Jobs from "../jobCard/jobCardsContainer";
 import Header from "../Header";
 import { Box } from "@mui/material";
@@ -22,14 +22,17 @@ interface JobSearchProps {
   keyword: string
   locations: string[]
   data: JobCardData[];
+  setSearchKeywords: (keywords: string[]) => void;
 }
 
-const JobSearch: React.FC<JobSearchProps> = ({keyword, locations, data}) => {
+const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords}) => {
   const [location, setLocation] = useState("")
   const [contractType, setContractType] = useState('');
   const [salaryRange, setSalaryRange] = useState('');
   const [specialisation, setSpecialisation] = useState('');
-  
+  const [locations, setLocations] = useState<string[]>([]);
+  const [positions, setPositions] = useState<string[]>([]);
+
   const filteredData = data.filter(
     (job) =>
       job.position.toLowerCase().includes(keyword.toLowerCase()) &&
@@ -49,12 +52,24 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, locations, data}) => {
     setLocation(location)
   }
 
+  useEffect(() => {
+    const extractedLocations = [...new Set(data.map(job => job.location))];
+    setLocations(extractedLocations);
+    const extractedPositions = [...new Set(data.map(job => job.position))];
+    setPositions(extractedPositions)
+  }, []);
+
   console.log(keyword)
 
   return (
     <div className={styles.container}>
-      <JobsBar locations={locations} onSelect={handleLocationSelection}/>
-      <div className={styles.filtersContainer}>
+      <JobsBar 
+        locations={locations} 
+        positions={positions}
+        onSelect={handleLocationSelection} 
+        setSearchKeywords={setSearchKeywords}
+        />
+      <div className={styles.filtersContainer} >
         <Filter jobs={data}/>
       {/* <div>
         {filteredData.map((job) => {

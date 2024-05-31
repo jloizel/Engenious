@@ -63,13 +63,10 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
     setLocations(extractedLocations);
   }, []);
 
-  useEffect(() => {
-    const extractedLocations = [...new Set(data.map(job => job.location))];
-    setLocations(extractedLocations);
-  }, []);
+  
 
   if (searchButtonClicked) {
-    return <JobSearch keyword={keyword} locations={locations} data={sortedJobs}/>;
+    return <JobSearch keyword={keyword} locations={locations} data={sortedJobs} setSearchKeywords={setSearchKeywords}/>;
   }
 
   return (

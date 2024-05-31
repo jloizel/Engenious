@@ -67,6 +67,7 @@ const Search: React.FC<SearchProps> = ({ data, handleButtonClick, setSearchKeywo
     );
   };
 
+
   const clearInput = () => {
     setInput("");
     setSuggestions([]);

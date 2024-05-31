@@ -43,12 +43,13 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) 
         {selectedLocation || "Select Location"}
         <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
       </button>
+      <div className={styles.dropdownList}>
       {isOpen && (
-        <ul className={styles.dropdownList}>
+        <ul className={styles.d}>
           {locations.map((location, index) => (
             <li
               key={index}
-              className={styles.dropdownItem}
+              // className={styles.dropdownItem}
               onClick={() => handleLocationClick(location)}
             >
               {location}
@@ -56,6 +57,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) 
           ))}
         </ul>
       )}
+      </div>
     </div>
   );
 };

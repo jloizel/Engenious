@@ -129,6 +129,7 @@
   padding-left: 20px;
   padding-right: 10px;
   transition: background-color 0.3s;
+  position: relative
 }
 
 .searchContainer:hover {
@@ -170,7 +171,7 @@
 }
 
 .searchDropdownContainer {
-
+  position: relative;
 }
 
 .searchIconContainer {
@@ -200,4 +201,93 @@
   height: 30px;
   margin: auto;
   opacity: 0.6;
+}
+
+.suggestionsContainer {
+  position: absolute;
+   /* Position below the search form */
+  left: 0;
+  background-color: white;
+  border: none;
+  z-index: 1000; /* Ensure it appears above other elements */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-height: 215px;
+  overflow-y: auto;
+  border-radius: 8px;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+
+  @media (max-width: 767px) {
+    top: 50%;
+    margin-left: 15px;
+    width: 320px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    top: 100%;
+    margin-top: 5px;
+    width: 470px;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 305px;
+    margin-top: 5px;
+    top: 100%;
+  }
+}
+
+.suggestionsContainer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestionsContainer li, .noDataFound {
+  padding: 15px;
+  cursor: pointer;
+  padding-left: 25px;
+  font-size: 14px;
+}
+
+.suggestionsContainer li:hover {
+  background-color: #f0f0f0;
+}
+
+.suggestionsContainer strong {
+  font-weight: 700;
+  color: #002D49;
+}
+
+.suggestionsContainer::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.suggestionsContainer::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Background of the scrollbar track */
+  border-radius: 10px;
+}
+
+.suggestionsContainer::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the scrollbar handle */
+  border-radius: 10px;
+}
+
+.clearIcon {
+  position: absolute;
+  cursor: pointer;
+  color: #002D49;
+  font-size: 1.2rem;
+
+  @media (max-width: 767px) {
+    right: 250px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    right: 250px;
+  }
+  
+  @media (min-width: 1024px) {
+    right: 300px;
+  }
 }
