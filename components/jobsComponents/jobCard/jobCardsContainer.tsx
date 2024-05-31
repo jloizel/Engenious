@@ -3,7 +3,18 @@ import JobCard from "./jobCard";
 import styles from "./page.module.css";
 import { HiSquare3Stack3D } from "react-icons/hi2";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Box, Skeleton } from "@mui/material";
+import { Box, Skeleton, createTheme, useMediaQuery } from "@mui/material";
+import JobCardsSlider from "./jobCardsSlider";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 
 // Define the types for the job data
 interface JobCardData {
@@ -83,7 +94,19 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
     setVisibleJobs(data);
   };
 
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 767,
+        md: 1024,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
 
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
     <div className={styles.jobsContainer}>
@@ -92,9 +115,11 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
           <HiSquare3Stack3D className={styles.leftIcon}/> 
           <span className={styles.leftText}>Latest job opportunities</span>
         </div>
-        <button onClick={handleButtonClick} className={styles.viewAllButton}>
-          View all jobs <KeyboardArrowRightIcon className={styles.searchIcon}/>
-        </button>
+        {!isMobile && (
+          <button onClick={handleButtonClick} className={styles.viewAllButton}>
+            View all jobs <KeyboardArrowRightIcon className={styles.searchIcon}/>
+          </button>
+        )}
       </div>
       <div className={styles.jobCardsContainer}>
         {loading ? (
@@ -104,9 +129,35 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
             ))}
           </Box>
         ) : (
-          visibleJobs.map((d) => (
-            <JobCard key={d.id} data={d} setKeywords={setKeywords} />
-          ))
+          isMobile ? (
+            <Swiper
+              slidesPerView={2}
+              centeredSlides={true}
+              initialSlide={1}
+              spaceBetween={20}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              className={styles.swiper}
+              style={{marginLeft: "0px"}}
+          >
+          {visibleJobs.map((d) => (
+            <SwiperSlide className={styles.swiperSlider}>
+              <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+            </SwiperSlide>
+          ))}
+          </Swiper>
+          ) : (
+            visibleJobs.map((d) => (
+              <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+            ))
+          )
+        )}
+        {isMobile && (
+          <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
+            View all jobs <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
+          </button>
         )}
       </div>
     </div>

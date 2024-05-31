@@ -5,6 +5,15 @@ import { HiSquare3Stack3D } from "react-icons/hi2";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Box, Skeleton } from "@mui/material";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
+
 // Define the types for the job data
 interface JobCardData {
   // languages: string[];
@@ -27,7 +36,7 @@ interface JobsProps {
   handleButtonClick: () => void
 }
 
-const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs, handleButtonClick }) => {
+const JobCardsSlider: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs, handleButtonClick }) => {
   const [filteredData, setFilteredData] = useState<JobCardData[]>([]);
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
   const [loading, setLoading] = useState(true);
@@ -104,13 +113,30 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
             ))}
           </Box>
         ) : (
-          visibleJobs.map((d) => (
-            <JobCard key={d.id} data={d} setKeywords={setKeywords} />
-          ))
+          <Swiper
+            slidesPerView={1}
+            centeredSlides={true}
+            navigation={true}
+            initialSlide={1}
+            spaceBetween={20}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Navigation]}
+            className={styles.swiper}
+            style={{marginLeft: "0px"}}
+            speed={800}
+          >
+          {visibleJobs.map((d) => (
+            <SwiperSlide>
+              <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+            </SwiperSlide>
+          ))}
+          </Swiper>
         )}
       </div>
     </div>
   );
 };
 
-export default JobCardsContainer;
+export default JobCardsSlider;

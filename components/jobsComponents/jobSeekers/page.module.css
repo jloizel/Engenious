@@ -7,8 +7,21 @@
 }
 
 .jobsMainContainer {
-  padding-top: 88px;
-  padding-bottom: 88px;
+  
+
+  @media (max-width: 767px) {
+    padding-top: 20px;
+    padding-bottom: 90px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
 }
 
 .pageHeader {
