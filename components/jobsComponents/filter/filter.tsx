@@ -4,15 +4,22 @@ import { TbFilterSearch } from "react-icons/tb";
 import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { MdOutlineAccountTree } from "react-icons/md";
+import { JobCardData } from '../jobSearch/JobSearch';
 
-const contractTypes = [
-  { label: 'All', value: '' },
-  { label: 'Full-time', value: 'Full-time' },
-  { label: 'Permanent', value: 'Permanent' },
-  // Add other contract types
-];
+// const contractTypes = [
+//   { label: 'All', value: '' },
+//   { label: 'Full-time', value: 'Full-time' },
+//   { label: 'Permanent', value: 'Permanent' },
+// ];
 
-const Filter = ({ jobs }) => {
+interface FilterProps {
+  jobs: JobCardData[];
+  contractTypes: string[];
+  salaryRanges: string[];
+  specialisations: string[];
+}
+
+const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, specialisations }) => {
   // State variables for filter criteria
   const [contractType, setContractType] = useState('');
   const [salaryRange, setSalaryRange] = useState('');
@@ -98,11 +105,13 @@ const Filter = ({ jobs }) => {
         <div className={styles.filter}>
           {/* <label>Contract Type:</label> */}
           <select value={contractType} onChange={handleContractTypeChange}>
-            <option value="">All</option>
-            <option value="Full-time">Full-time</option>
-            <option value="Permanent">Permanent</option>
-            {/* Add other contract types */}
-          </select>
+          <option value="">All</option>
+          {contractTypes.map((type, index) => (
+            <option key={index} value={type}>
+              {type}
+            </option>
+          ))}
+        </select>
         </div>
         <div className={styles.filter}>
           <label>Salary Range:</label>
@@ -138,7 +147,7 @@ const Filter = ({ jobs }) => {
       <button className={styles.dropdownButton} onClick={handleDropdownToggle}>
         {selectedOptions.length > 0 ? selectedOptions.join(', ') : 'Select Contract Type'}
       </button>
-      {isOpen && (
+      {/* {isOpen && (
         <div className={styles.dropdownMenu}>
           {contractTypes.map((type) => (
             <label key={type.value} className={styles.dropdownItem}>
@@ -152,7 +161,7 @@ const Filter = ({ jobs }) => {
             </label>
           ))}
         </div>
-      )}
+      )} */}
     </div>
     </div>
   );

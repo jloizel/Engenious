@@ -8,7 +8,7 @@ import styles from "./page.module.css";
 import JobsBar from "../../navbar/jobs/jobsBar";
 import Filter from "../filter/filter";
 
-interface JobCardData {
+export interface JobCardData {
   id: number;
   position: string;
   postedAt: string;
@@ -27,9 +27,9 @@ interface JobSearchProps {
 
 const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords}) => {
   const [location, setLocation] = useState("")
-  const [contractType, setContractType] = useState('');
-  const [salaryRange, setSalaryRange] = useState('');
-  const [specialisation, setSpecialisation] = useState('');
+  const [contractTypes, setContractTypes] = useState<string[]>([]);
+  const [salaryRanges, setSalaryRanges] = useState<string[]>([]);
+  const [specialisations, setSpecialisations] = useState<string[]>([]);
   const [locations, setLocations] = useState<string[]>([]);
   const [positions, setPositions] = useState<string[]>([]);
 
@@ -57,6 +57,12 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
     setLocations(extractedLocations);
     const extractedPositions = [...new Set(data.map(job => job.position))];
     setPositions(extractedPositions)
+    const extractedContractTypes = [...new Set(data.map(job => job.contractType))];
+    setContractTypes(extractedContractTypes)
+    const extractedSalary = [...new Set(data.map(job => job.salary))];
+    setSalaryRanges(extractedSalary)
+    const extractedSpecialisations = [...new Set(data.map(job => job.specialisation))];
+    setSpecialisations(extractedSpecialisations)
   }, []);
 
   console.log(keyword)
@@ -70,7 +76,12 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
         setSearchKeywords={setSearchKeywords}
         />
       <div className={styles.filtersContainer} >
-        <Filter jobs={data}/>
+        <Filter 
+          jobs={data} 
+          contractTypes={contractTypes} 
+          salaryRanges={salaryRanges} 
+          specialisations={specialisations}
+        />
       {/* <div>
         {filteredData.map((job) => {
           const daysAgo = calculateDaysAgo(job.postedAt);
