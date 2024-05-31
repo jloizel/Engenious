@@ -122,6 +122,7 @@
   background-color: #EFF0F0;
   border-radius: 50px;
   justify-content: center;
+  align-items: center;
   height: 42px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -178,6 +179,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  align-content: center;
   height: 38px;
   width: 38px;
   transition: background-color 0.3s;

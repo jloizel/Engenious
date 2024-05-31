@@ -1,12 +1,12 @@
 // Search.tsx
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./search.module.css";
 import { IoBriefcase } from "react-icons/io5";
 import SearchIcon from '@mui/icons-material/Search';
 import { IoSearchOutline } from "react-icons/io5";
 import { GoSearch } from "react-icons/go";
 import { IoMdSearch } from "react-icons/io";
-import { IoSearchSharp } from "react-icons/io5";
+import { IoSearchSharp, IoClose  } from "react-icons/io5";
 
 interface SearchProps {
   setSearchKeywords: (keywords: string[]) => void;
@@ -18,12 +18,15 @@ const Search: React.FC<SearchProps> = ({ data, handleButtonClick, setSearchKeywo
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
 
   const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setInput(inputValue);
     setFilterKeywords([inputValue])
     setSearchKeywords([inputValue]);
+    setIsOpen(true)
     // Filter job positions from data that contain the user's input letters
     const matchedSuggestions = inputValue.length >= 3
       ? data.filter(position =>
@@ -34,12 +37,42 @@ const Search: React.FC<SearchProps> = ({ data, handleButtonClick, setSearchKeywo
     setSuggestions(matchedSuggestions);
   };
 
-  const handleSuggestionClick = (position: string) => {
-    setInput(position);
-    // setSearchKeyword([position]);
-    setSuggestions([]);
+  const handleClickOutside = (event: MouseEvent) => {
+    if (suggestionsRef.current && !suggestionsRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
   };
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSuggestionClick = (position: string) => {
+    setInput(position);
+    setIsOpen(false);
+    setSearchKeywords([position]);
+  };
+
+  const getHighlightedText = (text: string, highlight: string) => {
+    const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+    return (
+      <span>
+        {parts.map((part, i) => 
+          part.toLowerCase() === highlight.toLowerCase() ? <strong key={i}>{part}</strong> : part
+        )}
+      </span>
+    );
+  };
+
+  const clearInput = () => {
+    setInput("");
+    setSuggestions([]);
+    setFilterKeywords([]);
+    setSearchKeywords([]);
+  };
 
   return (
     <div className={styles.searchFormContainer}>
@@ -53,6 +86,9 @@ const Search: React.FC<SearchProps> = ({ data, handleButtonClick, setSearchKeywo
             placeholder="Search by title, skill or keyword"
             className={styles.input}
           />
+          {input && (
+            <IoClose className={styles.clearIcon} onClick={clearInput} />
+          )}
         </div>
         <div className={styles.buttonContainer}>
           {/* <a href="/jobs"> */}
@@ -63,14 +99,21 @@ const Search: React.FC<SearchProps> = ({ data, handleButtonClick, setSearchKeywo
           {/* </a> */}
         </div>
       </div>
-      {suggestions.length > 0 && (
-        <ul>
-          {suggestions.map((position, index) => (
-            <li key={index} onClick={() => handleSuggestionClick(position)}>
-              {position}
-            </li>
-          ))}
-        </ul>
+      {isOpen && (
+        <div className={styles.suggestionsContainer} ref={suggestionsRef}>
+          {input.length >= 3 && suggestions.length === 0 && (
+            <div className={styles.noDataFound}>No Data Found</div>
+          )}
+          {suggestions.length > 0 && (
+            <ul>
+              {suggestions.map((position, index) => (
+                <li key={index} onClick={() => handleSuggestionClick(position)}>
+                  {getHighlightedText(position, input)}
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       )}
     </div>
   );

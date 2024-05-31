@@ -49,6 +49,8 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, locations, data}) => {
     setLocation(location)
   }
 
+  console.log(keyword)
+
   return (
     <div className={styles.container}>
       <JobsBar locations={locations} onSelect={handleLocationSelection}/>
