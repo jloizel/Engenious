@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from './page.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '../../menu/menu';
@@ -16,9 +16,69 @@ import DropdownButton from '../../dropdown/dropdown';
 interface JobsBarProps {
   locations: string[]
   onSelect: (string) => void
+  setSearchKeywords: (keywords: string[]) => void;
 }
 
-const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect}) => {
+const JobsBar: React.FC<JobsBarProps> = ({locations, onSelect, setSearchKeywords}) => {
+  const [input, setInput] = useState("");
+  const [suggestions, setSuggestions] = useState<string[]>([]);
+  const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+  const suggestionsRef = useRef<HTMLDivElement>(null);
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    setInput(inputValue);
+    setFilterKeywords([inputValue])
+    setSearchKeywords([inputValue]);
+    setIsOpen(true)
+    // Filter job positions from data that contain the user's input letters
+    const matchedSuggestions = inputValue.length >= 3
+      ? data.filter(position =>
+          position.toLowerCase().includes(inputValue.toLowerCase())
+        )
+      : [];
+
+    setSuggestions(matchedSuggestions);
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (suggestionsRef.current && !suggestionsRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  const handleSuggestionClick = (position: string) => {
+    setInput(position);
+    setIsOpen(false);
+    setSearchKeywords([position]);
+  };
+
+  const getHighlightedText = (text: string, highlight: string) => {
+    const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+    return (
+      <span>
+        {parts.map((part, i) => 
+          part.toLowerCase() === highlight.toLowerCase() ? <strong key={i}>{part}</strong> : part
+        )}
+      </span>
+    );
+  };
+
+  const clearInput = () => {
+    setInput("");
+    setSuggestions([]);
+    setFilterKeywords([]);
+    setSearchKeywords([]);
+  };
+
 
   const theme = createTheme({
     breakpoints: {
