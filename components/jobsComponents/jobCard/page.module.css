@@ -242,13 +242,8 @@
     font-size: 24px;
   }
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    
-  }
-  
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 30px;
-    
   }
 }
 
@@ -261,13 +256,8 @@
     font-size: 24px;
   }
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    
-  }
-  
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 26px;
-    
   }
 }
 

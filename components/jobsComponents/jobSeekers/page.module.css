@@ -14,13 +14,11 @@
     padding-bottom: 90px;
   }
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    
-  }
-  
-  @media (min-width: 1024px) {
-    padding-top: 90px;
+  @media (min-width: 768px) {
+    padding-top: 40px;
     padding-bottom: 90px;
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
@@ -34,15 +32,15 @@
   align-items: center;
 
   @media (max-width: 767px) {
-    
+    height: 350px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    
+    height: 300px;
   }
   
   @media (min-width: 1024px) {
-    height: 250px;
+    height: 300px;
   }
 }
 
@@ -54,12 +52,11 @@
 
   @media (max-width: 767px) {
     font-size: 24px;
-    margin-top: 40px;
+    /* margin-top: 20px; */
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 60px;
-    padding: 15px 6px;
+    font-size: 40px;
   }
   
   @media (min-width: 1024px) {
@@ -73,17 +70,22 @@
   font-weight: 500;
   color: white;
   font-family: "Poppins", sans-serif;
-  width: 80%;
+
 
   @media (max-width: 767px) {
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 85%;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 60px;
-    padding: 15px 6px;
+    font-size: 14px;
+    line-height: 150%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    margin-top: 40px;
+    width: 80%;
   }
   
   @media (min-width: 1024px) {
@@ -91,6 +93,7 @@
     line-height: 150%;
     max-width: 600px;
     margin-bottom: 20px;
+    width: 80%;
   }
 }
 
