@@ -29,6 +29,7 @@ interface JobSearchProps {
 const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords }) => {
   const [filteredApplied, setFilterApplied] = useState(false);
   const [filteredData, setFilteredData] = useState<JobCardData[]>(data);
+  const [selectedJobId, setSelectedJobId] = useState(data.length > 0 ? data[0].id : null);
 
   const [location, setLocation] = useState("");
   const [locations, setLocations] = useState<string[]>([]);
@@ -44,6 +45,10 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
 
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 10;
+
+  const handleJobClick = (jobId: number) => {
+    setSelectedJobId(jobId);
+  };
 
   const handleAppliedButton = () => {
     setFilterApplied(true);
@@ -62,6 +67,22 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     const currentDate = new Date();
     const timeDifference = currentDate.getTime() - postedDate.getTime();
     return Math.floor(timeDifference / (1000 * 3600 * 24));
+  };
+
+  const calculateDate = (postedAt: string) => {
+    const postedDate = new Date(postedAt);
+    const currentDate = new Date();
+    const timeDifference = currentDate.getTime() - postedDate.getTime();
+    const daysAgo = Math.floor(timeDifference / (1000 * 3600 * 24));
+  
+    if (daysAgo > 7) {
+      // If more than 7 days ago, return the formatted date
+      const options = { month: "short", day: "numeric" };
+      return postedDate.toLocaleDateString(undefined, { month: "short", day: "numeric" });
+    } else {
+      // Otherwise, return the number of days ago
+      return `${daysAgo} days ago`;
+    }
   };
 
   const handleLocationSelection = (location: string) => {
@@ -127,37 +148,46 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
         onSelect={handleLocationSelection}
         setSearchKeywords={setSearchKeywords}
       />
-      <div className={styles.filtersContainer}>
-        <Filter
-          jobs={data}
-          contractTypes={contractTypes}
-          salaryRanges={salaryRanges}
-          specialisations={specialisations}
-          contractTypeCounts={contractTypeCounts}
-          handleContractTypesCheckboxChange={handleContractTypesCheckboxChange}
-          selectedContractTypes={selectedContractTypes}
-          handleContractTypesReset={handleContractTypesReset}
-          handleAppliedButton={handleAppliedButton}
-          filteredApplied={filteredApplied}
-        />
-      </div>
+      <Filter
+        jobs={data}
+        contractTypes={contractTypes}
+        salaryRanges={salaryRanges}
+        specialisations={specialisations}
+        contractTypeCounts={contractTypeCounts}
+        handleContractTypesCheckboxChange={handleContractTypesCheckboxChange}
+        selectedContractTypes={selectedContractTypes}
+        handleContractTypesReset={handleContractTypesReset}
+        handleAppliedButton={handleAppliedButton}
+        filteredApplied={filteredApplied}
+      />
       <div className={styles.filteredJobsContainer}>
         <div className={styles.left}>
+          <div className={styles.jobsListTop}>
+            Test
+          </div>
           <div className={styles.jobsList}>
             {currentJobs.map((job) => {
               const daysAgo = calculateDaysAgo(job.postedAt);
               return (
-                <div className={styles.jobCardContainer}>
-                  <div key={job.id} className={styles.jobCard}>
-                    <p className={styles.jobPosition}>{job.position}</p>
-                    <p>{job.location}</p>
-                    <p>Posted {daysAgo} days ago</p>
-                    <div className={styles.jobInfo}>
+                <div
+                  key={job.id}
+                  className={`${selectedJobId === job.id ? styles.jobCardContainerHighlighted : styles.jobCardContainer}`}
+                  onClick={() => handleJobClick(job.id)}
+                >
+                  <div className={styles.jobCard}>
+                    <span className={styles.jobPosition}>{job.position}</span>
+                    <div className={`${selectedJobId === job.id ? styles.jobInfoHighlighted : styles.jobInfo}`}>
                       <span><GoLocation className={styles.icon}/>{job.location}</span>
                       <span><LuClock3 className={styles.icon}/>{job.contractType}</span>
                       <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
                     </div>
-                    {daysAgo < 3 && <div className={styles.newBadge}>NEW</div>}
+                    <div className={styles.bottomInfo}>
+                      {daysAgo <= 3 && <span className={`${selectedJobId === job.id ? styles.newHighlighted : styles.new}`}>new</span>}
+                      {daysAgo > 3 && <span className={`${selectedJobId === job.id ? styles.newHiddenHighlighted : styles.newHidden}`}>.</span>}
+                      <span className={styles.postedDate}>
+                        {daysAgo > 7 ? calculateDate(job.postedAt) : `${daysAgo} days ago`}
+                      </span>
+                    </div>
                   </div>
                 </div>
               );
@@ -175,6 +205,20 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
               />
             </div>
           </div>
+        </div>
+        <div className={styles.right}>
+          {selectedJobId && (
+            <div className={styles.selectedJobInfo}>
+              {/* Display job information for the selected job */}
+              {/* You can render whatever information you want here */}
+              {filteredData.find((job) => job.id === selectedJobId) && (
+                <div>
+                  <h3>Job Information</h3>
+                  <p>{/* Render job information here */}</p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </div>

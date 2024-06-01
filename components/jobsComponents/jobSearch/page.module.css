@@ -3,10 +3,6 @@
   background-color: white;
 }
 
-.filtersContainer {
-  margin-bottom: 20px;
-}
-
 .filteredJobsContainer {
   width: 100%;
   display: flex;
@@ -19,6 +15,15 @@
   width: 50%;
   height: 1000px;
   overflow-y: auto;
+}
+
+.jobsListTop {
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80px;
 }
 
 .jobsList {
@@ -41,18 +46,31 @@
   border-radius: 10px;
 }
 
+
+
 .jobCardContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+
+.jobCardContainerHighlighted {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  background-color: #cbdae4;
+  border-left: 4px solid #002D49;
 }
 
 .jobCard {
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
-  width: 95%;
+  padding: 15px;
+  width: 90%;
   font-family: "Poppins", sans-serif;
 }
 
@@ -60,6 +78,88 @@
   font-size: 15px;
   font-weight: 600;
   color: #002D49;
+  margin-bottom: 10px;
+}
+
+.jobInfo, .jobInfoHighlighted {
+  font-size: 10px;
+  display: flex;
+  flex-flow: wrap;
+  gap: 8px;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.jobInfo span {
+  background-color: #EFF0F0;
+  border-radius: 8px;
+  padding: 0px 8px;
+  text-align: center;
+  display: inline-flex;
+  margin-bottom: 0;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.jobInfoHighlighted span {
+  background-color: white;
+  border-radius: 8px;
+  padding: 0px 8px;
+  text-align: center;
+  display: inline-flex;
+  margin-bottom: 0;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.bottomInfo {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.new {
+  border-radius: 100px;
+  background: #E8EEEC;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 140%;
+  color: #417565;
+  width: fit-content;
+}
+
+.newHighlighted {
+  border-radius: 100px;
+  border: solid 1px #417565;
+  background: #E8EEEC;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 140%;
+  color: #417565;
+  width: fit-content;
+}
+
+.newHidden {
+  color: white;
+  user-select: none;
+}
+
+.newHiddenHighlighted {
+  color: #cbdae4;
+  user-select: none;
+}
+
+.postedDate {
+  opacity: 0.5;
+  line-height: 1;
+  font-size: 12px;
 }
 
 .pagination {
@@ -76,4 +176,8 @@
 
 .pagination span {
   margin: 0 10px;
+}
+
+.right {
+  width: 50%;
 }
