@@ -75,8 +75,28 @@
   color: #002D49;
 }
 
+.filterCount {
+  color: white;
+  background-color: #09B089;
+  padding: 0px 6px;
+  border-radius: 2px;
+  text-align: center;
+  margin-left: 10px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
 .dropdownButtonActive {
-  color: red;
+  background-color: #002D49;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  font-family: "Poppins", sans-serif;
 }
 
 .dropdownButton:hover {

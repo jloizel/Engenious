@@ -39,7 +39,7 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   const [isFiltersApplied, setIsFiltersApplied] = useState(false);
   const [buttonPressed, setButtonPressed] = useState(false)
   const [appliedContractTypes, setAppliedContractTypes] = useState<string[]>([]);
-  
+  const [appliedContractTypesCount, setAppliedContractTypesCount] = useState(0);
 
 
   // Filtering logic
@@ -80,7 +80,6 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
-        setIsFiltersApplied(false)
       }
     };
 
@@ -97,14 +96,15 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   const handleApplyFilters = () => {
     setIsFiltersApplied(true);
     setAppliedContractTypes([...selectedContractTypes]);
+    setAppliedContractTypesCount(selectedContractTypes.length);
     setIsOpen(false);
     handleAppliedButton()
     setButtonPressed(true)
   };
 
   //Contract Type
-  const selectedCount = selectedContractTypes.length;
-  const isActive = isFiltersApplied && appliedContractTypes.length > 0;
+  const selectedContractTypesCount = selectedContractTypes.length;
+  const isContractTypesActive = isFiltersApplied && appliedContractTypes.length > 0;
 
   console.log(isOpen)
 
@@ -120,9 +120,10 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
         
         <div className={styles.filtersContainer}>
           <Box className={styles.contractTypeDropdownContainer} ref={dropdownRef}>
-            <button className={`${styles.dropdownButton} ${isActive ? styles.dropdownButtonActive : ""}`} onClick={handleDropdownToggle}>
+            <button className={`${isContractTypesActive ? styles.dropdownButtonActive : styles.dropdownButton}`} onClick={handleDropdownToggle}>
               <LuClock3 className={styles.clockIcon}/>
               <span>Contract Type</span>
+              {isContractTypesActive && (<span className={styles.filterCount}>{appliedContractTypesCount}</span>)}
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
             </button>
             {isOpen && (

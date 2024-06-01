@@ -1,12 +1,13 @@
-"use client"
-
 import React, { useEffect, useState } from "react";
 import Jobs from "../jobCard/jobCardsContainer";
 import Header from "../Header";
-import { Box } from "@mui/material";
+import { Box, Pagination, PaginationItem } from "@mui/material";
 import styles from "./page.module.css";
 import JobsBar from "../../navbar/jobs/jobsBar";
 import Filter from "../filter/filter";
+import { LuClock3 } from "react-icons/lu";
+import { GiMoneyStack } from "react-icons/gi";
+import { GoLocation } from "react-icons/go";
 
 export interface JobCardData {
   id: number;
@@ -19,17 +20,17 @@ export interface JobCardData {
 }
 
 interface JobSearchProps {
-  keyword: string
-  locations: string[]
+  keyword: string;
+  locations: string[];
   data: JobCardData[];
   setSearchKeywords: (keywords: string[]) => void;
 }
 
-const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords}) => {
-  const [filteredApplied, setFilterApplied] = useState(false)
+const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords }) => {
+  const [filteredApplied, setFilterApplied] = useState(false);
   const [filteredData, setFilteredData] = useState<JobCardData[]>(data);
 
-  const [location, setLocation] = useState("")
+  const [location, setLocation] = useState("");
   const [locations, setLocations] = useState<string[]>([]);
 
   const [contractTypes, setContractTypes] = useState<string[]>([]);
@@ -38,9 +39,11 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
 
   const [salaryRanges, setSalaryRanges] = useState<string[]>([]);
   const [specialisations, setSpecialisations] = useState<string[]>([]);
-  
+
   const [positions, setPositions] = useState<string[]>([]);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const jobsPerPage = 10;
 
   const handleAppliedButton = () => {
     setFilterApplied(true);
@@ -51,6 +54,7 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
         (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true)
     );
     setFilteredData(filtered);
+    setCurrentPage(1); // Reset to the first page after applying filters
   };
 
   const calculateDaysAgo = (postedAt: string) => {
@@ -61,28 +65,26 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
   };
 
   const handleLocationSelection = (location: string) => {
-    setLocation(location)
-  }
+    setLocation(location);
+  };
 
   useEffect(() => {
-    const extractedLocations = [...new Set(data.map(job => job.location))];
+    const extractedLocations = [...new Set(data.map((job) => job.location))];
     setLocations(extractedLocations);
-    const extractedPositions = [...new Set(data.map(job => job.position))];
-    setPositions(extractedPositions)
-    const extractedContractTypes = [...new Set(data.map(job => job.contractType))];
-    setContractTypes(extractedContractTypes)
-    const extractedSalary = [...new Set(data.map(job => job.salary))];
-    setSalaryRanges(extractedSalary)
-    const extractedSpecialisations = [...new Set(data.map(job => job.specialisation))];
-    setSpecialisations(extractedSpecialisations)
-  }, []);
+    const extractedPositions = [...new Set(data.map((job) => job.position))];
+    setPositions(extractedPositions);
+    const extractedContractTypes = [...new Set(data.map((job) => job.contractType))];
+    setContractTypes(extractedContractTypes);
+    const extractedSalary = [...new Set(data.map((job) => job.salary))];
+    setSalaryRanges(extractedSalary);
+    const extractedSpecialisations = [...new Set(data.map((job) => job.specialisation))];
+    setSpecialisations(extractedSpecialisations);
+  }, [data]);
 
-  //Locations
+  //Contract Types
 
-
-  // Contract Types
   useEffect(() => {
-      const contractTypeCounts = data.reduce((acc, job) => {
+    const contractTypeCounts = data.reduce((acc, job) => {
       const { contractType } = job;
       if (acc[contractType]) {
         acc[contractType] += 1;
@@ -91,9 +93,8 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
       }
       return acc;
     }, {});
-  
     setContractTypeCounts(contractTypeCounts);
-  }, []);
+  }, [data]);
 
   const handleContractTypesCheckboxChange = (event) => {
     const { value, checked } = event.target;
@@ -104,30 +105,33 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
     }
   };
 
-  const handleContractTypesReset= () => {
+  const handleContractTypesReset = () => {
     setSelectedContractTypes([]);
   };
 
+  // Pagination logic
+  const totalPages = Math.ceil(filteredData.length / jobsPerPage);
+  const startIdx = (currentPage - 1) * jobsPerPage;
+  const endIdx = startIdx + jobsPerPage;
+  const currentJobs = filteredData.slice(startIdx, endIdx);
 
-  //Salary Range
-
-
-  //Specialisation
-
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+  };
 
   return (
     <div className={styles.container}>
-      <JobsBar 
-        locations={locations} 
+      <JobsBar
+        locations={locations}
         positions={positions}
-        onSelect={handleLocationSelection} 
+        onSelect={handleLocationSelection}
         setSearchKeywords={setSearchKeywords}
-        />
-      <div className={styles.filtersContainer} >
-        <Filter 
-          jobs={data} 
-          contractTypes={contractTypes} 
-          salaryRanges={salaryRanges} 
+      />
+      <div className={styles.filtersContainer}>
+        <Filter
+          jobs={data}
+          contractTypes={contractTypes}
+          salaryRanges={salaryRanges}
           specialisations={specialisations}
           contractTypeCounts={contractTypeCounts}
           handleContractTypesCheckboxChange={handleContractTypesCheckboxChange}
@@ -136,39 +140,43 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
           handleAppliedButton={handleAppliedButton}
           filteredApplied={filteredApplied}
         />
-        {filteredApplied ? (
-          <div>
-            {filteredData.map((job) => {
-              const daysAgo = calculateDaysAgo(job.postedAt);
-              return (
-                <div key={job.id} className={styles.jobCard}>
-                  <p>{job.position}</p>
-                  <p>Posted {daysAgo} days ago</p>
-                  {daysAgo < 3 && (
-                    <div className={styles.newBadge}>NEW</div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div>
-            {data.map((job) => {
-              const daysAgo = calculateDaysAgo(job.postedAt);
-              return (
-                <div key={job.id} className={styles.jobCard}>
-                  <p>{job.position}</p>
-                  <p>Posted {daysAgo} days ago</p>
-                  {daysAgo < 3 && (
-                    <div className={styles.newBadge}>NEW</div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        )}
       </div>
-      {/* <p>Keyword: {keyword}</p> */}
+      <div className={styles.filteredJobsContainer}>
+        <div className={styles.left}>
+          <div className={styles.jobsList}>
+            {currentJobs.map((job) => {
+              const daysAgo = calculateDaysAgo(job.postedAt);
+              return (
+                <div className={styles.jobCardContainer}>
+                  <div key={job.id} className={styles.jobCard}>
+                    <p className={styles.jobPosition}>{job.position}</p>
+                    <p>{job.location}</p>
+                    <p>Posted {daysAgo} days ago</p>
+                    <div className={styles.jobInfo}>
+                      <span><GoLocation className={styles.icon}/>{job.location}</span>
+                      <span><LuClock3 className={styles.icon}/>{job.contractType}</span>
+                      <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
+                    </div>
+                    {daysAgo < 3 && <div className={styles.newBadge}>NEW</div>}
+                  </div>
+                </div>
+              );
+            })}
+            <div className={styles.pagination}>
+              <Pagination
+                count={totalPages}
+                page={currentPage}
+                siblingCount={0}
+                boundaryCount={2}
+                onChange={handlePageChange}
+                color="primary"
+                variant="outlined"
+                shape="rounded"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

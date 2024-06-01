@@ -3,3 +3,77 @@
   background-color: white;
 }
 
+.filtersContainer {
+  margin-bottom: 20px;
+}
+
+.filteredJobsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  height: 1000px;
+  overflow-y: auto;
+}
+
+.jobsList {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.jobsList::-webkit-scrollbar {
+  width: 8px;
+  height: 50%;
+}
+
+.jobsList::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.jobsList::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.jobCardContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jobCard {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  width: 95%;
+  font-family: "Poppins", sans-serif;
+}
+
+.jobPosition {
+  font-size: 15px;
+  font-weight: 600;
+  color: #002D49;
+}
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination span {
+  margin: 0 10px;
+}
