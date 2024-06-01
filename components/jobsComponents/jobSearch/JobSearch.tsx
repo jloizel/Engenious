@@ -32,6 +32,8 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
   const [specialisations, setSpecialisations] = useState<string[]>([]);
   const [locations, setLocations] = useState<string[]>([]);
   const [positions, setPositions] = useState<string[]>([]);
+  const [contractTypeCounts, setContractTypeCounts] = useState({});
+
 
   const filteredData = data.filter(
     (job) =>
@@ -65,7 +67,21 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
     setSpecialisations(extractedSpecialisations)
   }, []);
 
-  console.log(keyword)
+  useEffect(() => {
+      const contractTypeCounts = data.reduce((acc, job) => {
+      const { contractType } = job;
+      if (acc[contractType]) {
+        acc[contractType] += 1;
+      } else {
+        acc[contractType] = 1;
+      }
+      return acc;
+    }, {});
+  
+    setContractTypeCounts(contractTypeCounts);
+  }, []);
+
+  console.log(contractTypeCounts)
 
   return (
     <div className={styles.container}>
@@ -81,6 +97,7 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
           contractTypes={contractTypes} 
           salaryRanges={salaryRanges} 
           specialisations={specialisations}
+          contractTypeCounts={contractTypeCounts}
         />
       {/* <div>
         {filteredData.map((job) => {

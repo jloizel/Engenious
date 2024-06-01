@@ -167,7 +167,7 @@
 }
 
 .input::placeholder {
-  color: #005773;
+  color: #002D49;
 }
 
 .searchDropdownContainer {
@@ -175,7 +175,7 @@
 }
 
 .searchIconContainer {
-  background-color: #005773;
+  background-color: #09B089;
   border-radius: 50%;
   display: flex;
   align-items: center;

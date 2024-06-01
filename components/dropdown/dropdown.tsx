@@ -10,7 +10,7 @@ interface DropdownButtonProps {
 
 const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
+  const [selectedLocation, setSelectedLocation] = useState<string>("All Locations");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleButtonClick = () => {
@@ -40,12 +40,15 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) 
     <div className={styles.dropdownContainer} ref={dropdownRef}>
       <span>Job Location</span>
       <button onClick={handleButtonClick} className={styles.dropdownButton}>
-        {selectedLocation || "Select Location"}
-        <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
+        {selectedLocation || "All Locations"}
       </button>
+      <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
       <div className={styles.dropdownList}>
       {isOpen && (
         <ul className={styles.d}>
+          <li onClick={() => handleLocationClick("All Locations")}>
+            All Locations
+          </li>
           {locations.map((location, index) => (
             <li
               key={index}

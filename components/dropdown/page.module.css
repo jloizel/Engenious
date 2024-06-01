@@ -21,8 +21,10 @@
 }
 
 .arrow {
-  margin-left: 70px; /* Space between text and arrow */
-  transform: rotate(90deg);
+  position: absolute;
+  color: #09B089;
+  margin-left: 180px; 
+  transform: rotate(90deg) translateX(4px);
   font-size: 18px;
 }
 
@@ -31,7 +33,7 @@
 }
 
 .dropdownButton {
-  color: #005773;
+  color: #002D49;
   font-size: 15px;
   border: none;
   background: transparent;

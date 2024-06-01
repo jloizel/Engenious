@@ -5,6 +5,9 @@ import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { MdOutlineAccountTree } from "react-icons/md";
 import { JobCardData } from '../jobSearch/JobSearch';
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { Box } from '@mui/material';
+
 
 // const contractTypes = [
 //   { label: 'All', value: '' },
@@ -17,9 +20,10 @@ interface FilterProps {
   contractTypes: string[];
   salaryRanges: string[];
   specialisations: string[];
+  contractTypeCounts: { [key: string]: number };
 }
 
-const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, specialisations }) => {
+const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, specialisations, contractTypeCounts }) => {
   // State variables for filter criteria
   const [contractType, setContractType] = useState('');
   const [salaryRange, setSalaryRange] = useState('');
@@ -27,6 +31,7 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
   const [selectedOptions, setSelectedOptions] = useState([]);
+  const [isFiltersApplied, setIsFiltersApplied] = useState(false);
 
   // Filtering logic
   const filteredJobs = jobs.filter(job => {
@@ -54,7 +59,7 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   };
 
   // Handle filter changes
-  const handleContractTypeChange = e => {
+  const handleContractTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setContractType(e.target.value);
   };
 
@@ -70,6 +75,7 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsOpen(false);
+        setIsFiltersApplied(false)
       }
     };
 
@@ -92,77 +98,92 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
     setIsOpen((prev) => !prev);
   };
 
+  const handleReset= () => {
+    setSelectedOptions([]);
+  };
+
+  const handleApplyFilters = () => {
+    setIsFiltersApplied(true);
+    setIsOpen(false);
+  };
+
+  const handleResetFilters = () => {
+    setSelectedOptions([]);
+    setContractType('');
+    setSalaryRange('');
+    setSpecialisation('');
+    setIsFiltersApplied(false);
+  };
+
 
   return (
-    <div className={styles.filtersContainer}>
+    <div className={styles.containerBorder}>
       {/* Filter controls */}
+      <div className={styles.container}>
         <div className={styles.filtersHeader}>
           <span>Filters</span>
           <TbFilterSearch className={styles.filterIcon}/>
           <div className={styles.verticalLine}></div>
         </div>
         
-        <div className={styles.filter}>
-          {/* <label>Contract Type:</label> */}
-          <select value={contractType} onChange={handleContractTypeChange}>
-          <option value="">All</option>
-          {contractTypes.map((type, index) => (
-            <option key={index} value={type}>
-              {type}
-            </option>
-          ))}
-        </select>
-        </div>
-        <div className={styles.filter}>
-          <label>Salary Range:</label>
-          <input
-            type="text"
-            value={salaryRange}
-            onChange={handleSalaryRangeChange}
-            placeholder="e.g., £30k - £50k"
-          />
-        </div>
-        <div className={styles.filter}>
-          <label>Specialisation:</label>
-          <select value={specialisation} onChange={handleSpecialisationChange}>
-            <option value="">All</option>
-            <option value="Project Management">Project Management</option>
-            <option value="Civil Engineering">Civil Engineering</option>
-            {/* Add other specialisations */}
-          </select>
-        </div>
+        <div className={styles.filtersContainer}>
+          <Box className={styles.dropdownContainer} ref={dropdownRef}>
+            <button className={styles.dropdownButton} onClick={handleDropdownToggle}>
+              <LuClock3 className={styles.clockIcon}/>
+              <span>Contract Type</span>
+              <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
+            </button>
+            {isOpen && (
+              <div className={styles.dropdownMenu}>
+                {contractTypes.map((type, index) => (
+                  <label key={index} className={styles.dropdownItem}>
+                    <input
+                      type="checkbox"
+                      value={type}
+                      checked={selectedOptions.includes(type)}
+                      onChange={handleCheckboxChange}
+                    />
+                    {type} <span>{contractTypeCounts[type] || 0}</span>
+                  </label>
+                ))}
+                 <div className={styles.dropdownActions}>
+                  <button onClick={handleApplyFilters} className={styles.applyButton}>
+                    Apply
+                  </button>
+                  {isFiltersApplied && (
+                    <button onClick={handleReset} className={styles.resetButton}>
+                      Reset
+                    </button>
+                  )}
+                </div>
+              </div>
+              
+            )}
+          </Box>
 
-      {/* Job listings */}
-      {/* <ul>
-        {filteredJobs.map(job => (
-          <li key={job.id}>
-            <div>Position: {job.position}</div>
-            <div>Contract Type: {job.contractType}</div>
-            <div>Salary: {job.salary}</div>
-            <div>Specialisation: {job.specialisation}</div>
-          </li>
-        ))}
-      </ul> */}
-      <div className={styles.dropdownContainer} ref={dropdownRef}>
-      <button className={styles.dropdownButton} onClick={handleDropdownToggle}>
-        {selectedOptions.length > 0 ? selectedOptions.join(', ') : 'Select Contract Type'}
-      </button>
-      {/* {isOpen && (
-        <div className={styles.dropdownMenu}>
-          {contractTypes.map((type) => (
-            <label key={type.value} className={styles.dropdownItem}>
-              <input
-                type="checkbox"
-                value={type.value}
-                checked={selectedOptions.includes(type.value)}
-                onChange={handleCheckboxChange}
-              />
-              {type.label}
-            </label>
-          ))}
+          <div className={styles.filter}>
+            <label>Salary Range:</label>
+            <input
+              type="text"
+              value={salaryRange}
+              onChange={handleSalaryRangeChange}
+              placeholder="e.g., £30k - £50k"
+            />
+          </div>
+          <div className={styles.filter}>
+            <label>Specialisation:</label>
+            <select value={specialisation} onChange={handleSpecialisationChange}>
+              <option value="">All</option>
+              <option value="Project Management">Project Management</option>
+              <option value="Civil Engineering">Civil Engineering</option>
+              {/* Add other specialisations */}
+            </select>
+          </div>
+
+          {/* Job listings */}
+          
         </div>
-      )} */}
-    </div>
+      </div>
     </div>
   );
 };
