@@ -57,7 +57,7 @@
 }
 
 /* CustomDropdown.module.css */
-.dropdownContainer {
+.contractTypeDropdownContainer {
   position: relative;
   display: inline-block;
 }
@@ -73,6 +73,10 @@
   transition: all 0.3s ease-in-out;
   font-family: "Poppins", sans-serif;
   color: #002D49;
+}
+
+.dropdownButtonActive {
+  color: red;
 }
 
 .dropdownButton:hover {

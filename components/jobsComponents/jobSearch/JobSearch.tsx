@@ -102,8 +102,10 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
     } else {
       setSelectedContractTypes((prev) => prev.filter((option) => option !== value));
     }
+  };
 
-    // setFilterApplied(false)
+  const handleContractTypesReset= () => {
+    setSelectedContractTypes([]);
   };
 
 
@@ -130,7 +132,9 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
           contractTypeCounts={contractTypeCounts}
           handleContractTypesCheckboxChange={handleContractTypesCheckboxChange}
           selectedContractTypes={selectedContractTypes}
+          handleContractTypesReset={handleContractTypesReset}
           handleAppliedButton={handleAppliedButton}
+          filteredApplied={filteredApplied}
         />
         {filteredApplied ? (
           <div>

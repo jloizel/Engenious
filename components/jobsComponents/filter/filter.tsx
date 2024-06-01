@@ -23,10 +23,12 @@ interface FilterProps {
   contractTypeCounts: { [key: string]: number };
   handleContractTypesCheckboxChange: (event) => void
   selectedContractTypes: string[]
+  handleContractTypesReset: () => void
   handleAppliedButton: () => void
+  filteredApplied: boolean
 }
 
-const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, specialisations, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleAppliedButton}) => {
+const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, specialisations, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, handleAppliedButton, filteredApplied}) => {
   // State variables for filter criteria
   const [contractType, setContractType] = useState('');
   const [salaryRange, setSalaryRange] = useState('');
@@ -35,6 +37,10 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   const dropdownRef = useRef(null);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [isFiltersApplied, setIsFiltersApplied] = useState(false);
+  const [buttonPressed, setButtonPressed] = useState(false)
+  const [appliedContractTypes, setAppliedContractTypes] = useState<string[]>([]);
+  
+
 
   // Filtering logic
   const filteredJobs = jobs.filter(job => {
@@ -62,10 +68,6 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   };
 
   // Handle filter changes
-  const handleContractTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setContractType(e.target.value);
-  };
-
   const handleSalaryRangeChange = e => {
     setSalaryRange(e.target.value);
   };
@@ -88,38 +90,23 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
     };
   }, []);
 
-  const handleCheckboxChange = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setSelectedOptions((prev) => [...prev, value]);
-    } else {
-      setSelectedOptions((prev) => prev.filter((option) => option !== value));
-    }
-
-  };
-
   const handleDropdownToggle = () => {
     setIsOpen((prev) => !prev);
   };
 
-  const handleReset= () => {
-    setSelectedOptions([]);
-  };
-
   const handleApplyFilters = () => {
     setIsFiltersApplied(true);
+    setAppliedContractTypes([...selectedContractTypes]);
     setIsOpen(false);
     handleAppliedButton()
+    setButtonPressed(true)
   };
 
-  const handleResetFilters = () => {
-    setSelectedOptions([]);
-    setContractType('');
-    setSalaryRange('');
-    setSpecialisation('');
-    setIsFiltersApplied(false);
-  };
+  //Contract Type
+  const selectedCount = selectedContractTypes.length;
+  const isActive = isFiltersApplied && appliedContractTypes.length > 0;
 
+  console.log(isOpen)
 
   return (
     <div className={styles.containerBorder}>
@@ -132,8 +119,8 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
         </div>
         
         <div className={styles.filtersContainer}>
-          <Box className={styles.dropdownContainer} ref={dropdownRef}>
-            <button className={styles.dropdownButton} onClick={handleDropdownToggle}>
+          <Box className={styles.contractTypeDropdownContainer} ref={dropdownRef}>
+            <button className={`${styles.dropdownButton} ${isActive ? styles.dropdownButtonActive : ""}`} onClick={handleDropdownToggle}>
               <LuClock3 className={styles.clockIcon}/>
               <span>Contract Type</span>
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
@@ -156,7 +143,7 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
                     Apply
                   </button>
                   {isFiltersApplied && (
-                    <button onClick={handleReset} className={styles.resetButton}>
+                    <button onClick={handleContractTypesReset} className={styles.resetButton}>
                       Reset
                     </button>
                   )}
