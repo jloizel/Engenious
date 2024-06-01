@@ -26,20 +26,32 @@ interface JobSearchProps {
 }
 
 const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords}) => {
+  const [filteredApplied, setFilterApplied] = useState(false)
+  const [filteredData, setFilteredData] = useState<JobCardData[]>(data);
+
   const [location, setLocation] = useState("")
+  const [locations, setLocations] = useState<string[]>([]);
+
   const [contractTypes, setContractTypes] = useState<string[]>([]);
+  const [contractTypeCounts, setContractTypeCounts] = useState({});
+  const [selectedContractTypes, setSelectedContractTypes] = useState([]);
+
   const [salaryRanges, setSalaryRanges] = useState<string[]>([]);
   const [specialisations, setSpecialisations] = useState<string[]>([]);
-  const [locations, setLocations] = useState<string[]>([]);
+  
   const [positions, setPositions] = useState<string[]>([]);
-  const [contractTypeCounts, setContractTypeCounts] = useState({});
 
 
-  const filteredData = data.filter(
-    (job) =>
-      job.position.toLowerCase().includes(keyword.toLowerCase()) &&
-      (location ? job.location === location : true)
-  );
+  const handleAppliedButton = () => {
+    setFilterApplied(true);
+    const filtered = data.filter(
+      (job) =>
+        job.position.toLowerCase().includes(keyword.toLowerCase()) &&
+        (location ? job.location === location : true) &&
+        (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true)
+    );
+    setFilteredData(filtered);
+  };
 
   const calculateDaysAgo = (postedAt: string) => {
     const postedDate = new Date(postedAt);
@@ -47,8 +59,6 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
     const timeDifference = currentDate.getTime() - postedDate.getTime();
     return Math.floor(timeDifference / (1000 * 3600 * 24));
   };
-
-  // const daysAgo = calculateDaysAgo(job.postedAt);
 
   const handleLocationSelection = (location: string) => {
     setLocation(location)
@@ -67,6 +77,10 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
     setSpecialisations(extractedSpecialisations)
   }, []);
 
+  //Locations
+
+
+  // Contract Types
   useEffect(() => {
       const contractTypeCounts = data.reduce((acc, job) => {
       const { contractType } = job;
@@ -81,7 +95,23 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
     setContractTypeCounts(contractTypeCounts);
   }, []);
 
-  console.log(contractTypeCounts)
+  const handleContractTypesCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedContractTypes((prev) => [...prev, value]);
+    } else {
+      setSelectedContractTypes((prev) => prev.filter((option) => option !== value));
+    }
+
+    // setFilterApplied(false)
+  };
+
+
+  //Salary Range
+
+
+  //Specialisation
+
 
   return (
     <div className={styles.container}>
@@ -98,19 +128,41 @@ const JobSearch: React.FC<JobSearchProps> = ({keyword, data, setSearchKeywords})
           salaryRanges={salaryRanges} 
           specialisations={specialisations}
           contractTypeCounts={contractTypeCounts}
+          handleContractTypesCheckboxChange={handleContractTypesCheckboxChange}
+          selectedContractTypes={selectedContractTypes}
+          handleAppliedButton={handleAppliedButton}
         />
-      {/* <div>
-        {filteredData.map((job) => {
-          const daysAgo = calculateDaysAgo(job.postedAt);
-          return (
-            <div key={job.id} className={styles.jobCard}>
-              <p>{job.position}</p>
-              <p>Posted {daysAgo} days ago</p>
-              {daysAgo < 3 && <div className={styles.newBadge}>NEW</div>}
-            </div>
-          );
-        })}
-      </div> */}
+        {filteredApplied ? (
+          <div>
+            {filteredData.map((job) => {
+              const daysAgo = calculateDaysAgo(job.postedAt);
+              return (
+                <div key={job.id} className={styles.jobCard}>
+                  <p>{job.position}</p>
+                  <p>Posted {daysAgo} days ago</p>
+                  {daysAgo < 3 && (
+                    <div className={styles.newBadge}>NEW</div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div>
+            {data.map((job) => {
+              const daysAgo = calculateDaysAgo(job.postedAt);
+              return (
+                <div key={job.id} className={styles.jobCard}>
+                  <p>{job.position}</p>
+                  <p>Posted {daysAgo} days ago</p>
+                  {daysAgo < 3 && (
+                    <div className={styles.newBadge}>NEW</div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
       {/* <p>Keyword: {keyword}</p> */}
     </div>

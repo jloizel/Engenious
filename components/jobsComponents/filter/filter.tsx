@@ -21,9 +21,12 @@ interface FilterProps {
   salaryRanges: string[];
   specialisations: string[];
   contractTypeCounts: { [key: string]: number };
+  handleContractTypesCheckboxChange: (event) => void
+  selectedContractTypes: string[]
+  handleAppliedButton: () => void
 }
 
-const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, specialisations, contractTypeCounts }) => {
+const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, specialisations, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleAppliedButton}) => {
   // State variables for filter criteria
   const [contractType, setContractType] = useState('');
   const [salaryRange, setSalaryRange] = useState('');
@@ -92,6 +95,7 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
     } else {
       setSelectedOptions((prev) => prev.filter((option) => option !== value));
     }
+
   };
 
   const handleDropdownToggle = () => {
@@ -105,6 +109,7 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   const handleApplyFilters = () => {
     setIsFiltersApplied(true);
     setIsOpen(false);
+    handleAppliedButton()
   };
 
   const handleResetFilters = () => {
@@ -140,8 +145,8 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
                     <input
                       type="checkbox"
                       value={type}
-                      checked={selectedOptions.includes(type)}
-                      onChange={handleCheckboxChange}
+                      checked={selectedContractTypes.includes(type)}
+                      onChange={handleContractTypesCheckboxChange}
                     />
                     {type} <span>{contractTypeCounts[type] || 0}</span>
                   </label>
