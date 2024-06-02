@@ -143,7 +143,7 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, s
               style={{marginLeft: "0px"}}
           >
           {visibleJobs.map((d) => (
-            <SwiperSlide className={styles.swiperSlider}>
+            <SwiperSlide className={styles.swiperSlider} key={d.id}>
               <JobCard key={d.id} data={d} setKeywords={setKeywords} />
             </SwiperSlide>
           ))}

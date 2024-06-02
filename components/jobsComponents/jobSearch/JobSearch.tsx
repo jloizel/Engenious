@@ -252,8 +252,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           </div>
           {filteredData.length === 0 ? (
             <div className={styles.noJobsFound}>
-              <div>Can't find what you are looking for</div>
-              <span>If you can't find the job you are looking for then send us your CV and we will get back to you.</span>
+              <div>Can&apos;t find what you are looking for</div>
+              <span>If you can&apos;t find the job you are looking for then send us your CV and we will get back to you.</span>
               <a href="/jobs/cv-upload">Send CV</a>
             </div>
           ) : (

@@ -128,7 +128,7 @@ const JobCardsSlider: React.FC<JobsProps> = ({ data, setKeywords, keywords, show
             speed={800}
           >
           {visibleJobs.map((d) => (
-            <SwiperSlide>
+            <SwiperSlide key={d.id}>
               <JobCard key={d.id} data={d} setKeywords={setKeywords} />
             </SwiperSlide>
           ))}
