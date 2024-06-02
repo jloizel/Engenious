@@ -131,8 +131,6 @@ const ConsultationForm: FC = () => {
     }
   };
 
-  console.log(Object.keys(errors))
-
   const handleBack = () => {
     setCurrentStep(prev => prev - 1);
   };

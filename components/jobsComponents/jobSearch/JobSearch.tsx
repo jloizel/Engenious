@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Jobs from "../jobCard/jobCardsContainer";
 import Header from "../Header";
 import { Box, Pagination, PaginationItem } from "@mui/material";
@@ -48,6 +48,9 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
 
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 10;
+  const jobListTopRef = useRef<HTMLDivElement>(null);
+  const [pageChanged, setPageChanged] = useState(false)
+  const [buttonPressed, setButtonPressed] = useState(false)
 
   const handleJobClick = (jobId: number) => {
     setSelectedJobId(jobId);
@@ -139,9 +142,29 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const endIdx = startIdx + jobsPerPage;
   const currentJobs = filteredData.slice(startIdx, endIdx);
 
+  // useEffect(() => {
+  //   const minId = currentJobs.reduce((minId, job) => (job.id < minId ? job.id : minId), Infinity);
+  //   const minIdRef = jobCardRefs[minId];
+  //   minIdRef?.scrollIntoView({ behavior: "smooth" });
+  // }, [currentPage, currentJobs]);
+
   const handlePageChange = (event, value) => {
+    setPageChanged(true)
     setCurrentPage(value);
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top of the page
+    jobListTopRef.current?.scrollIntoView({ behavior: "smooth" }); // Scroll to the top of the jobsList container
+    setTimeout(() => {
+      setPageChanged(false); // Reset resetHover state after a short delay
+  }, 500);
   };
+
+
+  useEffect(() => {
+    // Update selectedJobId to the id of the first job on the new page
+    if (pageChanged) {
+      setSelectedJobId(currentJobs.length > 0 ? currentJobs[0].id : null);
+    }
+  }, [currentPage, currentJobs]);
 
   return (
     <div className={styles.container}>
@@ -172,14 +195,14 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                 <span>{filteredData.length} jobs found</span>
               </div>
             ) : (
-              <div className={styles.jobsListTopInfo}>
+              <div className={styles.jobsListTopInfo} ref={jobListTopRef}>
                 <div>All Jobs</div>
                 <span>{data.length} jobs found</span>
               </div>
             )}
             <span></span>
           </div>
-          <div className={styles.jobsList}>
+          <div className={styles.jobsList} >
             {currentJobs.map((job) => {
               const daysAgo = calculateDaysAgo(job.postedAt);
               return (
@@ -206,17 +229,38 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                 </div>
               );
             })}
-            <div className={styles.pagination}>
-              <Pagination
-                count={totalPages}
-                page={currentPage}
-                siblingCount={0}
-                boundaryCount={2}
-                onChange={handlePageChange}
-                color="primary"
-                variant="outlined"
-                shape="rounded"
-              />
+            <div className={styles.paginationContainer}>
+              <div className={styles.pagination}>
+                <Pagination
+                  count={totalPages}
+                  page={currentPage}
+                  siblingCount={0}
+                  boundaryCount={2}
+                  onChange={handlePageChange}
+                  color="primary"
+                  variant="text"
+                  shape="rounded"
+                  renderItem={(item) => (
+                    <PaginationItem
+                      {...item}
+                      sx={{
+                        '&.Mui-selected': {
+                          backgroundColor: '#09B089',
+                          color: 'white',
+                          borderRadius: "10px"
+                        },
+                        '&.Mui-selected:hover': {
+                          backgroundColor: '#09B089'
+                        },
+                        fontFamily: "Poppins, sans-serif",
+                        '&.MuiPaginationItem-root': {
+                          borderRadius: "10px"
+                        }
+                      }}
+                    />
+                  )}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -263,6 +307,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                                 <span>Engenious is acting as an Employment Agency and references to pay rates are indicative.</span>
                                 <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a>TERMS OF SERVICE</a> WHICH TOGETHER WITH OUR <a> PRIVACY STATEMENT</a> GOVERN YOUR USE OF ENGENIOUS SERVICES.</div>
                               </div>
+                              {/* <div className={styles.jobBottomHidden}>A</div> */}
                             </div>
                           </div>
                         );

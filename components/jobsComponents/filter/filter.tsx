@@ -106,8 +106,6 @@ const Filter: React.FC<FilterProps> = ({ jobs, contractTypes, salaryRanges, spec
   const selectedContractTypesCount = selectedContractTypes.length;
   const isContractTypesActive = isFiltersApplied && appliedContractTypes.length > 0;
 
-  console.log(isOpen)
-
   return (
     <div className={styles.containerBorder}>
       {/* Filter controls */}
