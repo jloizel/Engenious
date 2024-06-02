@@ -32,7 +32,7 @@
 }
 
 .jobsList::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
   height: 50%;
 }
 
@@ -180,4 +180,31 @@
 
 .right {
   width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.selectedJobInfoContainer {
+  width: 90%;
+}
+
+.selectedJobInfo {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.selectedPosition {
+  font-size: 15px;
+  font-weight: 600;
+  color: #002D49;
+  margin-bottom: 10px;
+}
+
+.buttonContainer {
+
+}
+
+.button {
+  
 }

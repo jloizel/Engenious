@@ -207,18 +207,42 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           </div>
         </div>
         <div className={styles.right}>
-          {selectedJobId && (
-            <div className={styles.selectedJobInfo}>
-              {/* Display job information for the selected job */}
-              {/* You can render whatever information you want here */}
-              {filteredData.find((job) => job.id === selectedJobId) && (
-                <div>
-                  <h3>Job Information</h3>
-                  <p>{/* Render job information here */}</p>
-                </div>
-              )}
-            </div>
-          )}
+        
+            {selectedJobId && (
+              <div className={styles.selectedJobInfoContainer}>
+                {filteredData.find((job) => job.id === selectedJobId) && (
+                  <>
+                    {filteredData.map((job) => {
+                      if (job.id === selectedJobId) {
+                        const daysAgo = calculateDaysAgo(job.postedAt);
+                        return (
+                          <div key={job.id} className={styles.selectedJobInfo}>
+                            <span className={styles.postedDate}>
+                              {daysAgo > 7 ? calculateDate(job.postedAt) : `${daysAgo} days ago`}
+                            </span>
+                            <span className={styles.selectedPosition}>{job.position}</span>
+                            <div className={styles.jobInfo}>
+                              <span><GoLocation className={styles.icon}/>{job.location}</span>
+                              <span><LuClock3 className={styles.icon}/>{job.contractType}</span>
+                              <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
+                            </div>
+                            <a className={styles.buttonContainer}>
+                              <button className={styles.button}>
+                                Apply Now
+                              </button>
+                            </a>
+                            <span>Job Information</span>
+                            <p>{/* Render job information here */}</p>
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </>
+                )}
+              </div>
+            )}
+
         </div>
       </div>
     </div>
