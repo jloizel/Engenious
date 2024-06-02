@@ -49,6 +49,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const [currentPage, setCurrentPage] = useState(1);
   const jobsPerPage = 10;
   const jobListTopRef = useRef<HTMLDivElement>(null);
+  const jobsListRef = useRef<HTMLDivElement>(null);
   const [pageChanged, setPageChanged] = useState(false)
   const [buttonPressed, setButtonPressed] = useState(false)
 
@@ -149,13 +150,13 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   // }, [currentPage, currentJobs]);
 
   const handlePageChange = (event, value) => {
-    setPageChanged(true)
+    setPageChanged(true);
     setCurrentPage(value);
     window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top of the page
-    jobListTopRef.current?.scrollIntoView({ behavior: "smooth" }); // Scroll to the top of the jobsList container
+    jobsListRef.current?.scrollTo({ top: 0, behavior: "smooth" }); // Scroll the job list container to the top
     setTimeout(() => {
-      setPageChanged(false); // Reset resetHover state after a short delay
-  }, 500);
+      setPageChanged(false); // Reset pageChanged state after a short delay
+    }, 500);
   };
 
 
@@ -167,7 +168,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   }, [currentPage, currentJobs]);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={jobListTopRef}>
       <JobsBar
         locations={locations}
         positions={positions}
@@ -195,14 +196,14 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                 <span>{filteredData.length} jobs found</span>
               </div>
             ) : (
-              <div className={styles.jobsListTopInfo} ref={jobListTopRef}>
+              <div className={styles.jobsListTopInfo} >
                 <div>All Jobs</div>
                 <span>{data.length} jobs found</span>
               </div>
             )}
             <span></span>
           </div>
-          <div className={styles.jobsList} >
+          <div className={styles.jobsList} ref={jobsListRef}>
             {currentJobs.map((job) => {
               const daysAgo = calculateDaysAgo(job.postedAt);
               return (
