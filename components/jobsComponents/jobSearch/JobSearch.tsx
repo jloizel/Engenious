@@ -72,6 +72,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     );
     setFilteredData(filtered);
     setCurrentPage(1); // Reset to the first page after applying filters
+    // Update selectedJobId to the id of the first job in the filtered data
+    setSelectedJobId(filtered.length > 0 ? filtered[0].id : null);
   };
 
   const calculateDaysAgo = (postedAt: string) => {

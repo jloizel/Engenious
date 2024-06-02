@@ -187,16 +187,6 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
               </div>
             )}
           </Box>
-
-          <div className={styles.filter}>
-            <label>Salary Range:</label>
-            <input
-              type="text"
-              value={salaryRange}
-              onChange={handleSalaryRangeChange}
-              placeholder="e.g., £30k - £50k"
-            />
-          </div>
           <div className={styles.filter}>
             <label>Specialisation:</label>
             <select value={specialisation} onChange={handleSpecialisationChange}>
