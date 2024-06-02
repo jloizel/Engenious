@@ -18,8 +18,13 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) 
   };
 
   const handleLocationClick = (location: string) => {
-    setSelectedLocation(location);
-    onSelect(location);
+    if (location === "All Locations") {
+      setSelectedLocation("");
+      onSelect(""); // Pass an empty string to indicate no location filter
+    } else {
+      setSelectedLocation(location);
+      onSelect(location);
+    }
     setIsOpen(false);
   };
 
@@ -52,7 +57,6 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) 
           {locations.map((location, index) => (
             <li
               key={index}
-              // className={styles.dropdownItem}
               onClick={() => handleLocationClick(location)}
             >
               {location}

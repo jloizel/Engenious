@@ -319,3 +319,100 @@
 .jobBottomInfo a:hover {
   color: #417565;
 }
+
+.noJobsFound {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #d8d8d8;
+}
+
+.noJobsFound div {
+  color: #002D49;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+}
+
+.noJobsFound span {
+  color: #002D49;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+}
+
+.noJobsFound a {
+  margin-top: 10px;
+  color: #002D49;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  width: 90px;
+  padding: 6px 6px ;
+  cursor: pointer;
+  border-radius: 4px;
+  border: solid 1px #002D49;
+  text-align: center;
+  text-justify: center;
+  justify-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.noJobsFound a:hover {
+  background-color: #002D49;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  border: solid 1px #002D49;
+}
+
+.noSelectedJobFound {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.noSearchIcon {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 30px;
+  margin-top: 100px;
+  color: #09B089;
+  animation: moveUpDown 4s ease-in-out infinite;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.noSelectedJobFound div {
+  color: #002D49;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 28px;
+}
+
+.noSelectedJobFound span {
+  color: #002D49;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  width: 70%;
+  margin-top: 20px;
+}

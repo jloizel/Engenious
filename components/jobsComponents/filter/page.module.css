@@ -170,6 +170,8 @@
   border-top: 1px solid #d6d6d6;
 }
 
+
+
 .applyButton {
   font-weight: 600;
   background-color: #09B089;
@@ -198,3 +200,32 @@
 .resetButton:hover {
   color: #005773;
 }
+
+.salaryRangeDropdownMenuContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.salaryRangeDropdownMenu {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-top: 8px;
+  z-index: 1;
+  width: 150%;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.salaryRangeDropdownActions{ 
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid #d6d6d6;
+  /* position: fixed; */
+  top: 350px;
+}
+

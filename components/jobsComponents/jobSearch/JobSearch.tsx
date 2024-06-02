@@ -8,6 +8,7 @@ import Filter from "../filter/filter";
 import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
+import { LuSearchX } from "react-icons/lu";
 
 export interface JobCardData {
   id: number;
@@ -42,6 +43,9 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const [selectedContractTypes, setSelectedContractTypes] = useState([]);
 
   const [salaryRanges, setSalaryRanges] = useState<string[]>([]);
+  const [salaryRangesCounts, setSalaryRangesCounts] = useState({});
+  const [selectedSalaryRanges, setSelectedSalaryRanges] = useState([]);
+
   const [specialisations, setSpecialisations] = useState<string[]>([]);
 
   const [positions, setPositions] = useState<string[]>([]);
@@ -63,7 +67,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
       (job) =>
         job.position.toLowerCase().includes(keyword.toLowerCase()) &&
         (location ? job.location === location : true) &&
-        (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true)
+        (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true) &&
+        (selectedSalaryRanges.length > 0 ? selectedSalaryRanges.includes(job.salary) : true)
     );
     setFilteredData(filtered);
     setCurrentPage(1); // Reset to the first page after applying filters
@@ -89,6 +94,22 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     } else {
       // Otherwise, return the number of days ago
       return `${daysAgo} days ago`;
+    }
+  };
+
+  //Search keywords and locations
+  const handleSearchButtonClick = () => {
+    setFilterApplied(true);
+    const filtered = data.filter(
+        (job) =>
+            job.position.toLowerCase().includes(keyword.toLowerCase()) &&
+            (location ? job.location === location : true) &&
+            (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true)
+    );
+    setFilteredData(filtered);
+    setCurrentPage(1); // Reset to the first page after applying filters
+    if (filtered.length > 0) {
+        setSelectedJobId(filtered[0].id); // Set the first job as selected
     }
   };
 
@@ -137,17 +158,40 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setSelectedContractTypes([]);
   };
 
+  //Salary Range
+
+  useEffect(() => {
+    const salaryRangeTypeCounts = data.reduce((acc, job) => {
+      const { salary } = job;
+      if (acc[salary]) {
+        acc[salary] += 1;
+      } else {
+        acc[salary] = 1;
+      }
+      return acc;
+    }, {});
+    setSalaryRangesCounts(salaryRangeTypeCounts);
+  }, [data]);
+
+  const handleSalaryRangesCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedSalaryRanges((prev) => [...prev, value]);
+    } else {
+      setSelectedSalaryRanges((prev) => prev.filter((option) => option !== value));
+    }
+  };
+
+  const handleSalaryRangesReset = () => {
+    setSelectedSalaryRanges([]);
+  };
+
+
   // Pagination logic
   const totalPages = Math.ceil(filteredData.length / jobsPerPage);
   const startIdx = (currentPage - 1) * jobsPerPage;
   const endIdx = startIdx + jobsPerPage;
   const currentJobs = filteredData.slice(startIdx, endIdx);
-
-  // useEffect(() => {
-  //   const minId = currentJobs.reduce((minId, job) => (job.id < minId ? job.id : minId), Infinity);
-  //   const minIdRef = jobCardRefs[minId];
-  //   minIdRef?.scrollIntoView({ behavior: "smooth" });
-  // }, [currentPage, currentJobs]);
 
   const handlePageChange = (event, value) => {
     setPageChanged(true);
@@ -158,7 +202,6 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
       setPageChanged(false); // Reset pageChanged state after a short delay
     }, 500);
   };
-
 
   useEffect(() => {
     // Update selectedJobId to the id of the first job on the new page
@@ -174,18 +217,20 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
         positions={positions}
         onSelect={handleLocationSelection}
         setSearchKeywords={setSearchKeywords}
+        onSearchButtonClick={handleSearchButtonClick}
       />
       <Filter
-        jobs={data}
+        handleAppliedButton={handleAppliedButton}
         contractTypes={contractTypes}
-        salaryRanges={salaryRanges}
-        specialisations={specialisations}
-        contractTypeCounts={contractTypeCounts}
         handleContractTypesCheckboxChange={handleContractTypesCheckboxChange}
         selectedContractTypes={selectedContractTypes}
+        contractTypeCounts={contractTypeCounts}
         handleContractTypesReset={handleContractTypesReset}
-        handleAppliedButton={handleAppliedButton}
-        filteredApplied={filteredApplied}
+        salaryRanges={salaryRanges}
+        salaryRangesCounts={salaryRangesCounts}
+        selectedSalaryRanges={selectedSalaryRanges}
+        handleSalaryRangesCheckboxChange={handleSalaryRangesCheckboxChange}
+        handleSalaryRangesReset={handleSalaryRangesReset}
       />
       <div className={styles.filteredJobsContainer}>
         <div className={styles.left}>
@@ -203,6 +248,13 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
             )}
             <span></span>
           </div>
+          {filteredData.length === 0 ? (
+            <div className={styles.noJobsFound}>
+              <div>Can't find what you are looking for</div>
+              <span>If you can't find the job you are looking for then send us your CV and we will get back to you.</span>
+              <a href="/jobs/cv-upload">Send CV</a>
+            </div>
+          ) : (
           <div className={styles.jobsList} ref={jobsListRef}>
             {currentJobs.map((job) => {
               const daysAgo = calculateDaysAgo(job.postedAt);
@@ -264,8 +316,17 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
               </div>
             </div>
           </div>
+          )}
         </div>
         <div className={styles.right}>
+        {filteredData.length === 0 ? (
+            <div className={styles.noSelectedJobFound}>
+              <LuSearchX className={styles.noSearchIcon}/>
+              <div>No jobs found</div>
+              <span>No results were found for the applied filters, please try changing them or the search term.</span>
+            </div>
+          ) : (
+          <div className={styles.selectedJobInfoContainer}>
             {selectedJobId && (
               <div className={styles.selectedJobInfoContainer}>
                 {filteredData.find((job) => job.id === selectedJobId) && (
@@ -308,7 +369,6 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                                 <span>Engenious is acting as an Employment Agency and references to pay rates are indicative.</span>
                                 <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a>TERMS OF SERVICE</a> WHICH TOGETHER WITH OUR <a> PRIVACY STATEMENT</a> GOVERN YOUR USE OF ENGENIOUS SERVICES.</div>
                               </div>
-                              {/* <div className={styles.jobBottomHidden}>A</div> */}
                             </div>
                           </div>
                         );
@@ -319,7 +379,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                 )}
               </div>
             )}
-
+          </div>
+          )}
         </div>
       </div>
     </div>

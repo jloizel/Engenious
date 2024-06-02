@@ -18,9 +18,10 @@ interface JobsBarProps {
   positions: string[];
   onSelect: (location: string) => void;
   setSearchKeywords: (keywords: string[]) => void;
+  onSearchButtonClick: () => void;
 }
 
-const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSearchKeywords }) => {
+const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSearchKeywords, onSearchButtonClick }) => {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
@@ -73,6 +74,14 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
       </span>
     );
   };
+
+  // Filter locations based on whether they are associated with any of the positions containing the entered keyword
+  const filteredLocations = locations.filter(location =>
+    positions.some(position =>
+      position.toLowerCase().includes(input.toLowerCase()) &&
+      positions.indexOf(position) === locations.indexOf(location)
+    )
+  );
 
   const clearInput = () => {
     setInput("");
@@ -142,9 +151,9 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
         </div>
         <span className={styles.verticalLine}></span>
         <div className={styles.searchDropdownContainer}>
-          <DropdownButton locations={locations} onSelect={onSelect} />
+          <DropdownButton locations={filteredLocations} onSelect={onSelect} />
         </div>
-        <div className={styles.searchIconContainer}>
+        <div className={styles.searchIconContainer} onClick={onSearchButtonClick}>
           <IoSearchSharp className={styles.searchIcon} />
         </div>
         {isOpen && (
