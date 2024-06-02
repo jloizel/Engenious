@@ -6,132 +6,377 @@
     "contractType": "Full-time",
     "location": "Bristol",
     "specialisation": "Project Management",
-    "salary": "£40k - £60k"
+    "salary": "£40k - £60k",
+    "jobDescription": "Oversee construction projects from conception to completion.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Manage resources, schedules, financials, and adhere to quality and control guidelines.",
+      "Ensure compliance with safety regulations."
+    ],
+    "skillsExperience": [
+      "5+ years of experience in project management within the construction industry.",
+      "Excellent leadership and communication skills."
+    ]
   },
   {
     "id": 2,
-    "position": "Civil Engineer",
-    "postedAt": "2024-05-29T10:00:00Z",
-    "contractType": "Permanent",
+    "position": "Site Engineer",
+    "postedAt": "2024-05-28T08:00:00Z",
+    "contractType": "Full-time",
     "location": "Exeter",
-    "specialisation": "Civil Engineering",
-    "salary": "£35k - £45k"
+    "specialisation": "Engineering",
+    "salary": "£30k - £45k",
+    "jobDescription": "Provide technical advice and support on construction projects.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Liaise with site managers, clients, and sub-contractors.",
+      "Ensure that all materials used and work performed are in accordance with specifications."
+    ],
+    "skillsExperience": [
+      "Degree in Civil Engineering or related field.",
+      "Strong problem-solving skills and attention to detail."
+    ]
   },
   {
     "id": 3,
     "position": "Quantity Surveyor",
-    "postedAt": "2024-05-28T09:00:00Z",
-    "contractType": "Contract",
+    "postedAt": "2024-05-27T08:00:00Z",
+    "contractType": "Full-time",
     "location": "Plymouth",
-    "specialisation": "Quantity Surveying",
-    "salary": "£30k - £50k"
+    "specialisation": "Cost Management",
+    "salary": "£35k - £50k",
+    "jobDescription": "Manage all costs relating to building and civil engineering projects.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Prepare cost estimates and budgets.",
+      "Monitor project costs to ensure the budget is not exceeded."
+    ],
+    "skillsExperience": [
+      "RICS accredited degree in quantity surveying.",
+      "Proficiency with construction management software."
+    ]
   },
   {
     "id": 4,
-    "position": "Site Manager",
-    "postedAt": "2024-05-27T12:00:00Z",
+    "position": "Architect",
+    "postedAt": "2024-05-26T08:00:00Z",
     "contractType": "Full-time",
-    "location": "Swindon",
-    "specialisation": "Site Management",
-    "salary": "£45k - £55k"
+    "location": "Bath",
+    "specialisation": "Design",
+    "salary": "£45k - £65k",
+    "jobDescription": "Design new buildings and the spaces in and around them.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Meet with clients to discuss project objectives, needs, and budgets.",
+      "Create detailed drawings and specifications."
+    ],
+    "skillsExperience": [
+      "Degree in Architecture.",
+      "Proficiency in CAD software."
+    ]
   },
   {
     "id": 5,
-    "position": "Construction Estimator",
-    "postedAt": "2024-05-26T14:00:00Z",
-    "contractType": "Permanent",
-    "location": "Bath",
-    "specialisation": "Estimating",
-    "salary": "£40k - £65k"
+    "position": "Site Manager",
+    "postedAt": "2024-05-25T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Swindon",
+    "specialisation": "Site Management",
+    "salary": "£40k - £55k",
+    "jobDescription": "Oversee construction sites and ensure projects are completed on time and within budget.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Supervise and coordinate the work of contractors and subcontractors.",
+      "Ensure health and safety regulations are followed."
+    ],
+    "skillsExperience": [
+      "Experience in managing construction sites.",
+      "Strong leadership and communication skills."
+    ]
   },
   {
     "id": 6,
-    "position": "Building Surveyor",
-    "postedAt": "2024-05-25T16:00:00Z",
+    "position": "Health and Safety Officer",
+    "postedAt": "2024-05-24T08:00:00Z",
     "contractType": "Full-time",
-    "location": "Taunton",
-    "specialisation": "Building Surveying",
-    "salary": "£35k - £50k"
+    "location": "Cheltenham",
+    "specialisation": "Health and Safety",
+    "salary": "£30k - £40k",
+    "jobDescription": "Ensure health and safety regulations are adhered to on construction sites.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Conduct regular site inspections.",
+      "Develop health and safety policies and procedures."
+    ],
+    "skillsExperience": [
+      "NEBOSH qualification.",
+      "Strong knowledge of health and safety legislation."
+    ]
   },
   {
     "id": 7,
-    "position": "Construction Labourer",
-    "postedAt": "2024-05-24T18:00:00Z",
-    "contractType": "Contract",
-    "location": "Cheltenham",
-    "specialisation": "Labouring",
-    "salary": "£20k - £25k"
+    "position": "Civil Engineer",
+    "postedAt": "2024-05-23T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Gloucester",
+    "specialisation": "Engineering",
+    "salary": "£35k - £50k",
+    "jobDescription": "Plan, design, and oversee construction and maintenance of building structures and infrastructure.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Manage construction projects.",
+      "Analyze survey reports, maps, and other data."
+    ],
+    "skillsExperience": [
+      "Degree in Civil Engineering.",
+      "Proficiency in civil engineering software."
+    ]
   },
   {
     "id": 8,
-    "position": "Architect",
-    "postedAt": "2024-05-23T20:00:00Z",
+    "position": "Construction Planner",
+    "postedAt": "2024-05-22T08:00:00Z",
     "contractType": "Full-time",
-    "location": "Gloucester",
-    "specialisation": "Architecture",
-    "salary": "£40k - £70k"
+    "location": "Bournemouth",
+    "specialisation": "Planning",
+    "salary": "£35k - £50k",
+    "jobDescription": "Plan and coordinate construction projects to ensure timely and cost-effective completion.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Develop project schedules.",
+      "Coordinate with project managers and site supervisors."
+    ],
+    "skillsExperience": [
+      "Experience with project planning software.",
+      "Strong organizational and multitasking skills."
+    ]
   },
   {
     "id": 9,
-    "position": "Construction Electrician",
-    "postedAt": "2024-05-22T22:00:00Z",
-    "contractType": "Permanent",
-    "location": "Bournemouth",
-    "specialisation": "Electrical",
-    "salary": "£30k - £40k"
+    "position": "Electrical Engineer",
+    "postedAt": "2024-05-21T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Taunton",
+    "specialisation": "Electrical Engineering",
+    "salary": "£35k - £45k",
+    "jobDescription": "Design, develop, and maintain electrical systems for buildings and infrastructure.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Prepare electrical drawings and specifications.",
+      "Ensure compliance with electrical codes and standards."
+    ],
+    "skillsExperience": [
+      "Degree in Electrical Engineering.",
+      "Experience with electrical design software."
+    ]
   },
   {
     "id": 10,
-    "position": "Building Inspector",
-    "postedAt": "2024-05-21T09:00:00Z",
+    "position": "Structural Engineer",
+    "postedAt": "2024-05-20T08:00:00Z",
     "contractType": "Full-time",
-    "location": "Yeovil",
-    "specialisation": "Inspection",
-    "salary": "£35k - £45k"
+    "location": "Salisbury",
+    "specialisation": "Structural Engineering",
+    "salary": "£40k - £55k",
+    "jobDescription": "Design and assess structures to ensure they are safe and capable of withstanding the elements.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Analyze configurations of the basic components of a structure.",
+      "Liaise with other designers and professionals to agree on safe designs."
+    ],
+    "skillsExperience": [
+      "Degree in Structural Engineering.",
+      "Proficiency in design and analysis software."
+    ]
   },
   {
     "id": 11,
-    "position": "Construction Planner",
-    "postedAt": "2024-05-20T09:00:00Z",
-    "contractType": "Contract",
-    "location": "Torquay",
-    "specialisation": "Planning",
-    "salary": "£40k - £60k"
+    "position": "Bricklayer",
+    "postedAt": "2024-05-19T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Weston-super-Mare",
+    "specialisation": "Masonry",
+    "salary": "£25k - £35k",
+    "jobDescription": "Construct and repair walls, partitions, arches, and other structures.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Lay bricks, blocks, and stones.",
+      "Read and interpret building plans."
+    ],
+    "skillsExperience": [
+      "Apprenticeship or experience in bricklaying.",
+      "Attention to detail and precision."
+    ]
   },
   {
     "id": 12,
-    "position": "Facade Engineer",
-    "postedAt": "2024-05-19T09:00:00Z",
+    "position": "Plumber",
+    "postedAt": "2024-05-18T08:00:00Z",
     "contractType": "Full-time",
-    "location": "Dorchester",
-    "specialisation": "Facade Engineering",
-    "salary": "£40k - £55k"
+    "location": "Poole",
+    "specialisation": "Plumbing",
+    "salary": "£28k - £38k",
+    "jobDescription": "Install, maintain, and repair plumbing systems in buildings.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Install and repair water supply lines, waste disposal systems, and related appliances.",
+      "Inspect plumbing systems and identify issues."
+    ],
+    "skillsExperience": [
+      "Certification in plumbing.",
+      "Experience in residential and commercial plumbing."
+    ]
   },
   {
     "id": 13,
-    "position": "Construction Health and Safety Officer",
-    "postedAt": "2024-05-18T09:00:00Z",
-    "contractType": "Permanent",
-    "location": "Salisbury",
-    "specialisation": "Health & Safety",
-    "salary": "£35k - £50k"
+    "position": "Carpenter",
+    "postedAt": "2024-05-17T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Yeovil",
+    "specialisation": "Carpentry",
+    "salary": "£27k - £37k",
+    "jobDescription": "Construct, install, and repair structures and fixtures made of wood and other materials.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Measure, cut, and shape wood, plastic, and other materials.",
+      "Install structures and fixtures, such as windows and molding."
+    ],
+    "skillsExperience": [
+      "Experience in carpentry.",
+      "Proficiency with carpentry tools and techniques."
+    ]
   },
   {
     "id": 14,
-    "position": "Roofing Specialist",
-    "postedAt": "2024-05-17T09:00:00Z",
+    "position": "Roofer",
+    "postedAt": "2024-05-16T08:00:00Z",
     "contractType": "Full-time",
-    "location": "Weymouth",
+    "location": "Truro",
     "specialisation": "Roofing",
-    "salary": "£25k - £35k"
+    "salary": "£26k - £36k",
+    "jobDescription": "Install and repair roofs on residential and commercial buildings.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Install, repair, and replace roofing systems.",
+      "Inspect roof damage and determine the best repair solutions."
+    ],
+    "skillsExperience": [
+      "Experience in roofing.",
+      "Ability to work at heights safely."
+    ]
   },
   {
     "id": 15,
-    "position": "Structural Engineer",
-    "postedAt": "2024-05-16T09:00:00Z",
-    "contractType": "Permanent",
-    "location": "Exmouth",
-    "specialisation": "Structural Engineering",
-    "salary": "£40k - £"
+    "position": "Electrician",
+    "postedAt": "2024-05-15T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Falmouth",
+    "specialisation": "Electrical",
+    "salary": "£30k - £40k",
+    "jobDescription": "Install, maintain, and repair electrical systems in buildings.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Install and repair electrical wiring, systems, and fixtures.",
+      "Inspect electrical components, such as transformers and circuit breakers."
+    ],
+    "skillsExperience": [
+      "Certification as an electrician.",
+      "Knowledge of electrical systems and safety standards."
+    ]
+  },
+  {
+    "id": 16,
+    "position": "Plasterer",
+    "postedAt": "2024-05-14T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Tiverton",
+    "specialisation": "Plastering",
+    "salary": "£24k - £34k",
+    "jobDescription": "Apply plaster to walls and ceilings to create smooth finishes.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Mix plaster to desired consistency.",
+      "Apply coats of plaster to walls and ceilings."
+    ],
+    "skillsExperience": [
+      "Experience in plastering.",
+      "Attention to detail and precision."
+    ]
+  },
+  {
+    "id": 17,
+    "position": "Painter and Decorator",
+    "postedAt": "2024-05-13T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Torquay",
+    "specialisation": "Painting and Decorating",
+    "salary": "£25k - £35k",
+    "jobDescription": "Prepare surfaces and apply paint, wallpaper, and other finishes to buildings.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Prepare surfaces for painting or wallpapering.",
+      "Apply paint or other finishes using brushes, rollers, or spray guns."
+    ],
+    "skillsExperience": [
+      "Experience in painting and decorating.",
+      "Knowledge of various painting techniques and materials."
+    ]
+  },
+  {
+    "id": 18,
+    "position": "Surveyor",
+    "postedAt": "2024-05-12T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Newquay",
+    "specialisation": "Surveying",
+    "salary": "£35k - £45k",
+    "jobDescription": "Measure and map land and building sites to determine property boundaries and prepare for construction projects.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Conduct field surveys and record data.",
+      "Prepare maps and reports based on survey findings."
+    ],
+    "skillsExperience": [
+      "Degree in Surveying or related field.",
+      "Proficiency with surveying instruments and software."
+    ]
+  },
+  {
+    "id": 19,
+    "position": "Construction Estimator",
+    "postedAt": "2024-05-11T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Penzance",
+    "specialisation": "Cost Estimation",
+    "salary": "£35k - £50k",
+    "jobDescription": "Estimate the costs of construction projects for bidding and budgeting purposes.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Prepare detailed cost estimates and budgets.",
+      "Analyze project requirements and specifications."
+    ],
+    "skillsExperience": [
+      "Experience in construction cost estimation.",
+      "Strong analytical and numerical skills."
+    ]
+  },
+  {
+    "id": 20,
+    "position": "Construction Laborer",
+    "postedAt": "2024-05-10T08:00:00Z",
+    "contractType": "Full-time",
+    "location": "Barnstaple",
+    "specialisation": "General Labor",
+    "salary": "£20k - £30k",
+    "jobDescription": "Perform physical labor on construction sites.",
+    "duration": "Permanent",
+    "responsibilites": [
+      "Assist skilled workers in performing their tasks.",
+      "Operate and maintain construction equipment."
+    ],
+    "skillsExperience": [
+      "Physical stamina and strength.",
+      "Experience in construction labor preferred."
+    ]
   }
 ]

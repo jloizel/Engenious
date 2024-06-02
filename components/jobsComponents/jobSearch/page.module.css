@@ -26,6 +26,27 @@
   height: 80px;
 }
 
+.jobsListTopInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 10px 20px;
+}
+
+.jobsListTopInfo div {
+  color: #002D49;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+}
+
+.jobsListTopInfo span {
+  color: #b3b3b3;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  margin-top: -4px;
+}
+
 .jobsList {
   max-height: 100%;
   overflow-y: auto;
@@ -223,12 +244,33 @@
 }
 
 .selectedJobData {
+  display: flex;
+  flex-direction: column;
+  color: #002D49;
+  font-family: "Poppins", sans-serif;
+  overflow-y: auto;
+}
+
+.selectedJobDataHeader {
+  font-weight: 600;
+  font-size: 16px;
   margin-top: 30px;
 }
 
-.selectedJobData span {
-  font-weight: 600;
+.selectedJobDataDescription {
+  font-weight: 400;
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
-  color: #002D49;
+  margin-top: 20px;
+}
+
+.selectedJobData ul {
+  padding: 16px;
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.selectedJobData li {
+  /* padding: 15px; */
+  font-size: 16px;
 }

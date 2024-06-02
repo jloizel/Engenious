@@ -17,6 +17,9 @@ export interface JobCardData {
   location: string;
   specialisation: string;
   salary: string;
+  jobDescription: string;
+  responsibilites: string[];
+  skillsExperience: string[];
 }
 
 interface JobSearchProps {
@@ -163,7 +166,18 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
       <div className={styles.filteredJobsContainer}>
         <div className={styles.left}>
           <div className={styles.jobsListTop}>
-            Test
+            {filteredApplied && filteredData.length < data.length ? (
+              <div className={styles.jobsListTopInfo}>
+                <div>Filtered Results</div>
+                <span>{filteredData.length} jobs found</span>
+              </div>
+            ) : (
+              <div className={styles.jobsListTopInfo}>
+                <div>All Jobs</div>
+                <span>{data.length} jobs found</span>
+              </div>
+            )}
+            <span></span>
           </div>
           <div className={styles.jobsList}>
             {currentJobs.map((job) => {
@@ -207,7 +221,6 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           </div>
         </div>
         <div className={styles.right}>
-        
             {selectedJobId && (
               <div className={styles.selectedJobInfoContainer}>
                 {filteredData.find((job) => job.id === selectedJobId) && (
@@ -232,7 +245,20 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                               </button>
                             </a>
                             <div className={styles.selectedJobData}>
-                              <span>Job Description</span>
+                              <span className={styles.selectedJobDataHeader}>Job Description</span>
+                              <span className={styles.selectedJobDataDescription}>{job.jobDescription}</span>
+                              <span className={styles.selectedJobDataHeader}>Main Responsibilities</span>
+                              <ul>
+                                {job.responsibilites.map((responsibilites, index) => (
+                                  <li key={index}>{responsibilites}</li>
+                                ))}
+                              </ul>
+                              <span className={styles.selectedJobDataHeader}>Skills and experience required:</span>
+                              <ul>
+                                {job.skillsExperience.map((skillsExperience, index) => (
+                                  <li key={index}>{skillsExperience}</li>
+                                ))}
+                              </ul>
                             </div>
                             <p>{/* Render job information here */}</p>
                           </div>
