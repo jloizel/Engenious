@@ -259,8 +259,11 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                                   <li key={index}>{skillsExperience}</li>
                                 ))}
                               </ul>
+                              <div className={styles.jobBottomInfo}>
+                                <span>Engenious is acting as an Employment Agency and references to pay rates are indicative.</span>
+                                <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a>TERMS OF SERVICE</a> WHICH TOGETHER WITH OUR <a> PRIVACY STATEMENT</a> GOVERN YOUR USE OF ENGENIOUS SERVICES.</div>
+                              </div>
                             </div>
-                            <p>{/* Render job information here */}</p>
                           </div>
                         );
                       }

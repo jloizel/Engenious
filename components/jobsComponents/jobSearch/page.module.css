@@ -13,7 +13,7 @@
   display: flex;
   flex-direction: column;
   width: 50%;
-  height: 1000px;
+  height: 80vh;
   overflow-y: auto;
 }
 
@@ -29,7 +29,7 @@
 .jobsListTopInfo {
   display: flex;
   flex-direction: column;
-  padding: 10px 20px;
+  padding: 10px 26px;
 }
 
 .jobsListTopInfo div {
@@ -52,17 +52,17 @@
   overflow-y: auto;
 }
 
-.jobsList::-webkit-scrollbar {
+.jobsList::-webkit-scrollbar, .right::-webkit-scrollbar {
   width: 6px;
   height: 50%;
 }
 
-.jobsList::-webkit-scrollbar-track {
+.jobsList::-webkit-scrollbar-track, .right::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
 
-.jobsList::-webkit-scrollbar-thumb {
+.jobsList::-webkit-scrollbar-thumb, .right::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
@@ -200,9 +200,12 @@
 }
 
 .right {
-  width: 50%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  height: 80vh;
+  overflow-y: auto;
+  align-items: center;
 }
 
 .selectedJobInfoContainer {
@@ -259,18 +262,43 @@
 
 .selectedJobDataDescription {
   font-weight: 400;
-  font-size: 16px;
+  font-size: 15px;
   margin-top: 20px;
 }
 
 .selectedJobData ul {
-  padding: 16px;
+  padding: 18px;
   margin: 0;
   font-weight: 400;
-  font-size: 16px;
 }
 
 .selectedJobData li {
   /* padding: 15px; */
+  font-size: 15px;
+}
+
+.jobBottomInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.jobBottomInfo span {
+  font-weight: 400;
   font-size: 16px;
+  margin-top: 30px;
+}
+
+.jobBottomInfo div {
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.jobBottomInfo a {
+  cursor: pointer;
+  color: #09B089;
+}
+
+.jobBottomInfo a:hover {
+  color: #417565;
 }

@@ -29,7 +29,7 @@
 }
 
 .arrow.open {
-  transform: rotate(270deg); /* Rotate arrow when dropdown is open */
+  transform: rotate(270deg) translateX(-4px); 
 }
 
 .dropdownButton {
