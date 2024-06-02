@@ -231,7 +231,9 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                                 Apply Now
                               </button>
                             </a>
-                            <span>Job Information</span>
+                            <div className={styles.selectedJobData}>
+                              <span>Job Description</span>
+                            </div>
                             <p>{/* Render job information here */}</p>
                           </div>
                         );

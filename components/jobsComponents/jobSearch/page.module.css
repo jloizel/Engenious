@@ -82,7 +82,7 @@
 }
 
 .jobInfo, .jobInfoHighlighted {
-  font-size: 10px;
+  font-size: 11px;
   display: flex;
   flex-flow: wrap;
   gap: 8px;
@@ -195,16 +195,40 @@
 }
 
 .selectedPosition {
-  font-size: 15px;
+  font-size: 22px;
   font-weight: 600;
   color: #002D49;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .buttonContainer {
-
+  background-color: #09B089;
+  border-radius: 4px;
+  width: 180px;
+  height: 50px;
+  text-align: center;
+  justify-content: center;
+  align-content: center;
+  margin-top: 20px;
 }
 
 .button {
-  
+  background: none;
+  border: none;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+}
+
+.selectedJobData {
+  margin-top: 30px;
+}
+
+.selectedJobData span {
+  font-weight: 600;
+  font-size: 16px;
+  font-family: "Poppins", sans-serif;
+  color: #002D49;
 }
