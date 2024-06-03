@@ -138,7 +138,7 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
       <div className={styles.searchMainContainer}>
         <div className={styles.searchContainer}>
           <div className={styles.searchInputContainer}>
-            <span>Job Title</span>
+            {isTabletOrAbove && (<span>Job Title</span>)}
             <input
               type="text"
               value={input}
@@ -150,10 +150,14 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
               <IoClose className={styles.clearIcon} onClick={clearInput} />
             )}
           </div>
-          <span className={styles.verticalLine}></span>
-          <div className={styles.searchDropdownContainer}>
-            <DropdownButton locations={filteredLocations} onSelect={onSelect} />
-          </div>
+          {isTabletOrAbove && (
+            <div className={styles.locationsContainer}>
+              <span className={styles.verticalLine}></span>
+              <div className={styles.searchDropdownContainer}>
+                <DropdownButton locations={filteredLocations} onSelect={onSelect} />
+              </div>
+            </div>
+          )}
           <div className={styles.searchIconContainer} onClick={onSearchButtonClick}>
             <IoSearchSharp className={styles.searchIcon} />
           </div>

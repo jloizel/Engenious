@@ -6,7 +6,7 @@ import { GiMoneyStack } from "react-icons/gi";
 import { MdOutlineAccountTree } from "react-icons/md";
 import { JobCardData } from '../jobSearch/JobSearch';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Box } from '@mui/material';
+import { Box, createTheme, useMediaQuery } from '@mui/material';
 
 
 // const contractTypes = [
@@ -130,12 +130,28 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
     setButtonPressed(true)
   };
 
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 767,
+        md: 1024,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
+
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
+
   return (
     <div className={styles.containerBorder}>
       {/* Filter controls */}
       <div className={styles.container}>
         <div className={styles.filtersHeader}>
-          <span>Filters</span>
+          {isTabletOrAbove && (<span>Filters</span>)}
           <TbFilterSearch className={styles.filterIcon}/>
           <div className={styles.verticalLine}></div>
         </div>

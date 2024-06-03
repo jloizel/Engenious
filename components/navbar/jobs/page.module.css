@@ -8,8 +8,9 @@
   height: 100%;
 
   @media (max-width: 767px) {
-    width: 100%;
+    /* width: 100%; */
     flex-direction: column;
+    overflow: hidden;
   }
 
   @media (min-width: 768px) {
@@ -21,7 +22,7 @@
   }
   
   @media (min-width: 1024px) {
-    width: 280px;
+    min-width: 280px;
   }
 }
 
@@ -144,7 +145,6 @@
   border: solid 1px #EFF0F0;
   background-color: #EFF0F0;
   border-radius: 50px;
-  justify-content: center;
   align-items: center;
   height: 42px;
   padding-top: 5px;
@@ -156,6 +156,11 @@
 
   @media (max-width: 767px) {
     width: 90%;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: center;
   }
 }
 
@@ -170,6 +175,10 @@
   /* padding: 10px 20px; */
   justify-content: center;
   gap: 3px;
+
+  @media (max-width: 767px) {
+    width: 85%;
+  }
 }
 
 .searchInputContainer span, .searchDropdownContainer span {
@@ -191,7 +200,6 @@
   padding: 0;
 
   @media (max-width: 767px) {
-
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -207,6 +215,12 @@
 
 .input::placeholder {
   color: #002D49;
+}
+
+.locationsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .searchDropdownContainer {
