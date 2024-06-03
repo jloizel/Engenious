@@ -214,9 +214,23 @@
   border-radius: 4px;
   margin-top: 8px;
   z-index: 1;
-  width: 150%;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.salaryRangeDropdownMenuTop {
   max-height: 200px;
   overflow-y: auto;
+}
+
+.salaryRangeDropdownMenuBot {
+  max-height: 200px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .salaryRangeDropdownActions{ 
@@ -227,5 +241,6 @@
   border-top: 1px solid #d6d6d6;
   /* position: fixed; */
   top: 350px;
+  width: 100%;
 }
 

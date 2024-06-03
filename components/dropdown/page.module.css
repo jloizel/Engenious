@@ -6,10 +6,21 @@
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  min-width: 220px;
   height: 100%;
   margin-left: 20px;
   gap: 3px;
+
+  @media (max-width: 767px) {
+
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 200px;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 280px;
+  }
 }
 
 .dropdownContainer span {
@@ -34,7 +45,6 @@
 
 .dropdownButton {
   color: #002D49;
-  font-size: 15px;
   border: none;
   background: transparent;
   font-family: inherit;
@@ -45,6 +55,18 @@
   margin: 0;  /* Ensure margin is set to 0 */
   justify-content: left;
   cursor: pointer; /* Add cursor pointer for better UX */
+
+  @media (max-width: 767px) {
+
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 13px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 15px;
+  }
 }
 
 .dropdownList {

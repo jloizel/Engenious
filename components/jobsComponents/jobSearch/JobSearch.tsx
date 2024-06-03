@@ -47,6 +47,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const [selectedSalaryRanges, setSelectedSalaryRanges] = useState([]);
 
   const [specialisations, setSpecialisations] = useState<string[]>([]);
+  const [specialisationsCounts, setSpecialisationsCounts] = useState({});
+  const [selectedSpecialisations, setSelectedSpecialisations] = useState([]);``
 
   const [positions, setPositions] = useState<string[]>([]);
 
@@ -68,9 +70,10 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
         job.position.toLowerCase().includes(keyword.toLowerCase()) &&
         (location ? job.location === location : true) &&
         (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true) &&
-        (selectedSalaryRanges.length > 0 ? selectedSalaryRanges.includes(job.salary) : true)
+        (selectedSalaryRanges.length > 0 ? selectedSalaryRanges.includes(job.salary) : true) && (selectedSpecialisations.length > 0 ? selectedSpecialisations.includes(job.specialisation) : true)
     );
-    setFilteredData(filtered);
+    const sortedFilteredData = filtered.sort((a, b) => extractSalary(a.salary) - extractSalary(b.salary));
+    setFilteredData(sortedFilteredData);
     setCurrentPage(1); // Reset to the first page after applying filters
     // Update selectedJobId to the id of the first job in the filtered data
     setSelectedJobId(filtered.length > 0 ? filtered[0].id : null);
@@ -99,6 +102,30 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     }
   };
 
+  const extractSalary = (salary: string): number => {
+    const match = salary.match(/\d+/);
+    return match ? parseInt(match[0]) : 0;
+  };
+
+  const extractSalaryMin = (salary: string): number => {
+    const match = salary.match(/£(\d+)k/);
+    return match ? parseInt(match[1]) * 1000 : 0;
+  };
+
+  const extractSalaryMax = (salary: string): number => {
+    const match = salary.match(/- £(\d+)k/);
+    return match ? parseInt(match[1]) * 1000 : 0;
+  };
+
+  const compareSalaries = (a: string, b: string): number => {
+    const minA = extractSalaryMin(a);
+    const minB = extractSalaryMin(b);
+    if (minA !== minB) {
+      return minA - minB;
+    }
+    return extractSalaryMax(a) - extractSalaryMax(b);
+  };
+
   //Search keywords and locations
   const handleSearchButtonClick = () => {
     setFilterApplied(true);
@@ -108,7 +135,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
             (location ? job.location === location : true) &&
             (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true)
     );
-    setFilteredData(filtered);
+    const sortedFilteredData = filtered.sort((a, b) => extractSalary(a.salary) - extractSalary(b.salary));
+    setFilteredData(sortedFilteredData);
     setCurrentPage(1); // Reset to the first page after applying filters
     if (filtered.length > 0) {
         setSelectedJobId(filtered[0].id); // Set the first job as selected
@@ -126,7 +154,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setPositions(extractedPositions);
     const extractedContractTypes = [...new Set(data.map((job) => job.contractType))];
     setContractTypes(extractedContractTypes);
-    const extractedSalary = [...new Set(data.map((job) => job.salary))];
+    const extractedSalary = [...new Set(data.map((job) => job.salary))].sort(compareSalaries);
     setSalaryRanges(extractedSalary);
     const extractedSpecialisations = [...new Set(data.map((job) => job.specialisation))];
     setSpecialisations(extractedSpecialisations);
@@ -163,7 +191,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   //Salary Range
 
   useEffect(() => {
-    const salaryRangeTypeCounts = data.reduce((acc, job) => {
+    const salaryRangesTypeCounts = data.reduce((acc, job) => {
       const { salary } = job;
       if (acc[salary]) {
         acc[salary] += 1;
@@ -172,7 +200,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
       }
       return acc;
     }, {});
-    setSalaryRangesCounts(salaryRangeTypeCounts);
+    setSalaryRangesCounts(salaryRangesTypeCounts);
   }, [data]);
 
   const handleSalaryRangesCheckboxChange = (event) => {
@@ -186,6 +214,34 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
 
   const handleSalaryRangesReset = () => {
     setSelectedSalaryRanges([]);
+  };
+
+  //Specialisations
+
+  useEffect(() => {
+    const specialisationsTypeCounts = data.reduce((acc, job) => {
+      const { specialisation } = job;
+      if (acc[specialisation]) {
+        acc[specialisation] += 1;
+      } else {
+        acc[specialisation] = 1;
+      }
+      return acc;
+    }, {});
+    setSpecialisationsCounts(specialisationsTypeCounts);
+  }, [data]);
+
+  const handleSpecialisationsCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedSpecialisations((prev) => [...prev, value]);
+    } else {
+      setSelectedSpecialisations((prev) => prev.filter((option) => option !== value));
+    }
+  };
+
+  const handleSpecialisationsReset = () => {
+    setSelectedSpecialisations([]);
   };
 
 
@@ -233,6 +289,11 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
         selectedSalaryRanges={selectedSalaryRanges}
         handleSalaryRangesCheckboxChange={handleSalaryRangesCheckboxChange}
         handleSalaryRangesReset={handleSalaryRangesReset}
+        specialisations={specialisations}
+        specialisationsCounts={specialisationsCounts}
+        selectedSpecialisations={selectedSpecialisations}
+        handleSpecialisationsCheckboxChange={handleSpecialisationsCheckboxChange}
+        handleSpecialisationsReset={handleSpecialisationsReset}
       />
       <div className={styles.filteredJobsContainer}>
         <div className={styles.left}>

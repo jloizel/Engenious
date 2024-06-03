@@ -50,7 +50,7 @@ const DropdownButton: React.FC<DropdownButtonProps> = ({ locations, onSelect }) 
       <KeyboardArrowRightIcon className={`${styles.arrow} ${isOpen ? styles.open : ""}`}/>
       <div className={styles.dropdownList}>
       {isOpen && (
-        <ul className={styles.d}>
+        <ul>
           <li onClick={() => handleLocationClick("All Locations")}>
             All Locations
           </li>

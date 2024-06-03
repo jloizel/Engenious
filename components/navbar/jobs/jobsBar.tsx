@@ -135,43 +135,45 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
           <Menu color="#00617C" />
         </div>
       </div>
-      <div className={styles.searchContainer}>
-        <div className={styles.searchInputContainer}>
-          <span>Job Title</span>
-          <input
-            type="text"
-            value={input}
-            onChange={handleSearch}
-            placeholder="Search by title, skill or keyword"
-            className={styles.input}
-          />
-          {input && (
-            <IoClose className={styles.clearIcon} onClick={clearInput} />
-          )}
-        </div>
-        <span className={styles.verticalLine}></span>
-        <div className={styles.searchDropdownContainer}>
-          <DropdownButton locations={filteredLocations} onSelect={onSelect} />
-        </div>
-        <div className={styles.searchIconContainer} onClick={onSearchButtonClick}>
-          <IoSearchSharp className={styles.searchIcon} />
-        </div>
-        {isOpen && (
-          <div className={styles.suggestionsContainer} ref={suggestionsRef}>
-            {input.length >= 3 && suggestions.length === 0 && (
-              <div className={styles.noDataFound}>No Data Found</div>
-            )}
-            {suggestions.length > 0 && (
-              <ul>
-                {suggestions.map((position, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(position)}>
-                    {getHighlightedText(position, input)}
-                  </li>
-                ))}
-              </ul>
+      <div className={styles.searchMainContainer}>
+        <div className={styles.searchContainer}>
+          <div className={styles.searchInputContainer}>
+            <span>Job Title</span>
+            <input
+              type="text"
+              value={input}
+              onChange={handleSearch}
+              placeholder="Search by title, skill or keyword"
+              className={styles.input}
+            />
+            {input && (
+              <IoClose className={styles.clearIcon} onClick={clearInput} />
             )}
           </div>
-        )}
+          <span className={styles.verticalLine}></span>
+          <div className={styles.searchDropdownContainer}>
+            <DropdownButton locations={filteredLocations} onSelect={onSelect} />
+          </div>
+          <div className={styles.searchIconContainer} onClick={onSearchButtonClick}>
+            <IoSearchSharp className={styles.searchIcon} />
+          </div>
+          {isOpen && (
+            <div className={styles.suggestionsContainer} ref={suggestionsRef}>
+              {input.length >= 3 && suggestions.length === 0 && (
+                <div className={styles.noDataFound}>No Data Found</div>
+              )}
+              {suggestions.length > 0 && (
+                <ul>
+                  {suggestions.map((position, index) => (
+                    <li key={index} onClick={() => handleSuggestionClick(position)}>
+                      {getHighlightedText(position, input)}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

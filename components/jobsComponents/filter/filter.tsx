@@ -29,9 +29,15 @@ interface FilterProps {
   selectedSalaryRanges: string[]
   handleSalaryRangesCheckboxChange: (event) => void
   handleSalaryRangesReset: () => void
+
+  specialisations: string[];
+  specialisationsCounts: { [key: string]: number };
+  selectedSpecialisations: string[]
+  handleSpecialisationsCheckboxChange: (event) => void
+  handleSpecialisationsReset: () => void
 }
 
-const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, salaryRanges, salaryRangesCounts, selectedSalaryRanges, handleSalaryRangesCheckboxChange, handleSalaryRangesReset }) => {
+const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, salaryRanges, salaryRangesCounts, selectedSalaryRanges, handleSalaryRangesCheckboxChange, handleSalaryRangesReset, specialisations, specialisationsCounts, selectedSpecialisations, handleSpecialisationsCheckboxChange, handleSpecialisationsReset }) => {
   // State variables for filter criteria
   const [salaryRange, setSalaryRange] = useState('');
   const [specialisation, setSpecialisation] = useState('');
@@ -47,6 +53,10 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
   const [appliedSalaryRanges, setAppliedSalaryRanges] = useState<string[]>([]);
   const [appliedSalaryRangesCount, setAppliedSalaryRangesCount] = useState(0);
   const [isSalaryRangesOpen, setIsSalaryRangesOpen] = useState(false);
+
+  const [appliedSpecialisations, setAppliedSpecialisations] = useState<string[]>([]);
+  const [appliedSpecialisationsCount, setAppliedSpecialisationsCount] = useState(0);
+  const [isSpecialisationsOpen, setIsSpecialisationsOpen] = useState(false);
 
   // Handle filter changes
   const handleSalaryRangeChange = e => {
@@ -70,11 +80,6 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
   //   };
   // }, []);
 
-  
-
-  
-
-  
 
   //Contract Type
   const selectedContractTypesCount = selectedContractTypes.length;
@@ -105,6 +110,22 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
     setAppliedSalaryRanges([...selectedSalaryRanges]);
     setAppliedSalaryRangesCount(selectedSalaryRanges.length);
     setIsSalaryRangesOpen(false);
+    handleAppliedButton()
+    setButtonPressed(true)
+  };
+
+  //Specialisation
+  const isSpecialisationsActive = isFiltersApplied && appliedSpecialisations.length > 0;
+
+  const handleSpecialisationsDropdownToggle = () => {
+    setIsSpecialisationsOpen((prev) => !prev);
+  };
+
+  const handleApplySpecialisationsFilters = () => {
+    setIsFiltersApplied(true);
+    setAppliedSpecialisations([...selectedSpecialisations]);
+    setAppliedSpecialisationsCount(selectedSpecialisations.length);
+    setIsSpecialisationsOpen(false);
     handleAppliedButton()
     setButtonPressed(true)
   };
@@ -163,42 +184,71 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
             </button>
             {isSalaryRangesOpen && (
               <div className={styles.salaryRangeDropdownMenu}>
-                {salaryRanges.map((type, index) => (
-                  <label key={index} className={styles.dropdownItem}>
-                    <input
-                      type="checkbox"
-                      value={type}
-                      checked={selectedSalaryRanges.includes(type)}
-                      onChange={handleSalaryRangesCheckboxChange}
-                    />
-                    {type} <span>{salaryRangesCounts[type] || 0}</span>
-                  </label>
-                ))}
-                 <div className={styles.salaryRangeDropdownActions}>
-                  <button onClick={handleApplySalaryRangesFilters} className={styles.applyButton}>
-                    Apply
-                  </button>
-                  {isFiltersApplied && (
-                    <button onClick={handleSalaryRangesReset} className={styles.resetButton}>
-                      Reset
+                <div className={styles.salaryRangeDropdownMenuTop}>
+                  {salaryRanges.map((type, index) => (
+                    <label key={index} className={styles.dropdownItem}>
+                      <input
+                        type="checkbox"
+                        value={type}
+                        checked={selectedSalaryRanges.includes(type)}
+                        onChange={handleSalaryRangesCheckboxChange}
+                      />
+                      {type} <span>{salaryRangesCounts[type] || 0}</span>
+                    </label>
+                  ))}
+                </div>
+                <div className={styles.salaryRangeDropdownMenuBot}>
+                  <div className={styles.salaryRangeDropdownActions}>
+                    <button onClick={handleApplySalaryRangesFilters} className={styles.applyButton}>
+                      Apply
                     </button>
-                  )}
+                    {isFiltersApplied && (
+                      <button onClick={handleSalaryRangesReset} className={styles.resetButton}>
+                        Reset
+                      </button>
+                    )}
+                  </div>
                 </div>
               </div>
             )}
           </Box>
-          <div className={styles.filter}>
-            <label>Specialisation:</label>
-            <select value={specialisation} onChange={handleSpecialisationChange}>
-              <option value="">All</option>
-              <option value="Project Management">Project Management</option>
-              <option value="Civil Engineering">Civil Engineering</option>
-              {/* Add other specialisations */}
-            </select>
-          </div>
-
-          {/* Job listings */}
-          
+          <Box className={styles.contractTypeDropdownContainer} ref={dropdownRef}>
+            <button className={`${isSpecialisationsActive ? styles.dropdownButtonActive : styles.dropdownButton}`} onClick={handleSpecialisationsDropdownToggle}>
+              <MdOutlineAccountTree className={styles.clockIcon}/>
+              <span>Specialisation</span>
+              {isSpecialisationsActive && (<span className={styles.filterCount}>{appliedSpecialisationsCount}</span>)}
+              <KeyboardArrowRightIcon className={`${styles.arrow} ${isSpecialisationsOpen ? styles.open : ""}`}/>
+            </button>
+            {isSpecialisationsOpen && (
+              <div className={styles.salaryRangeDropdownMenu}>
+                <div className={styles.salaryRangeDropdownMenuTop}>
+                  {specialisations.map((type, index) => (
+                    <label key={index} className={styles.dropdownItem}>
+                      <input
+                        type="checkbox"
+                        value={type}
+                        checked={selectedSpecialisations.includes(type)}
+                        onChange={handleSpecialisationsCheckboxChange}
+                      />
+                      {type} <span>{specialisationsCounts[type] || 0}</span>
+                    </label>
+                  ))}
+                </div>
+                <div className={styles.salaryRangeDropdownMenuBot}>
+                  <div className={styles.salaryRangeDropdownActions}>
+                    <button onClick={handleApplySpecialisationsFilters} className={styles.applyButton}>
+                      Apply
+                    </button>
+                    {isFiltersApplied && (
+                      <button onClick={handleSpecialisationsReset} className={styles.resetButton}>
+                        Reset
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+          </Box>
         </div>
       </div>
     </div>
