@@ -82,19 +82,32 @@
 .contractTypeDropdownContainer {
   position: relative;
   display: inline-block;
+
+  @media (max-width: 767px) {
+    min-width: fit-content;
+  }
 }
 
 .dropdownButton {
-  background-color: #EFF0F0;
   border: none;
   padding: 8px 10px;
   cursor: pointer;
   border-radius: 4px;
   display: flex;
-  align-items: center;
   transition: all 0.3s ease-in-out;
   font-family: "Poppins", sans-serif;
   color: #002D49;
+  align-items: center;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    flex-direction: row;
+    background-color: white;
+  }
+
+  @media (min-width: 768px) {
+    background-color: #EFF0F0;
+  }
 }
 
 .filterCount {
@@ -173,6 +186,10 @@
 .clockIcon {
   transform: translateY(-1px);
   margin-right: 8px;
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
 }
 
 .arrow {
@@ -267,3 +284,59 @@
   width: 100%;
 }
 
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+@media (max-width: 767px) {
+  .dropdownMenu,
+  .salaryRangeDropdownMenu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    animation-duration: 0.3s;
+    animation-fill-mode: forwards;
+    z-index: 1000;
+  }
+
+  .slideUp {
+    animation-name: slideUp;
+  }
+
+  .slideDown {
+    animation-name: slideDown;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  z-index: 999; /* make sure it's above other elements */
+}
+
+.hidden {
+  display: none;
+}
+
+.noScroll {
+  overflow: hidden;
+}

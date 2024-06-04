@@ -146,8 +146,23 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
 
+  const isAnyDropdownOpen = isContractTypesOpen || isSalaryRangesOpen || isSpecialisationsOpen;
+
+  useEffect(() => {
+    if (isAnyDropdownOpen) {
+      document.body.classList.add(styles.noScroll);
+    } else {
+      document.body.classList.remove(styles.noScroll);
+    }
+  }, [isAnyDropdownOpen]);
+
   return (
     <div className={styles.containerBorder}>
+      {isAnyDropdownOpen && <div className={styles.overlay} onClick={() => {
+        setIsContractTypesOpen(false);
+        setIsSalaryRangesOpen(false);
+        setIsSpecialisationsOpen(false);
+      }}></div>}
       {/* Filter controls */}
       <div className={styles.container}>
         <div className={styles.filtersHeader}>
@@ -165,7 +180,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isContractTypesOpen ? styles.open : ""}`}/>
             </button>
             {isContractTypesOpen && (
-              <div className={styles.dropdownMenu}>
+              <div className={`${styles.dropdownMenu} ${isMobile ? styles.slideUp : ''}`}>
                 {contractTypes.map((type, index) => (
                   <label key={index} className={styles.dropdownItem}>
                     <input

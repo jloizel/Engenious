@@ -155,7 +155,7 @@
   position: relative;
 
   @media (max-width: 767px) {
-    width: 90%;
+    width: 80%;
     justify-content: space-between;
   }
 
