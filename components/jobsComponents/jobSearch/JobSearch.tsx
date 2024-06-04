@@ -37,6 +37,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
 
   const [location, setLocation] = useState("");
   const [locations, setLocations] = useState<string[]>([]);
+  const [locationsCounts, setLocationsCounts] = useState({});
+  const [selectedLocations, setSelectedLocations] = useState([]);
 
   const [contractTypes, setContractTypes] = useState<string[]>([]);
   const [contractTypeCounts, setContractTypeCounts] = useState({});
@@ -69,6 +71,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
       (job) =>
         job.position.toLowerCase().includes(keyword.toLowerCase()) &&
         (location ? job.location === location : true) &&
+        (selectedLocations.length > 0 ? selectedLocations.includes(job.location) : true) &&
         (selectedContractTypes.length > 0 ? selectedContractTypes.includes(job.contractType) : true) &&
         (selectedSalaryRanges.length > 0 ? selectedSalaryRanges.includes(job.salary) : true) && (selectedSpecialisations.length > 0 ? selectedSpecialisations.includes(job.specialisation) : true)
     );
@@ -159,6 +162,34 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     const extractedSpecialisations = [...new Set(data.map((job) => job.specialisation))];
     setSpecialisations(extractedSpecialisations);
   }, [data]);
+
+  //Locations
+
+  useEffect(() => {
+    const locationsCounts = data.reduce((acc, job) => {
+      const { location } = job;
+      if (acc[location]) {
+        acc[location] += 1;
+      } else {
+        acc[location] = 1;
+      }
+      return acc;
+    }, {});
+    setLocationsCounts(locationsCounts);
+  }, [data]);
+
+  const handleLocationsCheckboxChange = (event) => {
+    const { value, checked } = event.target;
+    if (checked) {
+      setSelectedLocations((prev) => [...prev, value]);
+    } else {
+      setSelectedLocations((prev) => prev.filter((option) => option !== value));
+    }
+  };
+
+  const handleLocationsReset = () => {
+    setSelectedLocations([]);
+  };
 
   //Contract Types
 
@@ -279,6 +310,11 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
       />
       <Filter
         handleAppliedButton={handleAppliedButton}
+        locations={locations}
+        handleLocationsCheckboxChange={handleLocationsCheckboxChange}
+        selectedLocations={selectedLocations}
+        locationsCounts={locationsCounts}
+        handleLocationsReset={handleLocationsReset}
         contractTypes={contractTypes}
         handleContractTypesCheckboxChange={handleContractTypesCheckboxChange}
         selectedContractTypes={selectedContractTypes}

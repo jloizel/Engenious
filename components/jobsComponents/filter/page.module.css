@@ -142,10 +142,34 @@
   position: absolute;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
   margin-top: 8px;
   z-index: 1;
   width: 150%;
+  
+  @media (min-width: 768px) {
+    /* border-radius: 4px; */
+  }
+}
+
+.dropdownClose {
+  width: 100%;
+  height: 30px;
+  background-color: #fff;
+  display: block;
+  border-radius: 26px 26px 0 0;
+}
+
+.dropdownClose::before {
+  height: 6px;
+  background: #09B089;
+  border-radius: 4px;
+  content: "";
+  width: 70px;
+  margin: auto;
+  top: 10px;
+  left: 0;
+  right: 0;
+  position: absolute;
 }
 
 .dropdownItem {
@@ -172,7 +196,9 @@
 }
 
 .dropdownItem:hover {
-  background-color: #f1f1f1;
+  @media (min-width: 768px) {
+    background-color: #f1f1f1;
+  }
 }
 
 .dropdownItem input {
@@ -208,6 +234,7 @@
   justify-content: space-between;
   padding: 10px;
   border-top: 1px solid #d6d6d6;
+  padding: 10px;
 }
 
 
@@ -251,26 +278,38 @@
   position: absolute;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
   margin-top: 8px;
   z-index: 1;
-  width: 250px;
   display: flex;
   flex-direction: column;
-  
+
+  @media (min-width: 768px) {
+    width: 250px;
+    border-radius: 4px;
+  }
 }
 
-.salaryRangeDropdownMenuTop {
-  max-height: 200px;
+.salaryRangeDropdownMenuTop {  
   overflow-y: auto;
+
+  @media (max-width: 767px) {
+    max-height: 400px;
+  }
+
+  @media (min-width: 768px) {
+    max-height: 200px;
+  }
 }
 
 .salaryRangeDropdownMenuBot {
   max-height: 200px;
-  width: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (min-width: 768px) {
+    width: 250px;
+  }
 }
 
 .salaryRangeDropdownActions{ 
@@ -309,9 +348,12 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    animation-duration: 0.3s;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards;
     z-index: 1000;
+    /* padding-top: 20px; */
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
   }
 
   .slideUp {

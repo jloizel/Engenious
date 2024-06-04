@@ -7,6 +7,7 @@ import { MdOutlineAccountTree } from "react-icons/md";
 import { JobCardData } from '../jobSearch/JobSearch';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Box, createTheme, useMediaQuery } from '@mui/material';
+import { GoLocation } from "react-icons/go";
 
 
 // const contractTypes = [
@@ -17,6 +18,12 @@ import { Box, createTheme, useMediaQuery } from '@mui/material';
 
 interface FilterProps {
   handleAppliedButton: () => void
+
+  locations: string[];
+  locationsCounts: { [key: string]: number };
+  handleLocationsCheckboxChange: (event) => void
+  selectedLocations: string[]
+  handleLocationsReset: () => void
 
   contractTypes: string[];
   contractTypeCounts: { [key: string]: number };
@@ -37,7 +44,7 @@ interface FilterProps {
   handleSpecialisationsReset: () => void
 }
 
-const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, salaryRanges, salaryRangesCounts, selectedSalaryRanges, handleSalaryRangesCheckboxChange, handleSalaryRangesReset, specialisations, specialisationsCounts, selectedSpecialisations, handleSpecialisationsCheckboxChange, handleSpecialisationsReset }) => {
+const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locationsCounts, handleLocationsCheckboxChange, selectedLocations, handleLocationsReset, contractTypes, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, salaryRanges, salaryRangesCounts, selectedSalaryRanges, handleSalaryRangesCheckboxChange, handleSalaryRangesReset, specialisations, specialisationsCounts, selectedSpecialisations, handleSpecialisationsCheckboxChange, handleSpecialisationsReset }) => {
   // State variables for filter criteria
   const [salaryRange, setSalaryRange] = useState('');
   const [specialisation, setSpecialisation] = useState('');
@@ -46,25 +53,43 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
   const [isFiltersApplied, setIsFiltersApplied] = useState(false);
   const [buttonPressed, setButtonPressed] = useState(false)
 
+  const [appliedLocations, setAppliedLocations] = useState<string[]>([]);
+  const [appliedLocationsCount, setAppliedLocationsCount] = useState(0);
+  const [isLocationsOpen, setIsLocationsOpen] = useState(false);
+  const [isLocationsClosing, setIsLocationsClosing] = useState(false);
+
   const [appliedContractTypes, setAppliedContractTypes] = useState<string[]>([]);
   const [appliedContractTypesCount, setAppliedContractTypesCount] = useState(0);
   const [isContractTypesOpen, setIsContractTypesOpen] = useState(false);
+  const [isContractTypesClosing, setIsContractTypesClosing] = useState(false);
 
   const [appliedSalaryRanges, setAppliedSalaryRanges] = useState<string[]>([]);
   const [appliedSalaryRangesCount, setAppliedSalaryRangesCount] = useState(0);
   const [isSalaryRangesOpen, setIsSalaryRangesOpen] = useState(false);
+  const [isSalaryRangesClosing, setIsSalaryRangesClosing] = useState(false);
 
   const [appliedSpecialisations, setAppliedSpecialisations] = useState<string[]>([]);
   const [appliedSpecialisationsCount, setAppliedSpecialisationsCount] = useState(0);
   const [isSpecialisationsOpen, setIsSpecialisationsOpen] = useState(false);
+  const [isSpecialisationsClosing, setIsSpecialisationsClosing] = useState(false);
 
-  // Handle filter changes
-  const handleSalaryRangeChange = e => {
-    setSalaryRange(e.target.value);
+
+  const handleCloseBar = () => {
+    setIsLocationsOpen(false)
+    setIsContractTypesOpen(false)
+    setIsSalaryRangesOpen(false)
+    setIsSpecialisationsOpen(false)
   };
 
-  const handleSpecialisationChange = e => {
-    setSpecialisation(e.target.value);
+  const handleTransitionEnd = () => {
+    setIsLocationsOpen(false);
+    setIsLocationsClosing(false);
+    setIsContractTypesOpen(false);
+    setIsContractTypesClosing(false);
+    setIsSalaryRangesOpen(false);
+    setIsSalaryRangesClosing(false);
+    setIsSpecialisationsOpen(false);
+    setIsSpecialisationsClosing(false);
   };
 
   // useEffect(() => {
@@ -80,6 +105,22 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
   //   };
   // }, []);
 
+  //Locations
+  const selectedLocationsCount = selectedLocations.length;
+  const isLocationsActive = isFiltersApplied && appliedLocations.length > 0;
+
+  const handleLocationsDropdownToggle = () => {
+    setIsLocationsOpen((prev) => !prev);
+  };
+
+  const handleApplyLocationsFilters = () => {
+    setIsFiltersApplied(true);
+    setAppliedLocations([...selectedLocations]);
+    setAppliedLocationsCount(selectedLocations.length);
+    setIsLocationsOpen(false);
+    handleAppliedButton()
+    setButtonPressed(true)
+  };
 
   //Contract Type
   const selectedContractTypesCount = selectedContractTypes.length;
@@ -146,7 +187,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
 
-  const isAnyDropdownOpen = isContractTypesOpen || isSalaryRangesOpen || isSpecialisationsOpen;
+  const isAnyDropdownOpen = isLocationsOpen || isContractTypesOpen || isSalaryRangesOpen || isSpecialisationsOpen;
 
   useEffect(() => {
     if (isAnyDropdownOpen) {
@@ -158,11 +199,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
 
   return (
     <div className={styles.containerBorder}>
-      {isAnyDropdownOpen && <div className={styles.overlay} onClick={() => {
-        setIsContractTypesOpen(false);
-        setIsSalaryRangesOpen(false);
-        setIsSpecialisationsOpen(false);
-      }}></div>}
+      {isAnyDropdownOpen && <div className={styles.overlay} onClick={handleCloseBar}></div>}
       {/* Filter controls */}
       <div className={styles.container}>
         <div className={styles.filtersHeader}>
@@ -170,8 +207,47 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
           <TbFilterSearch className={styles.filterIcon}/>
           <div className={styles.verticalLine}></div>
         </div>
-        
         <div className={styles.filtersContainer}>
+          {isMobile && (
+            <Box className={styles.contractTypeDropdownContainer} ref={dropdownRef}>
+              <button className={`${isLocationsActive ? styles.dropdownButtonActive : styles.dropdownButton}`} onClick={handleLocationsDropdownToggle}>
+                <GoLocation className={styles.clockIcon}/>
+                <span>Locations</span>
+                {isLocationsActive && (<span className={styles.filterCount}>{appliedLocationsCount}</span>)}
+                <KeyboardArrowRightIcon className={`${styles.arrow} ${isLocationsOpen ? styles.open : ""}`}/>
+              </button>
+              {isLocationsOpen && (
+                <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''} ${isLocationsClosing ? styles.slideDown : ''}`}>
+                  {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
+                  <div className={styles.salaryRangeDropdownMenuTop}>
+                    {locations.map((type, index) => (
+                      <label key={index} className={styles.dropdownItem}>
+                        <input
+                          type="checkbox"
+                          value={type}
+                          checked={selectedLocations.includes(type)}
+                          onChange={handleLocationsCheckboxChange}
+                        />
+                        {type} <span>{locationsCounts[type] || 0}</span>
+                      </label>
+                    ))}
+                  </div>
+                  <div className={styles.salaryRangeDropdownMenuBot}>
+                    <div className={styles.salaryRangeDropdownActions}>
+                      <button onClick={handleApplyLocationsFilters} className={styles.applyButton}>
+                        Apply
+                      </button>
+                      {isFiltersApplied && (
+                        <button onClick={handleLocationsReset} className={styles.resetButton}>
+                          Reset
+                        </button>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </Box>
+          )}
           <Box className={styles.contractTypeDropdownContainer} ref={dropdownRef}>
             <button className={`${isContractTypesActive ? styles.dropdownButtonActive : styles.dropdownButton}`} onClick={handleContractTypesDropdownToggle}>
               <LuClock3 className={styles.clockIcon}/>
@@ -180,7 +256,8 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isContractTypesOpen ? styles.open : ""}`}/>
             </button>
             {isContractTypesOpen && (
-              <div className={`${styles.dropdownMenu} ${isMobile ? styles.slideUp : ''}`}>
+              <div className={`${styles.dropdownMenu} ${isMobile ? styles.slideUp : ''} ${isContractTypesClosing ? styles.slideDown : ''}`}>
+                {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
                 {contractTypes.map((type, index) => (
                   <label key={index} className={styles.dropdownItem}>
                     <input
@@ -214,7 +291,8 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isSalaryRangesOpen ? styles.open : ""}`}/>
             </button>
             {isSalaryRangesOpen && (
-              <div className={styles.salaryRangeDropdownMenu}>
+              <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''} ${isSalaryRangesClosing ? styles.slideDown : ''}`}>
+                {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
                 <div className={styles.salaryRangeDropdownMenuTop}>
                   {salaryRanges.map((type, index) => (
                     <label key={index} className={styles.dropdownItem}>
@@ -251,7 +329,8 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, contractTypes, con
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isSpecialisationsOpen ? styles.open : ""}`}/>
             </button>
             {isSpecialisationsOpen && (
-              <div className={styles.salaryRangeDropdownMenu}>
+              <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''} ${isSpecialisationsClosing ? styles.slideDown : ''}`}>
+                {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
                 <div className={styles.salaryRangeDropdownMenuTop}>
                   {specialisations.map((type, index) => (
                     <label key={index} className={styles.dropdownItem}>
