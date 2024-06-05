@@ -46,8 +46,6 @@ interface FilterProps {
 
 const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locationsCounts, handleLocationsCheckboxChange, selectedLocations, handleLocationsReset, contractTypes, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, salaryRanges, salaryRangesCounts, selectedSalaryRanges, handleSalaryRangesCheckboxChange, handleSalaryRangesReset, specialisations, specialisationsCounts, selectedSpecialisations, handleSpecialisationsCheckboxChange, handleSpecialisationsReset }) => {
   // State variables for filter criteria
-  const [salaryRange, setSalaryRange] = useState('');
-  const [specialisation, setSpecialisation] = useState('');
   
   const dropdownRef = useRef(null);
   const [isFiltersApplied, setIsFiltersApplied] = useState(false);
@@ -56,22 +54,18 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
   const [appliedLocations, setAppliedLocations] = useState<string[]>([]);
   const [appliedLocationsCount, setAppliedLocationsCount] = useState(0);
   const [isLocationsOpen, setIsLocationsOpen] = useState(false);
-  const [isLocationsClosing, setIsLocationsClosing] = useState(false);
 
   const [appliedContractTypes, setAppliedContractTypes] = useState<string[]>([]);
   const [appliedContractTypesCount, setAppliedContractTypesCount] = useState(0);
   const [isContractTypesOpen, setIsContractTypesOpen] = useState(false);
-  const [isContractTypesClosing, setIsContractTypesClosing] = useState(false);
 
   const [appliedSalaryRanges, setAppliedSalaryRanges] = useState<string[]>([]);
   const [appliedSalaryRangesCount, setAppliedSalaryRangesCount] = useState(0);
   const [isSalaryRangesOpen, setIsSalaryRangesOpen] = useState(false);
-  const [isSalaryRangesClosing, setIsSalaryRangesClosing] = useState(false);
 
   const [appliedSpecialisations, setAppliedSpecialisations] = useState<string[]>([]);
   const [appliedSpecialisationsCount, setAppliedSpecialisationsCount] = useState(0);
   const [isSpecialisationsOpen, setIsSpecialisationsOpen] = useState(false);
-  const [isSpecialisationsClosing, setIsSpecialisationsClosing] = useState(false);
 
 
   const handleCloseBar = () => {
@@ -79,17 +73,6 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
     setIsContractTypesOpen(false)
     setIsSalaryRangesOpen(false)
     setIsSpecialisationsOpen(false)
-  };
-
-  const handleTransitionEnd = () => {
-    setIsLocationsOpen(false);
-    setIsLocationsClosing(false);
-    setIsContractTypesOpen(false);
-    setIsContractTypesClosing(false);
-    setIsSalaryRangesOpen(false);
-    setIsSalaryRangesClosing(false);
-    setIsSpecialisationsOpen(false);
-    setIsSpecialisationsClosing(false);
   };
 
   // useEffect(() => {
@@ -185,7 +168,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
+  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
 
   const isAnyDropdownOpen = isLocationsOpen || isContractTypesOpen || isSalaryRangesOpen || isSpecialisationsOpen;
 
@@ -217,7 +200,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
                 <KeyboardArrowRightIcon className={`${styles.arrow} ${isLocationsOpen ? styles.open : ""}`}/>
               </button>
               {isLocationsOpen && (
-                <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''} ${isLocationsClosing ? styles.slideDown : ''}`}>
+                <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''}`}>
                   {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
                   <div className={styles.salaryRangeDropdownMenuTop}>
                     {locations.map((type, index) => (
@@ -256,7 +239,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isContractTypesOpen ? styles.open : ""}`}/>
             </button>
             {isContractTypesOpen && (
-              <div className={`${styles.dropdownMenu} ${isMobile ? styles.slideUp : ''} ${isContractTypesClosing ? styles.slideDown : ''}`}>
+              <div className={`${styles.dropdownMenu} ${isMobile ? styles.slideUp : ''}`}>
                 {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
                 {contractTypes.map((type, index) => (
                   <label key={index} className={styles.dropdownItem}>
@@ -291,7 +274,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isSalaryRangesOpen ? styles.open : ""}`}/>
             </button>
             {isSalaryRangesOpen && (
-              <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''} ${isSalaryRangesClosing ? styles.slideDown : ''}`}>
+              <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''}`}>
                 {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
                 <div className={styles.salaryRangeDropdownMenuTop}>
                   {salaryRanges.map((type, index) => (
@@ -329,7 +312,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
               <KeyboardArrowRightIcon className={`${styles.arrow} ${isSpecialisationsOpen ? styles.open : ""}`}/>
             </button>
             {isSpecialisationsOpen && (
-              <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''} ${isSpecialisationsClosing ? styles.slideDown : ''}`}>
+              <div className={`${styles.salaryRangeDropdownMenu} ${isMobile ? styles.slideUp : ''}`}>
                 {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
                 <div className={styles.salaryRangeDropdownMenuTop}>
                   {specialisations.map((type, index) => (

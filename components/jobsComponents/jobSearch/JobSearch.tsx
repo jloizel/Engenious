@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Jobs from "../jobCard/jobCardsContainer";
 import Header from "../Header";
-import { Box, Pagination, PaginationItem } from "@mui/material";
+import { Box, Pagination, PaginationItem, createTheme, useMediaQuery } from "@mui/material";
 import styles from "./page.module.css";
 import JobsBar from "../../navbar/jobs/jobsBar";
 import Filter from "../filter/filter";
@@ -60,9 +60,17 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const jobsListRef = useRef<HTMLDivElement>(null);
   const [pageChanged, setPageChanged] = useState(false)
   const [buttonPressed, setButtonPressed] = useState(false)
+  const [isMobileJobSelected, setIsMobileJobSelected] = useState(false);
 
   const handleJobClick = (jobId: number) => {
     setSelectedJobId(jobId);
+    if (window.innerWidth <= 768) {
+      setIsMobileJobSelected(true); // Show the right container on mobile when a job is selected
+    }
+  };
+
+  const handleCloseMobileJob = () => {
+    setIsMobileJobSelected(false);
   };
 
   const handleAppliedButton = () => {
@@ -299,6 +307,20 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     }
   }, [currentPage, currentJobs]);
 
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 767,
+        md: 1024,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
+
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
     <div className={styles.container} ref={jobListTopRef}>
       <JobsBar
@@ -417,8 +439,9 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           </div>
           )}
         </div>
-        <div className={styles.right}>
-        {filteredData.length === 0 ? (
+        <div className={`${isMobile ? styles.mobileRightContainer : styles.right} ${isMobileJobSelected ? styles.slideUp : ''}`}>
+          <button onClick={handleCloseMobileJob}>Close</button>
+          {filteredData.length === 0 ? (
             <div className={styles.noSelectedJobFound}>
               <LuSearchX className={styles.noSearchIcon}/>
               <div>No jobs found</div>

@@ -4,6 +4,7 @@
   align-items: center;
   border-bottom: 1px solid #d6d6d6;
   border-top: 1px solid #d6d6d6;
+  position: relative;
 
   @media (max-width: 767px) {
     background-color: #EFF0F0;

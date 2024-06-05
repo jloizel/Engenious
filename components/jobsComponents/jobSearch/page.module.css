@@ -1,6 +1,7 @@
 .container {
   width: 100%;
   background-color: white;
+  overflow: hidden;
 }
 
 .filteredJobsContainer {
@@ -15,6 +16,7 @@
   width: 50%;
   height: 80vh;
   overflow-y: auto;
+  flex: 1;
 }
 
 .jobsListTop {
@@ -219,6 +221,7 @@
   height: 80vh;
   overflow-y: auto;
   align-items: center;
+  flex: 1;
 }
 
 .selectedJobInfoContainer {
@@ -419,4 +422,52 @@
   font-size: 16px;
   width: 70%;
   margin-top: 20px;
+}
+
+
+  .mobileRightContainer {
+    position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  z-index: 1000;
+  transition: bottom 0.3s ease-in-out;
+  }
+
+  .mobileRightContainer.open {
+    display: block;
+    transform: translateY(0);
+  }
+
+  .jobsList {
+    padding-bottom: 100px; /* To give space for the sliding container */
+  }
+
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+
+.slideUp {
+  animation-name: slideUp;
+  bottom: 0;
+}
+
+.slideDown {
+  animation-name: slideDown;
 }
