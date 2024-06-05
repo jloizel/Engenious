@@ -7,6 +7,7 @@ import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Link, useLocation } from 'react-router-dom';
 import JobSeekers from '../../../components/jobsComponents/jobSeekers/jobSeekers';
+import { IdProvider } from '../../../components/idContext/idContext';
 
 const Jobs = () => {
   const pageName = "Jobs"
@@ -49,19 +50,18 @@ const Jobs = () => {
   ]; 
 
   return (
-    <div className={styles.jobsContainer}>
-      <Helmet>
-        <title>Jobs</title>
-        <meta name='description' content='' />
-      </Helmet>
+    <IdProvider>
+      <div className={styles.jobsContainer}>
+        <Helmet>
+          <title>Jobs</title>
+          <meta name='description' content='' />
+        </Helmet>
 
-      <Box className={styles.jobSearchContainer}>
-        <JobSeekers links={links} currentPath={currentPath} pageName={pageName}/>
-      </Box>
-      <BrowserRouter>
-      <Link to={`/`}>Next Step</Link>
-      </BrowserRouter>
-    </div>
+        <Box className={styles.jobSearchContainer}>
+          <JobSeekers links={links} currentPath={currentPath} pageName={pageName}/>
+        </Box>
+      </div>
+    </IdProvider>
   )
 }
 

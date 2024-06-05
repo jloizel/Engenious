@@ -12,6 +12,7 @@ import Testimonials from "../../components/testimonials/testimonials";
 import Location from "../../components/location/location";
 import NavbarMain1 from "../../components/navbar/main/navbarMain1";
 import { Helmet } from 'react-helmet';
+import { IdProvider } from "../../components/idContext/idContext";
 
 
 export default function Home() {
@@ -32,6 +33,7 @@ export default function Home() {
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
   return (
+    <IdProvider>
     <div className={styles.app}>
       <Helmet>
         <meta charSet="utf-8" />
@@ -96,5 +98,6 @@ export default function Home() {
         <Location/>
       </section>
     </div>
+    </IdProvider>
   );
 }

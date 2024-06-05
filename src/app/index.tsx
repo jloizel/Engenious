@@ -1,7 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import Home from "./page";
+import App from "./App";
+import { IdProvider } from "../../components/idContext/idContext";
+import Jobs from "./jobs/page";
+import CVUpload from "./jobs/cv-upload/page";
 
 
 // const googleAnalyticsId = process.env.REACT_APP_GOOGLE_ANALYTICS_ID || "";
@@ -19,8 +23,11 @@ import { BrowserRouter } from "react-router-dom";
 // }
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <BrowserRouter>
+  <React.StrictMode>
+    <IdProvider>
     <App />
-  </BrowserRouter>
+    </IdProvider>
+  </React.StrictMode>
 )
+
 

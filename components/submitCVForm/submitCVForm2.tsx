@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { sendCV } from '../../src/app/utils/sendCV';
 import styles from './page2.module.css';
+import { IdProvider, useIdContext } from '../idContext/idContext';
 
 // Define the schema using zod
 const formSchema = z.object({
@@ -33,6 +34,10 @@ const SubmitCVForm2: FC = () => {
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
+
+  const { id } = useIdContext();
+
+  console.log(id)
 
   const [content, setContent] = useState<string | null>(null);
   const [filename, setFilename] = useState<string>('');
@@ -100,6 +105,7 @@ const SubmitCVForm2: FC = () => {
   };
 
   return (
+    <IdProvider>
     <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       {!messageSent && (
         <div>
@@ -183,6 +189,7 @@ const SubmitCVForm2: FC = () => {
         </div>
       )}
     </form>
+    </IdProvider>
   );
 };
 

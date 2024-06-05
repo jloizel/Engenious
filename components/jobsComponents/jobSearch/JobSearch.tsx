@@ -9,7 +9,8 @@ import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import { LuSearchX } from "react-icons/lu";
-import { Link } from 'react-router-dom';
+import { BrowserRouter, Link } from 'react-router-dom';
+import { IdProvider, useIdContext } from "../../idContext/idContext";
 
 export interface JobCardData {
   id: number;
@@ -62,6 +63,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const [pageChanged, setPageChanged] = useState(false)
   const [buttonPressed, setButtonPressed] = useState(false)
   const [isMobileJobSelected, setIsMobileJobSelected] = useState(false);
+  const { setId } = useIdContext();
 
   const handleJobClick = (jobId: number) => {
     setSelectedJobId(jobId);
@@ -73,6 +75,10 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const handleCloseBar = () => {
     setIsMobileJobSelected(false);
   };
+
+  const handleApplyNowButton = (jobId: number) => {
+    setId(jobId);
+  }
 
   const handleAppliedButton = () => {
     setFilterApplied(true);
@@ -331,6 +337,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
+    <IdProvider>
     <div className={styles.container} ref={jobListTopRef}>
       <JobsBar
         locations={locations}
@@ -478,10 +485,16 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                               <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
                             </div>
                             {!isMobile && (
-                              <a className={styles.buttonContainer}>
-                                <button className={styles.button}>
+                              <a className={styles.buttonContainer} href='/jobs/cv-upload'>
+                                <button className={styles.button} onClick={() => handleApplyNowButton(job.id)}>
                                   Apply Now
                                 </button>
+                                {/* <BrowserRouter>
+                                    <Link 
+                                      to="/jobs/cv-upload" state={{ position: job.position }}
+                                      >Apply Now</Link>
+
+                                </BrowserRouter> */}
                               </a>
                             )}
                             <div className={styles.selectedJobData}>
@@ -526,6 +539,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
         </div>
       </div>
     </div>
+    </IdProvider>
   );
 };
 
