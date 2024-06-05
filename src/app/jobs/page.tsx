@@ -7,7 +7,7 @@ import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter, Link, useLocation } from 'react-router-dom';
 import JobSeekers from '../../../components/jobsComponents/jobSeekers/jobSeekers';
-import { IdProvider } from '../../../components/idContext/idContext';
+import { JobProvider } from '../../../components/jobContext/jobContext';
 
 const Jobs = () => {
   const pageName = "Jobs"
@@ -50,7 +50,7 @@ const Jobs = () => {
   ]; 
 
   return (
-    <IdProvider>
+    <JobProvider>
       <div className={styles.jobsContainer}>
         <Helmet>
           <title>Jobs</title>
@@ -61,7 +61,7 @@ const Jobs = () => {
           <JobSeekers links={links} currentPath={currentPath} pageName={pageName}/>
         </Box>
       </div>
-    </IdProvider>
+    </JobProvider>
   )
 }
 

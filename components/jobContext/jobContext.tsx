@@ -1,29 +1,29 @@
 import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 // Define a new context for managing the username state
-interface IdContextType {
+interface JobContextType {
   id: number;
   setId: (newId: number) => void;
 }
 
-const IdContext = createContext<IdContextType | undefined>(undefined);
+const JobContext = createContext<JobContextType | undefined>(undefined);
 
 // Custom hook to use the UsernameContext
-export const useIdContext = (): IdContextType => {
-  const context = useContext(IdContext);
+export const useJobContext = (): JobContextType => {
+  const context = useContext(JobContext);
   if (!context) {
-    throw new Error('useIdContext must be used within a IdProvider');
+    throw new Error('useJobContext must be used within a JobProvider');
   }
   return context;
 };
 
 // Define props for UsernameProvider component
-interface IdProviderProps {
+interface JobProviderProps {
   children: ReactNode; // Define children prop as ReactNode
 }
 
 // Provider component to wrap the application and provide the UsernameContext
-export const IdProvider: React.FC<IdProviderProps> = ({ children }) => {
+export const JobProvider: React.FC<JobProviderProps> = ({ children }) => {
   const [id, setId] = useState<number>(() => {
     // Initialize username from localStorage, or use a default value
     if (typeof window !== "undefined") {
@@ -34,14 +34,14 @@ export const IdProvider: React.FC<IdProviderProps> = ({ children }) => {
     }
   });
 
-  const setIdAndStore = (newId: number) => {
+  const setJobAndStore = (newId: number) => {
     setId(newId);
     localStorage.setItem('id', newId.toString()); // Store the id as a string
   };
 
   return (
-    <IdContext.Provider value={{ id, setId: setIdAndStore }}>
+    <JobContext.Provider value={{ id, setId: setJobAndStore }}>
       {children}
-    </IdContext.Provider>
+    </JobContext.Provider>
   );
 };

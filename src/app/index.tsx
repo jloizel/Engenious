@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import Home from "./page";
-import App from "./App";
-import { IdProvider } from "../../components/idContext/idContext";
+import { JobProvider } from "../../components/jobContext/jobContext";
 import Jobs from "./jobs/page";
 import CVUpload from "./jobs/cv-upload/page";
 
@@ -24,9 +23,7 @@ import CVUpload from "./jobs/cv-upload/page";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <IdProvider>
-    <App />
-    </IdProvider>
+    <Home />
   </React.StrictMode>
 )
 

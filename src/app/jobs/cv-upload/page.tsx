@@ -11,17 +11,9 @@ import ContactMap from '../../../../components/contactMap/contactMap'
 import SubmitCVForm from '../../../../components/submitCVForm/submitCVForm2'
 import NavbarSub from '../../../../components/navbar/sub/navbarSub'
 import { useLocation } from 'react-router-dom'
-import { IdProvider, useIdContext } from '../../../../components/idContext/idContext'
+import { JobProvider, useJobContext } from '../../../../components/jobContext/jobContext'
 
 const CVUpload = () => {
-  // const location = useLocation()
-  // const { position } = location.state
-  // console.log(position)
-  
-  // const { id } = useIdContext();
-
-  // console.log(id)
-
   const pageName = "Jobs"
   
   const [currentPath, setCurrentPath] = useState('')
@@ -60,7 +52,7 @@ const CVUpload = () => {
   ]; 
 
   return (
-    <IdProvider>
+    <JobProvider>
       <div className={styles.submitCVContainer}>
         <Helmet>
           <title>CV upload</title>
@@ -78,7 +70,7 @@ const CVUpload = () => {
           </div>
         </div>
       </div>
-    </IdProvider>
+    </JobProvider>
   )
 }
 

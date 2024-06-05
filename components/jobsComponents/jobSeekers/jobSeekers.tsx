@@ -8,7 +8,7 @@ import { Box } from "@mui/material";
 import styles from "./page.module.css"
 import JobSearch from "../jobSearch/JobSearch";
 import NavbarSub from "../../navbar/sub/navbarSub";
-import { IdProvider } from "../../idContext/idContext";
+import { JobProvider } from "../../jobContext/jobContext";
 
 interface Link {
   id: number;
@@ -71,7 +71,7 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
   }
 
   return (
-    <IdProvider>
+    <JobProvider>
     <div className={styles.container}>
       <div className={styles.navbarContainer}>
         <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
@@ -108,7 +108,7 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
         />
       </div>
     </div>
-    </IdProvider>
+    </JobProvider>
   );
 };
 

@@ -10,7 +10,7 @@ import { GiMoneyStack } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import { LuSearchX } from "react-icons/lu";
 import { BrowserRouter, Link } from 'react-router-dom';
-import { IdProvider, useIdContext } from "../../idContext/idContext";
+import { JobProvider, useJobContext } from "../../jobContext/jobContext";
 
 export interface JobCardData {
   id: number;
@@ -63,7 +63,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const [pageChanged, setPageChanged] = useState(false)
   const [buttonPressed, setButtonPressed] = useState(false)
   const [isMobileJobSelected, setIsMobileJobSelected] = useState(false);
-  const { setId } = useIdContext();
+  const { setId } = useJobContext();
 
   const handleJobClick = (jobId: number) => {
     setSelectedJobId(jobId);
@@ -337,7 +337,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
   return (
-    <IdProvider>
+    <JobProvider>
     <div className={styles.container} ref={jobListTopRef}>
       <JobsBar
         locations={locations}
@@ -539,7 +539,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
         </div>
       </div>
     </div>
-    </IdProvider>
+    </JobProvider>
   );
 };
 

@@ -6,7 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { sendCV } from '../../src/app/utils/sendCV';
 import styles from './page2.module.css';
-import { IdProvider, useIdContext } from '../idContext/idContext';
+import { JobProvider, useJobContext } from '../jobContext/jobContext';
 
 // Define the schema using zod
 const formSchema = z.object({
@@ -35,7 +35,7 @@ const SubmitCVForm2: FC = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const { id } = useIdContext();
+  const { id } = useJobContext();
 
   console.log(id)
 
@@ -105,7 +105,7 @@ const SubmitCVForm2: FC = () => {
   };
 
   return (
-    <IdProvider>
+    <JobProvider>
     <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       {!messageSent && (
         <div>
@@ -189,7 +189,7 @@ const SubmitCVForm2: FC = () => {
         </div>
       )}
     </form>
-    </IdProvider>
+    </JobProvider>
   );
 };
 
