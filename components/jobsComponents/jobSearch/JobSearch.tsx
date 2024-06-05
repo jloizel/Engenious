@@ -9,6 +9,7 @@ import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import { LuSearchX } from "react-icons/lu";
+import { Link } from 'react-router-dom';
 
 export interface JobCardData {
   id: number;

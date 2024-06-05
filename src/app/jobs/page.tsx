@@ -5,7 +5,7 @@ import styles from "./page.module.css"
 import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import { useLocation } from 'react-router-dom';
+import { BrowserRouter, Link, useLocation } from 'react-router-dom';
 import JobSeekers from '../../../components/jobsComponents/jobSeekers/jobSeekers';
 
 const Jobs = () => {
@@ -58,6 +58,9 @@ const Jobs = () => {
       <Box className={styles.jobSearchContainer}>
         <JobSeekers links={links} currentPath={currentPath} pageName={pageName}/>
       </Box>
+      <BrowserRouter>
+      <Link to={`/`}>Next Step</Link>
+      </BrowserRouter>
     </div>
   )
 }
