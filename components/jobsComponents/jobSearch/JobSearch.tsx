@@ -69,7 +69,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     }
   };
 
-  const handleCloseMobileJob = () => {
+  const handleCloseBar = () => {
     setIsMobileJobSelected(false);
   };
 
@@ -307,6 +307,14 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     }
   }, [currentPage, currentJobs]);
 
+  useEffect(() => {
+    if (isMobileJobSelected) {
+      document.body.classList.add(styles.noScroll);
+    } else {
+      document.body.classList.remove(styles.noScroll);
+    }
+  }, [isMobileJobSelected]);
+
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -439,8 +447,9 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           </div>
           )}
         </div>
+        {isMobileJobSelected && isMobile && <div className={styles.overlay} onClick={handleCloseBar}></div>}
         <div className={`${isMobile ? styles.mobileRightContainer : styles.right} ${isMobileJobSelected ? styles.slideUp : ''}`}>
-          <button onClick={handleCloseMobileJob}>Close</button>
+          {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
           {filteredData.length === 0 ? (
             <div className={styles.noSelectedJobFound}>
               <LuSearchX className={styles.noSearchIcon}/>
@@ -448,7 +457,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
               <span>No results were found for the applied filters, please try changing them or the search term.</span>
             </div>
           ) : (
-          <div className={styles.selectedJobInfoContainer}>
+          <div className={`${isMobile ? styles.selectedJobMobileContainer : styles.selectedJobInfoContainer}`}>
             {selectedJobId && (
               <div className={styles.selectedJobInfoContainer}>
                 {filteredData.find((job) => job.id === selectedJobId) && (
@@ -467,11 +476,13 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                               <span><LuClock3 className={styles.icon}/>{job.contractType}</span>
                               <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
                             </div>
-                            <a className={styles.buttonContainer}>
-                              <button className={styles.button}>
-                                Apply Now
-                              </button>
-                            </a>
+                            {!isMobile && (
+                              <a className={styles.buttonContainer}>
+                                <button className={styles.button}>
+                                  Apply Now
+                                </button>
+                              </a>
+                            )}
                             <div className={styles.selectedJobData}>
                               <span className={styles.selectedJobDataHeader}>Job Description</span>
                               <span className={styles.selectedJobDataDescription}>{job.jobDescription}</span>
@@ -491,6 +502,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                                 <span>Engenious is acting as an Employment Agency and references to pay rates are indicative.</span>
                                 <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a>TERMS OF SERVICE</a> WHICH TOGETHER WITH OUR <a> PRIVACY STATEMENT</a> GOVERN YOUR USE OF ENGENIOUS SERVICES.</div>
                               </div>
+                              
                             </div>
                           </div>
                         );
@@ -502,6 +514,13 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
               </div>
             )}
           </div>
+          )}
+          {isMobile && (
+            <a className={`${styles.mobileButtonContainer} ${isMobileJobSelected ? styles.slideUp : ''}`}>
+              <button className={styles.button}>
+                Apply Now
+              </button>
+            </a>
           )}
         </div>
       </div>
