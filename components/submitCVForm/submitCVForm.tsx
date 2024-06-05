@@ -1,27 +1,29 @@
 'use client';
 
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { sendCV } from '../../src/app/utils/sendCV';
-import styles from './page.module.css';
+import styles from './page2.module.css';
+import { JobProvider, useJobContext } from '../jobContext/jobContext';
+import data from "../jobsComponents/jobs.json";
 
 // Define the schema using zod
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  name: z.string().min(2, { message: "This field cannot be left blank." }),
   email: z.string().email({ message: "Email must be in proper format." }),
-  message: z.string().min(2, { message: "Message must be at least 2 characters." }),
+  message: z.string(),
   file: z.object({
-    name: z.string().nonempty({ message: "File name is required." }),
-    content: z.string().nonempty({ message: "File content is required." }),
+    name: z.string().nonempty({ message: "File name is required" }),
+    content: z.string().nonempty({ message: "File content is required" }),
   }),
 });
 
 export type FormData = z.infer<typeof formSchema>;
 
 
-const SubmitCVForm: FC = () => {
+const SubmitCVForm2: FC = () => {
   const form = useRef<any>(null);
   const {
     register,
@@ -39,6 +41,14 @@ const SubmitCVForm: FC = () => {
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [checkboxError, setCheckboxError] = useState<string>('');
   const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [jobDetails, setJobDetails] = useState<any>(null);
+
+  const { id } = useJobContext();
+
+  useEffect(() => {
+    const job = data.find((job) => job.id === id);
+    setJobDetails(job);
+  }, [id]);
 
   const onSubmit = (data: FormData) => {
     let hasError = false;
@@ -100,20 +110,22 @@ const SubmitCVForm: FC = () => {
   };
 
   return (
+    <JobProvider>
     <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       {!messageSent && (
         <div>
-          <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>Name</div>
-            <div className={styles.inputBox}>
-              <input
-                className={styles.input}
-                type="text"
-                {...register('name')}
-              />
+          <div className={styles.topContainer}>
+            <div className={styles.inputContainer}>
+              <div className={styles.inputTitle}>Name *</div>
+              <div className={styles.inputBox}>
+                <input
+                  className={styles.input}
+                  type="text"
+                  {...register('name')}
+                />
+              </div>
+              {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
             </div>
-            {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
-          </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>Email Address *</div>
             <div className={styles.inputBox}>
@@ -125,8 +137,9 @@ const SubmitCVForm: FC = () => {
             </div>
             {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
           </div>
+          </div>
           <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>Message *</div>
+            <div className={styles.inputTitle}>Message</div>
             <div className={styles.messageBox}>
               <textarea
                 className={styles.message}
@@ -137,11 +150,12 @@ const SubmitCVForm: FC = () => {
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              <span>File*</span>
+              <span>Upload CV *</span>
             </div>
             <div className={styles.fileinputBox}>
               <label htmlFor="fileInput" className={styles.fileinputLabel}>
-                <span className={styles.fileLabel}>PDF format only</span>
+                <span className={styles.fileLabel}>Allowed file types:</span>
+                <span className={styles.fileLabel} style={{fontStyle: "italic", color: "#008489"}}>pdf, docx, doc</span>
                 {filename && <span className={styles.fileName}>{filename}</span>}
               </label>
               <input
@@ -149,7 +163,7 @@ const SubmitCVForm: FC = () => {
                 className={styles.fileinputButton}
                 type="file"
                 onChange={onAddFileAction}
-                accept="application/pdf,application/vnd.ms-excel"
+                accept="application/pdf,application/vnd.ms-excel,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
               />
             </div>
             {errors.file && <p className={styles.errorMessage}>{errors.file.message}</p>}
@@ -180,7 +194,8 @@ const SubmitCVForm: FC = () => {
         </div>
       )}
     </form>
+    </JobProvider>
   );
 };
 
-export default SubmitCVForm;
+export default SubmitCVForm2;

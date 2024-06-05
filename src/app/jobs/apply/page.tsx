@@ -12,9 +12,11 @@ import SubmitCVForm from '../../../../components/submitCVForm/submitCVForm'
 import NavbarSub from '../../../../components/navbar/sub/navbarSub'
 import { useLocation } from 'react-router-dom'
 import { JobProvider, useJobContext } from '../../../../components/jobContext/jobContext'
+import ApplyForm from '../../../../components/submitCVForm/applyCVForm'
+import NavbarMain1 from '../../../../components/navbar/main/navbarMain1'
 
-const CVUpload = () => {
-  const pageName = "Jobs"
+const Apply = () => {
+  const pageName = "Apply"
   
   const [currentPath, setCurrentPath] = useState('')
 
@@ -55,18 +57,17 @@ const CVUpload = () => {
     <JobProvider>
       <div className={styles.submitCVContainer}>
         <Helmet>
-          <title>CV upload</title>
+          <title>Apply</title>
           <meta name='description' content='' />
         </Helmet>
-        <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-        <div className={styles.pageHeader}>
-          <div className={styles.header}>CV Upload</div>
-            <div className={styles.headerText}>If you&apos;d like to send your CV directly to our team, fill out the form below.</div>
-          <HiMiniArrowLongDown className={styles.arrow} />
-        </div>
+        <NavbarMain2/>
+        <div className={styles.pageHeader}></div>
         <div className={styles.submissionContainer}>
+          <button>
+            View job details
+          </button> 
           <div className={styles.submitForm}>
-            <SubmitCVForm />
+            <ApplyForm />
           </div>
         </div>
       </div>
@@ -74,4 +75,4 @@ const CVUpload = () => {
   )
 }
 
-export default CVUpload
+export default Apply

@@ -63,6 +63,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const [pageChanged, setPageChanged] = useState(false)
   const [buttonPressed, setButtonPressed] = useState(false)
   const [isMobileJobSelected, setIsMobileJobSelected] = useState(false);
+  const [jobApplied, setJobApplied] = useState(false)
   const { setId } = useJobContext();
 
   const handleJobClick = (jobId: number) => {
@@ -78,6 +79,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
 
   const handleApplyNowButton = (jobId: number) => {
     setId(jobId);
+    setJobApplied(true)
   }
 
   const handleAppliedButton = () => {
@@ -485,7 +487,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                               <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
                             </div>
                             {!isMobile && (
-                              <a className={styles.buttonContainer} href='/jobs/cv-upload'>
+                              <a className={styles.buttonContainer} href='/jobs/apply'>
                                 <button className={styles.button} onClick={() => handleApplyNowButton(job.id)}>
                                   Apply Now
                                 </button>

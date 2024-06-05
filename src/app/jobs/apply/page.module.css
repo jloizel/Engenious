@@ -1,0 +1,59 @@
+.submitCVContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.pageHeader {
+  display: flex;
+  width: 100%;
+  background: linear-gradient(147deg, rgba(0,45,73,1) 0%, rgba(0,87,115,1) 25%, rgba(0,132,137,1) 50%);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+}
+
+/* contactform */
+
+.submissionContainer {
+  /* background: #EFF0F0; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 100px;
+  transform: translateY(-200px);
+
+  @media (max-width: 767px) {
+    align-items: center;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+  }
+  
+  @media (min-width: 1024px) {
+
+  }
+}
+
+.submitForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+
+  @media (max-width: 767px) {
+    padding: 30px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding: 30px;
+  }
+}

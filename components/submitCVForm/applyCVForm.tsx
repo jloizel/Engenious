@@ -1,12 +1,13 @@
 'use client';
 
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { sendCV } from '../../src/app/utils/sendCV';
 import styles from './page2.module.css';
 import { JobProvider, useJobContext } from '../jobContext/jobContext';
+import data from "../jobsComponents/jobs.json";
 
 // Define the schema using zod
 const formSchema = z.object({
@@ -22,7 +23,7 @@ const formSchema = z.object({
 export type FormData = z.infer<typeof formSchema>;
 
 
-const SubmitCVForm2: FC = () => {
+const ApplyForm: FC = () => {
   const form = useRef<any>(null);
   const {
     register,
@@ -35,15 +36,19 @@ const SubmitCVForm2: FC = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const { id } = useJobContext();
-
-  console.log(id)
-
   const [content, setContent] = useState<string | null>(null);
   const [filename, setFilename] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [checkboxError, setCheckboxError] = useState<string>('');
   const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [jobDetails, setJobDetails] = useState<any>(null);
+
+  const { id } = useJobContext();
+
+  useEffect(() => {
+    const job = data.find((job) => job.id === id);
+    setJobDetails(job);
+  }, [id]);
 
   const onSubmit = (data: FormData) => {
     let hasError = false;
@@ -109,6 +114,13 @@ const SubmitCVForm2: FC = () => {
     <form ref={form} onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       {!messageSent && (
         <div>
+          {jobDetails && (
+              <div className={styles.jobDetails}>
+                <h2>{jobDetails.position}</h2>
+                <p>Location: {jobDetails.location}</p>
+                <p>Salary: {jobDetails.salary}</p>
+              </div>
+            )}
           <div className={styles.topContainer}>
             <div className={styles.inputContainer}>
               <div className={styles.inputTitle}>Name *</div>
@@ -193,4 +205,4 @@ const SubmitCVForm2: FC = () => {
   );
 };
 
-export default SubmitCVForm2;
+export default ApplyForm;
