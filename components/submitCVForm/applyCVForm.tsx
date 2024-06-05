@@ -21,6 +21,10 @@ const formSchema = z.object({
     name: z.string().nonempty({ message: "File name is required" }),
     content: z.string().nonempty({ message: "File content is required" }),
   }),
+  jobPosition: z.string(),
+  salary: z.string(),
+  location: z.string(),
+  contractType: z.string(),
 });
 
 export type FormData = z.infer<typeof formSchema>;
@@ -51,7 +55,13 @@ const ApplyForm: FC = () => {
   useEffect(() => {
     const job = data.find((job) => job.id === id);
     setJobDetails(job);
-  }, [id]);
+    if (job) {
+      setValue('jobPosition', job.position);
+      setValue('salary', job.salary);
+      setValue('location', job.location);
+      setValue('contractType', job.contractType);
+    }
+  }, [id, setValue]);
 
   const onSubmit = (data: FormData) => {
     let hasError = false;

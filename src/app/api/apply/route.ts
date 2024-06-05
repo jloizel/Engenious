@@ -2,11 +2,11 @@ import { type NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 import { render } from "@react-email/render";
-import { EmailTemplate } from '../../../../components/submitCVForm/emailTemplate';
+import { EmailTemplate } from '../../../../components/submitCVForm/emailTemplate2';
 
 
 export async function POST(request: NextRequest) {
-  const { email, name, message, file } = await request.json();
+  const { email, name, message, file, jobPosition, salary, location, contractType } = await request.json();
 
   const transport = nodemailer.createTransport({
     service: 'gmail',
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `Message from ${name} (${email})`,
     text: message,
-    html: render(EmailTemplate({ name: name, emailAddress: email, message: message })),
+    html: render(EmailTemplate({ name: name, emailAddress: email, message: message, jobPosition: jobPosition, salary: salary, location: location, contractType: contractType })),
     attachments: file
       ? [
           {
