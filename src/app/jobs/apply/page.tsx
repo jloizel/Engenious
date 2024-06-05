@@ -13,7 +13,7 @@ import NavbarSub from '../../../../components/navbar/sub/navbarSub'
 import { useLocation } from 'react-router-dom'
 import { JobProvider, useJobContext } from '../../../../components/jobContext/jobContext'
 import ApplyForm from '../../../../components/submitCVForm/applyCVForm'
-import NavbarMain1 from '../../../../components/navbar/main/navbarMain1'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const Apply = () => {
   const pageName = "Apply"
@@ -63,10 +63,13 @@ const Apply = () => {
         <NavbarMain2/>
         <div className={styles.pageHeader}></div>
         <div className={styles.submissionContainer}>
-          <button>
-            View job details
-          </button> 
           <div className={styles.submitForm}>
+            <a className={styles.buttonContainer}>
+              <KeyboardArrowRightIcon className={styles.icon}/>
+              <button className={styles.button}>
+                View job details
+              </button>
+            </a>
             <ApplyForm />
           </div>
         </div>

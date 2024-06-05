@@ -24,7 +24,7 @@
   display: flex;
   flex-direction: column;
   top: 100px;
-  transform: translateY(-200px);
+  transform: translateY(-300px);
 
   @media (max-width: 767px) {
     align-items: center;
@@ -44,16 +44,63 @@
   align-items: center;
   justify-content: center;
   align-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  align-self: flex-start;
+  padding: 10px;
+}
+
+.buttonContainer:hover {
+  background-color: #ececec1c;
+  color: white;
+  border-radius: 10px;
+}
+
+.button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-right: 10px;
+
 
   @media (max-width: 767px) {
-    padding: 30px;
+    
   }
-
+  
   @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 30px;
+    
   }
   
   @media (min-width: 1024px) {
-    padding: 30px;
+    font-size: 16px;
+  }
+}
+
+.icon {
+  color: white;
+  transform: rotate(180deg);
+
+  
+  @media (max-width: 767px) {
+    
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 20px;
   }
 }

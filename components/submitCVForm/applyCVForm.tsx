@@ -4,9 +4,12 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { sendCV } from '../../src/app/utils/sendCV';
+import { sendCV } from '../../src/app/utils/apply';
 import styles from './page2.module.css';
 import { JobProvider, useJobContext } from '../jobContext/jobContext';
+import { LuClock3 } from "react-icons/lu";
+import { GiMoneyStack } from "react-icons/gi";
+import { GoLocation } from "react-icons/go";
 import data from "../jobsComponents/jobs.json";
 
 // Define the schema using zod
@@ -115,12 +118,19 @@ const ApplyForm: FC = () => {
       {!messageSent && (
         <div>
           {jobDetails && (
+            <div className={styles.jobDetailsContainer}>
+              <span className={styles.jobDetailsHeader}>Applying for:</span>
               <div className={styles.jobDetails}>
-                <h2>{jobDetails.position}</h2>
-                <p>Location: {jobDetails.location}</p>
-                <p>Salary: {jobDetails.salary}</p>
+                <div className={styles.jobDetailsHeader}>{jobDetails.position}</div>
+                <div className={styles.jobInfo}>
+                  <span><GoLocation className={styles.icon}/>{jobDetails.location}</span>
+                  <span><LuClock3 className={styles.icon}/>{jobDetails.contractType}</span>
+                  <span><GiMoneyStack className={styles.icon}/>{jobDetails.salary}</span>
+                </div>
               </div>
-            )}
+            </div>
+          )}
+          <div className={styles.jobDetailsHeader2}>Application form:</div>
           <div className={styles.topContainer}>
             <div className={styles.inputContainer}>
               <div className={styles.inputTitle}>Name *</div>

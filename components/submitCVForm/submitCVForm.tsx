@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { sendCV } from '../../src/app/utils/sendCV';
-import styles from './page2.module.css';
+import styles from './page.module.css';
 import { JobProvider, useJobContext } from '../jobContext/jobContext';
 import data from "../jobsComponents/jobs.json";
 

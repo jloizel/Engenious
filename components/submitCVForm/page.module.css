@@ -2,17 +2,33 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-  width: 100%;
 
   @media (max-width: 767px) {
     gap: 20px;
+    width: 100%;
   } 
 
   @media (min-width: 768px) and (max-width: 1023px) {
     gap: 10px;
+    width: 100%;
   }
 
   @media (min-width: 1024px) {
+    gap: 20px;
+    width: 1000px;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 24px rgba(62, 53, 82, 0.16);
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+}
+
+.topContainer {
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
     gap: 20px;
   }
 }
@@ -23,11 +39,11 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
 .inputTitle {
-  font-weight: 600;
+  font-weight: 500;
   width: 100%;
   font-family: "Poppins", sans-serif;
 }
@@ -38,6 +54,7 @@
   width: 100%;
   outline: none;
   display: flex;
+  border-radius: 4px;
 }
 
 .fileinputBox {
@@ -47,6 +64,7 @@
   font-weight: 300;
   font-family: "Poppins", sans-serif;
   display: flex;
+  border-radius: 8px;
 }
 
 .input {
@@ -55,21 +73,23 @@
   font-weight: 300;
   font-family: "Poppins", sans-serif;
   width: 100%;
+  border-radius: 4px;
+  border: 1px solid #cccccc9a;
 
   @media (max-width: 767px) {
-    font-size: 25px;
+    font-size: 22px;
     padding: 10px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 25px;
+    font-size: 22px;
     line-height: 50px;
     padding: 10px;
   }
   
   @media (min-width: 1024px) {
-    font-size: 25px;
-    line-height: 50px;
+    font-size: 20px;
+    line-height: 35px;
     padding: 10px;
   }
 }
@@ -79,6 +99,7 @@
   border: none;
   width: 100%;
   display: flex;
+  border-radius: 4px;
 
   @media (max-width: 767px) {
     min-height: 200px;
@@ -89,7 +110,7 @@
   }
   
   @media (min-width: 1024px) {
-    min-height: 250px;
+    min-height: 200px;
   }
 }
 
@@ -101,6 +122,8 @@
   font-weight: 300;
   font-family: "Poppins", sans-serif;
   justify-self: start;
+  border-radius: 4px;
+  border: 1px solid #cccccc9a;
 
   @media (max-width: 767px) {
     padding: 10px;
@@ -112,12 +135,14 @@
     padding: 10px;    
     font-size: 18px;
     line-height: 50px;
+    min-height: 230px;
   }
   
   @media (min-width: 1024px) {
     padding: 10px;    
     font-size: 18px;
-    line-height: 50px;
+    line-height: 22px;
+    min-height: 200px;
   }
 }
 
@@ -152,14 +177,17 @@
 
   @media (max-width: 767px) {
     margin-top: 5px;
+    font-size: 12px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     margin-top: 5px;
+    font-size: 12px;
   }
 
   @media (min-width: 1024px) {
     margin-top: 5px;
+    font-size: 12px;
   }
 }
 
@@ -182,6 +210,7 @@
   font-weight: 600;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
+  border-radius: 4px;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -203,6 +232,10 @@
     margin-bottom: 20px;
     padding: 10px 80px;
   }
+}
+
+.button:hover {
+  background-color: #008489;
 }
 
 /* .fileinputBox {
@@ -229,7 +262,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 1rem;
+  border-radius: 4px;
 }
 
 .fileinputButton {
@@ -239,8 +272,8 @@
 .fileinputLabel {
   display: flex;
   flex-direction: column;
-  border: 2px dashed #008489;
-  border-radius: 10px;
+  border: 1px dashed #008489;
+  border-radius: 4px;
   background-color: #f9f9f9;
   cursor: pointer;
   text-align: center;
@@ -249,32 +282,31 @@
 
 
   @media (max-width: 767px) {
-    padding: 80px 0px;
+    padding: 40px 0px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 100px 0px;
+    padding: 60px 0px;
   }
 
   @media (min-width: 1024px) {
-    padding: 100px 0
+    padding: 60px 0
   }
 }
 
 .fileLabel {
-  font-style: italic;
 
   @media (max-width: 767px) {
     font-size: 14px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 20px;
+    font-size: 14px;
     
   }
 
   @media (min-width: 1024px) {
-    font-size: 20px;
+    font-size: 16px;
     
   }
 }
