@@ -14,9 +14,14 @@ import { useLocation } from 'react-router-dom'
 import { JobProvider, useJobContext } from '../../../../components/jobContext/jobContext'
 import ApplyForm from '../../../../components/submitCVForm/applyCVForm'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { LuClock3 } from "react-icons/lu";
+import { GiMoneyStack } from "react-icons/gi";
+import { GoLocation } from "react-icons/go";
+import data from '../../../../components/jobsComponents/jobs.json'
+import JobDetails from '../../../../components/jobsComponents/jobDetails/jobDetails'
 
-const Apply = () => {
-  const pageName = "Apply"
+const Details = () => {
+  const pageName = "Details"  
   
   const [currentPath, setCurrentPath] = useState('')
 
@@ -41,18 +46,7 @@ const Apply = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTabletOrBelow= useMediaQuery(theme.breakpoints.down('md'));
 
-  const links = [
-    {
-      id: 1,
-      title: "Search jobs",
-      url: "/jobs",
-    },
-    {
-      id: 2,
-      title: "Upload your CV",
-      url: "/jobs/cv-upload",
-    }
-  ]; 
+  
 
   return (
     <JobProvider>
@@ -65,13 +59,13 @@ const Apply = () => {
         {!isTabletOrBelow && (<div className={styles.pageHeader}></div>)}
         <div className={styles.submissionContainer}>
           <div className={styles.submitForm}>
-            <a className={styles.buttonContainer} href="/jobs/details" style={{textDecoration: "none"}}>
+            <a className={styles.buttonContainer} href="/jobs" style={{textDecoration: "none"}}>
               <button className={styles.button}>
                 <KeyboardArrowRightIcon className={styles.icon}/>
-                View job details
+                Back to job search
               </button>
             </a>
-            <ApplyForm />
+            <JobDetails />
           </div>
         </div>
       </div>
@@ -79,4 +73,4 @@ const Apply = () => {
   )
 }
 
-export default Apply
+export default Details

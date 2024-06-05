@@ -21,7 +21,7 @@ export interface JobCardData {
   specialisation: string;
   salary: string;
   jobDescription: string;
-  responsibilites: string[];
+  responsibilities: string[];
   skillsExperience: string[];
 }
 
@@ -504,8 +504,8 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                               <span className={styles.selectedJobDataDescription}>{job.jobDescription}</span>
                               <span className={styles.selectedJobDataHeader}>Main Responsibilities</span>
                               <ul>
-                                {job.responsibilites.map((responsibilites, index) => (
-                                  <li key={index}>{responsibilites}</li>
+                                {job.responsibilities.map((responsibilities, index) => (
+                                  <li key={index}>{responsibilities}</li>
                                 ))}
                               </ul>
                               <span className={styles.selectedJobDataHeader}>Skills and experience required:</span>

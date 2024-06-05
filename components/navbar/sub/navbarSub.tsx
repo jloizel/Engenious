@@ -92,9 +92,9 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
             ))}
           </div>
         </div>
-        <div className={styles.right}>
+        {/* <div className={styles.right}>
           <SearchIcon className={styles.searchIcon} style={{display: setDisplay(), color: colour}}/>
-        </div>
+        </div> */}
       </div>
     </div>
   )

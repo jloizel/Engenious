@@ -174,7 +174,7 @@ const SubmitCVForm2: FC = () => {
               checked={checkboxChecked}
               onChange={handleCheckboxChange}
             />
-            <div>
+            <div className={styles.privacyPolicy}>
               <span style={{ fontWeight: "500" }}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span>
               <span style={{ fontWeight: "500", color: "#008489" }}> Privacy Policy</span>
               <span style={{ fontWeight: "500" }}>.</span>

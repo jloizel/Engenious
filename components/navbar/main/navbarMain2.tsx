@@ -94,9 +94,9 @@ const NavbarMain2 = () => {
               ))}
           </div>
         </div>
-        <div className={styles.right}>
+        {/* <div className={styles.right}>
           <SearchIcon className={styles.searchIcon} style={{display: setDisplay()}}/>
-        </div>
+        </div> */}
       </div>
     </div>
   )

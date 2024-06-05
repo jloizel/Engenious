@@ -201,10 +201,10 @@ const ApplyForm: FC = () => {
               checked={checkboxChecked}
               onChange={handleCheckboxChange}
             />
-            <div>
-              <span style={{ fontWeight: "500" }}>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span>
-              <span style={{ fontWeight: "500", color: "#008489" }}> Privacy Policy</span>
-              <span style={{ fontWeight: "500" }}>.</span>
+            <div className={styles.privacyPolicy}>
+              <span>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span>
+              <span style={{ color: "#008489" }}> Privacy Policy</span>
+              <span>.</span>
             </div>
           </div>
           {checkboxError && <p className={styles.errorMessage}>{checkboxError}</p>}

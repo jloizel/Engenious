@@ -9,7 +9,7 @@
     "salary": "£40k - £60k",
     "jobDescription": "Oversee construction projects from conception to completion.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Manage resources, schedules, financials, and adhere to quality and control guidelines.",
       "Ensure compliance with safety regulations."
     ],
@@ -28,7 +28,7 @@
     "salary": "£30k - £45k",
     "jobDescription": "Provide technical advice and support on construction projects.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Liaise with site managers, clients, and sub-contractors.",
       "Ensure that all materials used and work performed are in accordance with specifications."
     ],
@@ -47,7 +47,7 @@
     "salary": "£35k - £50k",
     "jobDescription": "Manage all costs relating to building and civil engineering projects.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Prepare cost estimates and budgets.",
       "Monitor project costs to ensure the budget is not exceeded."
     ],
@@ -66,7 +66,7 @@
     "salary": "£45k - £65k",
     "jobDescription": "Design new buildings and the spaces in and around them.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Meet with clients to discuss project objectives, needs, and budgets.",
       "Create detailed drawings and specifications."
     ],
@@ -85,7 +85,7 @@
     "salary": "£40k - £55k",
     "jobDescription": "Oversee construction sites and ensure projects are completed on time and within budget.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Supervise and coordinate the work of contractors and subcontractors.",
       "Ensure health and safety regulations are followed."
     ],
@@ -104,7 +104,7 @@
     "salary": "£30k - £40k",
     "jobDescription": "Ensure health and safety regulations are adhered to on construction sites.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Conduct regular site inspections.",
       "Develop health and safety policies and procedures."
     ],
@@ -123,7 +123,7 @@
     "salary": "£35k - £50k",
     "jobDescription": "Plan, design, and oversee construction and maintenance of building structures and infrastructure.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Manage construction projects.",
       "Analyze survey reports, maps, and other data."
     ],
@@ -142,7 +142,7 @@
     "salary": "£35k - £50k",
     "jobDescription": "Plan and coordinate construction projects to ensure timely and cost-effective completion.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Develop project schedules.",
       "Coordinate with project managers and site supervisors."
     ],
@@ -161,7 +161,7 @@
     "salary": "£35k - £45k",
     "jobDescription": "Design, develop, and maintain electrical systems for buildings and infrastructure.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Prepare electrical drawings and specifications.",
       "Ensure compliance with electrical codes and standards."
     ],
@@ -180,7 +180,7 @@
     "salary": "£40k - £55k",
     "jobDescription": "Design and assess structures to ensure they are safe and capable of withstanding the elements.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Analyze configurations of the basic components of a structure.",
       "Liaise with other designers and professionals to agree on safe designs."
     ],
@@ -199,7 +199,7 @@
     "salary": "£25k - £35k",
     "jobDescription": "Construct and repair walls, partitions, arches, and other structures.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Lay bricks, blocks, and stones.",
       "Read and interpret building plans."
     ],
@@ -218,7 +218,7 @@
     "salary": "£28k - £38k",
     "jobDescription": "Install, maintain, and repair plumbing systems in buildings.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Install and repair water supply lines, waste disposal systems, and related appliances.",
       "Inspect plumbing systems and identify issues."
     ],
@@ -237,7 +237,7 @@
     "salary": "£27k - £37k",
     "jobDescription": "Construct, install, and repair structures and fixtures made of wood and other materials.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Measure, cut, and shape wood, plastic, and other materials.",
       "Install structures and fixtures, such as windows and molding."
     ],
@@ -256,7 +256,7 @@
     "salary": "£26k - £36k",
     "jobDescription": "Install and repair roofs on residential and commercial buildings.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Install, repair, and replace roofing systems.",
       "Inspect roof damage and determine the best repair solutions."
     ],
@@ -275,7 +275,7 @@
     "salary": "£30k - £40k",
     "jobDescription": "Install, maintain, and repair electrical systems in buildings.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Install and repair electrical wiring, systems, and fixtures.",
       "Inspect electrical components, such as transformers and circuit breakers."
     ],
@@ -294,7 +294,7 @@
     "salary": "£24k - £34k",
     "jobDescription": "Apply plaster to walls and ceilings to create smooth finishes.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Mix plaster to desired consistency.",
       "Apply coats of plaster to walls and ceilings."
     ],
@@ -313,7 +313,7 @@
     "salary": "£25k - £35k",
     "jobDescription": "Prepare surfaces and apply paint, wallpaper, and other finishes to buildings.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Prepare surfaces for painting or wallpapering.",
       "Apply paint or other finishes using brushes, rollers, or spray guns."
     ],
@@ -332,7 +332,7 @@
     "salary": "£35k - £45k",
     "jobDescription": "Measure and map land and building sites to determine property boundaries and prepare for construction projects.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Conduct field surveys and record data.",
       "Prepare maps and reports based on survey findings."
     ],
@@ -351,7 +351,7 @@
     "salary": "£35k - £50k",
     "jobDescription": "Estimate the costs of construction projects for bidding and budgeting purposes.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Prepare detailed cost estimates and budgets.",
       "Analyze project requirements and specifications."
     ],
@@ -370,7 +370,7 @@
     "salary": "£20k - £30k",
     "jobDescription": "Perform physical labor on construction sites.",
     "duration": "Permanent",
-    "responsibilites": [
+    "responsibilities": [
       "Assist skilled workers in performing their tasks.",
       "Operate and maintain construction equipment."
     ],
