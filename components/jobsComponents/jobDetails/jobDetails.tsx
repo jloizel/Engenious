@@ -13,6 +13,7 @@ import { createTheme, useMediaQuery } from '@mui/material';
 const JobDetails: FC = () => {
   const { id, setId } = useJobContext();
   const [jobDetails, setJobDetails] = useState<any>(null);
+  const buttonRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const job = data.find((job) => job.id === id);
@@ -107,14 +108,15 @@ const JobDetails: FC = () => {
             </div>
           </div>
         )}
-        {isMobile && (
-            <a className={styles.mobileButtonContainer} style={{textDecoration: "none"}}>
-              <button className={styles.button}>
-                Apply Now
-              </button>
-            </a>
-          )}
+        
       </div>
+      {isMobile && (
+          <a className={styles.mobileButtonContainer} style={{textDecoration: "none"}}>
+            <button className={styles.button} onClick={() => handleApplyNowButton(jobDetails?.id)}>
+              Apply Now
+            </button>
+          </a>
+        )}
     </div>
     </JobProvider>
   );

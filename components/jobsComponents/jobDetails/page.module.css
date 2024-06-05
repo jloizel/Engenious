@@ -2,6 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   @media (max-width: 767px) {
     gap: 20px;
@@ -168,8 +169,15 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 50px;
   font-family: "Poppins", sans-serif;
+
+  @media (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 768px) {
+    margin-bottom: 50px;
+  }
 }
 
 .jobBottomInfo span {
@@ -237,16 +245,21 @@
 }
 
 .mobileButtonContainer {
-  position: fixed;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 100%;
-  padding: 20px 0; /* padding for the button container */
   text-align: center; /* center-align the button */
   align-self: center;
   display: flex;
   justify-content: center;
-  bottom: -100%;
   transition: bottom 0.5s ease-in-out;
+  align-self: center;
+  padding: 20px 0;
 }
+
 
 .mobileButtonContainer .button {
   background: #09B089;
@@ -258,5 +271,5 @@
   padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
-  width: 90%;
+  width: 100%;
 }
