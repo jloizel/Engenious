@@ -102,7 +102,7 @@ const JobDetails: FC = () => {
                 </ul>
               <div className={styles.jobBottomInfo}>
                 <span>Engenious is acting as an Employment Agency and references to pay rates are indicative.</span>
-                <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a href="#">TERMS OF SERVICE</a> WHICH TOGETHER WITH OUR <a href="#">PRIVACY STATEMENT</a> GOVERN YOUR USE OF ENGENIOUS SERVICES.</div>
+                <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a href="#" style={{textDecoration: "none"}}>TERMS OF SERVICE</a> WHICH TOGETHER WITH OUR <a href="#" style={{textDecoration: "none"}}>PRIVACY STATEMENT</a> GOVERN YOUR USE OF ENGENIOUS SERVICES.</div>
               </div>
             </div>
           </div>
