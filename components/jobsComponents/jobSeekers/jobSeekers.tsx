@@ -96,6 +96,8 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
           setKeywords={addFilterKeywords}
           showAllJobs={showAllJobs}
           handleButtonClick={handleButtonClick}
+          displayedText="View all jobs"
+          href=""
         />
       </div>
     </div>

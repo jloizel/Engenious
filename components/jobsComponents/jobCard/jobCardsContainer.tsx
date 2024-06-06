@@ -35,9 +35,11 @@ interface JobsProps {
   setKeywords: (keyword: string) => void;
   showAllJobs: boolean;
   handleButtonClick: () => void;
+  displayedText: string;
+  href: string;
 }
 
-const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs, handleButtonClick }) => {
+const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs, handleButtonClick, displayedText, href }) => {
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -114,9 +116,17 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
           <span className={styles.leftText}>Latest job opportunities</span>
         </div>
         {!isMobile && (
-          <button onClick={handleButtonClick} className={styles.viewAllButton}>
-            View all jobs <KeyboardArrowRightIcon className={styles.searchIcon}/>
-          </button>
+          href ? (
+            <a href={href} style={{textDecoration: "none"}}>
+              <button onClick={handleButtonClick} className={styles.viewAllButton}>
+                {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon}/>
+              </button>
+            </a>
+          ) : (
+            <button onClick={handleButtonClick} className={styles.viewAllButton}>
+              {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon}/>
+            </button>
+          )
         )}
       </div>
       <div className={styles.jobCardsContainer}>
@@ -153,9 +163,17 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
           )
         )}
         {isMobile && (
-          <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
-            View all jobs <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
-          </button>
+          href ? (
+            <a href={href} style={{textDecoration: "none"}}>
+              <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
+                {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
+              </button>
+            </a>
+          ) : (
+            <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
+              {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
+            </button>
+          )
         )}
       </div>
     </div>

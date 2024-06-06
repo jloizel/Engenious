@@ -86,6 +86,8 @@ const Details = () => {
                 setKeywords={addFilterKeywords}
                 showAllJobs={showAllJobs}
                 handleButtonClick={handleButtonClick}
+                displayedText="Search all jobs"
+                href="/jobs"
               />
             </div>
           </div>
