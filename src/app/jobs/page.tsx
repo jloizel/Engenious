@@ -56,7 +56,6 @@ const Jobs = () => {
           <title>Jobs</title>
           <meta name='description' content='' />
         </Helmet>
-
         <Box className={styles.jobSearchContainer}>
           <JobSeekers links={links} currentPath={currentPath} pageName={pageName}/>
         </Box>

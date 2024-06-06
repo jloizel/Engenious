@@ -3,27 +3,40 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css"
 import NavbarMain2 from '../../../../components/navbar/main/navbarMain2'
-import ContactForm from '../../../../components/contactForm/contactForm'
-import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import ContactMap from '../../../../components/contactMap/contactMap'
-import SubmitCVForm from '../../../../components/submitCVForm/submitCVForm'
-import NavbarSub from '../../../../components/navbar/sub/navbarSub'
-import { useLocation } from 'react-router-dom'
 import { JobProvider, useJobContext } from '../../../../components/jobContext/jobContext'
-import ApplyForm from '../../../../components/submitCVForm/applyCVForm'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { LuClock3 } from "react-icons/lu";
-import { GiMoneyStack } from "react-icons/gi";
-import { GoLocation } from "react-icons/go";
 import data from '../../../../components/jobsComponents/jobs.json'
 import JobDetails from '../../../../components/jobsComponents/jobDetails/jobDetails'
+import JobCardsContainer from '../../../../components/jobsComponents/jobCard/jobCardsContainer';
 
-const Details = () => {
-  const pageName = "Details"  
-  
+const Details = () => {  
   const [currentPath, setCurrentPath] = useState('')
+  const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
+  const [showAllJobs, setShowAllJobs] = useState(false)
+  const [jobs, setJobs] = useState(data);
+  const [searchButtonClicked, setSearchButtonClicked] = useState(false)
+
+  const pageName = "Details"  
+
+  const setSearchKeywords = (keywords: string[]) => {
+    setFilterKeywords(keywords);
+  };
+
+  const addFilterKeywords = (data: string) => {
+    if (!filterKeywords.includes(data)) {
+      setFilterKeywords([...filterKeywords, data]);
+    }
+  };
+
+  const sortedJobs = [...jobs].sort((a, b) => new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime());
+
+  const handleButtonClick = () => {
+    // setShowAllJobs(true)
+    setSearchButtonClicked(true)
+  }
+
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -44,9 +57,7 @@ const Details = () => {
   });
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTabletOrBelow= useMediaQuery(theme.breakpoints.down('md'));
-
-  
+  const isTabletOrBelow= useMediaQuery(theme.breakpoints.down('md'));  
 
   return (
     <JobProvider>
@@ -66,6 +77,17 @@ const Details = () => {
               </button>
             </a>
             <JobDetails />
+            
+          </div>
+          <div className={styles.jobsMainContainer}>
+            <div className={styles.jobsContainer}>
+              <JobCardsContainer
+                data={sortedJobs}
+                setKeywords={addFilterKeywords}
+                showAllJobs={showAllJobs}
+                handleButtonClick={handleButtonClick}
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -1,0 +1,164 @@
+.submitCVContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* height: 100%; */
+  align-items: center;
+  position: relative;
+}
+
+.pageHeader {
+  display: flex;
+  width: 100%;
+  background: linear-gradient(147deg, rgba(0,45,73,1) 0%, rgba(0,87,115,1) 25%, rgba(0,132,137,1) 50%);
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 400px;
+  z-index: 1;
+  position: relative;
+}
+
+/* contactform */
+
+.submissionContainer {
+  /* background: #EFF0F0; */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  top: 100px;
+  position: relative;
+  z-index: 2;
+  margin-top: -200px;
+
+  @media (max-width: 767px) {
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+  }
+  
+  @media (min-width: 1024px) {
+    
+  }
+}
+
+.submitForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding: 100px;
+  position: relative;
+  z-index: 3;
+  
+
+  @media (max-width: 767px) {
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+  }
+  
+  @media (min-width: 1024px) {
+    /* transform: translateY(-300px);
+    height: calc(100% - 400px) !important; */
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+
+  @media (max-width: 767px) {
+    /* width: 100%; */
+    align-self: flex-start;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    align-self: flex-start;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 1040px;
+    align-items: center;
+  }
+}
+
+.button:hover {
+  background-color: #ececec1c;
+  border-radius: 10px;
+
+  @media (max-width: 767px) {
+    color: #002D49;
+  }
+  
+  @media (min-width: 768px) {
+    color: white;
+  }
+}
+
+.button {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+
+  @media (max-width: 767px) {
+    color: #002D49;
+    font-size: 16px;
+    align-self: flex-start;
+    padding: 0;
+    margin-bottom: 10px;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 0;
+    margin-bottom: 20px;
+    color: #002D49;
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.icon {
+  transform: rotate(180deg);
+  
+  @media (max-width: 767px) {
+    color: #002D49;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    color: #002D49;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    color: white;
+  }
+}
+
+.jobsMainContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #EFF0F0;
+}
+
+.jobsContainer {
+  /* background-color: #EFF0F0; */
+  width: 90%;
+}

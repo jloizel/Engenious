@@ -3,23 +3,18 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css"
 import NavbarMain2 from '../../../../components/navbar/main/navbarMain2'
-import ContactForm from '../../../../components/contactForm/contactForm'
-import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import ContactMap from '../../../../components/contactMap/contactMap'
-import SubmitCVForm from '../../../../components/submitCVForm/submitCVForm'
-import NavbarSub from '../../../../components/navbar/sub/navbarSub'
-import { useLocation } from 'react-router-dom'
 import { JobProvider, useJobContext } from '../../../../components/jobContext/jobContext'
 import ApplyForm from '../../../../components/submitCVForm/applyCVForm'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import JobCardsContainer from '../../../../components/jobsComponents/jobCard/jobCardsContainer'
 
-const Apply = () => {
+const Apply: React.FC = () => {
   const pageName = "Apply"
   
   const [currentPath, setCurrentPath] = useState('')
-
+  
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setCurrentPath(window.location.pathname)

@@ -33,13 +33,11 @@ interface JobCardData {
 interface JobsProps {
   data: JobCardData[];
   setKeywords: (keyword: string) => void;
-  keywords: string[];
   showAllJobs: boolean;
-  handleButtonClick: () => void
+  handleButtonClick: () => void;
 }
 
-const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, keywords, showAllJobs, handleButtonClick }) => {
-  const [filteredData, setFilteredData] = useState<JobCardData[]>([]);
+const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs, handleButtonClick }) => {
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
   const [loading, setLoading] = useState(true);
 

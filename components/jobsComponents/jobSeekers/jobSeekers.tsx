@@ -2,7 +2,7 @@
 
 import data from "../jobs.json";
 import { useEffect, useState } from "react";
-import Jobs from "../jobCard/jobCardsContainer";
+import JobCardsContainer from "../jobCard/jobCardsContainer";
 import Search from "../search/Search";
 import { Box } from "@mui/material";
 import styles from "./page.module.css"
@@ -21,6 +21,7 @@ interface JobSeekersProps {
   pageName: string;
   currentPath: string;
 }
+
 const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) => {
   const [filterKeywords, setFilterKeywords] = useState<string[]>([]);
   const [jobs, setJobs] = useState(data);
@@ -89,18 +90,8 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
           handleButtonClick={handleButtonClick}
         />
       </Box>
-
-      {/* {filterKeywords.length > 0 && (
-        <Header
-          keywords={filterKeywords}
-          removeKeywords={deleteKeyword}
-          clearAll={clearAll}
-        />
-      )} */}
-      
       <div className={styles.jobsMainContainer}>
-        <Jobs
-          keywords={filterKeywords}
+        <JobCardsContainer
           data={sortedJobs}
           setKeywords={addFilterKeywords}
           showAllJobs={showAllJobs}
