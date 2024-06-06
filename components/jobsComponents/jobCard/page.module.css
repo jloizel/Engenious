@@ -189,7 +189,7 @@
   @media (min-width: 768px) {
     flex-flow: wrap;
     display: flex;
-    gap: 27.2px;
+    gap: 27px;
   }
 }
 
