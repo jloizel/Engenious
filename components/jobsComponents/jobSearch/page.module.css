@@ -57,6 +57,7 @@
 .jobsList {
   max-height: 100%;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .jobsList::-webkit-scrollbar, .right::-webkit-scrollbar {

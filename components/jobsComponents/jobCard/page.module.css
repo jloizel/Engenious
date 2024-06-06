@@ -316,4 +316,5 @@
   width: 100%;
   gap: 5px;
   flex-direction: column;
+  padding: 60px 0;
 }

@@ -97,6 +97,7 @@ const NavbarMain2 = () => {
         {/* <div className={styles.right}>
           <SearchIcon className={styles.searchIcon} style={{display: setDisplay()}}/>
         </div> */}
+        <div className={styles.rightHidden}></div>
       </div>
     </div>
   )
