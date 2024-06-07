@@ -8,8 +8,8 @@ import ConsultationForm from '../../../../components/consultationForm/consultati
 import NavbarSub from '../../../../components/navbar/sub/navbarSub';
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 
-const Employers = () => {
-  const pageName = "Employers"
+const SubmitVacancy = () => {
+  const pageName = "Submit Vacancy"
   
   const [currentPath, setCurrentPath] = useState('')
 
@@ -62,7 +62,7 @@ const Employers = () => {
   return (
     <div className={styles.employersContainer}>
       <Helmet>
-        <title>Employers</title>
+        <title>Submit Vacancy</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/> 
@@ -78,4 +78,4 @@ const Employers = () => {
   )
 }
 
-export default Employers
+export default SubmitVacancy

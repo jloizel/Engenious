@@ -199,8 +199,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   )}
                   {activeItem === 'Contact' && (
                     <div className={styles.subMenu} id="subMenu4">
-                      <Overview text={"Ask us any questions"} href="/contact"/>
-                      <a href="/contact" className={styles.subTopic}>Get in touch</a>
+                      <Overview text={"Get in touch"} href="/contact"/>
+                      {/* <a href="/contact" className={styles.subTopic}>Get in touch</a> */}
                     </div>
                   )}
                 </div>

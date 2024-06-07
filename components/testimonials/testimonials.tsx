@@ -10,8 +10,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 
-
-
 const Testimonials: React.FC = ({}) => {
   const [data, setData] = useState([
     {

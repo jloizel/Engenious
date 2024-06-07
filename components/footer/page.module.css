@@ -1,5 +1,6 @@
 .container {
-  background: #4f586d;
+  background: #005773;
+  /* background: #002D49; */
   height: 100%;
   width: 100%;
   display: flex;
@@ -84,7 +85,7 @@
 }
 
 .button {
-  background-color: #00617C;
+  background-color: #09B089;
   border: none;
   color: white;
   cursor: pointer;
@@ -94,6 +95,7 @@
   border-radius: 4px;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -119,7 +121,7 @@
 }
 
 .button:hover {
-  background: #002D49;
+  background: #008489;
 }
 
 .line {

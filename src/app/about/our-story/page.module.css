@@ -260,7 +260,7 @@
 }
 
 .text1 {
-  font-weight: 400;
+  font-weight: 300;
   font-family: "Poppins", sans-serif;
   display: flex;
   text-align: left;
@@ -273,14 +273,14 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
     gap: 15px;
     flex-direction: column;
   }
   
   @media (min-width: 1024px) {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 30px;
     gap: 15px;
     flex-direction: row;
@@ -408,7 +408,7 @@
 
 
 .text2 {
-  font-weight: 400;
+  font-weight: 300;
   font-family: "Poppins", sans-serif;
   display: flex;
   flex-direction: column;
@@ -421,13 +421,13 @@
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 28px;
     gap: 15px;
   }
   
   @media (min-width: 1024px) {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 30px;
     gap: 15px;
     margin-bottom: 40px;

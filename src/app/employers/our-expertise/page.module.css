@@ -348,6 +348,7 @@
   border-radius: 4px;
   cursor: pointer;
   justify-content: center;
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -499,13 +500,13 @@
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 30px;
     width: 70%;
   }
 
   @media (min-width: 1024px) {
-    font-size: 24px;
+    font-size: 20px;
     /* padding-top: 40px; */
     line-height: 35px;
     width: 70%;
@@ -567,7 +568,7 @@
   text-align: center;
   width: 100%;
   justify-content: center;
-
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 767px) {
     font-size: 16px;

@@ -17,7 +17,7 @@ import Team from '../../../../components/team/team';
 
 
 const OurTeam = () => {
-  const pageName = "About"
+  const pageName = "Our Team"
   const [currentPath, setCurrentPath] = useState('')
 
   useEffect(() => {
@@ -76,7 +76,7 @@ const OurTeam = () => {
   return (
     <div className={styles.teamContainer}>
       <Helmet>
-        <title>Join</title>
+        <title>Our Team</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
@@ -108,7 +108,7 @@ const OurTeam = () => {
               <div className={styles.text}>
                 Think you have what it takes to make a difference? We&apos;re always on the lookout for exceptional talent to join our team! Upload your CV below, and if we believe you&apos;re the right fit for our journey, we&apos;ll be in touch. Your next career adventure awaits – seize the opportunity and let&apos;s make magic together!
               </div>
-              <a href="/cv-upload" style={{textDecoration: "none"}}>
+              <a href="/cv-upload" style={{textDecoration: "none"}} className={styles.buttonContainer}>
                 <button className={styles.button}>
                   Send us your CV
                 </button>

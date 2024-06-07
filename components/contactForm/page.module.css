@@ -175,6 +175,8 @@
   font-weight: 600;
   cursor: pointer;
   font-family: "Poppins", sans-serif;
+  transition: all 0.3s ease-in-out;
+  border-radius: 4px;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -193,6 +195,10 @@
     margin-top: 20px;
     margin-bottom: 20px;
   }
+}
+
+.button:hover {
+  background-color: #008489;
 }
 
 .successMessageContainer {
@@ -235,4 +241,20 @@
   font-weight: 400;
   font-family: "Poppins", sans-serif;
   font-size: 12px;
+}
+
+.privacyPolicy {
+  font-weight: 500;
+
+  @media (max-width: 767px) {
+    font-size: 13px !important;
+  }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 14px !important;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 14px !important;
+  }
 }

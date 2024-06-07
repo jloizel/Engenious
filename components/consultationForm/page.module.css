@@ -452,7 +452,12 @@
 
 .button {
   background-color: #09B089;
+  transition: all 0.3s ease-in-out;
   color: white;
+}
+
+.button:hover {
+  background-color: #008489;
 }
 
 .button2 {

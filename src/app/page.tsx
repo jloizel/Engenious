@@ -37,7 +37,7 @@ export default function Home() {
     <div className={styles.app}>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>My Title</title>
+        <title>Engenious</title>
         <link rel="canonical" href="http://mysite.com/example" />
       </Helmet>
       <NavbarMain1/>

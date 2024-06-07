@@ -65,7 +65,7 @@ const OurServices = () => {
   return (
     <div className={styles.storyContainer}>
       <Helmet>
-        <title>Our Story</title>
+        <title>Our Services</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>

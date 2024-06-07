@@ -55,7 +55,7 @@ const CVUpload = () => {
     <JobProvider>
       <div className={styles.submitCVContainer}>
         <Helmet>
-          <title>CV upload</title>
+          <title>CV Upload</title>
           <meta name='description' content='' />
         </Helmet>
         <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>

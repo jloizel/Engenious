@@ -3,12 +3,11 @@
 import React from 'react'
 import styles from "./page.module.css"
 import NavbarMain2 from '../../../components/navbar/main/navbarMain2'
-import ContactForm from '../../../components/contactForm/contactForm'
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import ContactMap from '../../../components/contactMap/contactMap'
-import ContactForm2 from '../../../components/contactForm/ContactForm2'
+import ContactForm from '../../../components/contactForm/ContactForm';
 
 const Contact = () => {
 
@@ -44,7 +43,7 @@ const Contact = () => {
               <span>Thanks for visiting. We&apos;d love to hear from you</span>
             </div>
             <div className={styles.text}>
-              If you&apos;d like to get in touch our details are below. Or if you&apos;d rather, put your information in the form below and we&apos;ll get right back to you.
+              If you&apos;d like to get in touch our details are below. Or if you&apos;d rather, put your information in the form and we&apos;ll get right back to you.
             </div>
             <div className={styles.details}>
               <div>
@@ -70,17 +69,17 @@ const Contact = () => {
               <div className={styles.details}>
                 <div>
                   <span style={{fontWeight: "500"}}>Give us a call:</span>
-                  <span style={{fontWeight: "500", color: "#008489"}}> +44(0)7748 179242</span>
+                  <a href="tel:+447748179242" style={{fontWeight: "500", color: "#008489", textDecoration: 'none'}}> +44(0)7748 179242</a>
                 </div>
                 <div>
                   <span style={{fontWeight: "500"}}>Drop us an email:</span>
-                  <span style={{fontWeight: "500", color: "#008489"}}> email@engeniousrecruitment.com</span>
+                  <a href="mailto:email@engeniousrecruitment.com" target="_blank" style={{fontWeight: "500", color: "#008489", textDecoration: 'none'}}> email@engeniousrecruitment.com</a>
                 </div>
               </div>
             </div>
           )}
           <div className={styles.contactForm}>
-            <ContactForm2/>
+            <ContactForm/>
           </div>
         </div>
         <div className={styles.contactMap}>

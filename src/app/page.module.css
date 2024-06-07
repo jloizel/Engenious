@@ -110,6 +110,7 @@
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 767px) {
     font-size: 16px;
@@ -122,6 +123,10 @@
   @media (min-width: 1024px) {
     font-size: 18px;
   }
+}
+
+.bannerButton:hover {
+  background-color: #002D49;
 }
 
 /* services */
@@ -210,6 +215,7 @@
   margin-top: 40px;
   margin-bottom: 40px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 1023px) {
     width: 300px;
@@ -220,4 +226,8 @@
     width: 250px;
     font-size: 18px;
   }
+}
+
+.aboutButton:hover {
+  background-color: #008489;
 }

@@ -340,6 +340,7 @@
   justify-content: center;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 767px) {
     font-size: 16px !important;

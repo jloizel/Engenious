@@ -59,8 +59,13 @@
 }
 
 .map {
-  margin-bottom: -5px;
+  margin-bottom: -8px;
   width: 100%;
   height: 300px;
   border: none;
+  padding: 0;
+}
+
+.imageContainer {
+  max-height: max-content;
 }

@@ -79,6 +79,7 @@
   line-height: 50px;
   margin-top: 30px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 
   @media (max-width: 767px) {
     width: 300px;
@@ -96,6 +97,10 @@
     width: 300px;
     font-size: 18px;
   }
+}
+
+.button:hover {
+  background-color: #008489;
 }
 
 .imageContainer {
