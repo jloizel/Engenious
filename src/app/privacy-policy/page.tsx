@@ -3,12 +3,9 @@
 import React from 'react'
 import styles from "./page.module.css"
 import NavbarMain2 from '../../../components/navbar/main/navbarMain2'
-import ContactForm from '../../../components/contactForm/contactForm'
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import ContactMap from '../../../components/contactMap/contactMap'
-import ContactForm2 from '../../../components/contactForm/contactForm'
 
 const PrivacyPolicy = () => {
 
