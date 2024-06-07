@@ -4,7 +4,7 @@ import * as z from "zod";
 import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 import { render } from "@react-email/render";
-import { EmailTemplate } from "../../../../components/contactForm/emailTemplate";
+import { EmailTemplate } from "../../../../components/contactForm2/emailTemplate";
 
 const sendRouteSchema = z.object({
   name: z.string().min(2),

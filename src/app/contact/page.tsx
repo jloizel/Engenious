@@ -7,7 +7,7 @@ import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import ContactMap from '../../../components/contactMap/contactMap'
-import ContactForm from '../../../components/contactForm/ContactForm';
+import ContactForm from '../../../components/contactForm/contactForm';
 
 const Contact = () => {
 
