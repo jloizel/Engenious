@@ -29,7 +29,7 @@ const Contact = () => {
     <div className={styles.contactContainer}>
       <Helmet>
         <title>Contact</title>
-        <meta name='description' content='' />
+        <meta name='description' content=''/>
       </Helmet>
       <NavbarMain2/>
       <div className={styles.pageHeader}>
@@ -74,7 +74,7 @@ const Contact = () => {
                 <div>
                   <span style={{fontWeight: "500"}}>Drop us an email:</span>
                   <a href="mailto:email@engeniousrecruitment.com" target="_blank" style={{fontWeight: "500", color: "#008489", textDecoration: 'none'}}> email@engeniousrecruitment.com</a>
-                </div>
+                </div> 
               </div>
             </div>
           )}
