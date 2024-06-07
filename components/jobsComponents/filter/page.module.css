@@ -64,6 +64,7 @@
   margin: auto;
   opacity: 0.6;
   margin-right: 20px;
+  margin-left: 10px;
 }
 
 .filtersContainer {
@@ -382,4 +383,28 @@
 
 .noScroll {
   overflow: hidden;
+}
+
+.resetContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.verticalLine2 {
+  border-left: solid 1px #807d7dd7;
+  height: 30px;
+  margin: auto;
+  opacity: 0.6;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+
+.resetContainer button {
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: #09B089;
+  background: none;
+  border: none;
+  width: 100px;
 }

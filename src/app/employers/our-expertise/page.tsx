@@ -14,7 +14,7 @@ import Services from '../../../../components/services/services';
 import ServicesSlider from '../../../../components/services/servicesSlider';
 
 const OurExpertise = () => {
-  const pageName = "About"
+  const pageName = "Employers"
   
   const [currentPath, setCurrentPath] = useState('')
 

@@ -6,6 +6,7 @@ import { GoLocation } from "react-icons/go";
 import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import { useJobContext } from "../../jobContext/jobContext";
 
 // Define the types for the job data
 interface JobData {
@@ -35,10 +36,7 @@ const JobCard: React.FC<JobProps> = (props) => {
     salary,
   } = props.data;
 
-  // let keywords = [role, level, ...languages, ...tools];
-
-  const [icon, setIcon] = useState<string>("");
-  const [newJob, setNewJob] = useState(false)
+  const { setId } = useJobContext();
 
   const calculateDaysAgo = (postedAt: string) => {
     const postedDate = new Date(postedAt);
@@ -49,19 +47,10 @@ const JobCard: React.FC<JobProps> = (props) => {
 
   const daysAgo = calculateDaysAgo(postedAt);
 
-  // const importSvgs = () => {
-  //   import(`${logo}`).then((d) => {
-  //     setIcon(d.default);
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   importSvgs();
-  // }, [logo]);
-
   const handleCardClick = () => {
     // Redirect to the desired URL
-    window.location.href = "/job-details"; // Replace with your actual URL
+    setId(id);
+    window.location.href = "/jobs/details"; // Replace with your actual URL
   };
 
   return (

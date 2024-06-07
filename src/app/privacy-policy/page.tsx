@@ -40,26 +40,26 @@ const PrivacyPolicy = () => {
       <div className={styles.textMainContainer}>
         <div className={styles.textContainer}>
           <div className={styles.text}>
-            <span>This privacy notice explains how That Recruitment Company will collect and process your personal data if you are a candidate, client, supplier, use our website, are a referee/emergency contact of a candidate or apply for a job to work at That Recruitment Company.</span>
+            <span>This privacy notice explains how Engenious Recruitment will collect and process your personal data if you are a candidate, client, supplier, use our website, are a referee/emergency contact of a candidate or apply for a job to work at Engenious Recruitment.</span>
             <span>We comply with the latest data protection legislation, including the General Data Protection Regulation (GDPR). Please note that we may amend this Privacy Notice from time to time and will post any changes here.</span>
           </div>
           <div className={styles.textHeader}>About us</div>
           <div className={styles.text}>
-            That Recruitment Company is a specialist technology recruitment business providing work-finding services to its clients and candidates. In providing these services we process personal data (including some sensitive personal data at times) and in doing so, we act as a data controller.
+            Engenious Recruitment Company is a specialist technology recruitment business providing work-finding services to its clients and candidates. In providing these services we process personal data (including some sensitive personal data at times) and in doing so, we act as a data controller.
           </div>
           <div className={styles.textHeader}>Who to contact regarding your personal data</div>
           <div className={styles.text}>
-            <span>Your privacy is important to us, and we are committed to protecting and safeguarding your data privacy rights. We would be happy to answer any of your questions about this privacy notice and how That Recruitment Company uses your data.</span>
+            <span>Your privacy is important to us, and we are committed to protecting and safeguarding your data privacy rights. We would be happy to answer any of your questions about this privacy notice and how Engenious Recruitment Company uses your data.</span>
             <span>Contact us via our <a href="/contact" style={{color: "#09B089", textDecoration: "none"}}>contact page</a>.</span>
           </div>
           <div className={styles.textHeader}>How we collect and process personal data</div>
           <div className={styles.text}>
-            <span>You may provide personal details toThat Recruitment Company, such as on an application or registration form or via our website, or we may collect them from another source such as a job board. That Recruitment Company will only use your personal data when legally permitted to do so. For the purposes of providing you with work-finding services and/or information relating to roles relevant to you.</span>
+            <span>You may provide personal details toEngenious Recruitment Company, such as on an application or registration form or via our website, or we may collect them from another source such as a job board. Engenious Recruitment Company will only use your personal data when legally permitted to do so. For the purposes of providing you with work-finding services and/or information relating to roles relevant to you.</span>
             <span>We collect the minimal personal data necessary for the provision of our recruitment services. We endeavour to keep this information accurate and up to date, only use it for the purpose for which it was provided and not keep it longer than is necessary.</span>
           </div>
           <div className={styles.textHeader}>If you are a candidate</div>
           <div className={styles.text}>
-            <span>That Recruitment Company processes candidate and prospective candidate data so that it can connect the right candidates with the right jobs. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to provide our work-finding services.</span>
+            <span>Engenious Recruitment Company processes candidate and prospective candidate data so that it can connect the right candidates with the right jobs. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to provide our work-finding services.</span>
             <span>We keep this data whilst we have meaningful contact with you, this includes written and verbal communication, and where you click through from our marketing communications. If there has been no meaningful contact for two years we will securely delete your information.</span>
             <span>Where we have a contract with you e.g. you are a contractor, by law, for tax purposes, we have to keep basic information about our contractors for six years after they cease being contractors. This includes contact, identity, financial and transaction data.</span>
             <span>The main ways we may process your personal data:</span>
@@ -82,7 +82,7 @@ const PrivacyPolicy = () => {
           </div>
           <div className={styles.text2}>
             <span style={{fontWeight: 600}}>Sharing your personal data with prospective employers.</span>
-            <span> We will only do this with explicit consent and we do not normally share contact information until a job offer is made and accepted. That Recruitment Company takes the protection of personal data very seriously.</span>
+            <span> We will only do this with explicit consent and we do not normally share contact information until a job offer is made and accepted. Engenious Recruitment Company takes the protection of personal data very seriously.</span>
           </div>
           <div className={styles.text2}>
             <span style={{fontWeight: 600}}>If you are a contractor and we provide a managed service.</span>
@@ -90,7 +90,7 @@ const PrivacyPolicy = () => {
           </div>
           <div className={styles.textHeader}>If you are a client</div>
           <div className={styles.text}>
-            <span>That Recruitment Company processes client and prospective client data so that it can introduce and match the best candidates to the best clients. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to provide our work-finding services.</span>
+            <span>Engenious Recruitment Company processes client and prospective client data so that it can introduce and match the best candidates to the best clients. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to provide our work-finding services.</span>
             <span>Where we have a contract with you, by law, for tax purposes, we have to keep basic information about our clients for six years after they cease being clients. This includes contact, identity, financial and transaction data.</span>
             <span>Where there is no contract in place, we keep your data whilst we have meaningful contact with you, this includes written and verbal communication, and where you click through from our marketing communications. If there has been no meaningful contact for two years we will securely delete your information.</span>
             <span>The main ways we may process your personal data:</span>
@@ -113,7 +113,7 @@ const PrivacyPolicy = () => {
           </div>
           <div className={styles.text2}>
             <span style={{fontWeight: 600}}>Sharing your personal data with candidates. </span>
-            <span> We will only do this when a client has engaged our services. That Recruitment Company takes the protection of personal data very seriously.</span>
+            <span> We will only do this when a client has engaged our services. Engenious Recruitment Company takes the protection of personal data very seriously.</span>
           </div>
           <div className={styles.textHeader}>If you are a referee or emergency contact</div>
           <div className={styles.text}>
@@ -139,30 +139,30 @@ const PrivacyPolicy = () => {
             <span>We process your personal data to ensure that contract arrangements between us are properly managed. This ensures that the relationship runs smoothly, and we comply with legal requirements.</span>
             <span>By law, for tax purposes, we have to keep basic information about our suppliers for six years after they cease being suppliers. This includes contact, identity, financial and transaction data.</span>
           </div>
-          <div className={styles.textHeader}>If you apply to work at That Recruitment Company</div>
+          <div className={styles.textHeader}>If you apply to work at Engenious Recruitment Company</div>
           <div className={styles.text}>
-            <span>That Recruitment Company will process your personal data if you make an application to work with us. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to recruit the best people to join our team.</span>
+            <span>Engenious Recruitment Company will process your personal data if you make an application to work with us. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to recruit the best people to join our team.</span>
             <span>We keep all application data for 1 year and then it is destroyed unless you give consent to be added to our database for future roles or you are successful and hired to work with us.</span>
           </div>
           <div className={styles.textHeader}>If you use our website</div>
           <div className={styles.text}>
-            <span>This applies to all users of our websites – the general public, candidates, clients, suppliers, referees and emergency contacts and applicants wanting to work at That Recruitment Company. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to provide a great website experience and our work-finding services.</span>
+            <span>This applies to all users of our websites – the general public, candidates, clients, suppliers, referees and emergency contacts and applicants wanting to work at Engenious Recruitment Company. We only ask for and collect the information we genuinely need, which is necessary for our legitimate interests to be able to provide a great website experience and our work-finding services.</span>
           </div>
           <div className={styles.textHeader}>Cookies and IP addresses</div>
           <div className={styles.text}>
             <span>We use cookies, which are small text files that are placed on your computer when you visit. We do this to make our website work more efficiently and to promote our news, products and services on social media, display and email messsages. You will be asked for your cookie consent when you first visit our website. You can manage your consent and visit our Cookie Notice for more information.</span>
-            <span>That Recruitment Company uses a third party service to help maintain the security and performance of our website. To deliver this service it processes the IP addresses (a number assigned to each of your devices connected to the internet by your broadband provider) of visitors to our websites.</span>
+            <span>Engenious Recruitment Company uses a third party service to help maintain the security and performance of our website. To deliver this service it processes the IP addresses (a number assigned to each of your devices connected to the internet by your broadband provider) of visitors to our websites.</span>
           </div>
           <div className={styles.textHeader}>Sensitive Data</div>
           <div className={styles.text}>
-            <span>We may collect some sensitive data from you if you are a candidate or apply for a job at That Recruitment Company, this can include details of medical conditions and disabilities, if disclosed voluntarily.</span>
+            <span>We may collect some sensitive data from you if you are a candidate or apply for a job at Engenious Recruitment Company, this can include details of medical conditions and disabilities, if disclosed voluntarily.</span>
             <span>For some vacancies, we may also do a financial background check or seek details of any commission or alleged commission of any offence. We will always ask for your explicit consent to do this.</span>
           </div>
           <div className={styles.textHeader}>Disclosure of personal data to 3rd parties</div>
           <div className={styles.text}>
-            <span>Other than to our own service providers, That Recruitment Company will not pass on your personal data to any other third parties without your consent unless the law requires us to do so or where there is immediate danger to your health.</span>
-            <span>We may pass on your personal data to service providers contracted to That Recruitment Company in the course of dealing with you. They act as a data processor on our behalf and are obliged under contract to keep your details securely, and only use them to fulfil the services they provide on our behalf. When they no longer need your data to fulfil this service, they dispose of the information in line with That Recruitment Company procedures.</span>
-            <span>In the future, if we were to sell That Recruitment Company, we may disclose your Information to the buyer as part of the completed sale and the new owner would become the data controller and be bound by the latest data protection legislation.</span>
+            <span>Other than to our own service providers, Engenious Recruitment Company will not pass on your personal data to any other third parties without your consent unless the law requires us to do so or where there is immediate danger to your health.</span>
+            <span>We may pass on your personal data to service providers contracted to Engenious Recruitment Company in the course of dealing with you. They act as a data processor on our behalf and are obliged under contract to keep your details securely, and only use them to fulfil the services they provide on our behalf. When they no longer need your data to fulfil this service, they dispose of the information in line with Engenious Recruitment Company procedures.</span>
+            <span>In the future, if we were to sell Engenious Recruitment Company, we may disclose your Information to the buyer as part of the completed sale and the new owner would become the data controller and be bound by the latest data protection legislation.</span>
           </div>
           <div className={styles.textHeader}>Data Security</div>
           <div className={styles.text}>
@@ -202,14 +202,14 @@ const PrivacyPolicy = () => {
             <span><span style={{fontStyle: "italic"}}>Right to object to automated processing, including profiling </span> – you also have the right to be subject to the legal effects of automated processing or profiling.</span>
           </div>
           <div className={styles.text3}>
-            <span><span style={{fontStyle: "italic"}}>Right to judicial review </span> in the event that That Recruitment Company refuses your request under rights of access, we will provide you with a reason as to why. You have the right to complain as outlined below.</span>
+            <span><span style={{fontStyle: "italic"}}>Right to judicial review </span> in the event that Engenious Recruitment Company refuses your request under rights of access, we will provide you with a reason as to why. You have the right to complain as outlined below.</span>
           </div>
           <div className={styles.textHeader}>Complaints</div>
           <div className={styles.text}>
             <span>We take the processing of your personal data very seriously and are here to help with any concerns you may have. Please do contact us using the <a href="/contact" style={{color: "#09B089", textDecoration: "none"}}>Contact Form</a>.</span>
           </div>
           <div className={styles.text}>
-            <span>If you are still not happy with how your personal data is being processed by That Recruitment Company or how your complaint has been handled, you also have the right to lodge a complaint directly with the Information Commissioners Office at <a href="https://ico.org.uk/concerns/" target="_blank" style={{color: "#09B089", textDecoration: "none"}}> https://ico.org.uk/concerns/</a>or by calling 0303 123 1113.</span>
+            <span>If you are still not happy with how your personal data is being processed by Engenious Recruitment Company or how your complaint has been handled, you also have the right to lodge a complaint directly with the Information Commissioners Office at <a href="https://ico.org.uk/concerns/" target="_blank" style={{color: "#09B089", textDecoration: "none"}}> https://ico.org.uk/concerns/</a>or by calling 0303 123 1113.</span>
           </div>
         </div>
       </div>

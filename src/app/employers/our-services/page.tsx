@@ -12,7 +12,7 @@ import ServicesSwiper from '../../../../components/servicesSwiper/servicesSwiper
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 const OurServices = () => {
-  const pageName = "About"
+  const pageName = "Employers"
   
   const [currentPath, setCurrentPath] = useState('')
 

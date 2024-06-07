@@ -49,8 +49,10 @@
   }
 
   @media (min-width: 1024px) {
-    height: 450px;
-    width: 500px;
+    width: 60%;
+    /* height: 450px;
+    width: 500px; */
+    max-width: 600px;
   }
 }
 
@@ -155,12 +157,14 @@
 
   @media (min-width: 1024px) {
     width: 90%;
+    margin-top: 40px;
   }
 }
 
 .listContainer {
   display: flex;
   align-self: center;
+  justify-content: center;
 
   @media (max-width: 767px) {
     width: 85%;
@@ -270,7 +274,7 @@
   }
 
   @media (min-width: 1024px) {
-    width: 50%;
+    width: max-content;
   }
 }
 
@@ -284,7 +288,7 @@
   }
 
   @media (min-width: 1024px) {
-    width: 50%;
+    width: max max-content;
   }
 }
 

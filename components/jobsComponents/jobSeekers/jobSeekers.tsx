@@ -29,9 +29,6 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
   const [searchButtonClicked, setSearchButtonClicked] = useState(false)
   const [keyword, setKeyword] = useState<string>("");
   const [locations, setLocations] = useState<string[]>([]);
-  const [contracts, setContracts] = useState<string[]>([]);
-  const [salaryRange, setSalaryRange] = useState<string[]>([]);
-  const [specialisations, setSpecialisations] = useState<string[]>([]);
 
   const setSearchKeywords = (keywords: string[]) => {
     setFilterKeywords(keywords);
@@ -42,15 +39,6 @@ const JobSeekers: React.FC<JobSeekersProps> = ({links, pageName, currentPath}) =
     if (!filterKeywords.includes(data)) {
       setFilterKeywords([...filterKeywords, data]);
     }
-  };
-
-  const deleteKeyword = (data: string) => {
-    const newKeywords = filterKeywords.filter((key) => key !== data);
-    setFilterKeywords(newKeywords);
-  };
-
-  const clearAll = () => {
-    setFilterKeywords([]);
   };
 
   const sortedJobs = [...jobs].sort((a, b) => new Date(b.postedAt).getTime() - new Date(a.postedAt).getTime());

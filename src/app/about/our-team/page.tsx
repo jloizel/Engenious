@@ -98,9 +98,9 @@ const OurTeam = () => {
         <Team/>
         <Box>
           <div className={styles.aboutBox}>
-            <div className={styles.imageContainer}>
+            {/* <div className={styles.imageContainer}>
               <img src="/about/ourWork/2.jpg" alt="Image" className={styles.image} />
-            </div>
+            </div> */}
             <div className={styles.textContainer}>
               <div className={styles.header}>
                 <span>Become part of our journey.</span>

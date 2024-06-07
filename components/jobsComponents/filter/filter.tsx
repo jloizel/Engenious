@@ -18,6 +18,7 @@ import { GoLocation } from "react-icons/go";
 
 interface FilterProps {
   handleAppliedButton: () => void
+  handleResetAllFilters: () => void
 
   locations: string[];
   locationsCounts: { [key: string]: number };
@@ -44,7 +45,7 @@ interface FilterProps {
   handleSpecialisationsReset: () => void
 }
 
-const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locationsCounts, handleLocationsCheckboxChange, selectedLocations, handleLocationsReset, contractTypes, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, salaryRanges, salaryRangesCounts, selectedSalaryRanges, handleSalaryRangesCheckboxChange, handleSalaryRangesReset, specialisations, specialisationsCounts, selectedSpecialisations, handleSpecialisationsCheckboxChange, handleSpecialisationsReset }) => {
+const Filter: React.FC<FilterProps> = ({ handleAppliedButton, handleResetAllFilters, locations, locationsCounts, handleLocationsCheckboxChange, selectedLocations, handleLocationsReset, contractTypes, contractTypeCounts, handleContractTypesCheckboxChange, selectedContractTypes, handleContractTypesReset, salaryRanges, salaryRangesCounts, selectedSalaryRanges, handleSalaryRangesCheckboxChange, handleSalaryRangesReset, specialisations, specialisationsCounts, selectedSpecialisations, handleSpecialisationsCheckboxChange, handleSpecialisationsReset }) => {
   // State variables for filter criteria
   
   const dropdownRef = useRef(null);
@@ -172,6 +173,8 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
 
   const isAnyDropdownOpen = isLocationsOpen || isContractTypesOpen || isSalaryRangesOpen || isSpecialisationsOpen;
 
+  const isAnyFilterApplied = appliedLocationsCount > 0 || appliedContractTypesCount > 0 || appliedSalaryRangesCount > 0 || appliedSpecialisationsCount > 0;
+
   useEffect(() => {
     if (isAnyDropdownOpen) {
       document.body.classList.add(styles.noScroll);
@@ -180,9 +183,23 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
     }
   }, [isAnyDropdownOpen]);
 
+  const resetAllFilters = () => {
+    handleResetAllFilters()
+    setIsFiltersApplied(false);
+    setAppliedLocations([]);
+    setAppliedContractTypes([]);
+    setAppliedSalaryRanges([]);
+    setAppliedSpecialisations([]);
+    setAppliedLocationsCount(0);
+    setAppliedContractTypesCount(0);
+    setAppliedSalaryRangesCount(0);
+    setAppliedSpecialisationsCount(0);
+  }
+
+
   return (
     <div className={styles.containerBorder}>
-      {isAnyDropdownOpen && <div className={styles.overlay} onClick={handleCloseBar}></div>}
+      {isAnyDropdownOpen && isMobile && <div className={styles.overlay} onClick={handleCloseBar}></div>}
       {/* Filter controls */}
       <div className={styles.container}>
         <div className={styles.filtersHeader}>
@@ -334,7 +351,7 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
                     </button>
                     {isFiltersApplied && (
                       <button onClick={handleSpecialisationsReset} className={styles.resetButton}>
-                        Reset
+                        Reset Filters
                       </button>
                     )}
                   </div>
@@ -342,6 +359,14 @@ const Filter: React.FC<FilterProps> = ({ handleAppliedButton, locations, locatio
               </div>
             )}
           </Box>
+          {isAnyFilterApplied && (
+            <div className={styles.resetContainer}>
+              <div className={styles.verticalLine2}></div>
+              <button onClick={resetAllFilters} >
+                Reset Filters 
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>

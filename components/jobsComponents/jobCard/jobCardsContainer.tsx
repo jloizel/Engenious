@@ -15,6 +15,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
 import { Pagination } from 'swiper/modules';
+import { useJobContext } from "../../jobContext/jobContext";
 
 // Define the types for the job data
 interface JobCardData {
@@ -42,6 +43,7 @@ interface JobsProps {
 const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs, handleButtonClick, displayedText, href }) => {
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
   const [loading, setLoading] = useState(true);
+  const { setId } = useJobContext();
 
   useEffect(() => {
     // Show skeleton initially

@@ -338,6 +338,17 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+  const handleResetAllFilters = () => {
+    setSelectedLocations([]);
+    setSelectedContractTypes([]);
+    setSelectedSalaryRanges([]);
+    setSelectedSpecialisations([]);
+    setLocation("");
+    setFilteredData(data); // Reset filtered data to the original data
+    setCurrentPage(1); // Reset to the first page
+    setSelectedJobId(data.length > 0 ? data[0].id : null); // Reset selected job
+  };
+
   return (
     <JobProvider>
     <div className={styles.container} ref={jobListTopRef}>
@@ -370,6 +381,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
         selectedSpecialisations={selectedSpecialisations}
         handleSpecialisationsCheckboxChange={handleSpecialisationsCheckboxChange}
         handleSpecialisationsReset={handleSpecialisationsReset}
+        handleResetAllFilters={handleResetAllFilters}
       />
       <div className={styles.filteredJobsContainer}>
         <div className={styles.left}>
