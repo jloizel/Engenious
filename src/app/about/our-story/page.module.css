@@ -7,11 +7,11 @@
 }
 
 .quoteContainer {
-  width: 100%;
+  position: relative;
+  padding: 20px;
+  background-color: #EFF0F0; /* Adjust as needed */
   display: flex;
-  align-content: center;
   justify-content: center;
-  background: #EFF0F0;
 }
 
 .textBox {
@@ -37,23 +37,21 @@
   }
 }
 
-.quote {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-
-  
-  @media (max-width: 767px) {
-    flex-direction: column;
-  }
-  
-  @media (min-width: 768px) {
-    flex-direction: row;
-  }
+.textBox {
+  position: relative;
 }
 
-.quotationMark1, .quotationMark2 {
-  color: #09B089;
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.quotationMark1,
+.quotationMark2 {
+  position: absolute;
+  color: #09B089; /* Adjust as needed */
 
   @media (max-width: 767px) {
     font-size: 20px;
@@ -69,61 +67,28 @@
 }
 
 .quotationMark1 {
-  display: flex;
-  
-    @media (max-width: 767px) {
-      padding-left: 30px;
-    }    
-
-    @media (min-width: 768px) and (max-width: 1023px) {
-      font-size: 30px;
-    }
-    
-    @media (min-width: 1024px) {
-      font-size: 40px;
-    }
-  }
+  top: 0;
+  left: 0;
+}
 
 .quotationMark2 {
-  display: flex;
-
-  @media (max-width: 767px) {
-    justify-content: flex-end;
-    padding-right: 30px;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    flex: none; 
-    align-self: flex-end;
-  }
-  
-  @media (min-width: 1024px) {
-    top: 100px;
-  }
+  bottom: 0;
+  right: 0;
 }
 
 .quoteBox {
-  display: flex;
-  flex-direction: column;
-
-  @media (max-width: 767px) {
-    gap: 10px;
-  }
-  
-  @media (min-width: 768px) {
-    gap: 20px;
-  }
+  text-align: center;
 }
 
 .quoteText {
-  color: #002D49;
+  color: #002D49; /* Adjust as needed */
+  margin: 20px 0; /* Adjust as needed */
   font-weight: 600;
   line-height: 150%;
 
   @media (max-width: 767px) {
     font-size: 18px;
     padding: 0px 30px;
-    padding-top: 20px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -138,7 +103,7 @@
 }
 
 .quoter {
-  color: #002D49;
+  color: #002D49; /* Adjust as needed */
   font-weight: 600;
 
   @media (max-width: 767px) {
@@ -156,8 +121,6 @@
     padding: 0px 50px;
   }
 }
-
-
 
 .aboutBox {
   display: flex;
