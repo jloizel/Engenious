@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Jobs from "../jobCard/jobCardsContainer";
-import Header from "../Header";
 import { Box, Pagination, PaginationItem, createTheme, useMediaQuery } from "@mui/material";
 import styles from "./page.module.css";
 import JobsBar from "../../navbar/jobs/jobsBar";
