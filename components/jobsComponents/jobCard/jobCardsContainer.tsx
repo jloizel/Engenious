@@ -68,30 +68,6 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
     }
   }, [loading, showAllJobs, data]);
 
-  // useEffect(() => {
-  //   if (!loading) {
-  //     const modifiedData = () => {
-  //       if (keywords.length > 0) {
-  //         const newData = data.filter((d) => {
-  //           return keywords.every((key) => {
-  //             return (
-  //               d.role === key ||
-  //               d.level === key ||
-  //               d.languages.includes(key) ||
-  //               d.tools.includes(key)
-  //             );
-  //           });
-  //         });
-  //         setFilteredData(newData);
-  //       } else {
-  //         setFilteredData(data);
-  //       }
-  //     };
-
-  //     modifiedData();
-  //   }
-  // }, [loading, keywords, data]);
-
   const handleViewAllJobs = () => {
     setVisibleJobs(data);
   };
