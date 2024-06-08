@@ -101,7 +101,7 @@ const Footer: React.FC = ({}) => {
             </div>
           </div>
           <div className={styles.copyrightContainerComputer}>
-            <div className={styles.privacy}>Privacy Policy</div>
+            <a href="/privacy-policy" className={styles.privacy} style={{textDecoration: "none"}}>Privacy Policy</a>
             <div className={styles.copyright}>© Engenious Recruitment</div>
           </div>
         </div>

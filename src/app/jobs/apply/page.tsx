@@ -14,7 +14,7 @@ const Apply: React.FC = () => {
   const pageName = "Apply"
   
   const [currentPath, setCurrentPath] = useState('')
-  const [messageSent, setMessageSent] = useState<boolean>(true);
+  const [messageSent, setMessageSent] = useState<boolean>(false);
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
