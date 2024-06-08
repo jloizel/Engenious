@@ -14,6 +14,7 @@ const Apply: React.FC = () => {
   const pageName = "Apply"
   
   const [currentPath, setCurrentPath] = useState('')
+  const [messageSent, setMessageSent] = useState<boolean>(true);
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -36,18 +37,9 @@ const Apply: React.FC = () => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTabletOrBelow= useMediaQuery(theme.breakpoints.down('md'));
 
-  const links = [
-    {
-      id: 1,
-      title: "Search jobs",
-      url: "/jobs",
-    },
-    {
-      id: 2,
-      title: "Upload your CV",
-      url: "/jobs/cv-upload",
-    }
-  ]; 
+  const handleSendMessage = () => {
+    setMessageSent(true)
+  }
 
   return (
     <JobProvider>
@@ -57,18 +49,27 @@ const Apply: React.FC = () => {
           <meta name='description' content='' />
         </Helmet>
         <NavbarMain2/>
-        {!isTabletOrBelow && (<div className={styles.pageHeader}></div>)}
-        <div className={styles.submissionContainer}>
-          <div className={styles.submitForm}>
-            <a className={styles.buttonContainer} href="/jobs/details" style={{textDecoration: "none"}}>
-              <button className={styles.button}>
-                <KeyboardArrowRightIcon className={styles.icon}/>
-                View job details
-              </button>
-            </a>
-            <ApplyForm />
+        {!isTabletOrBelow && !messageSent && (<div className={styles.pageHeader}></div>)}
+        {!messageSent && (
+          <div className={styles.submissionContainer}>
+            <div className={styles.submitForm}>
+              <a className={styles.buttonContainer} href="/jobs/details" style={{textDecoration: "none"}}>
+                <button className={styles.button}>
+                  <KeyboardArrowRightIcon className={styles.icon}/>
+                  View job details
+                </button>
+              </a>
+              <ApplyForm handleSendMessage={handleSendMessage} messageSent={messageSent}/>
+            </div>
           </div>
-        </div>
+        )}
+        {messageSent && (
+          <div className={styles.successMessageContainer}>
+            <div className={styles.successMessage}>
+              Thank you for your message, we will be in contact as soon as possible.
+            </div>
+          </div>
+        )}
       </div>
     </JobProvider>
   )

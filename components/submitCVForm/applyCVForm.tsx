@@ -29,8 +29,13 @@ const formSchema = z.object({
 
 export type FormData = z.infer<typeof formSchema>;
 
+interface ApplyFormProps {
+  messageSent: boolean;
+  handleSendMessage: () => void
+}
 
-const ApplyForm: FC = () => {
+
+const ApplyForm: FC<ApplyFormProps> = ({messageSent, handleSendMessage}) => {
   const form = useRef<any>(null);
   const {
     register,
@@ -47,7 +52,7 @@ const ApplyForm: FC = () => {
   const [filename, setFilename] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [checkboxError, setCheckboxError] = useState<string>('');
-  const [messageSent, setMessageSent] = useState<boolean>(false);
+  // const [messageSent, setMessageSent] = useState<boolean>(false);
   const [jobDetails, setJobDetails] = useState<any>(null);
 
   const { id } = useJobContext();
@@ -93,7 +98,7 @@ const ApplyForm: FC = () => {
     };
 
     sendCV(formDataWithFile);
-    setMessageSent(true);
+    handleSendMessage()
     reset();
   };
 
