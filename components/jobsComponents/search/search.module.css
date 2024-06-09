@@ -92,7 +92,7 @@
   display: flex;
 
   @media (min-width: 768px) {
-    width: auto;
+    width: 150px;
     margin-left: 10px;
   }
 }
@@ -162,9 +162,15 @@
     margin-left: 5%;
     top: 50%;
   }
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 75%;
+    margin-left: 0;
+    top: 100%;
+  }
   
-  @media (min-width: 768px) {
-    width: 100%;
+  @media (min-width: 1024px) {
+    width: 81%;
     margin-left: 0;
     top: 100%;
   }
