@@ -8,14 +8,13 @@
     gap: 20px;
     width: 90%;
     align-self: center;
-    overflow-y: auto;
+    height: 100%;
   } 
 
   @media (min-width: 768px) and (max-width: 1023px) {
     gap: 10px;
     width: 90%;
     align-self: center;
-    overflow-y: auto;
   }
 
   @media (min-width: 1024px) {
@@ -60,7 +59,7 @@
 
   @media (max-width: 767px) {
     align-self: center;
-    overflow-y: auto;
+    /* overflow-y: auto; */
     /* min-height: 100%; */
   }
   
