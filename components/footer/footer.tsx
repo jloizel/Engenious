@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import styles from './page.module.css'
+import styles from '../../src/app/css/footer.module.css'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { createTheme, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
