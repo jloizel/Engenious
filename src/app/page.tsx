@@ -32,6 +32,14 @@ export default function Home() {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
+  const handleFlexDirection = () => {
+    if (isMobile) {
+      return "column"
+    } else {
+      return "row"
+    }
+  }
+
   return (
     <JobProvider>
     <div className={styles.app}>
@@ -52,7 +60,7 @@ export default function Home() {
           <div className={styles.title}>
             Talent Services Beyond Expectations.
           </div>
-          <div className={styles.buttonContainer}>
+          <div className={styles.buttonContainer} style={{flexDirection: handleFlexDirection()}}>
             <a href="/jobseekers" className={styles.bannerButton}>I am a jobseeker</a>
             <a href="/employers" className={styles.bannerButton}>I am an employer</a>
           </div>
