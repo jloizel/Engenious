@@ -37,12 +37,16 @@ const Footer: React.FC = ({}) => {
           </div>
         )}
         <div className={styles.buttonContainer}>
-          <button className={styles.button}>
-            Find a Job
-          </button>
-          <button className={styles.button}>
-            Find Talent
-          </button>
+          <a href="/jobs" style={{textDecoration: "none"}}>
+            <button className={styles.button}>
+              Find a Job
+            </button>
+          </a>
+          <a href="/employers/submit-vacancy" style={{textDecoration: "none"}}>
+            <button className={styles.button}>
+              Find Talent
+            </button>
+          </a>
         </div>
       </div>
       <hr className={styles.line}></hr>
@@ -62,11 +66,11 @@ const Footer: React.FC = ({}) => {
             </div>
           </div>
           <div className={styles.pagesContainer}>
-            <div className={styles.page}>Employers</div>
-            <div className={styles.page}>Jobs</div>
-            <div className={styles.page}>About</div>
-            <div className={styles.page}>Contact</div>
-            <div className={styles.privacy}>Privacy Policy</div>
+            <a href="/employers" style={{textDecoration: "none"}} className={styles.page}>Employers</a>
+            <a href="/jobs" style={{textDecoration: "none"}} className={styles.page}>Jobs</a>
+            <a href="/about" style={{textDecoration: "none"}} className={styles.page}>About</a>
+            <a href="/contact" style={{textDecoration: "none"}} className={styles.page}>Contact</a>
+            <a href="/privacy-policy" style={{textDecoration: "none"}} className={styles.privacy}>Privacy Policy</a>
             <div className={styles.copyright}>© Engenious Recruitment</div>
           </div>
         </div>
@@ -86,19 +90,18 @@ const Footer: React.FC = ({}) => {
             </div>
           </div>
           <div className={styles.pagesContainerComputer}>
-            <div className={styles.pagesComputer}>
+            <a href="/employers" className={styles.pagesComputer} style={{textDecoration: "none"}}>
               <div className={styles.page}>Employers</div>
-              
-            </div>
-            <div className={styles.pagesComputer}>
+            </a>
+            <a href="/jobs" style={{textDecoration: "none"}} className={styles.pagesComputer}>
               <div className={styles.page}>Jobs</div>
-            </div>
-            <div className={styles.pagesComputer}>
+            </a>
+            <a href="/about" style={{textDecoration: "none"}} className={styles.pagesComputer}>
               <div className={styles.page}>About</div>
-            </div>
-            <div className={styles.pagesComputer}>
-              <a href="/contact" className={styles.page}>Contact</a>
-            </div>
+            </a>
+            <a href="contact" style={{textDecoration: "none"}} className={styles.pagesComputer}>
+              <div className={styles.page}>Contact</div>
+            </a>
           </div>
           <div className={styles.copyrightContainerComputer}>
             <a href="/privacy-policy" className={styles.privacy} style={{textDecoration: "none"}}>Privacy Policy</a>

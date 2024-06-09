@@ -46,7 +46,9 @@ const Services: React.FC = ({}) => {
   return (
     <div className={styles.servicesContainer}>
       {data.map((service, index) => (
-          <div 
+          <a 
+            href="/employers/our-services"
+            style={{textDecoration: "none"}}
             className={styles.container}
             onMouseEnter={() => setHoveredItem(service.id)}
             onMouseLeave={() => setHoveredItem(null)}
@@ -63,7 +65,7 @@ const Services: React.FC = ({}) => {
                 Learn More <KeyboardArrowRightIcon className={styles.arrow}/>
               </button>
             </div>
-          </div>
+          </a>
       ))}
     </div>
   )

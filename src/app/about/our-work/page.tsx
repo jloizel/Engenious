@@ -139,9 +139,11 @@ const OurWork = () => {
               <div className={styles.text2}>
                 From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
               </div>
-              <button className={styles.button}>
-                Search for a job
-              </button>
+              <a href="/jobs" style={{textDecoration: "none"}}>
+                <button className={styles.button}>
+                  Search for a job
+                </button>
+              </a>
             </div>
           </div>
         </Box>

@@ -98,15 +98,17 @@ const About = () => {
               <div className={styles.text}>
                 Our world revolves around talented people. Company shapers. Relationship builders. People who make a difference.
               </div>
-              <button className={styles.button}>
-              More about what we do
-            </button>
+              <a href="/about/our-work" style={{textDecoration: "none"}}>
+                <button className={styles.button}>
+                  More about what we do
+                </button>
+              </a>
             </div>
           </div>
         </Box>
         <Box>
-          <div className={styles.aboutBox} style={{background: "#EFF0F0"}}>
-            <div className={styles.imageContainer}>
+          <div className={`${styles.aboutBox} ${styles.reverse}`} style={{background: "#EFF0F0"}}>
+            <div className={styles.imageContainer1}>
               <img src="/about/2.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
@@ -117,9 +119,11 @@ const About = () => {
               <div className={styles.text}>
                 Our devotion to go beyond expectations in everything we do has helped us establish a strong reputation over the years.
               </div>
-              <button className={styles.button}>
-                More about our story
-              </button>
+              <a href="/about/our-story" style={{textDecoration: "none"}}>
+                <button className={styles.button}>
+                  More about our story
+                </button>
+              </a>
             </div>
           </div>
         </Box>
@@ -136,9 +140,11 @@ const About = () => {
               <div className={styles.text}>
                 We&apos;re in the business of improving lives. Our dedication to candidates and clients is what keeps us going everyday.
               </div>
-              <button className={styles.button}>
-                More about our purpose
-              </button>
+              <a href="/about/our-purpose" style={{textDecoration: "none"}}>
+                <button className={styles.button}>
+                  More about our purpose
+                </button>
+              </a>
             </div>
           </div>
         </Box>

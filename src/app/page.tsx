@@ -76,11 +76,11 @@ export default function Home() {
           </div>
         </div>
         { isComputer ? <About/> : <AboutSlider/> }
-        <div>
+        <a href="/about" style={{textDecoration: "none"}}>
           <button className={styles.aboutButton}>
             Learn more about us
           </button>
-        </div>
+        </a>
       </section>
       <section className={styles.join}>
         <Join/>

@@ -56,6 +56,7 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
       setButtonClass ("button")
     }
   },[hoveredItem])
+  
 
   const theme = createTheme({
     breakpoints: {
@@ -95,7 +96,7 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
               <div className={styles.title}>{service.title}</div>
               <div className={styles.text}>{service.text}</div>
             </div>
-            <div className={styles.buttonContainer}>
+            <div className={styles.buttonContainer} style={{textDecoration: "none"}}>
               <button 
                 className={`${styles.button} ${hoveredItem === service.id ? styles.buttonActive : ''}`}
                 id={service.id}>

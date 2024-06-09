@@ -167,7 +167,7 @@ const OurServices = () => {
         <div className={styles.consultationText}>
           In recent years, the working world has transformed dramatically. Companies&apos; approaches to recruitment have changed too. Whether you&apos;re looking for contractors or temps who are on-site, hybrid or fully remote, we&apos;ll find the right people for you.
         </div>
-        <a href="/consultation" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor2}>
+        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor2}>
             <button className={styles.consultationButton}>
               Hire talent <KeyboardArrowRightIcon/>
             </button>

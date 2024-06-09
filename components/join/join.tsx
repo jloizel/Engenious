@@ -18,7 +18,9 @@ const Join: React.FC = ({}) => {
         <div className={styles.text}>
           At Engenious Recruitment, our priority is our people, enabling them to excel and reach new heights. Join our team, and together, we&apos;ll surpass expectations and redefine success
         </div>
-        <button className={styles.button}>Join the team</button>
+        <a href="about/our-team" style={{textDecoration: "none"}}>
+          <button className={styles.button}>Meet the team</button>
+        </a>
       </div>
     </div>
   )

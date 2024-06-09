@@ -113,10 +113,10 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               </div>
               {isMobile && activeItem === 'Employers' && (
                 <div className={styles.subTopicContainer}>
-                  <div className={styles.subTopicMobile}>Overview</div>
-                  <div className={styles.subTopicMobile}>Our services</div>
-                  <div className={styles.subTopicMobile}>Our expertise</div>
-                  <div className={styles.subTopicMobile}>Submit a vacancy</div>
+                  <a href="/employers" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Overview</a>
+                  <a href="/employers/our-services" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Our services</a>
+                  <a href="/employers/our-expertise" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Our expertise</a>
+                  <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Submit a vacancy</a>
                 </div>
               )}
               <div 
@@ -128,9 +128,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               </div>
               {isMobile && activeItem === 'Jobs' && (
                 <div className={styles.subTopicContainer}>
-                  <div className={styles.subTopicMobile}>Overview</div>
-                  <div className={styles.subTopicMobile}>Search all jobs</div>
-                  <div className={styles.subTopicMobile}>Send your cv</div>
+                  <a href="/jobs" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Overview</a>
+                  <a href="/jobs/cv-upload" className={styles.subTopicMobile}>Send your cv</a>
                 </div>
               )}
               <div 
@@ -176,16 +175,16 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   {activeItem === 'Employers' && (
                     <div className={styles.subMenu} id="subMenu1">
                       <Overview text={"Learn more about our full talent services"} href="/employers"/>
-                      <div className={styles.subTopic}>Our services</div>
-                      <div className={styles.subTopic}>Our expertise</div>
-                      <div className={styles.subTopic}>Submit a vacancy</div>
+                      <a href="/employers/our-services" style={{textDecoration: "none"}} className={styles.subTopic}>Our services</a>
+                      <a href="/employers/our-expertise" style={{textDecoration: "none"}} className={styles.subTopic}>Our expertise</a>
+                      <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.subTopic}>Submit a vacancy</a>
                     </div>
                   )}
                   {activeItem === 'Jobs' && (
                     <div className={styles.subMenu} id="subMenu2">
                       <Overview text={"Find your dream job"} href="/jobs"/>
-                      <div className={styles.subTopic}>Search all jobs</div>
-                      <div className={styles.subTopic}>Upload your cv</div>
+                      {/* <div className={styles.subTopic}>Search all jobs</div> */}
+                      <a href="/jobs/cv-upload" style={{textDecoration: "none"}} className={styles.subTopic}>Upload your cv</a>
                     </div>
                   )}
                   {activeItem === 'About' && (

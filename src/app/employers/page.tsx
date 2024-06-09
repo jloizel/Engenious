@@ -82,9 +82,11 @@ const Employers = () => {
             <div className={styles.mainText}>
               Find the right people to help your business thrive - today and in the future. We provide a full range of flexible Talent Services, so whatever your workforce needs are, we are well placed to help. It&apos;s time to pioneer through your people.
             </div>
-            <button className={styles.button}>
-              Hire talent
-            </button>
+            <a href="/employers/submit-vacancy" style={{textDecoration: "none"}}>
+              <button className={styles.button}>
+                Hire talent
+              </button>
+            </a>
           </div>          
         </Box>
         <Box className={styles.servicesContainer}>
@@ -123,7 +125,7 @@ const Employers = () => {
           <div className={styles.expertiseText}>
             Our reputation is built on finding you the right people. Talented people who stand out, who make a real difference. With the right people, your business can realise its ambitions and go further than you ever thought possible.
           </div>
-          <a href="/employers/expertise" className={styles.cardContainer}>
+          <a href="/employers/our-expertise" className={styles.cardContainer}>
             <div className={styles.card}>
               <div className={styles.cardImageContainer}>
                 <img src="./employers/6.jpg" alt="Image" className={styles.cardImage} />
@@ -139,7 +141,7 @@ const Employers = () => {
             <span>Not sure where to start?</span>
             <span>Reach out.</span>
           </div>
-          <a href="/consultation" style={{textDecoration: "none"}}>
+          <a href="/contact" style={{textDecoration: "none"}}>
             <button className={styles.consultationButton}>
               Arrange free consultation <KeyboardArrowRightIcon/>
             </button>
