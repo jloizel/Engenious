@@ -133,7 +133,7 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
         </div>
         <div className={styles.home}>
           <a href="/">
-            <img className={styles.logo} src="/engenious.png" alt="engenious logo"  />
+            <Image className={styles.logo} src="/engenious.png" alt="engenious logo" height={handleImageWidth()} width={handleImageWidth()}/>
           </a>
           <a href="/" className={styles.titleLink} style={{ color: "#00617C" }}>
             <div className={styles.companyNameContainer}>

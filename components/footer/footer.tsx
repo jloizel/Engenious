@@ -33,6 +33,10 @@ const Footer: React.FC = ({}) => {
       return 90
    }
   }
+
+  const handleImageHeight = () => {
+    return "auto"
+  }
   
   return (
     <div className={styles.container}>
@@ -67,7 +71,7 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logos}>
             <div className={styles.logoContainer}>
               <a href="/">
-                <img className={styles.logo} src="/engenious.png" alt="engenious logo"/>
+                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainer}>
@@ -91,7 +95,7 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logosComputer}>
             <div className={styles.logoContainerComputer}>
               <a href="/">
-                <img className={styles.logo} src="/engenious.png" alt="engenious logo"/>
+                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainerComputer}>

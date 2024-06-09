@@ -73,7 +73,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
           </div>
           <div className={styles.home}>
             <a href="/">
-              <img className={styles.logo} src="/engenious.png" alt="engenious logo"/>
+              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
             </a>
             <a href="/" className={styles.titleLink} style={{color: colour}}>
               <div className={styles.companyNameContainer}>

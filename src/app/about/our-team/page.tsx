@@ -100,7 +100,7 @@ const OurTeam = () => {
         <Box>
           <div className={styles.aboutBox}>
             {/* <div className={styles.imageContainer}>
-              <img src="/about/ourWork/2.jpg" alt="Image" className={styles.image} />
+              <Image src="/about/ourWork/2.jpg" alt="Image" className={styles.image} />
             </div> */}
             <div className={styles.textContainer}>
               <div className={styles.header}>

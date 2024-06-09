@@ -101,7 +101,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                 <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
               )}
               <a href="/">
-                <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainer}>

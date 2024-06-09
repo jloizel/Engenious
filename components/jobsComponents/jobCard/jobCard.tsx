@@ -56,7 +56,7 @@ const JobCard: React.FC<JobProps> = (props) => {
   return (
     <div className={styles.container} onClick={handleCardClick}>
       {/* <div className="logo">
-        <img src={icon} alt="" />
+        <Image src={icon} alt="" />
       </div> */}
       <div className={styles.position}>{position}</div>
       <div className={styles.jobInfo}>

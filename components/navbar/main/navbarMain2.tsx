@@ -83,7 +83,7 @@ const NavbarMain2 = () => {
           </div>
           <div className={styles.home}>
             <a href="/">
-              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" height={handleImageWidth()} width={handleImageWidth()}/>
             </a>
             <a href="/" className={styles.titleLink}>
               <div className={styles.companyNameContainer}>
