@@ -7,6 +7,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import CloseIcon from '@mui/icons-material/Close';
 import styles from "./page.module.css";
 import Overview from '../overview/overview';
+import Image from 'next/image';
 
 interface MenuProps {
   color: string
@@ -89,7 +90,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                 <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
               )}
               <a href="/">
-                <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainer}>

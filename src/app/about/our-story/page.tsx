@@ -8,6 +8,7 @@ import { Helmet } from 'react-helmet';
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
 import StorySlider from '../../../../components/storySlider/storySlider';
+import Image from 'next/image';
 
 
 const OurStory = () => {
@@ -107,7 +108,7 @@ const OurStory = () => {
             </div> */}
           </div>
           <div className={styles.imageContainer1}>
-            <img src="/about/ourStory/4.jpg" alt="Image" className={styles.image} />
+            <Image src="/about/ourStory/4.jpg" alt="Image" className={styles.image} />
           </div>
           <div className={styles.textContainer}>
             <div className={styles.text1}>
@@ -132,7 +133,7 @@ const OurStory = () => {
             </div>
           </div>
           <div className={styles.imageContainer2}>
-            <img src="/about/ourStory/2.jpg" alt="Image" className={styles.image} />
+            <Image src="/about/ourStory/2.jpg" alt="Image" className={styles.image} />
           </div>
         </div>
       </Box>

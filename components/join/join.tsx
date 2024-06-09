@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from './page.module.css'
+import Image from 'next/image'
 
 const Join: React.FC = ({}) => {
 
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <img src="/pics.png" alt="Images" className={styles.image}/>
+        <Image src="/pics.png" alt="Images" className={styles.image}/>
       </div>
       <div className={styles.textContainer}>
         <div className={styles.quote}>

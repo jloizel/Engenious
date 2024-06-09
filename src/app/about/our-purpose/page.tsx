@@ -13,6 +13,7 @@ import { FaQuoteRight } from "react-icons/fa";
 import About from '../../../../components/about/about';
 import AboutSlider from '../../../../components/about/aboutSlider';
 import Testimonials from '../../../../components/testimonials/testimonials';
+import Image from 'next/image';
 
 
 const OurPurpose = () => {
@@ -83,7 +84,7 @@ const OurPurpose = () => {
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <img src="/about/ourPurpose/2.jpg" alt="Image" className={styles.headerImage} />
+            <Image src="/about/ourPurpose/2.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
@@ -118,7 +119,7 @@ const OurPurpose = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer1}>
-              <img src="/about/ourPurpose/1.jpg" alt="Image" className={styles.image} />
+              <Image src="/about/ourPurpose/1.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -158,7 +159,7 @@ const OurPurpose = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer2}>
-              <img src="/about/ourPurpose/3.jpg" alt="Image" className={styles.image} />
+              <Image src="/about/ourPurpose/3.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>

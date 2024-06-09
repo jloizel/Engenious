@@ -12,6 +12,7 @@ import ContractSlider from '../../../../components/servicesSwiper/servicesSwiper
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Services from '../../../../components/services/services';
 import ServicesSlider from '../../../../components/services/servicesSlider';
+import Image from 'next/image';
 
 const OurExpertise = () => {
   const pageName = "Employers"
@@ -82,7 +83,7 @@ const OurExpertise = () => {
           </div>
         </div>
         <div className={styles.cardImageContainer}>
-          <img src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
+          <Image src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
         </div>
       </Box>
       <Box className={styles.listBox}>

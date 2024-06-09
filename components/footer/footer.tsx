@@ -4,6 +4,7 @@ import React from 'react'
 import styles from './page.module.css'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { createTheme, useMediaQuery } from '@mui/material';
+import Image from 'next/image';
 
 const Footer: React.FC = ({}) => {
 
@@ -55,7 +56,7 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logos}>
             <div className={styles.logoContainer}>
               <a href="/">
-                <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainer}>
@@ -79,7 +80,7 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logosComputer}>
             <div className={styles.logoContainerComputer}>
               <a href="/">
-                <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainerComputer}>

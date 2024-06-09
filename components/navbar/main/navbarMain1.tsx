@@ -5,6 +5,7 @@ import styles from './page1.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '../../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
+import Image from 'next/image';
 
 const links = [
     {
@@ -72,7 +73,7 @@ const NavbarMain1 = () => {
           </div>
           <div className={styles.home}>
             <a href="/">
-              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
             </a>
             <a href="/" className={styles.titleLink}>
               <div className={styles.companyNameContainer}>

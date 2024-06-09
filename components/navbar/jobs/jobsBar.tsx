@@ -12,6 +12,7 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import { IoSearchSharp, IoClose } from "react-icons/io5";
 import DropdownButton from '../../dropdown/dropdown';
+import Image from 'next/image';
 
 interface JobsBarProps {
   locations: string[];
@@ -122,7 +123,7 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
         </div>
         <div className={styles.home}>
           <a href="/">
-            <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+            <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
           </a>
           <a href="/" className={styles.titleLink} style={{ color: "#00617C" }}>
             <div className={styles.companyNameContainer}>

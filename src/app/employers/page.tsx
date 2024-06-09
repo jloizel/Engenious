@@ -9,6 +9,7 @@ import Services from '../../../components/services/services';
 import ServicesSlider from '../../../components/services/servicesSlider';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Testimonials from '../../../components/testimonials/testimonials';
+import Image from 'next/image';
 
 
 const Employers = () => {
@@ -73,7 +74,7 @@ const Employers = () => {
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
             <div className={styles.imageOverlay}></div>
-            <img src="./employers/3.jpg" alt="Image" className={styles.headerImage} />
+            <Image src="./employers/3.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
@@ -102,7 +103,7 @@ const Employers = () => {
         </Box>
         <Box className={styles.stats}>
             <div className={styles.imageContainer}>
-              <img src="./employers/5.jpg" alt="Image" className={styles.statsImage} />
+              <Image src="./employers/5.jpg" alt="Image" className={styles.statsImage} />
               <div className={styles.gradientLine}></div>
             </div>
             <div className={styles.statsTextContainer}>
@@ -128,7 +129,7 @@ const Employers = () => {
           <a href="/employers/our-expertise" className={styles.cardContainer}>
             <div className={styles.card}>
               <div className={styles.cardImageContainer}>
-                <img src="./employers/6.jpg" alt="Image" className={styles.cardImage} />
+                <Image src="./employers/6.jpg" alt="Image" className={styles.cardImage} />
               </div>
               <div className={styles.cardText}>
                 Construction Recruitment

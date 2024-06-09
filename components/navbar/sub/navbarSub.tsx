@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '../../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
+import Image from 'next/image';
 
 interface Link {
   id: number;
@@ -63,7 +64,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
           </div>
           <div className={styles.home}>
             <a href="/">
-              <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
+              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
             </a>
             <a href="/" className={styles.titleLink} style={{color: colour}}>
               <div className={styles.companyNameContainer}>
