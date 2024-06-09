@@ -82,7 +82,7 @@ const OurServices = () => {
         <a href="/employers/expertise" className={styles.cardContainer}>
           <div className={styles.card}>
             <div className={styles.cardImageContainer}>
-              <Image src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
+              <img src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
             </div>
             <div className={styles.cardText}>
               Construction Recruitment

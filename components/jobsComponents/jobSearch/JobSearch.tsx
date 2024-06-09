@@ -177,7 +177,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setSalaryRanges(extractedSalary);
     const extractedSpecialisations = [...new Set(data.map((job) => job.specialisation))];
     setSpecialisations(extractedSpecialisations);
-  }, [data]);
+  }, [data, compareSalaries]);
 
   //Locations
 
@@ -313,7 +313,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     if (pageChanged) {
       setSelectedJobId(currentJobs.length > 0 ? currentJobs[0].id : null);
     }
-  }, [currentPage, currentJobs]);
+  }, [currentPage, currentJobs, pageChanged]);
 
   useEffect(() => {
     if (isMobileJobSelected) {

@@ -86,6 +86,8 @@
 }
 
 .logo {
+  width: auto;
+
   @media (max-width: 767px) {
     height: 60px;
   }

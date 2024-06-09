@@ -83,7 +83,7 @@ const OurExpertise = () => {
           </div>
         </div>
         <div className={styles.cardImageContainer}>
-          <Image src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
+          <img src="/employers/6.jpg" alt="Image" className={styles.cardImage} />
         </div>
       </Box>
       <Box className={styles.listBox}>

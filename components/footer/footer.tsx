@@ -20,8 +20,19 @@ const Footer: React.FC = ({}) => {
     },
   });
   
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
+
+  const handleImageWidth = () => {
+    if (isMobile) {
+      return 60
+    } else if (isComputer) {
+      return 70
+    } else {
+      return 90
+   }
+  }
   
   return (
     <div className={styles.container}>
@@ -43,7 +54,7 @@ const Footer: React.FC = ({}) => {
               Find a Job
             </button>
           </a>
-          <a href="/employers/submit-vacancy" style={{textDecoration: "none"}}>
+          <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} >
             <button className={styles.button}>
               Find Talent
             </button>
@@ -56,7 +67,7 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logos}>
             <div className={styles.logoContainer}>
               <a href="/">
-                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                <img className={styles.logo} src="/engenious.png" alt="engenious logo"/>
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainer}>
@@ -80,7 +91,7 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logosComputer}>
             <div className={styles.logoContainerComputer}>
               <a href="/">
-                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                <img className={styles.logo} src="/engenious.png" alt="engenious logo"/>
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainerComputer}>

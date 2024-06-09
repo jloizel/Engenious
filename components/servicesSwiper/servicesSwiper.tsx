@@ -49,7 +49,7 @@ const ServicesSwiper: React.FC = () => {
         <SwiperSlide>
           <div className={styles.container}>
             <div className={styles.imageContainer}>
-              <Image src="/employers/ourServices/1.jpg" alt="Image" className={styles.image}/>
+              <img src="/employers/ourServices/1.jpg" alt="Image" className={styles.image}/>
               <HiOutlineArrowLongRight className={styles.arrow1}/>
             </div>
             <div className={styles.textContainer}>
@@ -66,7 +66,7 @@ const ServicesSwiper: React.FC = () => {
         <SwiperSlide>
           <div className={styles.container}>
             <div className={styles.imageContainer2}>
-              <Image src="/employers/ourServices/2.jpg" alt="Image" className={styles.image}/>
+              <img src="/employers/ourServices/2.jpg" alt="Image" className={styles.image}/>
             </div>
             <div className={styles.textContainer}>
               <div className={styles.content}>
@@ -82,7 +82,7 @@ const ServicesSwiper: React.FC = () => {
         <SwiperSlide>
           <div className={styles.container}>
             <div className={styles.imageContainer2}>
-              <Image src="/employers/ourServices/3.jpg" alt="Image" className={styles.image}/>
+              <img src="/employers/ourServices/3.jpg" alt="Image" className={styles.image}/>
               <HiOutlineArrowLongLeft className={styles.arrow2}/>
             </div>
             <div className={styles.textContainer}>

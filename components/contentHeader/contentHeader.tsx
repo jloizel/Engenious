@@ -19,7 +19,7 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({ header, text, source, ima
   return (
     <div className={styles.headerContainer}>
       <div className={styles.imageContainer}>
-        <Image src={source} alt="Image" className={styles.image} style={{height: imageHeight, width: imageWidth}}/>
+        <img src={source} alt="Image" className={styles.image} style={{height: imageHeight, width: imageWidth}}/>
       </div>
       <div className={styles.textContainer}>
         <div className={styles.header}>

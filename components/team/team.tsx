@@ -43,7 +43,7 @@ const Team: React.FC = ({}) => {
         {data.map((team, index) => (
           <div className={styles.container} key={team.id}>
             <div className={`${styles.imageContainer} ${index % 2 === 0 ? styles.evenContainer : styles.oddContainer}`}>
-              <Image src={team.src} alt="Image" className={styles.image}/>
+              <img src={team.src} alt="Image" className={styles.image}/>
             </div>
             <div className={`${styles.textContainer} ${index % 2 === 0 ? styles.evenTextContainer : styles.oddTextContainer}`}>
               <div className={styles.name}>{team.name}</div>

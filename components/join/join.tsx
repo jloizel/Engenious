@@ -7,7 +7,7 @@ const Join: React.FC = ({}) => {
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
-        <Image src="/pics.png" alt="Images" className={styles.image}/>
+        <img src="/pics.png" alt="Images" className={styles.image}/>
       </div>
       <div className={styles.textContainer}>
         <div className={styles.quote}>

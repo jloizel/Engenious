@@ -84,7 +84,7 @@ const OurPurpose = () => {
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <Image src="/about/ourPurpose/2.jpg" alt="Image" className={styles.headerImage} />
+            <img src="/about/ourPurpose/2.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
@@ -119,7 +119,7 @@ const OurPurpose = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer1}>
-              <Image src="/about/ourPurpose/1.jpg" alt="Image" className={styles.image} />
+              <img src="/about/ourPurpose/1.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -159,7 +159,7 @@ const OurPurpose = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer2}>
-              <Image src="/about/ourPurpose/3.jpg" alt="Image" className={styles.image} />
+              <img src="/about/ourPurpose/3.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>

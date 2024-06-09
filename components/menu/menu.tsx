@@ -33,6 +33,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
   });
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -70,6 +72,15 @@ const Menu: React.FC<MenuProps> = ({color}) => {
     setActiveItem(hoveredItem); 
   }, [hoveredItem]);
 
+  const handleImageWidth = () => {
+    if (isTabletOrBelow) {
+      return 60
+    } else {
+      return 70
+   }
+  }
+  
+
   return (
     <>
       <div className={styles.menuButton}>
@@ -90,7 +101,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                 <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
               )}
               <a href="/">
-                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
+                <img className={styles.logo} src="/engenious.png" alt="engenious logo" />
               </a>
               <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainer}>

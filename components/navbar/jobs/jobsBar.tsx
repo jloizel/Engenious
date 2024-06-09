@@ -106,6 +106,8 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
+  const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
+
 
   const setDisplay = () => {
     return isMobile ? 'none' : '';
@@ -115,6 +117,14 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
     return isTabletOrAbove ? 'none' : '';
   };
 
+  const handleImageWidth = () => {
+    if (isTabletOrBelow) {
+      return 60
+    } else {
+      return 70
+   }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.left}>
@@ -123,7 +133,7 @@ const JobsBar: React.FC<JobsBarProps> = ({ locations, positions, onSelect, setSe
         </div>
         <div className={styles.home}>
           <a href="/">
-            <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
+            <img className={styles.logo} src="/engenious.png" alt="engenious logo"  />
           </a>
           <a href="/" className={styles.titleLink} style={{ color: "#00617C" }}>
             <div className={styles.companyNameContainer}>

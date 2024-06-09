@@ -84,7 +84,7 @@ const OurTeam = () => {
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <Image src="/about/ourTeam/1.jpg" alt="Image" className={styles.headerImage} />
+            <img src="/about/ourTeam/1.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>

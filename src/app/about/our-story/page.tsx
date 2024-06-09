@@ -108,7 +108,7 @@ const OurStory = () => {
             </div> */}
           </div>
           <div className={styles.imageContainer1}>
-            <Image src="/about/ourStory/4.jpg" alt="Image" className={styles.image} />
+            <img src="/about/ourStory/4.jpg" alt="Image" className={styles.image} />
           </div>
           <div className={styles.textContainer}>
             <div className={styles.text1}>
@@ -133,7 +133,7 @@ const OurStory = () => {
             </div>
           </div>
           <div className={styles.imageContainer2}>
-            <Image src="/about/ourStory/2.jpg" alt="Image" className={styles.image} />
+            <img src="/about/ourStory/2.jpg" alt="Image" className={styles.image} />
           </div>
         </div>
       </Box>

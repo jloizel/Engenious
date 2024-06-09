@@ -66,15 +66,15 @@ const About = () => {
 
   return (
     <div className={styles.aboutContainer}>
-      <Helmet>
+      {/* <Helmet>
         <title>About</title>
         <meta name='description' content='' />
-      </Helmet>
+      </Helmet> */}
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.aboutContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <Image src="./about/header.jpg" alt="Image" className={styles.headerImage} />
+            <img src="./about/header.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
@@ -89,7 +89,7 @@ const About = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer1}>
-              <Image src="/about/1.jpg" alt="Image" className={styles.image} />
+              <img src="/about/1.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -110,7 +110,7 @@ const About = () => {
         <Box>
           <div className={`${styles.aboutBox} ${styles.reverse}`} style={{background: "#EFF0F0"}}>
             <div className={styles.imageContainer1}>
-              <Image src="/about/2.jpg" alt="Image" className={styles.image} />
+              <img src="/about/2.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -131,7 +131,7 @@ const About = () => {
         <Box>
           <div className={styles.aboutBox}>
             <div className={styles.imageContainer1}>
-              <Image src="/about/3.jpg" alt="Image" className={styles.image} />
+              <img src="/about/3.jpg" alt="Image" className={styles.image} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -152,7 +152,7 @@ const About = () => {
         <Box>
           <div className={styles.aboutBox} style={{background:'#008489'}}>
             <div className={styles.imageContainer2}>
-              <Image src="/about/team.jpg" alt="Image" className={styles.image2} />
+              <img src="/about/team.jpg" alt="Image" className={styles.image2} />
             </div>
             <div className={styles.textContainer}>
               <div className={styles.header}>

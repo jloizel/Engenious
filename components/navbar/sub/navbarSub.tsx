@@ -37,6 +37,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
+  const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
 
   const setDisplay  = () => {
     if (isMobile) {
@@ -54,6 +55,14 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
     }
   }; 
 
+  const handleImageWidth = () => {
+    if (isTabletOrBelow) {
+      return 60
+    } else {
+      return 70
+   }
+  }
+  
 
   return (
     <div className={styles.navbar}>
@@ -64,7 +73,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
           </div>
           <div className={styles.home}>
             <a href="/">
-              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" />
+              <img className={styles.logo} src="/engenious.png" alt="engenious logo"/>
             </a>
             <a href="/" className={styles.titleLink} style={{color: colour}}>
               <div className={styles.companyNameContainer}>
