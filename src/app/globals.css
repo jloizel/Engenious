@@ -16,10 +16,10 @@ body,
   {height: 100% !important; }
 
 #root {
-  height: 100% !important;
+  /* height: 100% !important; */
 }
 
-body { min-height: 100vh; }
+/* body { min-height: 100vh; } */
 
 .body {
   margin: 0; 
@@ -33,14 +33,14 @@ body { min-height: 100vh; }
 }
 
 .html, .body {
-  height: 100% !important;
+  /* height: 100% !important; */
 }
 
-.layout {
-  margin: 0; /* Reset margin */
-  padding: 0; /* Reset padding */
-  overflow: hidden; /* Ensure no content overflows and causes scrollbars */
-}
+/* .layout {
+  margin: 0;
+  padding: 0; 
+  overflow: hidden; 
+} */
 
 @media (max-width: 767px) {
 
