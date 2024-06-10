@@ -17,6 +17,15 @@ import { JobProvider } from "../../components/jobContext/jobContext";
 
 export default function Home() {
 
+  const clearCacheData = () => {
+    caches.keys().then((names) => {
+        names.forEach((name) => {
+            caches.delete(name);
+        });
+    });
+    alert("Complete Cache Cleared");
+};
+
   const theme = createTheme({
     breakpoints: {
       values: {
