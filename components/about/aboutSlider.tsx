@@ -89,10 +89,12 @@ const AboutSlider: React.FC = ({}) => {
       >
         {data.map((service, index) => (
           <SwiperSlide key={service.id} className={styles.swiperSlide}>
-            <div className={styles.container} >
-              <div className={styles.content}>
-                <div className={styles.title} style={{fontSize: handleTitleFontSize()}}>{service.title}</div>
-                <div className={styles.text} style={{fontSize: handleTextFontSize()}}>{service.text}</div>
+            <div className={styles.container} style={{alignContent: "center"}}>
+              <div className={styles.title} style={{fontSize: handleTitleFontSize()}}>
+                {service.title}
+              </div>
+              <div className={styles.text} style={{fontSize: handleTextFontSize()}}>
+                {service.text}
               </div>
               <div className={styles.buttonContainer}>
               </div>

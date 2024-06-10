@@ -158,12 +158,23 @@ const Testimonials: React.FC = ({}) => {
     }
   }
 
+  const customButtonStyles = {
+    color: 'red',
+    background: '#6F6B71',
+    borderRadius: '50%',
+    width: '50px',
+    height: '50px',
+  };
+
   return (
     <div className={styles.swiperContainer} style={{width: handleSwiperContainerWidth()}}>
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
-        navigation={true}
+        navigation={{
+          prevEl: '.swiper-button-prev-custom',
+          nextEl: '.swiper-button-next-custom',
+        }}
         initialSlide={1}
         spaceBetween={20}
         pagination={{
@@ -191,6 +202,8 @@ const Testimonials: React.FC = ({}) => {
             </div>
           </SwiperSlide>
         ))}
+        <div className="swiper-button-prev swiper-button-prev-custom" style={{...customButtonStyles, marginTop: isMobile ? '100px' : '80px'}}></div>
+        <div className="swiper-button-next swiper-button-next-custom" style={{...customButtonStyles, marginTop: isMobile ? '100px' : '80px'}}></div>
       </Swiper>
     </div>
   )

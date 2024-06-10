@@ -138,7 +138,7 @@ body,
   height: 6px !important;
 }
 
-.swiper-button-prev, .swiper-button-next {
+/* .swiper-button-prev, .swiper-button-next {
   color: red;
   background: #6F6B71;
   border-radius: 50% !important;
@@ -156,7 +156,7 @@ body,
   @media (min-width: 1024px) {
     margin-top: 100px !important;
   }
-}
+} */
 
 .swiper-button-prev::after,
 .swiper-button-next::after {
