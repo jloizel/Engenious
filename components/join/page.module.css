@@ -72,21 +72,19 @@
   margin-top: 30px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  padding: 2px 80px;
 
   @media (max-width: 767px) {
-    width: 300px;
     font-size: 16px;
     margin-bottom: 50px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    width: 300px;
     font-size: 18px;
     margin-bottom: 10px;
   }
 
   @media (min-width: 1024px) {
-    width: 300px;
     font-size: 18px;
   }
 }
