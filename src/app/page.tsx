@@ -76,7 +76,7 @@ export default function Home() {
             Talent Services Beyond Expectations.
           </div>
           <div className={styles.buttonContainer} style={{flexDirection: handleFlexDirection()}}>
-            <a href="/jobseekers" className={styles.bannerButton}>I am a jobseeker</a>
+            <a href="/jobs" className={styles.bannerButton}>I am a jobseeker</a>
             <a href="/employers" className={styles.bannerButton}>I am an employer</a>
           </div>
         </div>
