@@ -13,6 +13,7 @@ import Location from "../../components/location/location";
 import NavbarMain1 from "../../components/navbar/main/navbarMain1";
 import { Helmet } from 'react-helmet';
 import { JobProvider } from "../../components/jobContext/jobContext";
+import { useEffect } from "react";
 
 
 export default function Home() {
@@ -24,7 +25,11 @@ export default function Home() {
         });
     });
     alert("Complete Cache Cleared");
-};
+  };
+
+  useEffect(() => {
+    clearCacheData();
+  }, []);
 
   const theme = createTheme({
     breakpoints: {
