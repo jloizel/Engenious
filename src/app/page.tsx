@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "./page2.module.css";
 import ServicesSlider from "../../components/services/servicesSlider";
 import AboutSlider from "../../components/about/aboutSlider";
 import { createTheme, useMediaQuery } from "@mui/material";
