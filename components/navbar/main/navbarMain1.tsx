@@ -74,7 +74,7 @@ const NavbarMain1 = () => {
   }
 
   return (
-    <div className={styles.navbar}>
+    <div className={styles.navbar} style={{width: "100%"}}>
       <div className={styles.container}>
         <div className={styles.left} style={isMobile ? {width: "90%", alignItems: "center", justifyContent: "space-between", display: "flex"} : {alignItems: "center", display: "flex"}}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
