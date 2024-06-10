@@ -47,7 +47,6 @@ export default function Home() {
         <meta charSet="utf-8" />
         <title>Engenious</title>
         <link rel="canonical" href="http://mysite.com/example" />
-        <link rel="stylesheet" href="page.module.css"/>
       </Helmet>
       <NavbarMain1/>
       <section className={styles.banner}>
