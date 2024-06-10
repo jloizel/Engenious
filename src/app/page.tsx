@@ -43,6 +43,7 @@ export default function Home() {
   });
   
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleFlexDirection = () => {
@@ -50,6 +51,34 @@ export default function Home() {
       return "column"
     } else {
       return "row"
+    }
+  }
+
+  const handleTitleFontSize = () => {
+    if (isMobile) {
+      return "40px"
+    } else if (isTablet) {
+      return "50px"
+    } else {
+      return "70px"
+    }
+  }
+
+  const handleTitleLineHeight = () => {
+    if (isMobile) {
+      return "125%"
+    } else {
+      return "115%"
+    }
+  }
+
+  const handleTitlePadding = () => {
+    if (isMobile) {
+      return "60px"
+    } else if (isTablet) {
+      return "40px"
+    } else {
+      return "50px"
     }
   }
 
@@ -72,7 +101,7 @@ export default function Home() {
           <div className={styles.videoOverlay}></div>
         </div>
         <div className={styles.bannerContent}>
-          <div className={styles.title}>
+          <div className={styles.title} style={{fontSize: handleTitleFontSize(), lineHeight: handleTitleLineHeight(), paddingBottom: handleTitlePadding()}}>
             Talent Services Beyond Expectations.
           </div>
           <div className={styles.buttonContainer} style={{flexDirection: handleFlexDirection()}}>
