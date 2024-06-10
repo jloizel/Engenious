@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   background: #002D49;
+  padding-bottom: 50px !important;
 }
 
 .imageContainer {
@@ -76,7 +77,6 @@
 
   @media (max-width: 767px) {
     font-size: 16px;
-    margin-bottom: 50px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
