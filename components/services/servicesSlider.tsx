@@ -77,7 +77,7 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
     <Swiper
       slidesPerView={isTablet ? 3 : 2}
       centeredSlides={true}
-      spaceBetween={20}
+      spaceBetween={80}
       loop={false}
       pagination={{
         clickable: true

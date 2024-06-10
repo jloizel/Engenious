@@ -18,17 +18,17 @@ import { useEffect } from "react";
 
 export default function Home() {
 
-  const clearCacheData = () => {
-    caches.keys().then((names) => {
-        names.forEach((name) => {
-            caches.delete(name);
-        });
-    });
-  };
+  // const clearCacheData = () => {
+  //   caches.keys().then((names) => {
+  //       names.forEach((name) => {
+  //           caches.delete(name);
+  //       });
+  //   });
+  // };
 
-  useEffect(() => {
-    clearCacheData();
-  }, []);
+  // useEffect(() => {
+  //   clearCacheData();
+  // }, []);
 
   const theme = createTheme({
     breakpoints: {
