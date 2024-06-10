@@ -19,6 +19,7 @@ const Join: React.FC = ({}) => {
   });
   
   const isMobile = useMediaQuery+(theme.breakpoints.down('sm'));
+  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -30,13 +31,31 @@ const Join: React.FC = ({}) => {
     }
   }
 
+  const handleQuoteFontSize = () => {
+    if (isMobile) {
+      return "24px"
+    } else if (isTablet) {
+      return "26px"
+    } else {
+      return "35px"
+    }
+  }
+
+  const handleButtonFontSize = () => {
+    if (isMobile) {
+      return "16px"
+    } else {
+      return "18px"
+    }
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.imageContainer}>
         <Image src="/pics.png" alt="Images" className={styles.image} width={handleImageWidth()} height={handleImageWidth()}/>
       </div>
       <div className={styles.textContainer}>
-        <div className={styles.quote}>
+        <div className={styles.quote} style={{fontSize: handleQuoteFontSize()}}>
           &apos;Enter some kind of quote here.&apos;
         </div>
         <div className={styles.quoter}>
@@ -46,7 +65,7 @@ const Join: React.FC = ({}) => {
           At Engenious Recruitment, our priority is our people, enabling them to excel and reach new heights. Join our team, and together, we&apos;ll surpass expectations and redefine success
         </div>
         <a href="about/our-team" style={{textDecoration: "none"}}>
-          <button className={styles.button}>Meet the team</button>
+          <button className={styles.button} style={{fontSize: handleButtonFontSize()}}>Meet the team</button>
         </a>
       </div>
     </div>
