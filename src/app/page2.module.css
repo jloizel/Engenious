@@ -156,26 +156,20 @@
   color: #002D49;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
+  line-height: 125%;
+  margin-top: 40px;
+  margin-bottom: 20px;
 
   @media (max-width: 460px) {
     font-size: 22px;
-    line-height: 125%;
-    margin-top: 40px;
-    margin-bottom: 20px;
   }
   
   @media (min-width: 461px) and (max-width: 1023px) {
     font-size: 30px;
-    line-height: 125%;
-    margin-top: 40px;
-    margin-bottom: 20px;
   }
   
   @media (min-width: 1024px) {
     font-size: 45px;
-    line-height: 125%;
-    margin-top: 40px;
-    margin-bottom: 20px;
   }
 }
 

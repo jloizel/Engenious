@@ -82,6 +82,16 @@ export default function Home() {
     }
   }
 
+  const handleHeaderFontSize = () => {
+    if (isMobile) {
+      return "22px"
+    } else if (isTablet) {
+      return "30px"
+    } else {
+      return "45px"
+    }
+  }
+
   return (
     <JobProvider>
     <div className={styles.app}>
@@ -112,7 +122,7 @@ export default function Home() {
       </section>
       <section className={styles.services}>
         <div className={styles.servicesContent}>
-          <div className={styles.header}>
+          <div className={styles.header} style={{lineHeight: "125%", marginTop: "40px", marginBottom: "20px", fontSize: handleHeaderFontSize()}}>
             <span >A range of </span>
             <span style={{color: "#008489"}}>Talent Services..</span>
           </div>
