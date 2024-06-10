@@ -1,11 +1,11 @@
 /* general */
 
 .navbar {
-  width: 100%;
+  width: 100% ;
   z-index: 1000;
   overflow: hidden;
-  height: 80px;
-  justify-content: center;
+  /* height: 80px; */
+  /* justify-content: center; */
   position: absolute;
 }
 

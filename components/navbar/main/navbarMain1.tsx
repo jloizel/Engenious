@@ -76,7 +76,7 @@ const NavbarMain1 = () => {
   return (
     <div className={styles.navbar}>
       <div className={styles.container}>
-        <div className={styles.left}>
+        <div className={styles.left} style={isMobile ? {width: "90%", alignItems: "center", justifyContent: "space-between", display: "flex"} : {alignItems: "center", display: "flex"}}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
             <Menu color={"white"}/>
           </div>
@@ -94,7 +94,7 @@ const NavbarMain1 = () => {
           <div className={styles.menu2} style={{display: setDisplay2()}}>
             <Menu color={"white"}/>
           </div>
-          </div>
+        </div>
         <div className={styles.middle} style={{display: setDisplay()}}>
           <div className={styles.links}>
               {links.map(link => (
