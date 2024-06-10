@@ -132,6 +132,7 @@
   width: 100%;
 
   @media (min-width: 768px) and (max-width: 1023px) {
+    /* column-gap: 80px; */
     gap: 35px;
   }
   
@@ -189,9 +190,13 @@
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 35px !important;
+
   }
   
   @media (min-width: 1024px) {
     font-size: 25px !important;
   }
 }
+
+
+
