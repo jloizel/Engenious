@@ -70,7 +70,42 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
     },
   });
 
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+
+  const handleContainerPadding = () => {
+    if (isMobile || isTablet) {
+      return "25px 25px"
+    } else {
+      return "40px 25px"
+    }
+  }
+
+  const handleTitleFontSize = () => {
+    if (isMobile) {
+      return "24px"
+    } else {
+      return "26px"
+    }
+  }
+
+  const handleTextFontSize = () => {
+    if (isMobile) {
+      return "14px"
+    } else if (isTablet) {
+      return "15px"
+    } else {
+      return "16px"
+    }
+  }
+
+  const handleButtonFontSize = () => {
+    if (isMobile || isTablet) {
+      return "14px"
+    } else {
+      return "16px"
+    }
+  }
 
   return (
     <div className={styles.swiperContainer}>
@@ -91,15 +126,18 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
             className={styles.container}
             onMouseEnter={() => setHoveredItem(service.id)}
             onMouseLeave={() => setHoveredItem(null)}
-            id={service.id}>
+            id={service.id}
+            style={{padding: handleContainerPadding()}}>
             <div className={styles.content}>
-              <div className={styles.title}>{service.title}</div>
-              <div className={styles.text}>{service.text}</div>
+              <div className={styles.title} style={{fontSize: handleTitleFontSize()}}>{service.title}</div>
+              <div className={styles.text} style={{fontSize: handleTextFontSize()}}>{service.text}</div>
             </div>
             <div className={styles.buttonContainer} style={{textDecoration: "none"}}>
               <button 
                 className={`${styles.button} ${hoveredItem === service.id ? styles.buttonActive : ''}`}
-                id={service.id}>
+                id={service.id}
+                style={{fontSize: handleButtonFontSize()}}
+                >
                 Learn More <KeyboardArrowRightIcon className={styles.arrow}/>
               </button>
             </div>

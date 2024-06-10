@@ -92,13 +92,32 @@ export default function Home() {
     }
   }
 
+  const handleButtonFontSize = () => {
+    if (isMobile) {
+      return "16px"
+    } else {
+      return "18px"
+    }
+  }
+
+  
+  const handleButtonWidth = () => {
+    if (isMobile) {
+      return "300px"
+    } else {
+      return "350px"
+    }
+  }
+
+  
+
   return (
     <JobProvider>
     <div className={styles.app}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Engenious</title>
-        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1"/> */}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1"/>
         <link rel="canonical" href="http://mysite.com/example" />
         <link rel="stylesheet" type="text/css" href="page.module.css"/>
       </Helmet>
@@ -114,7 +133,7 @@ export default function Home() {
           <div className={styles.title} style={{fontSize: handleTitleFontSize(), lineHeight: handleTitleLineHeight(), paddingBottom: handleTitlePadding()}}>
             Talent Services Beyond Expectations.
           </div>
-          <div className={styles.buttonContainer} style={{flexDirection: handleFlexDirection()}}>
+          <div className={styles.buttonContainer} style={{flexDirection: handleFlexDirection(), gap: "25px"}}>
             <a href="/jobs" className={styles.bannerButton}>I am a jobseeker</a>
             <a href="/employers" className={styles.bannerButton}>I am an employer</a>
           </div>
@@ -132,14 +151,14 @@ export default function Home() {
       </section>
       <section className={styles.about}>
         <div className={styles.aboutContent}>
-          <div className={styles.header} style={{display: "flex", flexDirection: "column"}}>
+          <div className={styles.header} style={{display: "flex", flexDirection: "column", fontSize: handleHeaderFontSize(), lineHeight: "125%", marginTop: "40px", marginBottom: "20px"}}>
             <span>Investing time in people; </span>
             <span style={{color: "#008489"}}>it&apos;s in our DNA.</span>
           </div>
         </div>
         { isComputer ? <About/> : <AboutSlider/> }
         <a href="/about" style={{textDecoration: "none"}}>
-          <button className={styles.aboutButton}>
+          <button className={styles.aboutButton} style={{fontSize: handleButtonFontSize(), width: handleButtonWidth()}}>
             Learn more about us
           </button>
         </a>
@@ -147,7 +166,7 @@ export default function Home() {
       <Join/>
       <section className={styles.testimonials}>
         <div className={styles.testimonialsContent}>
-          <div className={styles.header}>
+          <div className={styles.header} style={{lineHeight: "125%", marginTop: "40px", marginBottom: "20px", fontSize: handleHeaderFontSize()}}>
             <span style={{color: "#008489"}}>Talented people </span>
             <span >are at the centre of everything we do.</span>
           </div>

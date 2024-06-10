@@ -54,6 +54,24 @@ const AboutSlider: React.FC = ({}) => {
   });
 
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const handleTitleFontSize = () => {
+    if (isMobile) {
+      return "50px"
+    } else {
+      return "40px"
+    }
+  }
+
+  const handleTextFontSize = () => {
+    if (isMobile) {
+      return "18px"
+    } else {
+      return "20px"
+    }
+  }
+
 
   return (
     <div className={styles.swiperContainer}>
@@ -73,8 +91,8 @@ const AboutSlider: React.FC = ({}) => {
           <SwiperSlide key={service.id} className={styles.swiperSlide}>
             <div className={styles.container} >
               <div className={styles.content}>
-                <div className={styles.title}>{service.title}</div>
-                <div className={styles.text}>{service.text}</div>
+                <div className={styles.title} style={{fontSize: handleTitleFontSize()}}>{service.title}</div>
+                <div className={styles.text} style={{fontSize: handleTextFontSize()}}>{service.text}</div>
               </div>
               <div className={styles.buttonContainer}>
               </div>
