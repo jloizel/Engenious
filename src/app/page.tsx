@@ -24,7 +24,6 @@ export default function Home() {
             caches.delete(name);
         });
     });
-    alert("Complete Cache Cleared");
   };
 
   useEffect(() => {
