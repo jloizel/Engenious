@@ -12,14 +12,14 @@ body,
   text-size-adjust: 100%;
 }
 
-/* [data-reactroot] 
-  {height: 100% !important; } */
+[data-reactroot] 
+  {height: 100% !important; }
 
 #root {
-  /* height: 100% !important; */
+  height: 100% !important;
 }
 
-/* body { min-height: 100vh; } */
+body { min-height: 100vh; }
 
 .body {
   margin: 0; 
@@ -33,14 +33,14 @@ body,
 }
 
 .html, .body {
-  /* height: 100% !important; */
+  height: 100% !important;
 }
 
-/* .layout {
+.layout {
   margin: 0;
   padding: 0; 
   overflow: hidden; 
-} */
+}
 
 @media (max-width: 767px) {
 
