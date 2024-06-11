@@ -1,22 +1,132 @@
 .swiper {
   width: 100%;
   height: 100%;
+  padding-bottom: 60px; /*distance to bullets*/
 }
 
 .swiperSlide {
   text-align: center;
   font-size: 18px;
   background: #fff;
-
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 60%;
+  align-self: center;
 }
 
-.swiperSlide img {
-  display: block;
+.jobsContainer {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+
+  @media (min-width: 768px) {
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+.jobCardsContainer {
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 40px 0px;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.leftIcon {
+  font-family: "Poppins", sans-serif;
+  color: #005773;
+  font-size: 24px;
+  
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+.leftText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #005773;
+  font-size: 24px;
+  
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+}
+
+.viewAllButton {
+  border: none;
+  background-color: #EBEBEB;
+  color: #005773;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+} 
+
+.viewAllButtonMobile {
+  border: none;
+  background-color: #005773;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 14px 100px;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  justify-content: center;
+  font-size: 16px;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.viewAllButton:hover {
+  background: #005773;
+  color: white;
+}
+
+.viewAllButtonMobile:hover {
+  background: #008489;
+  color: white;
+}
+
+.searchIcon {
+  font-size: 16px;
+}
+
+.searchIconMobile {
+  font-size: 18px;
+  color: white;
 }

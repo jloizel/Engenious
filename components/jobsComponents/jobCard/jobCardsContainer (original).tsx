@@ -4,7 +4,6 @@ import styles from "./page.module.css";
 import { HiSquare3Stack3D } from "react-icons/hi2";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Box, Skeleton, createTheme, useMediaQuery } from "@mui/material";
-import JobCardsSlider from "./jobCardsSlider";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -120,7 +119,7 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
               slidesPerView={2}
               centeredSlides={true}
               initialSlide={1}
-              spaceBetween={20}
+              spaceBetween={40}
               pagination={{
                 clickable: true,
               }}

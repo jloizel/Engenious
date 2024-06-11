@@ -55,35 +55,34 @@ const JobCard: React.FC<JobProps> = (props) => {
 
   return (
     <div className={styles.container} onClick={handleCardClick}>
-      {/* <div className="logo">
-        <Image src={icon} alt="" />
-      </div> */}
-      <div className={styles.position}>{position}</div>
-      <div className={styles.jobInfo}>
-        <span><GoLocation className={styles.icon}/> {location}</span>
-        <span><LuClock3 className={styles.icon}/>{contractType}</span>
-        <span><GiMoneyStack className={styles.icon}/>{salary}</span>
-      </div>
-      <div className={styles.bottomInfo}>
-        <div className={styles.bottomInfoLeft}>
-          {/* {props.data.new && <span className={styles.new}>new</span>} */}
-          {daysAgo < 3 && <span className={styles.new}>new</span>}
-          <span className={styles.postedDate}>{daysAgo} days ago</span>
+      <div className={styles.content}>
+        <div className={styles.position}>{position}</div>
+        <div className={styles.jobInfo}>
+          <span><GoLocation className={styles.icon}/> {location}</span>
+          <span><LuClock3 className={styles.icon}/>{contractType}</span>
+          <span><GiMoneyStack className={styles.icon}/>{salary}</span>
         </div>
-        <a className={styles.buttonContainer}>
-          <button className={styles.button}>
-            View <KeyboardArrowRightIcon/>
-          </button>
-        </a>
+        <div className={styles.bottomInfo}>
+          <div className={styles.bottomInfoLeft}>
+            {/* {props.data.new && <span className={styles.new}>new</span>} */}
+            {daysAgo < 3 && <span className={styles.new}>new</span>}
+            <span className={styles.postedDate}>{daysAgo} days ago</span>
+          </div>
+          <a className={styles.buttonContainer}>
+            <button className={styles.button}>
+              View <KeyboardArrowRightIcon/>
+            </button>
+          </a>
+        </div>
+          
+        {/* <div className={styles.tags}>
+          {keywords.map((key, id) => (
+            <span onClick={() => props.setkeywords(key)} key={id} className={styles.tag}>
+              {key}
+            </span>
+          ))}
+        </div> */}
       </div>
-        
-      {/* <div className={styles.tags}>
-        {keywords.map((key, id) => (
-          <span onClick={() => props.setkeywords(key)} key={id} className={styles.tag}>
-            {key}
-          </span>
-        ))}
-      </div> */}
     </div>
   );
 };

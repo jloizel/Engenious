@@ -3,18 +3,25 @@
   box-shadow: 0px 0px 8px 0px rgba(62, 53, 82, 0.16);
   border-radius: 8px;
   background-color: white;
-  padding: 20px;
+  /* padding: 20px; */
   flex-direction: column;
   display: flex;
-  min-height: 200px;
+  height: 200px;
   border: 1px solid #EFF0F0;
   position: relative;
   transition: box-shadow 0.3s ease;
-  width: 280px;
+  width: 100%;
 
   @media (min-width: 768px) {
     width: 340px;
   }
+}
+
+.content {
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .container:hover {
@@ -141,11 +148,3 @@
   color: #005773;
   /* font-weight: 400; */
 }
-
-
-
-
-
-
-
-
