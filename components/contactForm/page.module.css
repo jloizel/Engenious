@@ -3,10 +3,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-
-  @media (max-width: 767px) {
-    gap: 20px;
-  } 
+  gap: 20px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     gap: 10px;
@@ -47,22 +44,12 @@
   border: none;
   font-weight: 300;
   font-family: "Poppins", sans-serif;
+  font-size: 25px;
+  padding: 10px;
+  width: 100%;
 
-  @media (max-width: 767px) {
-    font-size: 25px;
-    padding: 10px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 25px;
+  @media (min-width: 768px) {
     line-height: 50px;
-    padding: 10px;
-  }
-  
-  @media (min-width: 1024px) {
-    font-size: 25px;
-    line-height: 50px;
-    padding: 10px;
   }
 }
 
@@ -71,16 +58,9 @@
   border: none;
   width: 100%;
   display: flex;
+  min-height: 200px;
 
-  @media (max-width: 767px) {
-    min-height: 200px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    min-height: 250px;
-  }
-  
-  @media (min-width: 1024px) {
+  @media (min-width: 768px)  {
     min-height: 250px;
   }
 }
@@ -93,22 +73,11 @@
   font-weight: 300;
   font-family: "Poppins", sans-serif;
   justify-self: start;
+  padding: 10px;
+  font-size: 18px;
+  min-height: 200px;
 
-  @media (max-width: 767px) {
-    padding: 10px;
-    font-size: 18px;
-    min-height: 200px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 10px;    
-    font-size: 18px;
-    line-height: 50px;
-  }
-  
-  @media (min-width: 1024px) {
-    padding: 10px;    
-    font-size: 18px;
+  @media (min-width: 768px) {
     line-height: 50px;
   }
 }
@@ -116,21 +85,11 @@
 .checkboxContainer {
   display: flex;
   flex-direction: row;
-
-  @media (max-width: 767px) {
-    gap: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    gap: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 
   @media (min-width: 1024px) {
-    gap: 10px;
     margin-bottom: 20px;
     margin-top: 20px;
   }
@@ -141,18 +100,7 @@
   text-align: left;
   width: 100%;
   font-family: "Poppins", sans-serif;
-
-  @media (max-width: 767px) {
-    margin-top: 5px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    margin-top: 5px;
-  }
-
-  @media (min-width: 1024px) {
-    margin-top: 5px;
-  }
+  margin-top: 5px;
 }
 
 .error {
@@ -177,23 +125,12 @@
   font-family: "Poppins", sans-serif;
   transition: all 0.3s ease-in-out;
   border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 
-  @media (max-width: 767px) {
-    font-size: 16px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) {
     font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 20px;
-    margin-top: 20px;
-    margin-bottom: 20px;
   }
 }
 
@@ -204,25 +141,17 @@
 .successMessageContainer {
   width: 100%;
   text-align: center;
-  
-  @media (max-width: 767px) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
 }
 
 .successMessage {
   font-weight: 300;
   font-family: "Poppins", sans-serif;
-  
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
+  font-size: 16px;
+  margin-bottom: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 18px;
-    margin-bottom: 20px;
   }
   
   @media (min-width: 1024px) {
@@ -261,16 +190,9 @@
 
 .privacyPolicy {
   font-weight: 500;
+  font-size: 13px !important;
 
-  @media (max-width: 767px) {
-    font-size: 13px !important;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 14px !important;
-  }
-
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 14px !important;
   }
 }

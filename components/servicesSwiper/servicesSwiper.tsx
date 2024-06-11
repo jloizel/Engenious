@@ -67,6 +67,7 @@ const ServicesSwiper: React.FC = () => {
           <div className={styles.container}>
             <div className={styles.imageContainer2}>
               <img src="/employers/ourServices/2.jpg" alt="Image" className={styles.image}/>
+              <HiOutlineArrowLongRight className={styles.arrow3}/>
             </div>
             <div className={styles.textContainer}>
               <div className={styles.content}>

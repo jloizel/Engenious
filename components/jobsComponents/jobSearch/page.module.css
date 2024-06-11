@@ -8,11 +8,8 @@
   width: 100%;
   display: flex;
   flex-direction: row;
-
-  @media (max-width: 767px) {
-    align-items: center;
-    justify-content: center;
-  }
+  align-items: center;
+  justify-content: center;
 }
 
 .left {
@@ -232,16 +229,9 @@
 
 .selectedJobInfoContainer {
   width: 90%;
-
-  @media (max-width: 767px) {
-    align-self: center;
-    overflow-y: auto;
-    min-height: 100%;
-  }
-  
-  @media (min-width: 768px) {
-    /* width: 90%; */
-  }
+  align-self: center;
+  /* overflow-y: auto; */
+  min-height: 100%;
 }
 
 .selectedJobInfoContainer::-webkit-scrollbar {
@@ -307,11 +297,8 @@
 
 .selectedJobDataHeader {
   font-weight: 600;
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    margin-top: 20px;
-  }
+  font-size: 14px;
+  margin-top: 20px;
   
   @media (min-width: 768px) {
     font-size: 16px;
@@ -321,11 +308,8 @@
 
 .selectedJobDataDescription {
   font-weight: 400;
-
-  @media (max-width: 767px) {
-    font-size: 13px;
-    margin-top: 10px;
-  }
+  font-size: 13px;
+  margin-top: 10px;
   
   @media (min-width: 768px) {
     font-size: 15px;
@@ -340,10 +324,7 @@
 }
 
 .selectedJobData li {
-
-  @media (max-width: 767px) {
-    font-size: 13px;
-  }
+  font-size: 13px;
   
   @media (min-width: 768px) {
     font-size: 15px;
@@ -359,11 +340,8 @@
 
 .jobBottomInfo span {
   font-weight: 400;
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    margin-top: 20px;
-  }
+  font-size: 14px;
+  margin-top: 20px;
   
   @media (min-width: 768px) {
     font-size: 16px;
@@ -373,11 +351,7 @@
 
 .jobBottomInfo div {
   font-weight: 600;
-  font-size: 16px;
-  
-  @media (max-width: 767px) {
-    font-size: 14px;
-  }
+  font-size: 14px;
   
   @media (min-width: 768px) {
     font-size: 16px;

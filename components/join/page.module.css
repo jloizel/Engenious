@@ -13,7 +13,6 @@
 .textContainer {
   padding: 0 30px;
   
-  
   @media (min-width: 768px) and (max-width: 1023px) {
     padding-right: 30px;
   }

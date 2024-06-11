@@ -33,15 +33,10 @@
 .buttonContainer {
   display: flex;
   flex-direction: row;
-
-  @media (max-width: 767px) {
-    /* width: 100%; */
-    align-self: flex-start;
-    margin-left: 12px;
-  }
+  align-self: flex-start;
+  margin-left: 12px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    align-self: flex-start;
     margin-left: 35px;
     margin-top: 20px;
   }
@@ -49,16 +44,14 @@
   @media (min-width: 1024px) {
     width: 100%;
     align-items: center;
+    align-self: auto;
   }
 }
 
 .button:hover {
   background-color: #ececec1c;
   border-radius: 10px;
-
-  @media (max-width: 767px) {
-    color: #002D49;
-  }
+  color: #002D49;
   
   @media (min-width: 768px) {
     color: white;
@@ -76,40 +69,26 @@
   align-items: center;
   border-radius: 10px;
   transition: all 0.3s ease-in-out;
-
-  @media (max-width: 767px) {
-    color: #002D49;
-    font-size: 16px;
-    align-self: flex-start;
-    padding: 0;
-    margin-bottom: 10px;
-  }
+  color: #002D49;
+  font-size: 16px;
+  align-self: flex-start;
+  padding: 0;
+  margin-bottom: 10px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 0;
     margin-bottom: 20px;
-    color: #002D49;
-    font-size: 16px;
   }
   
   @media (min-width: 1024px) {
     font-size: 16px;
     color: white;
     padding: 10px;
-    margin-bottom: 10px;
   }
 }
 
 .icon {
   transform: rotate(180deg);
-  
-  @media (max-width: 767px) {
-    color: #002D49;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    color: #002D49;
-  }
+  color: #002D49;
   
   @media (min-width: 1024px) {
     font-size: 20px;

@@ -3,13 +3,10 @@
   display: flex;
   flex-direction: column;
   position: relative;
-
-  @media (max-width: 767px) {
-    gap: 20px;
-    width: 90%;
-    align-self: center;
-    height: 100%;
-  } 
+  gap: 20px;
+  width: 90%;
+  align-self: center;
+  height: 100%;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     gap: 10px;
@@ -55,17 +52,7 @@
 }
 
 .selectedJobInfoContainer {
-  /* width: 90%; */
-
-  @media (max-width: 767px) {
-    align-self: center;
-    /* overflow-y: auto; */
-    /* min-height: 100%; */
-  }
-  
-  @media (min-width: 768px) {
-    /* width: 90%; */
-  }
+  align-self: center;
 }
 
 .selectedJobInfoContainer::-webkit-scrollbar {
@@ -84,11 +71,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 20px;
-
-  @media (max-width: 767px) {
-    max-width: 100vw;
-  }
-
+  max-width: 100vw;
 }
 
 .selectedPosition {
@@ -134,11 +117,8 @@
 
 .selectedJobDataHeader {
   font-weight: 600;
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    margin-top: 20px;
-  }
+  font-size: 14px;
+  margin-top: 20px;
   
   @media (min-width: 768px) {
     font-size: 16px;
@@ -148,11 +128,8 @@
 
 .selectedJobDataDescription {
   font-weight: 400;
-
-  @media (max-width: 767px) {
-    font-size: 13px;
-    margin-top: 10px;
-  }
+  font-size: 13px;
+  margin-top: 10px;
   
   @media (min-width: 768px) {
     font-size: 15px;
@@ -167,10 +144,7 @@
 }
 
 .selectedJobData li {
-
-  @media (max-width: 767px) {
-    font-size: 13px;
-  }
+  font-size: 13px;
   
   @media (min-width: 768px) {
     font-size: 15px;
@@ -182,10 +156,7 @@
   flex-direction: column;
   gap: 20px;
   font-family: "Poppins", sans-serif;
-
-  @media (max-width: 767px) {
-    margin-bottom: 20px;
-  }
+  margin-bottom: 20px;
   
   @media (min-width: 768px) {
     margin-bottom: 50px;
@@ -194,11 +165,8 @@
 
 .jobBottomInfo span {
   font-weight: 400;
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    margin-top: 20px;
-  }
+  font-size: 14px;
+  margin-top: 20px;
   
   @media (min-width: 768px) {
     font-size: 16px;
@@ -208,11 +176,7 @@
 
 .jobBottomInfo div {
   font-weight: 600;
-  font-size: 16px;
-  
-  @media (max-width: 767px) {
-    font-size: 14px;
-  }
+  font-size: 14px;
   
   @media (min-width: 768px) {
     font-size: 16px;

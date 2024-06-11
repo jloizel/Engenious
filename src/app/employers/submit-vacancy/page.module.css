@@ -7,23 +7,12 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-
-  @media (max-width: 767px) {
-    padding: 50px 0;
-    line-height: 50px;
-    gap: 20px;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 50px 0;
-    line-height: 50px;
-    gap: 20px;
-  }
+  padding: 50px 0;
+  line-height: 50px;
+  gap: 20px;
   
   @media (min-width: 1024px) {
     padding: 70px 0;
-    line-height: 50px;
-    gap: 20px;
   }
 }
 
@@ -32,12 +21,8 @@
   color: white;
   font-family: "Poppins", sans-serif;
   background: #09B089;
-
-  @media (max-width: 767px) {
-    font-size: 40px;
-    padding: 10px 4px;
-
-  }
+  font-size: 40px;
+  padding: 10px 4px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 60px;
@@ -55,32 +40,25 @@
   color: white;
   font-family: "Poppins", sans-serif;
   text-align: center;
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    line-height: 22px;
-    width: 80%;
-  }
+  font-size: 14px;
+  line-height: 22px;
+  width: 80%;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 16px;
     line-height: 28px;
-    width: 80%;
   }
   
   @media (min-width: 1024px) {
     font-size: 20px;
     line-height: 30px;
-    width: 80%;
   }
 }
 
 .arrow {
   color: white;
-
-  @media (max-width: 767px) {
-    font-size: 40px;
-  }
+  font-size: 40px;
+  animation: up-down 1s ease infinite;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 60px;
@@ -89,8 +67,6 @@
   @media (min-width: 1024px) {
     font-size: 60px;
   }
-
-  animation: up-down 1s ease infinite;
 }
 
 @keyframes up-down {

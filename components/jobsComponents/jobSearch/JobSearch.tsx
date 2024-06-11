@@ -64,11 +64,15 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const [isMobileJobSelected, setIsMobileJobSelected] = useState(false);
   const [jobApplied, setJobApplied] = useState(false)
   const { setId } = useJobContext();
+  const selectedJobContainerRef = useRef<HTMLDivElement>(null);
 
   const handleJobClick = (jobId: number) => {
     setSelectedJobId(jobId);
     if (window.innerWidth <= 768) {
       setIsMobileJobSelected(true); // Show the right container on mobile when a job is selected
+    }
+    if (selectedJobContainerRef.current) {
+      selectedJobContainerRef.current.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -469,7 +473,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           )}
         </div>
         {isMobileJobSelected && isMobile && <div className={styles.overlay} onClick={handleCloseBar}></div>}
-        <div className={`${isMobile ? styles.mobileRightContainer : styles.right} ${isMobileJobSelected ? styles.slideUp : ''}`}>
+        <div className={`${isMobile ? styles.mobileRightContainer : styles.right} ${isMobileJobSelected ? styles.slideUp : ''}`} ref={selectedJobContainerRef}>
           {isMobile && (<div className={styles.dropdownClose} onClick={handleCloseBar}></div>)}
           {filteredData.length === 0 ? (
             <div className={styles.noSelectedJobFound}>
@@ -478,9 +482,9 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
               <span>No results were found for the applied filters, please try changing them or the search term.</span>
             </div>
           ) : (
-          <div className={`${isMobile ? styles.selectedJobMobileContainer : styles.selectedJobInfoContainer}`}>
+          <div className={`${isMobile ? styles.selectedJobMobileContainer : styles.selectedJobInfoContainer}`} >
             {selectedJobId && (
-              <div className={styles.selectedJobInfoContainer}>
+              <div className={styles.selectedJobInfoContainer} >
                 {filteredData.find((job) => job.id === selectedJobId) && (
                   <>
                     {filteredData.map((job) => {

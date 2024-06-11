@@ -78,15 +78,14 @@ const Contact = () => {
               </div>
             </div>
           )}
-          <div className={styles.contactForm}>
-            <ContactForm/>
-          </div>
+        <div className={styles.contactForm}>
+          <ContactForm/>
+        </div>
         </div>
         <div className={styles.contactMap}>
           <ContactMap/>
         </div>
       </div>
-      
     </div>
   )
 }

@@ -5,9 +5,10 @@
   border-bottom: 1px solid #d6d6d6;
   border-top: 1px solid #d6d6d6;
   position: relative;
+  background-color: #EFF0F0;
 
-  @media (max-width: 767px) {
-    background-color: #EFF0F0;
+  @media (min-width: 768px) {
+    background-color: white;
   }
 }
 
@@ -16,8 +17,10 @@
   display: flex;
   flex-direction: row;
   width: 90%;
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .container {
     overflow-x: auto;
   }
 }
@@ -84,8 +87,10 @@
 .contractTypeDropdownContainer {
   position: relative;
   display: inline-block;
+}
 
-  @media (max-width: 767px) {
+@media (max-width: 767px) {
+  .contractTypeDropdownContainer {
     min-width: fit-content;
   }
 }
@@ -100,12 +105,9 @@
   font-family: "Poppins", sans-serif;
   color: #002D49;
   align-items: center;
-
-  @media (max-width: 767px) {
-    width: 100%;
-    flex-direction: row;
-    background-color: white;
-  }
+  width: 100%;
+  flex-direction: row;
+  background-color: white;
 
   @media (min-width: 768px) {
     background-color: #EFF0F0;
@@ -214,10 +216,7 @@
 .clockIcon {
   transform: translateY(-1px);
   margin-right: 8px;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
+  font-size: 16px;
 }
 
 .arrow {
@@ -293,10 +292,7 @@
 
 .salaryRangeDropdownMenuTop {  
   overflow-y: auto;
-
-  @media (max-width: 767px) {
-    max-height: 400px;
-  }
+  max-height: 400px;
 
   @media (min-width: 768px) {
     max-height: 200px;

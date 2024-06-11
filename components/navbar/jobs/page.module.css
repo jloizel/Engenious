@@ -6,7 +6,7 @@
   align-items: center;
   position: relative;
   height: 100%;
-
+  
   @media (max-width: 767px) {
     /* width: 100%; */
     flex-direction: column;
@@ -26,20 +26,26 @@
   }
 }
 
+@media (max-width: 767px) {
+  .container {
+    flex-direction: column;
+    overflow: visible;
+  }
+}
+
 /* left side of navbar */
 
 .left {
   display: flex !important;  
   gap: 10px;
-
-  @media (max-width: 767px) {
-    width: 90%;
-    align-items: center;
-    justify-content: space-between;
-  }
+  width: 90%;
+  align-items: center;
+  justify-content: space-between;
 
   @media (min-width: 768px) {
     align-items: center;
+    justify-content: flex-start;
+    width: auto;
   }
 }
 
@@ -48,36 +54,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 767px) {
-    gap: 5px;
-  }
-
-  @media (min-width: 768px) {
-    gap: 5px;
-  }
+  gap: 5px;
 }
 
 .menu1 {
   background-color: rgba(12, 12, 12, 0.08);
   border-radius: 5px;
+  display: none;
 
-  @media (max-width: 767px) {
-    display: none;
+  @media (min-width: 768px) {
+    display: flex;
   }
 }
 
 .menu2 {
   height: 100%;
-  
-  @media (max-width: 767px) {
-    /* width: 100%; */
-    display: flex;
-    /* justify-content: flex-end; */
-    /* margin-right: -15px; */
-    /* align-items: flex-end; */
-    
-  }
+  display: flex;
 
   @media (min-width: 768px) {
     display: none;
@@ -86,15 +78,8 @@
 
 .logo {
   width: auto;
+  height: 60px;
 
-  @media (max-width: 767px) {
-    height: 60px;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    height: 60px;
-  }
-  
   @media (min-width: 1024px) {
     height: 70px;
   }
@@ -123,21 +108,17 @@
 }
 
 .searchMainContainer {
-  @media (max-width: 767px) {
-    width: 100%;
-    background: linear-gradient(147deg, rgba(0,45,73,1) 0%, rgba(0,87,115,1) 25%, rgba(0,132,137,1) 50%);
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  width: 100%;
+  background: linear-gradient(147deg, rgba(0,45,73,1) 0%, rgba(0,87,115,1) 25%, rgba(0,132,137,1) 50%);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    
-  }
-  
-  @media (min-width: 1024px) {
-    
+  @media (min-width: 768px)  {
+    background: white;
+    width: auto;
+    justify-content: flex-end;
   }
 }
 
@@ -155,14 +136,12 @@
   padding-right: 10px;
   transition: background-color 0.3s;
   position: relative;
-
-  @media (max-width: 767px) {
-    width: 80%;
-    justify-content: space-between;
-  }
+  width: 80%;
+  justify-content: space-between;
 
   @media (min-width: 768px) {
     justify-content: center;
+    width: auto;
   }
 }
 
@@ -177,10 +156,7 @@
   /* padding: 10px 20px; */
   justify-content: center;
   gap: 3px;
-
-  @media (max-width: 767px) {
-    width: 85%;
-  }
+  width: 85%;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 220px;
@@ -209,9 +185,6 @@
   font-family: inherit;
   padding: 0;
 
-  @media (max-width: 767px) {
-  }
-  
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 220px;
     font-size: 13px;
@@ -280,26 +253,20 @@
   text-align: left;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-
-  @media (max-width: 767px) {
-    top: 100%;
-    margin-left: 10px;
-    width: 85%;
-    margin-top: 5px;
-  }
+  top: 100%;
+  margin-left: 10px;
+  width: 85%;
+  margin-top: 5px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    top: 100%;
     margin-top: 10px;
     width: 230px;
-    margin-left: 10px;
+
   }
   
   @media (min-width: 1024px) {
     width: 360px;
     margin-top: 10px;
-    top: 100%;
-    margin-left: 10px;
   }
 }
 
@@ -344,10 +311,7 @@
   cursor: pointer;
   color: #002D49;
   font-size: 1.2rem;
-
-  @media (max-width: 767px) {
-    right: 60px;
-  }
+  right: 60px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     right: 280px;

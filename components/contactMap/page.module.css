@@ -4,11 +4,8 @@
   /* width: 100%; */
   padding: 20px 20px;
   display: flex;
-
-  @media (max-width: 767px) {
-    margin-top: 20px;
-    margin-bottom: 60px;
-  }
+  margin-top: 20px;
+  margin-bottom: 60px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     margin-bottom: 40px;
@@ -21,7 +18,6 @@
 
 .content {
   width: 100%;
-
 
   @media (min-width: 768px) and (max-width: 1023px) {
     display: flex;
@@ -39,15 +35,10 @@
 }
 
 .mapContainer {
-  
-
-  @media (max-width: 767px) {
-    height: 250px;
-  }
+  height: 250px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     order: 1;
-    height: 250px;
     width: 50%;
     /* width: 350px; */
   }
@@ -72,13 +63,9 @@
   flex-direction: column;
   align-items: flex-start;
   width: 50%;
-
-  @media (max-width: 767px) {
-    gap: 20px;
-  }
+  gap: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
-    gap: 20px;
     flex: 2;
   }
   
@@ -93,23 +80,17 @@
   font-weight: 700;
   background: #09B089;
   color: white;
-
-  @media (max-width: 767px) {
-    font-size: 20px;
-    padding: 2px 4px;
-    margin-top: 25px;
-  }
+  font-size: 20px;
+  padding: 2px 4px;
+  margin-top: 25px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 24px;
-    padding: 2px 4px;
-    margin-top: 25px;
   }
   
   @media (min-width: 1024px) {
     font-size: 36px;
     padding: 6px 8px;
-    margin-top: 25px;
   }
 }
 
@@ -137,30 +118,22 @@
 .icon {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 500;
-
-  @media (max-width: 767px) {
-    font-size: 18px;
-    margin-right: 10px;
-  }
+  font-size: 18px;
+  margin-right: 10px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px;
-    margin-right: 10px;
   }
   
   @media (min-width: 1024px) {
     font-size: 22px;
-    margin-right: 10px;
   }
 }
 
 .detail {
   font-family: 'Poppins', sans-serif !important;
   font-weight: 500;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
+  font-size: 16px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 16px;

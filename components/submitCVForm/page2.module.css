@@ -2,19 +2,14 @@
   align-items: center;
   display: flex;
   flex-direction: column;
-
-  @media (max-width: 767px) {
-    gap: 20px;
-    width: 100%;
-  } 
+  gap: 20px;
+  width: 100%;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     gap: 10px;
-    width: 100%;
   }
 
   @media (min-width: 1024px) {
-    gap: 20px;
     width: 1000px;
     background: white;
     padding: 30px;
@@ -26,6 +21,7 @@
 }
 
 .topContainer {
+
   @media (min-width: 1024px) {
     display: flex;
     flex-direction: row;
@@ -75,22 +71,16 @@
   width: 100%;
   border-radius: 4px;
   border: 1px solid #cccccc9a;
-
-  @media (max-width: 767px) {
-    font-size: 22px;
-    padding: 10px;
-  }
+  font-size: 22px;
+  padding: 10px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 22px;
     line-height: 50px;
-    padding: 10px;
   }
   
   @media (min-width: 1024px) {
     font-size: 20px;
     line-height: 35px;
-    padding: 10px;
   }
 }
 
@@ -100,17 +90,10 @@
   width: 100%;
   display: flex;
   border-radius: 4px;
-
-  @media (max-width: 767px) {
-    min-height: 200px;
-  }
+  min-height: 200px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     min-height: 250px;
-  }
-  
-  @media (min-width: 1024px) {
-    min-height: 200px;
   }
 }
 
@@ -124,23 +107,16 @@
   justify-self: start;
   border-radius: 4px;
   border: 1px solid #cccccc9a;
-
-  @media (max-width: 767px) {
-    padding: 10px;
-    font-size: 18px;
-    min-height: 200px;
-  }
+  padding: 10px;
+  font-size: 18px;
+  min-height: 200px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 10px;    
-    font-size: 18px;
     line-height: 50px;
     min-height: 230px;
   }
   
   @media (min-width: 1024px) {
-    padding: 10px;    
-    font-size: 18px;
     line-height: 22px;
     min-height: 200px;
   }
@@ -149,21 +125,11 @@
 .checkboxContainer {
   display: flex;
   flex-direction: row;
-
-  @media (max-width: 767px) {
-    gap: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    gap: 10px;
-    margin-bottom: 10px;
-    margin-top: 10px;
-  }
+  gap: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 
   @media (min-width: 1024px) {
-    gap: 10px;
     margin-bottom: 20px;
     margin-top: 20px;
   }
@@ -171,17 +137,10 @@
 
 .privacyPolicy {
   font-weight: 500;
+  font-size: 13px !important;
 
-  @media (max-width: 767px) {
-    font-size: 13px !important;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 14px !important;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 14px !important;
+  @media (min-width: 768px) {
+    font-size: 14px;
   }
 }
 
@@ -190,21 +149,8 @@
   text-align: left;
   width: 100%;
   font-family: "Poppins", sans-serif;
-
-  @media (max-width: 767px) {
-    margin-top: 5px;
-    font-size: 12px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    margin-top: 5px;
-    font-size: 12px;
-  }
-
-  @media (min-width: 1024px) {
-    margin-top: 5px;
-    font-size: 12px;
-  }
+  margin-top: 5px;
+  font-size: 12px;
 }
 
 .error {
@@ -228,25 +174,13 @@
   font-family: "Poppins", sans-serif;
   border-radius: 4px;
   transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 10px 45px;
 
-  @media (max-width: 767px) {
-    font-size: 16px;
-    margin-bottom: 20px;
-    margin-top: 20px;
-    padding: 10px 45px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) {
     font-size: 24px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 10px 80px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 24px;
-    margin-top: 20px;
-    margin-bottom: 20px;
     padding: 10px 80px;
   }
 }
@@ -254,26 +188,6 @@
 .button:hover {
   background-color: #008489;
 }
-
-/* .fileinputBox {
-  width: 100%;
-}
-
-.fileinputButton {
-  font-family: "Poppins", sans-serif;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 18px;
-  }
-} */
 
 .fileinputBox {
   display: flex;
@@ -296,46 +210,26 @@
   text-align: center;
   width: 100%; 
   font-family: "Poppins", sans-serif;
+  padding: 40px 0px;
 
-
-  @media (max-width: 767px) {
-    padding: 40px 0px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) {
     padding: 60px 0px;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 60px 0
   }
 }
 
 .fileLabel {
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-  }
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 14px;
-    
-  }
+  font-size: 14px;
 
   @media (min-width: 1024px) {
     font-size: 16px;
-    
   }
 }
 
 .fileName {
   font-weight: 600;
   color: black;
-
-  @media (max-width: 767px) {
-    font-size: 14px;
-    margin-top: 10px;
-  }
+  font-size: 14px;
+  margin-top: 10px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 24px;
@@ -356,11 +250,8 @@
 .successMessageContainer {
   width: 100%;
   text-align: center;
-  
-  @media (max-width: 767px) {
-    margin-bottom: 20px;
-    margin-top: 20px;
-  }
+  margin-bottom: 20px;
+  margin-top: 20px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     margin-bottom: 40px;
@@ -418,10 +309,7 @@
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   /* color: #002D49; */
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
+  font-size: 16px;
 
   @media (min-width: 768px) and (max-width: 1023px) { 
     font-size: 18px;  
