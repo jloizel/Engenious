@@ -175,7 +175,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               )}
             </div>
             <div className={styles.buttonContainer}>
-              <a href="/submit-vacancy" className={styles.button}>Find Talent</a>
+              <a href="/employers/submit-vacancy" className={styles.button}>Find Talent</a>
               <a href="/jobs" className={styles.button}>Find a Job</a>
             </div>
           </div>
