@@ -119,7 +119,7 @@ export default function Home() {
         <title>Engenious</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1"/>
         <link rel="canonical" href="http://mysite.com/example" />
-        <link rel="stylesheet" type="text/css" href="page.module.css"/>
+        <link rel="stylesheet" href="page.module.css"/>
       </Helmet>
       <NavbarMain1/>
       <section className={styles.banner}>
@@ -163,7 +163,9 @@ export default function Home() {
           </button>
         </a>
       </section>
-      <Join/>
+      <section className={styles.join}>
+        <Join/>
+      </section>
       <section className={styles.testimonials}>
         <div className={styles.testimonialsContent}>
           <div className={styles.header} style={{lineHeight: "125%", marginTop: "40px", marginBottom: "20px", fontSize: handleHeaderFontSize()}}>

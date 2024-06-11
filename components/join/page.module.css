@@ -1,10 +1,10 @@
 .container {
+  background: #002D49;
+  height: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #002D49;
-  padding-bottom: 50px !important;
 }
 
 .imageContainer {
@@ -14,15 +14,16 @@
 }
 
 .textContainer {
-  padding: 20px;
-  text-align: center;
-
   @media (max-width: 767px) {
-    width: 80%;
+    padding: 0 30px;
   }
   
-  @media (min-width: 768px) {
-    width: 100%;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding-right: 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    padding-right: 30px;
   }
 }
 
@@ -35,19 +36,21 @@
 
   @media (max-width: 767px) {
     font-size: 24px;
+    width: 70%;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
+    width: 75%;
     font-size: 26px;
   }
   
   @media (min-width: 1024px) {
+    width: 75%;
     font-size: 35px;
   }
 }
 
 .quoter, .text {
-  margin-top: 10px;
   color: white;
   font-weight: 300;
   font-family: "Poppins", sans-serif;
@@ -56,10 +59,14 @@
   @media (max-width: 1023px) {
     font-size: 16px;
   }
+
+  @media (min-width: 1024px) {
+
+  }
 }
 
-.text {
-  margin-top: 20px;
+.quoter {
+  padding: 20px 0;
 }
 
 .button {
@@ -93,17 +100,19 @@
   background-color: #008489;
 }
 
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row;
-  }
-  
-  .imageContainer, .textContainer {
-    width: 50%;
+.imageContainer {
+  display: flex;
+}
+
+.image {
+
+  @media (max-width: 1023px) {
+    width: 400px;
+    height: 400px;
   }
 
-  .textContainer {
-    text-align: left;
-    padding: 40px;
+  @media (min-width: 1024px) {
+    width: 600px;
+    height: 600px;
   }
 }
