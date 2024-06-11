@@ -45,7 +45,7 @@ const AboutSlider: React.FC = ({}) => {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 767,
+        sm: 768,
         md: 1024,
         lg: 1200,
         xl: 1536,
@@ -71,7 +71,6 @@ const AboutSlider: React.FC = ({}) => {
       return "20px"
     }
   }
-
 
   return (
     <div className={styles.swiperContainer}>

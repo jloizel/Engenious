@@ -1,6 +1,6 @@
 import React from 'react'
 // import styles from './page.module.css'
-import styles from './page.module.css'
+import styles from '../../src/app/css/join.module.css'
 import Image from 'next/image'
 import { createTheme, useMediaQuery } from '@mui/material';
 
@@ -10,7 +10,7 @@ const Join: React.FC = ({}) => {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 767,
+        sm: 768,
         md: 1024,
         lg: 1200,
         xl: 1536,

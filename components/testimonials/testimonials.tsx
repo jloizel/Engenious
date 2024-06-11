@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
+import { createTheme, useMediaQuery } from '@mui/material';
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -9,7 +10,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Navigation } from 'swiper/modules';
-import { createTheme, useMediaQuery } from '@mui/material';
 
 const Testimonials: React.FC = ({}) => {
   const [data, setData] = useState([

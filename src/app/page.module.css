@@ -1,16 +1,18 @@
-/* General App Styling */
 .app {
+  /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
 
-/* Banner Section */
+/* banner */
+
 .banner {
   position: relative;
   height: 700px;
   overflow: hidden;
   width: 100%;
+  opacity: 0.9; /* Adjust opacity as needed */
   background-color: black;
 }
 
@@ -19,9 +21,10 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 100%;
   object-fit: cover;
   z-index: 0;
+  width: 100%;
+  
 }
 
 .videoOverlay {
@@ -30,21 +33,36 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 10;
+  z-index: 10; /* Ensure the overlay appears above other elements */
+  opacity: 0.7; /* Adjust opacity as needed */
   background-color: black;
-  opacity: 0.7;
+
 }
 
 .bannerContent {
   position: absolute;
   z-index: 10;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
   justify-content: center;
-  width: 100%;
+  left: 0;
+  right: 0;
+  align-content: center;
   height: 100%;
   text-align: center;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 800px;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 800px;
+  }
 }
 
 .title {
@@ -54,32 +72,30 @@
 
   @media (max-width: 767px) {
     font-size: 40px;
-    margin-top: -30px;
     line-height: 125%;
     padding-bottom: 60px;
+    margin-top: -30px;
   }
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 50px;
-    margin-bottom: 40px;
     line-height: 115%;
+    margin-bottom: 40px;
   }
   
   @media (min-width: 1024px) {
     font-size: 70px;
-    margin-bottom: 50px;
-    width: 800px;
     line-height: 115%;
+    margin-bottom: 50px;
   }
 }
 
 .buttonContainer {
   display: flex;
-  gap: 25px !important;
-  flex-direction: column;
+  gap: 25px;
 
-  @media (min-width: 768px) {
-    flex-direction: row;
+  @media (max-width: 767px) {
+    flex-direction: column;
   }
 }
 
@@ -100,6 +116,10 @@
     font-size: 16px;
   }
   
+  @media (min-width: 768px) and (max-width: 1023px) {
+
+  }
+  
   @media (min-width: 1024px) {
     font-size: 18px;
   }
@@ -109,17 +129,20 @@
   background-color: #002D49;
 }
 
-/* Services, About, Testimonials Section */
-.services, .about, .testimonials {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: 40px 0;
-}
+/* services */
 
-.services {
-  background: #F9F9F9;
+.services, .about, .testimonials {
+  /* position: absolute; */
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: auto; */
+  justify-content: center;
+  left: 0;
+  right: 0;
+  align-content: center;
+  /* height: 100%; */
+  text-align: center;
 }
 
 .testimonials {
@@ -134,19 +157,26 @@
   color: #002D49;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
-  margin: 40px 0 20px;
-  line-height: 125%;
 
   @media (max-width: 767px) {
     font-size: 22px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 30px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
   
   @media (min-width: 1024px) {
     font-size: 45px;
+    line-height: 125%;
+    margin-top: 40px;
+    margin-bottom: 20px;
   }
 }
 
@@ -158,7 +188,7 @@
     font-size: 16px;
   }
   
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 16px;
   }
   
@@ -167,7 +197,13 @@
   }
 }
 
-/* About Section */
+/* about */
+
+.about {
+  flex-direction: column;
+  align-items: center;
+}
+
 .aboutButton {
   background: #09B089;
   border: none;
@@ -176,7 +212,8 @@
   font-weight: 800;
   font-family: "Poppins", sans-serif;
   line-height: 50px;
-  margin: 40px 0;
+  margin-top: 40px;
+  margin-bottom: 40px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 
@@ -193,18 +230,4 @@
 
 .aboutButton:hover {
   background-color: #008489;
-}
-
-/* Additional Styles */
-@media (min-width: 768px) {
-  .services, .about, .testimonials {
-    /* flex-direction: row; */
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-  }
-
-  .servicesContent, .aboutContent, .testimonialsContent {
-    width: 60%;
-  }
 }

@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import styles from "./page2.module.css";
+import styles from "./page.module.css";
 import ServicesSlider from "../../components/services/servicesSlider";
 import AboutSlider from "../../components/about/aboutSlider";
 import { createTheme, useMediaQuery } from "@mui/material";
@@ -13,28 +13,15 @@ import Location from "../../components/location/location";
 import NavbarMain1 from "../../components/navbar/main/navbarMain1";
 import { Helmet } from 'react-helmet';
 import { JobProvider } from "../../components/jobContext/jobContext";
-import { useEffect } from "react";
 
 
 export default function Home() {
-
-  // const clearCacheData = () => {
-  //   caches.keys().then((names) => {
-  //       names.forEach((name) => {
-  //           caches.delete(name);
-  //       });
-  //   });
-  // };
-
-  // useEffect(() => {
-  //   clearCacheData();
-  // }, []);
 
   const theme = createTheme({
     breakpoints: {
       values: {
         xs: 0,
-        sm: 767,
+        sm: 768,
         md: 1024,
         lg: 1200,
         xl: 1536,
@@ -109,17 +96,13 @@ export default function Home() {
     }
   }
 
-  
-
   return (
     <JobProvider>
     <div className={styles.app}>
       <Helmet>
         <meta charSet="utf-8" />
         <title>Engenious</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1"/>
         <link rel="canonical" href="http://mysite.com/example" />
-        <link rel="stylesheet" href="page.module.css"/>
       </Helmet>
       <NavbarMain1/>
       <section className={styles.banner}>

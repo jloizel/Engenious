@@ -24,7 +24,6 @@
   background-size: 100% 3px; /* Adjust the height of the line as needed */
   background-position: bottom;
   background-repeat: no-repeat;
-  justify-content: center;
 
   @media (min-width: 1024px) {
     width: 220px;
@@ -92,6 +91,14 @@
   @media (min-width: 1024px) {
     font-size: 20px !important;
   }
+}
+
+.buttonContainer {
+  /* margin-top: 20px;
+  position: absolute;
+  bottom: 20px; 
+  left: 50%;
+  transform: translateX(-50%); */
 }
 
 .button {

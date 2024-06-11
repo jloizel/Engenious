@@ -36,7 +36,7 @@ const NavbarMain1 = () => {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 767,
+        sm: 768,
         md: 1024,
         lg: 1200,
         xl: 1536,
@@ -136,7 +136,7 @@ const NavbarMain1 = () => {
           <div className={styles.menu2} style={{display: setDisplay2()}}>
             <Menu color={"white"}/>
           </div>
-        </div>
+          </div>
         <div className={styles.middle} style={{display: setDisplay()}}>
           <div className={styles.links}>
               {links.map(link => (

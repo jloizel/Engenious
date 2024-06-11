@@ -1,16 +1,17 @@
 /* general */
 
 .navbar {
-  width: 100% ;
+  width: 100%;
   z-index: 1000;
   overflow: hidden;
-  /* height: 80px; */
-  /* justify-content: center; */
+  height: 80px;
+  justify-content: center;
   position: absolute;
 }
 
 .container {
   display: flex;
+  justify-content: space-between;
   align-items: center;
   position: relative;
   height: 100%;
@@ -22,6 +23,7 @@
 
   @media (min-width: 768px) {
     justify-content: space-between;
+    align-items: center;
     margin-right: 10px;
     column-gap: 20px;
     margin-left: 10px;
@@ -33,11 +35,15 @@
 .left {
   display: flex !important;  
   gap: 10px;
-  align-items: center;
 
   @media (max-width: 767px) {
     width: 90%;
+    align-items: center;
     justify-content: space-between;
+  }
+
+  @media (min-width: 768px) {
+    align-items: center;
   }
 }
 

@@ -63,6 +63,11 @@
   transform: translateX(-50%) !important; /* Center horizontally */
 }
 
+
+.content {
+
+}
+
 .title {
   color: white;
   font-weight: 700;

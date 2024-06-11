@@ -12,7 +12,7 @@ const Footer: React.FC = ({}) => {
     breakpoints: {
       values: {
         xs: 0,
-        sm: 767,
+        sm: 768,
         md: 1024,
         lg: 1200,
         xl: 1536,
@@ -193,8 +193,7 @@ const Footer: React.FC = ({}) => {
             fontSize: handleHeaderFS(),
             marginTop: handleHeaderMargin(),
             padding: handleHeaderPadding()
-          }}
-          >
+          }}>
             Rise above all limitations.
           </div>
         )}
