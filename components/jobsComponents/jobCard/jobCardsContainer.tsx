@@ -105,9 +105,9 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
         ) : (
           isMobile ? (
             <Swiper
-              slidesPerView={1.1}
+              slidesPerView={1.2}
               centeredSlides={true}
-              spaceBetween={20}
+              spaceBetween={15}
               pagination={{
                 clickable: true,
               }}
