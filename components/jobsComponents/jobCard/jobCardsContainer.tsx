@@ -1,190 +1,39 @@
-import React, { useEffect, useState, useRef } from "react";
-import JobCard from "./jobCard";
-import styles from "./page.module.css";
-import { HiSquare3Stack3D } from "react-icons/hi2";
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Box, createTheme, useMediaQuery, Skeleton } from "@mui/material";
-import { useJobContext } from "../../jobContext/jobContext";
+import React, { useRef, useState } from 'react';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
 
-// Define the types for the job data
-interface JobCardData {
-  id: number;
-  position: string;
-  postedAt: string;
-  contractType: string;
-  location: string;
-  specialisation: string;
-  salary: string;
-}
+import styles from './page.module.css';
 
-// Define the types for the props
-interface JobsProps {
-  data: JobCardData[];
-  setKeywords: (keyword: string) => void;
-  showAllJobs: boolean;
-  handleButtonClick: () => void;
-  displayedText: string;
-  href: string;
-}
+// import required modules
+import { Pagination } from 'swiper/modules';
 
-const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs, handleButtonClick, displayedText, href }) => {
-  const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
-  const [loading, setLoading] = useState(true);
-  const { setId } = useJobContext();
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [selectedJobIndex, setSelectedJobIndex] = useState(0);
-  const [dragStartX, setDragStartX] = useState(0);
-  const [dragDistance, setDragDistance] = useState(0);
-
-  useEffect(() => {
-    setLoading(true);
-    const skeletonTimer = setTimeout(() => {
-      setLoading(false);
-    }, 200);
-    return () => clearTimeout(skeletonTimer);
-  }, []);
-
-  useEffect(() => {
-    if (!loading) {
-      if (showAllJobs) {
-        setVisibleJobs(data);
-      } else {
-        setVisibleJobs(data.slice(0, 6));
-      }
-    }
-  }, [loading, showAllJobs, data]);
-
-  const handleViewAllJobs = () => {
-    setVisibleJobs(data);
-  };
-
-  const theme = createTheme({
-    breakpoints: {
-      values: {
-        xs: 0,
-        sm: 768,
-        md: 1024,
-        lg: 1200,
-        xl: 1536,
-      },
-    },
-  });
-
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-
-  const handleDragStart = (event: React.TouchEvent<HTMLDivElement>) => {
-    setDragStartX(event.touches[0].clientX);
-  };
-
-  const handleDragMove = (event: React.TouchEvent<HTMLDivElement>) => {
-    const distance = event.touches[0].clientX - dragStartX;
-    setDragDistance(distance);
-  };
-
-  const handleDragEnd = () => {
-    const threshold = 100; // Adjust this value based on your preference
-    if (dragDistance > threshold && selectedJobIndex > 0) {
-      setSelectedJobIndex(selectedJobIndex - 1);
-    } else if (dragDistance < -threshold && selectedJobIndex < visibleJobs.length - 1) {
-      setSelectedJobIndex(selectedJobIndex + 1);
-    }
-    setDragDistance(0);
-  };
-
-  const handleJobCardClick = (index: number) => {
-    setSelectedJobIndex(index);
-  };
-
+export default function App() {
   return (
-    <div className={styles.jobsContainer}>
-      <div className={styles.header}>
-        <div className={styles.leftContainer}>
-          <HiSquare3Stack3D className={styles.leftIcon} />
-          <span className={styles.leftText}>Latest job opportunities</span>
-        </div>
-        {!isMobile && (
-          href ? (
-            <a href={href} style={{ textDecoration: "none" }}>
-              <button onClick={handleButtonClick} className={styles.viewAllButton}>
-                {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon} />
-              </button>
-            </a>
-          ) : (
-            <button onClick={handleButtonClick} className={styles.viewAllButton}>
-              {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon} />
-            </button>
-          )
-        )}
-      </div>
-      <div className={styles.jobCardsContainer}>
-        {loading ? (
-          <Box className={styles.skeletonContainer}>
-            {[...Array(3)].map((_, index) => (
-              <Skeleton key={index} variant="rounded" width="60%" height={10} />
-            ))}
-          </Box>
-        ) : (
-          isMobile ? (
-            <div
-              className={styles.slider}
-              ref={sliderRef}
-              onTouchStart={handleDragStart}
-              onTouchMove={handleDragMove}
-              onTouchEnd={handleDragEnd}
-            >
-              {visibleJobs.map((d, index) => (
-                <div
-                  className={`${styles.sliderItem} ${
-                    selectedJobIndex === index ? styles.selectedJob : ""
-                  }`}
-                  key={d.id}
-                  onClick={() => handleJobCardClick(index)}
-                >
-                  <JobCard key={d.id} data={d} setKeywords={setKeywords} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            visibleJobs.map((d, index) => (
-              <div
-                className={`${styles.sliderItem} ${
-                  selectedJobIndex === index ? styles.selectedJob : ""
-                }`}
-                key={d.id}
-                onClick={() => handleJobCardClick(index)}
-              >
-                <JobCard key={d.id} data={d} setKeywords={setKeywords} />
-              </div>
-            ))
-          )
-        )}
-      </div>
-      <div className={styles.navigation}>
-        {visibleJobs.map((_, index) => (
-          <div
-            key={index}
-            className={`${styles.navigationCircle} ${
-              selectedJobIndex === index ? styles.selectedCircle : ""
-            }`}
-          />
-        ))}
-      </div>
-      {isMobile && (
-        href ? (
-          <a href={href} style={{ textDecoration: "none" }}>
-            <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
-              {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile} />
-            </button>
-          </a>
-        ) : (
-          <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
-            {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile} />
-          </button>
-        )
-      )}
-    </div>
+    <>
+      <Swiper
+        slidesPerView={1.1}
+        centeredSlides={true}
+        spaceBetween={30}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Pagination]}
+        className={styles.swiper}
+      >
+        <SwiperSlide className={styles.swiperSlide}>Slide 1</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 2</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 3</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 4</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 5</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 6</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 7</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 8</SwiperSlide>
+        <SwiperSlide className={styles.swiperSlide}>Slide 9</SwiperSlide>
+      </Swiper>
+    </>
   );
-};
-
-export default JobCardsContainer;
+}

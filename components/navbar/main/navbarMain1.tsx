@@ -117,8 +117,8 @@ const NavbarMain1 = () => {
 
   return (
     <div className={styles.navbar} style={{width: "100%"}}>
-      <div className={styles.container} style={{justifyContent: handleContainerJustify(), width: handleContainerWidth(), marginLeft: handleContainerMargin(), marginRight: handleContainerMargin(), columnGap: handleContainerColumn()}}>
-        <div className={styles.left} style={{width: handleLeftWidth(), justifyContent: handleLeftJustify(), display: "flex"}}>
+      <div className={styles.container}>
+        <div className={styles.left}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
             <Menu color={"white"}/>
           </div>
