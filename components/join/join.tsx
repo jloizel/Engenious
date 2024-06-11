@@ -1,6 +1,6 @@
 import React from 'react'
 // import styles from './page.module.css'
-import styles from '../../src/app/css/join.module.css'
+import styles from './page.module.css'
 import Image from 'next/image'
 import { createTheme, useMediaQuery } from '@mui/material';
 
