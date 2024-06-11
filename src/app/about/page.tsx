@@ -34,6 +34,7 @@ const About = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
   const handleHCFD = () => {
@@ -41,6 +42,71 @@ const About = () => {
       return "column"
     } else {
       return "row"
+    }
+  }
+  const handleHCWidth = () => {
+    if (isMobile) {
+      return "100%"
+    } else {
+      return "50%"
+    }
+  }
+
+  const handleHCOrder = () => {
+    if (isMobile) {
+      return ""
+    } else {
+      return "2"
+    }
+  }
+
+  const handleHIHeight = () => {
+    if (isMobile) {
+      return "250px"
+    } else if (isTablet) {
+      return "300px"
+    } else {
+      return "500px"
+    }
+  }
+
+  const handleHTCWidth = () => {
+    if (isTabletOrBelow) {
+      return "75%"
+    } else {
+      return "50%"
+    }
+  }
+
+  const handleHTCGap = () => {
+    if (isTabletOrBelow) {
+      return "30px"
+    } else {
+      return "50px"
+    }
+  }
+
+  const handleMHText = () => {
+    if (isTabletOrBelow) {
+      return "40px"
+    } else {
+      return "60px"
+    }
+  }
+
+  const handleMTText = () => {
+    if (isComputer) {
+      return "18px"
+    } else {
+      return ""
+    }
+  }
+
+  const handleMTLineHeight = () => {
+    if (isComputer) {
+      return "30px"
+    } else {
+      return ""
     }
   }
 
@@ -80,16 +146,16 @@ const About = () => {
       </Helmet> */}
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.aboutContent}>
-        <Box className={styles.headerContainer} flexDirection={handleHCFD()}>
+        <Box className={styles.headerContainer} flexDirection={handleHCFD()} width={handleHCWidth()} order={handleHCOrder()}>
           <div className={styles.headerImageContainer}>
-            <img src="./about/header.jpg" alt="Image" className={styles.headerImage} />
+            <img src="./about/header.jpg" alt="Image" className={styles.headerImage} style={{height: handleHIHeight()}}/>
           </div>
-          <div className={styles.headerTextContainer}>
-            <div className={styles.mainHeader}>
+          <div className={styles.headerTextContainer} style={{width: handleHTCWidth(), gap: handleHTCGap()}}>
+            <div className={styles.mainHeader} style={{fontSize: handleMHText()}}>
               <span style={{color:'#09B089'}}>About</span>
               <span style={{color:'white'}}> us.</span>
             </div>
-            <div className={styles.mainText}>
+            <div className={styles.mainText} style={{fontSize: handleMTText(), lineHeight: handleMTLineHeight()}}>
               We are a global talent services company, offering the full spectrum of solutions to meet your resourcing needs. Each and every one of our employees shares a belief in the power of helping others realise their goals.
             </div>
           </div>

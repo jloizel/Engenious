@@ -36,20 +36,18 @@
 .headerImageContainer {
   display: flex;
   position: inherit;
+  height: auto;
 
   @media (max-width: 767px) {
-    height: auto;
     width: 100%;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    height: auto;
     width: 50%;
     order: 2;
   }
 
   @media (min-width: 1024px) {
-    height: auto;
     width: 50%;
     order: 2;
   }
@@ -57,20 +55,18 @@
 
 .headerImage {
   object-fit: cover;
+  width: 100%;
 
   @media (max-width: 767px) {
     height: 250px;
-    width: 100%;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     height: 300px;
-    width: 100%;
   }
 
   @media (min-width: 1024px) {
     height: 500px;
-    width: 100%;
   }
 }
 
@@ -80,22 +76,20 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
+  padding: 50px 0px;
 
   @media (max-width: 767px) {
     width: 75%;
-    padding: 50px 0px;
     gap: 30px;
   }
 
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 50%;
-    padding: 50px 0px;
     gap: 30px;
   }
 
   @media (min-width: 1024px) {
     width: 50%;
-    padding: 50px 0px;
     gap: 50px;
   }
 }
@@ -122,13 +116,9 @@
   color: white;
   font-weight: 400;
   display: flex;
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 0 30px;
-  }
+  padding: 0 30px;
 
   @media (min-width: 1024px) {
-    padding: 0 30px;
     font-size: 18px;
     line-height: 30px;
   }
@@ -139,7 +129,7 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  flex-direction: column; /* Default for mobile */
+  flex-direction: column; 
 
   @media (min-width: 768px) {
     flex-direction: row;
@@ -216,11 +206,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 767px) {
-    width: 85%;
-    margin-top: 50px;
-  }
+  width: 85%;
+  margin-top: 50px;
+  
 
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 50%;
@@ -235,11 +223,9 @@
 
 .image2 {
   border-radius: 20px;
-
-  @media (max-width: 767px) {
-    height: 80%;
-    width: 80%;
-  }
+  height: 80%;
+  width: 80%;
+  
 
   @media (min-width: 768px) and (max-width: 1023px) {
     height: 80%;
@@ -276,10 +262,7 @@
 .header {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-
-  @media (max-width: 767px) {
-    font-size: 25px;
-  }
+  font-size: 25px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 25px;
@@ -329,13 +312,11 @@
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
-  @media (max-width: 767px) {
-    font-size: 16px !important;
-    padding: 15px 0;
-    margin-bottom: 60px;
-    width: 100%;
-  }
+  font-size: 16px !important;
+  padding: 15px 0;
+  margin-bottom: 60px;
+  width: 100%;
+  
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px !important;
