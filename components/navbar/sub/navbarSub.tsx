@@ -36,8 +36,41 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
+  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
+  const isComputer = useMediaQuery(theme.breakpoints.up('md'));
+
+  const handleNavbarDisplay = () => {
+    if (isMobile) {
+        return 'flex';
+    } else {
+        return '';
+    }
+  }; 
+
+  const handleContainerWidth = () => {
+    if (isMobile) {
+        return '90%';
+    } else {
+        return '';
+    }
+  }; 
+
+  const handleContainerMargin = () => {
+    if (isTabletOrAbove) {
+        return '10px';
+    } else {
+        return '';
+    }
+  }; 
+
+  const handleContainerGap = () => {
+    if (isTabletOrAbove) {
+        return '20px';
+    } else {
+        return '';
+    }
+  }; 
 
   const setDisplay  = () => {
     if (isMobile) {
@@ -48,10 +81,10 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   }; 
 
   const setDisplay2  = () => {
-    if (isTabletOrAbove) {
-        return 'none';
+    if (isMobile) {
+        return 'flex';
     } else {
-        return '';
+        return 'none';
     }
   }; 
 
@@ -62,12 +95,36 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
       return 70
    }
   }
+
+  const handleLeftWidth = () => {
+    if (isMobile) {
+      return "100%"
+    } else {
+      return ""
+   }
+  }
+
+  const handleLeftJustify = () => {
+    if (isMobile) {
+      return "space-between"
+    } else {
+      return ""
+   }
+  }
+
+  const handleLinksGap = () => {
+    if (isTablet) {
+      return "35px"
+    } else if (isComputer) {
+      return "50px"
+   }
+  }
   
 
   return (
-    <div className={styles.navbar}>
-      <div className={styles.container}>
-        <div className={styles.left}>
+    <div className={styles.navbar} style={{display: handleNavbarDisplay()}}>
+      <div className={styles.container} style={{width: handleContainerWidth(), marginLeft: handleContainerMargin(), marginRight: handleContainerMargin(), columnGap: handleContainerGap()}}>
+        <div className={styles.left} style={{width: handleLeftWidth(), justifyContent: handleLeftJustify()}}>
           <div className={styles.menu1} style={{display: setDisplay()}}>
             <Menu color={colour}/>
           </div>
@@ -90,7 +147,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
           <div className={styles.pageName} style={{color: colour}}>
             {pageName}
           </div>
-          <div className={styles.links}>
+          <div className={styles.links} style={{gap: handleLinksGap()}}>
             {links && links.map(link => (
               <a 
                 key={link.id} 

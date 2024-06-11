@@ -36,6 +36,14 @@ const About = () => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
+  const handleHCFD = () => {
+    if (isMobile) {
+      return "column"
+    } else {
+      return "row"
+    }
+  }
+
   const links = [
     {
       id: 1,
@@ -72,7 +80,7 @@ const About = () => {
       </Helmet> */}
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.aboutContent}>
-        <Box className={styles.headerContainer}>
+        <Box className={styles.headerContainer} flexDirection={handleHCFD()}>
           <div className={styles.headerImageContainer}>
             <img src="./about/header.jpg" alt="Image" className={styles.headerImage} />
           </div>

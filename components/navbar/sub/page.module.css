@@ -7,6 +7,10 @@
   height: 80px;
   justify-content: center;
   position: relative;
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
 }
 
 .container {
@@ -17,13 +21,10 @@
   height: 100%;
 
   @media (max-width: 767px) {
-    justify-content: center;
-    width: 100%;
+    width: 90%;
   }
 
   @media (min-width: 768px) {
-    justify-content: space-between;
-    align-items: center;
     margin-right: 10px;
     column-gap: 20px;
     margin-left: 10px;
@@ -35,15 +36,11 @@
 .left {
   display: flex !important;  
   gap: 10px;
+  align-items: center;
 
   @media (max-width: 767px) {
     width: 90%;
-    align-items: center;
     justify-content: space-between;
-  }
-
-  @media (min-width: 768px) {
-    align-items: center;
   }
 }
 
@@ -52,14 +49,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
-
-  @media (max-width: 767px) {
-    gap: 5px;
-  }
-
-  @media (min-width: 768px) {
-    gap: 5px;
-  }
+  gap: 5px;
 }
 
 .menu1 {
@@ -133,13 +123,7 @@
 }
 
 .pageName {
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 12px;
-  }
-  
-  @media (min-width: 1024px) {
-    font-size: 12px;
-  }
+  font-size: 12px;
 }
 
 .links {

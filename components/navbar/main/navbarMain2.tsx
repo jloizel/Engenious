@@ -46,7 +46,7 @@ const NavbarMain2 = () => {
   
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('md'));
+  const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
 
 
