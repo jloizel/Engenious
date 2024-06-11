@@ -55,7 +55,7 @@ const Join: React.FC = ({}) => {
         <Image src="/pics.png" alt="Images" className={styles.image} width={handleImageWidth()} height={handleImageWidth()}/>
       </div>
       <div className={styles.textContainer}>
-        <div className={styles.quote} style={{fontSize: handleQuoteFontSize()}}>
+        <div className={styles.quote} >
           &apos;Enter some kind of quote here.&apos;
         </div>
         <div className={styles.quoter}>
@@ -65,7 +65,7 @@ const Join: React.FC = ({}) => {
           At Engenious Recruitment, our priority is our people, enabling them to excel and reach new heights. Join our team, and together, we&apos;ll surpass expectations and redefine success
         </div>
         <a href="about/our-team" style={{textDecoration: "none"}}>
-          <button className={styles.button} style={{fontSize: handleButtonFontSize()}}>Meet the team</button>
+          <button className={styles.button} >Meet the team</button>
         </a>
       </div>
     </div>

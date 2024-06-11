@@ -176,35 +176,27 @@ const Footer: React.FC = ({}) => {
   }
   
   return (
-    <div className={styles.container} style={{justifyContent: handleContainerJustify()}}>
-      <div className={styles.box} style={{flexDirection: handleBoxFD()}}>
+    <div className={styles.container}>
+      <div className={styles.box} >
         {!isComputer && (
-          <div className={styles.header} style={{
-            fontSize: handleHeaderFS(),
-            marginTop: handleHeaderMargin(),
-            padding: handleHeaderPadding()
-          }}>
+          <div className={styles.header}>
             <span>Rise above</span>
             <span>all limitations.</span>
           </div>
         )}
         {isComputer && (
-          <div className={styles.header} style={{
-            fontSize: handleHeaderFS(),
-            marginTop: handleHeaderMargin(),
-            padding: handleHeaderPadding()
-          }}>
+          <div className={styles.header} >
             Rise above all limitations.
           </div>
         )}
-        <div className={styles.buttonContainer} style={{gap: handleButtonContainerGap(), padding: handleButtonContainerPadding()}}>
+        <div className={styles.buttonContainer} >
           <a href="/jobs" style={{textDecoration: "none"}}>
-            <button className={styles.button} style={{fontSize: handleButtonFS(), padding: handleButtonPadding()}}>
+            <button className={styles.button} >
               Find a Job
             </button>
           </a>
           <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} >
-            <button className={styles.button} style={{fontSize: handleButtonFS(), padding: handleButtonPadding()}}>
+            <button className={styles.button} >
               Find Talent
             </button>
           </a>
@@ -219,20 +211,20 @@ const Footer: React.FC = ({}) => {
                 <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
               </a>
               <a href="/" className={styles.link}>
-                <div className={styles.companyNameContainer} style={{lineHeight: handleCNContainerLH()}}>
-                  <div className={styles.companyName1} style={{fontSize: handleCNFS(), lineHeight: handleCNLH()}}>ENGENIOUS</div>
-                  <div className={styles.companyName2} style={{fontSize: handleCNFS(), lineHeight: handleCNLH()}}>RECRUITMENT</div>
+                <div className={styles.companyNameContainer} >
+                  <div className={styles.companyName1} >ENGENIOUS</div>
+                  <div className={styles.companyName2} >RECRUITMENT</div>
                 </div>
               </a>
             </div>
           </div>
-          <div className={styles.pagesContainer} style={{gap: handlePGGap(), paddingBottom: handlePGPadding()}}>
-            <a href="/employers" style={{textDecoration: "none", fontSize: handlePageFS()}} className={styles.page}>Employers</a>
-            <a href="/jobs" style={{textDecoration: "none", fontSize: handlePageFS()}} className={styles.page}>Jobs</a>
-            <a href="/about" style={{textDecoration: "none", fontSize: handlePageFS()}} className={styles.page}>About</a>
-            <a href="/contact" style={{textDecoration: "none", fontSize: handlePageFS()}} className={styles.page}>Contact</a>
-            <a href="/privacy-policy" style={{textDecoration: "none", fontSize: handlePrivacyFS()}} className={styles.privacy}>Privacy Policy</a>
-            <div className={styles.copyright} style={{fontSize: handlePrivacyFS()}}>© Engenious Recruitment</div>
+          <div className={styles.pagesContainer} >
+            <a href="/employers" style={{textDecoration: "none"}} className={styles.page}>Employers</a>
+            <a href="/jobs" style={{textDecoration: "none"}} className={styles.page}>Jobs</a>
+            <a href="/about" style={{textDecoration: "none"}} className={styles.page}>About</a>
+            <a href="/contact" style={{textDecoration: "none"}} className={styles.page}>Contact</a>
+            <a href="/privacy-policy" style={{textDecoration: "none"}} className={styles.privacy}>Privacy Policy</a>
+            <div className={styles.copyright} >© Engenious Recruitment</div>
           </div>
         </div>
       ) : (
