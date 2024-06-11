@@ -49,11 +49,11 @@ const Location: React.FC = ({}) => {
 
   return (
     <div className={styles.container}>
-      <div className={styles.textContainer} style={{gap: handleGap()}}>
-        <div className={styles.header} style={{fontSize: handleHeaderFontSize()}}>
+      <div className={styles.textContainer} >
+        <div className={styles.header} >
           Our Locations
         </div>
-        <div className={styles.subHeader} style={{fontSize: handleSubHeaderFontSize()}}>
+        <div className={styles.subHeader} >
           Sussex
         </div>
       </div>

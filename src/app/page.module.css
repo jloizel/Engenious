@@ -51,10 +51,6 @@
   align-content: center;
   height: 100%;
   text-align: center;
-
-  @media (max-width: 767px) {
-    width: 100%;
-  }
   
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 800px;
@@ -69,13 +65,10 @@
   color: white;
   font-weight: 800;
   font-family: "Poppins", sans-serif;
-
-  @media (max-width: 767px) {
-    font-size: 40px;
-    line-height: 125%;
-    padding-bottom: 60px;
-    margin-top: -30px;
-  }
+  font-size: 40px;
+  line-height: 125%;
+  padding-bottom: 60px;
+  margin-top: -30px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 50px;
@@ -93,9 +86,10 @@
 .buttonContainer {
   display: flex;
   gap: 25px;
+  flex-direction: column;
 
-  @media (max-width: 767px) {
-    flex-direction: column;
+  @media (min-width: 768px) {
+    flex-direction: row;
   }
 }
 
@@ -111,10 +105,7 @@
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
+  font-size: 16px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
 
@@ -157,40 +148,24 @@
   color: #002D49;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
-
-  @media (max-width: 767px) {
-    font-size: 22px;
-    line-height: 125%;
-    margin-top: 40px;
-    margin-bottom: 20px;
-  }
+  font-size: 22px;
+  line-height: 125%;
+  margin-top: 40px;
+  margin-bottom: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 30px;
-    line-height: 125%;
-    margin-top: 40px;
-    margin-bottom: 20px;
   }
   
   @media (min-width: 1024px) {
     font-size: 45px;
-    line-height: 125%;
-    margin-top: 40px;
-    margin-bottom: 20px;
   }
 }
 
 .text {
   font-weight: 300;
   font-family: "Poppins", sans-serif;
-
-  @media (max-width: 767px) {
-    font-size: 16px;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 16px;
-  }
+  font-size: 16px;  
   
   @media (min-width: 1024px) {
     font-size: 18px;
@@ -216,11 +191,8 @@
   margin-bottom: 40px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-
-  @media (max-width: 1023px) {
-    width: 300px;
-    font-size: 16px;
-  }
+  width: 300px;
+  font-size: 16px;
 
   @media (min-width: 1024px) {
     width: 350px;
