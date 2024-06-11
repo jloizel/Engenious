@@ -34,8 +34,16 @@ const OurPurpose = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isTabletorBelow = useMediaQuery(theme.breakpoints.down('md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
+  const handleOrder = () => {
+    if (isTabletorBelow) {
+      return 0
+    } else {
+      return 1
+    }
+  }
   
 
   const links = [

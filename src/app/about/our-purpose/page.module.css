@@ -289,10 +289,6 @@
   justify-content: center;
   flex-direction: column;
   margin-bottom: 30px;
-
-  @media (min-width: 1024px) {
-    flex-direction: row;
-  }
 }
 
 .imageContainer1 {
@@ -315,12 +311,19 @@
   }
 }
 
-.imageContainer1 {
-  order: 0;
+@media (min-width: 768px) {
+  .aboutBox {
+    flex-direction: row;
+  }
 
-  @media (min-width: 1024px) {
+  .imageContainer1 {
+    width: 50%; /* Adjust width as needed */
+    order: 2; /* Ensure image is on the right */
+  }
+
+  .textContainer {
+    width: 50%; /* Adjust width as needed */
     order: 1;
-    margin-right: 30px;
   }
 }
 
