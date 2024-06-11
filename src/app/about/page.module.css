@@ -96,7 +96,10 @@
   color: white;
   font-weight: 400;
   display: flex;
-  padding: 0 30px;
+  
+  @media (min-width: 768px) {
+    padding: 0 30px;
+  }
 
   @media (min-width: 1024px) {
     font-size: 18px;

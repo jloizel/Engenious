@@ -301,6 +301,7 @@
   justify-content: center;
   position: relative;
   width: 85%;
+  align-self: center;
   margin-top: 50px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -315,6 +316,7 @@
 }
 
 .imageContainer1 {
+  order: 0;
 
   @media (min-width: 1024px) {
     order: 1;
