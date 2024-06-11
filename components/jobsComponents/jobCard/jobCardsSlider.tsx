@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import JobCard from "./jobCard";
-import styles from "./page.module.css";
+import styles from "./page2.module.css";
 import { HiSquare3Stack3D } from "react-icons/hi2";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Box, Skeleton } from "@mui/material";
@@ -124,7 +124,7 @@ const JobCardsSlider: React.FC<JobsProps> = ({ data, setKeywords, keywords, show
             }}
             modules={[Navigation]}
             className={styles.swiper}
-            style={{marginLeft: "0px"}}
+            // style={{marginLeft: "0px"}}
             speed={800}
           >
           {visibleJobs.map((d) => (

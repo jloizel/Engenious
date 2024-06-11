@@ -1,13 +1,26 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import JobCard from "./jobCard";
 import styles from "./page.module.css";
 import { HiSquare3Stack3D } from "react-icons/hi2";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { Box, Skeleton, createTheme, useMediaQuery } from "@mui/material";
+import JobCardsSlider from "./jobCardsSlider";
+
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { Navigation } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { useJobContext } from "../../jobContext/jobContext";
 
 // Define the types for the job data
 interface JobCardData {
+  // languages: string[];
+  // tools: string[];
   id: number;
   position: string;
   postedAt: string;
@@ -31,13 +44,17 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
   const [visibleJobs, setVisibleJobs] = useState<JobCardData[]>([]);
   const [loading, setLoading] = useState(true);
   const { setId } = useJobContext();
-  const sliderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Show skeleton initially
     setLoading(true);
+    
+    // Set timer to hide skeleton after 1000 milliseconds
     const skeletonTimer = setTimeout(() => {
       setLoading(false);
     }, 200);
+
+    // Clean up timer when component unmounts or when it is re-rendered
     return () => clearTimeout(skeletonTimer);
   }, []);
 
@@ -69,35 +86,23 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const scrollLeft = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: -sliderRef.current.clientWidth / 2, behavior: 'smooth' });
-    }
-  };
-
-  const scrollRight = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: sliderRef.current.clientWidth / 2, behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className={styles.jobsContainer}>
       <div className={styles.header}>
         <div className={styles.leftContainer}>
-          <HiSquare3Stack3D className={styles.leftIcon} />
+          <HiSquare3Stack3D className={styles.leftIcon}/> 
           <span className={styles.leftText}>Latest job opportunities</span>
         </div>
         {!isMobile && (
           href ? (
-            <a href={href} style={{ textDecoration: "none" }}>
+            <a href={href} style={{textDecoration: "none"}}>
               <button onClick={handleButtonClick} className={styles.viewAllButton}>
-                {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon} />
+                {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon}/>
               </button>
             </a>
           ) : (
             <button onClick={handleButtonClick} className={styles.viewAllButton}>
-              {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon} />
+              {displayedText} <KeyboardArrowRightIcon className={styles.searchIcon}/>
             </button>
           )
         )}
@@ -106,22 +111,29 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
         {loading ? (
           <Box className={styles.skeletonContainer}>
             {[...Array(3)].map((_, index) => (
-              <Skeleton key={index} variant="rounded" width="60%" height={10} />
+              <Skeleton key={index} variant="rounded" width="60%" height={10}/>
             ))}
           </Box>
         ) : (
           isMobile ? (
-            <div className={styles.sliderContainer}>
-              <button className={styles.sliderButton} onClick={scrollLeft}>{"<"}</button>
-              <div className={styles.slider} ref={sliderRef}>
-                {visibleJobs.map((d) => (
-                  <div className={styles.sliderItem} key={d.id}>
-                    <JobCard key={d.id} data={d} setKeywords={setKeywords} />
-                  </div>
-                ))}
-              </div>
-              <button className={styles.sliderButton} onClick={scrollRight}>{">"}</button>
-            </div>
+            <Swiper
+              slidesPerView={2}
+              centeredSlides={true}
+              initialSlide={1}
+              spaceBetween={20}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Pagination]}
+              className={styles.swiper}
+              style={{marginLeft: "0px"}}
+          >
+          {visibleJobs.map((d) => (
+            <SwiperSlide className={styles.swiperSlider} key={d.id}>
+              <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+            </SwiperSlide>
+          ))}
+          </Swiper>
           ) : (
             visibleJobs.map((d) => (
               <JobCard key={d.id} data={d} setKeywords={setKeywords} />
@@ -130,14 +142,14 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
         )}
         {isMobile && (
           href ? (
-            <a href={href} style={{ textDecoration: "none" }}>
+            <a href={href} style={{textDecoration: "none"}}>
               <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
-                {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile} />
+                {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
               </button>
             </a>
           ) : (
             <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
-              {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile} />
+              {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
             </button>
           )
         )}

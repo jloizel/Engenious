@@ -1,0 +1,306 @@
+.container {
+  box-shadow: 0px 0px 8px 0px rgba(62, 53, 82, 0.16);
+  border-radius: 8px;
+  background-color: white;
+  padding: 20px;
+  flex-direction: column;
+  display: flex;
+  min-height: 200px;
+  border: 1px solid #EFF0F0;
+  position: relative;
+  transition: box-shadow 0.3s ease;
+  width: 340px;
+}
+
+.container:hover {
+  cursor: pointer;
+  box-shadow: 0px 24px 16px -16px rgba(216, 63, 99, 0.16), 0px 0px 0px 1px #EFF0F0 inset, 0px 0px 8px 0px rgba(62, 53, 82, 0.16);
+}
+
+.container:hover:after {
+  content: ".";
+  position: absolute;
+  bottom: -1px;
+  border-bottom: 2px solid #005773;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  left: 0;
+  border-radius: 8px;
+}
+
+.container:hover .button {
+  background-color: #005773; /* Change to your desired hover color */
+  color: white; /* Change the text color if needed */
+}
+
+.position {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  line-height: 20px;
+  padding-bottom: 16px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  font-weight: 600;
+  color: #005773;
+}
+
+.jobInfo {
+  font-size: 11px;
+  display: flex;
+  flex-flow: wrap;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.jobInfo span {
+  background-color: #EFF0F0;
+  border-radius: 8px;
+  padding: 0px 8px;
+  text-align: center;
+  display: inline-flex;
+  margin-bottom: 0;
+  align-items: center;
+  column-gap: 10px;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.bottomInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 0;
+  margin-top: auto;
+}
+
+.bottomInfoLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.new {
+  border-radius: 100px;
+  background: #E8EEEC;
+  padding: 4px 8px;
+  font-size: 12px;
+  line-height: 140%;
+  color: #417565;
+  width: fit-content;
+  margin: 16px 0;
+}
+
+.postedDate {
+  opacity: 0.5;
+  line-height: 1;
+  font-size: 12px;
+}
+
+.button {
+  font-family: "Poppins", sans-serif;
+  background-color: white;
+  color: #005773;
+  border: 1px solid #005773;
+  height: 42px;
+  line-height: 40px;
+  font-weight: 400;
+  font-size: 14px;
+  padding: 0 16px;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  white-space: nowrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.tags {
+  margin-top: 15px;
+  opacity: 0.6;
+  line-height: 1;
+  font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-style: italic;
+  cursor: pointer;
+}
+
+.tag:hover {
+  opacity: 1;
+  color: #005773;
+  /* font-weight: 400; */
+}
+
+.jobsContainer {
+  /* max-width: 1200px;
+  margin: auto;
+  width: 100%;
+  padding: 0; */
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center !important;
+  justify-content: center !important;
+
+  @media (min-width: 768px) {
+    max-width: 1200px;
+    margin: auto;
+    width: 100%;
+    padding: 0;
+  }
+}
+
+
+
+.jobCardsContainer {
+  width: 150%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
+
+  @media (min-width: 768px) {
+    flex-flow: wrap;
+    display: flex;
+    gap: 27px;
+  }
+}
+
+.jobCardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.swiper {
+  /* width: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; */
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.swiperSlider {
+  /* display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important; */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin-bottom: 50px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin: 40px 0px;
+  width: 100%;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+
+  @media (max-width: 767px) {
+    
+  }
+}
+
+.leftIcon {
+  font-family: "Poppins", sans-serif;
+  color: #005773;
+  font-size: 24px;
+  
+  @media (min-width: 768px) {
+    font-size: 30px;
+  }
+}
+
+.leftText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #005773;
+  font-size: 24px;
+  
+  @media (min-width: 768px) {
+    font-size: 26px;
+  }
+}
+
+.viewAllButton {
+  border: none;
+  background-color: #EBEBEB;
+  color: #005773;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+} 
+
+.viewAllButtonMobile {
+  border: none;
+  background-color: #005773;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 14px 100px;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  justify-content: center;
+  font-size: 16px;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.viewAllButton:hover {
+  background: #005773;
+  color: white;
+}
+
+.searchIcon {
+  font-size: 16px;
+}
+
+.searchIconMobile {
+  font-size: 18px;
+  color: white;
+}
+
+.skeletonContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 5px;
+  flex-direction: column;
+  padding: 60px 0;
+}
