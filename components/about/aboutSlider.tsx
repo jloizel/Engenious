@@ -84,18 +84,15 @@ const AboutSlider: React.FC = ({}) => {
         }}
         modules={[Pagination]}
         className={styles.swiper}
-        style={{marginLeft: "0px"}}
       >
         {data.map((service, index) => (
           <SwiperSlide key={service.id} className={styles.swiperSlide}>
-            <div className={styles.container} style={{alignContent: "center"}}>
-              <div className={styles.title} style={{fontSize: handleTitleFontSize()}}>
+            <div className={styles.container}>
+              <div className={styles.title}>
                 {service.title}
               </div>
-              <div className={styles.text} style={{fontSize: handleTextFontSize()}}>
+              <div className={styles.text}>
                 {service.text}
-              </div>
-              <div className={styles.buttonContainer}>
               </div>
             </div>
           </SwiperSlide>

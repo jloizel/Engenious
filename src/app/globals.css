@@ -88,20 +88,14 @@ body,
 }
   
 @media (max-width: 1200px) {
-    .MuiDrawer-paper {
-  width: 60% !important;
+  .MuiDrawer-paper {
+    width: 60% !important;
   }
 }
 
 /* drawer width */
 .MuiDrawer-content, .css-ldybpn-JoyDrawer-content {
-  @media (max-width: 767px) {
-    width: 100% !important;
-  }
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    width: 100% !important;
-  }
+  width: 100% !important;
   
   @media (min-width: 1024px) {
     width: 60% !important;
@@ -144,10 +138,7 @@ body,
   border-radius: 50% !important;
   width: 50px !important;
   height: 50px !important;
-
-  @media (max-width: 767px) {
-    margin-top: 100px !important;
-  }
+  margin-top: 100px !important;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     margin-top: 80px !important;

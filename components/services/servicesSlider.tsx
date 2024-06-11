@@ -127,16 +127,15 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
             onMouseEnter={() => setHoveredItem(service.id)}
             onMouseLeave={() => setHoveredItem(null)}
             id={service.id}
-            style={{padding: handleContainerPadding()}}>
+            >
             <div className={styles.content}>
-              <div className={styles.title} style={{fontSize: handleTitleFontSize()}}>{service.title}</div>
-              <div className={styles.text} style={{fontSize: handleTextFontSize()}}>{service.text}</div>
+              <div className={styles.title}>{service.title}</div>
+              <div className={styles.text}>{service.text}</div>
             </div>
             <div className={styles.buttonContainer} style={{textDecoration: "none"}}>
               <button 
                 className={`${styles.button} ${hoveredItem === service.id ? styles.buttonActive : ''}`}
                 id={service.id}
-                style={{fontSize: handleButtonFontSize()}}
                 >
                 Learn More <KeyboardArrowRightIcon className={styles.arrow}/>
               </button>
@@ -144,7 +143,6 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
           </div>
         </SwiperSlide>
       ))}
-     
     </Swiper>
     </div>
   )

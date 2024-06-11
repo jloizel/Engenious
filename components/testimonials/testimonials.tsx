@@ -167,7 +167,7 @@ const Testimonials: React.FC = ({}) => {
   };
 
   return (
-    <div className={styles.swiperContainer} style={{width: handleSwiperContainerWidth()}}>
+    <div className={styles.swiperContainer}>
       <Swiper
         slidesPerView={1}
         centeredSlides={true}
@@ -182,23 +182,14 @@ const Testimonials: React.FC = ({}) => {
         }}
         modules={[Navigation]}
         className={styles.swiper}
-        style={{marginLeft: "0px"}}
         speed={800}
       >
         {data.map((testimonial, index) => (
           <SwiperSlide key={testimonial.id} className={styles.swiperSlide}>
-            <div className={styles.container} 
-              style={{
-                paddingLeft: handleContainerPaddingL(),
-                paddingRight: handleContainerPaddingL(),
-                paddingTop: handleContainerPaddingT(),
-                paddingBottom: handleContainerPaddingB(),
-                marginBottom: handleContainerMargin()
-              }}
-            >
-                <div className={styles.quote} style={{fontSize: handleQuoteFontSize(), lineHeight: handleQuoteLineHeight()}}>{testimonial.quote}</div>
-                <div className={styles.quoter} style={{fontSize: handleQuoterFontSize(), marginTop: handleQuoterMargin()}}>{testimonial.quoter}</div>
-                <div className={styles.info} style={{fontSize: handleInfoFontSize()}}>{testimonial.role} | {testimonial.company}</div>
+            <div className={styles.container}>
+                <div className={styles.quote} >{testimonial.quote}</div>
+                <div className={styles.quoter} >{testimonial.quoter}</div>
+                <div className={styles.info} >{testimonial.role} | {testimonial.company}</div>
             </div>
           </SwiperSlide>
         ))}

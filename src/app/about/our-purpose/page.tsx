@@ -5,15 +5,8 @@ import styles from "./page.module.css"
 import NavbarSub from '../../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import { useLocation } from 'react-router-dom';
-import Services from '../../../../components/services/services';
-import ServicesSlider from "../../../../components/services/servicesSlider";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
-import About from '../../../../components/about/about';
-import AboutSlider from '../../../../components/about/aboutSlider';
-import Testimonials from '../../../../components/testimonials/testimonials';
-import Image from 'next/image';
 
 
 const OurPurpose = () => {

@@ -122,9 +122,9 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   
 
   return (
-    <div className={styles.navbar} style={{display: handleNavbarDisplay()}}>
-      <div className={styles.container} style={{width: handleContainerWidth(), marginLeft: handleContainerMargin(), marginRight: handleContainerMargin(), columnGap: handleContainerGap()}}>
-        <div className={styles.left} style={{width: handleLeftWidth(), justifyContent: handleLeftJustify()}}>
+    <div className={styles.navbar}>
+      <div className={styles.container} >
+        <div className={styles.left} >
           <div className={styles.menu1} style={{display: setDisplay()}}>
             <Menu color={colour}/>
           </div>
@@ -143,11 +143,11 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
               <Menu color={colour}/>
             </div>
           </div>
-        <div className={styles.middle} style={{display: setDisplay()}}>
+        <div className={styles.middle}>
           <div className={styles.pageName} style={{color: colour}}>
             {pageName}
           </div>
-          <div className={styles.links} style={{gap: handleLinksGap()}}>
+          <div className={styles.links} >
             {links && links.map(link => (
               <a 
                 key={link.id} 
@@ -159,9 +159,6 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
             ))}
           </div>
         </div>
-        {/* <div className={styles.right}>
-          <SearchIcon className={styles.searchIcon} style={{display: setDisplay(), color: colour}}/>
-        </div> */}
         <div className={styles.rightHidden}></div>
       </div>
     </div>

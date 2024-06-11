@@ -40,8 +40,6 @@ const About: React.FC = ({}) => {
               <div className={styles.title}>{about.title}</div>
               <div className={styles.text}>{about.text}</div>
             </div>
-            <div className={styles.buttonContainer}>
-            </div>
           </div>
         ))}
     </div>
