@@ -3,8 +3,9 @@ import JobCard from "./jobCard";
 import styles from "./page.module.css";
 import { HiSquare3Stack3D } from "react-icons/hi2";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Box, Skeleton, createTheme, useMediaQuery } from "@mui/material";
+import { Box, createTheme, useMediaQuery, Skeleton } from "@mui/material";
 import { useJobContext } from "../../jobContext/jobContext";
+
 
 // Define the types for the job data
 interface JobCardData {
@@ -32,6 +33,9 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
   const [loading, setLoading] = useState(true);
   const { setId } = useJobContext();
   const sliderRef = useRef<HTMLDivElement>(null);
+  const [selectedJobIndex, setSelectedJobIndex] = useState(0);
+  const [dragStartX, setDragStartX] = useState(0);
+  const [dragDistance, setDragDistance] = useState(0);
 
   useEffect(() => {
     setLoading(true);
@@ -69,16 +73,27 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const scrollLeft = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: -sliderRef.current.clientWidth / 2, behavior: 'smooth' });
-    }
+  const handleDragStart = (event: React.TouchEvent<HTMLDivElement>) => {
+    setDragStartX(event.touches[0].clientX);
   };
 
-  const scrollRight = () => {
-    if (sliderRef.current) {
-      sliderRef.current.scrollBy({ left: sliderRef.current.clientWidth / 2, behavior: 'smooth' });
+  const handleDragMove = (event: React.TouchEvent<HTMLDivElement>) => {
+    const distance = event.touches[0].clientX - dragStartX;
+    setDragDistance(distance);
+  };
+
+  const handleDragEnd = () => {
+    const threshold = 100; // Adjust this value based on your preference
+    if (dragDistance > threshold && selectedJobIndex > 0) {
+      setSelectedJobIndex(selectedJobIndex - 1);
+    } else if (dragDistance < -threshold && selectedJobIndex < visibleJobs.length - 1) {
+      setSelectedJobIndex(selectedJobIndex + 1);
     }
+    setDragDistance(0);
+  };
+
+  const handleJobCardClick = (index: number) => {
+    setSelectedJobIndex(index);
   };
 
   return (
@@ -111,37 +126,63 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
           </Box>
         ) : (
           isMobile ? (
-            <div className={styles.sliderContainer}>
-              <button className={styles.sliderButton} onClick={scrollLeft}>{"<"}</button>
-              <div className={styles.slider} ref={sliderRef}>
-                {visibleJobs.map((d) => (
-                  <div className={styles.sliderItem} key={d.id}>
-                    <JobCard key={d.id} data={d} setKeywords={setKeywords} />
-                  </div>
-                ))}
-              </div>
-              <button className={styles.sliderButton} onClick={scrollRight}>{">"}</button>
+            <div
+              className={styles.slider}
+              ref={sliderRef}
+              onTouchStart={handleDragStart}
+              onTouchMove={handleDragMove}
+              onTouchEnd={handleDragEnd}
+            >
+              {visibleJobs.map((d, index) => (
+                <div
+                  className={`${styles.sliderItem} ${
+                    selectedJobIndex === index ? styles.selectedJob : ""
+                  }`}
+                  key={d.id}
+                  onClick={() => handleJobCardClick(index)}
+                >
+                  <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+                </div>
+              ))}
             </div>
           ) : (
-            visibleJobs.map((d) => (
-              <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+            visibleJobs.map((d, index) => (
+              <div
+                className={`${styles.sliderItem} ${
+                  selectedJobIndex === index ? styles.selectedJob : ""
+                }`}
+                key={d.id}
+                onClick={() => handleJobCardClick(index)}
+              >
+                <JobCard key={d.id} data={d} setKeywords={setKeywords} />
+              </div>
             ))
           )
         )}
-        {isMobile && (
-          href ? (
-            <a href={href} style={{ textDecoration: "none" }}>
-              <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
-                {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile} />
-              </button>
-            </a>
-          ) : (
+      </div>
+      <div className={styles.navigation}>
+        {visibleJobs.map((_, index) => (
+          <div
+            key={index}
+            className={`${styles.navigationCircle} ${
+              selectedJobIndex === index ? styles.selectedCircle : ""
+            }`}
+          />
+        ))}
+      </div>
+      {isMobile && (
+        href ? (
+          <a href={href} style={{ textDecoration: "none" }}>
             <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
               {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile} />
             </button>
-          )
-        )}
-      </div>
+          </a>
+        ) : (
+          <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
+            {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile} />
+          </button>
+        )
+      )}
     </div>
   );
 };
