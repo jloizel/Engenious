@@ -111,7 +111,7 @@ const JobDetails: FC = () => {
         
       </div>
       {isMobile && (
-          <a className={styles.mobileButtonContainer} style={{textDecoration: "none"}}>
+          <a className={styles.mobileButtonContainer} href='/jobs/apply' style={{textDecoration: "none"}}>
             <button className={styles.button} onClick={() => handleApplyNowButton(jobDetails?.id)}>
               Apply Now
             </button>
