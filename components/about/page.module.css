@@ -19,6 +19,9 @@
   margin-bottom: 50px;
   align-content: center;
   text-align: left;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
   background-image: linear-gradient(to right, #002D49, #008489, #09B089, #8CD87A, #F9F871);
   background-size: 100% 3px; /* Adjust the height of the line as needed */
   background-position: bottom;
