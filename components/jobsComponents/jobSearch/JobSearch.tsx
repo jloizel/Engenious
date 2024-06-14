@@ -181,7 +181,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setSalaryRanges(extractedSalary);
     const extractedSpecialisations = [...new Set(data.map((job) => job.specialisation))];
     setSpecialisations(extractedSpecialisations);
-  }, [data, compareSalaries]);
+  }, [data]);
 
   //Locations
 
@@ -325,6 +325,9 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     } else {
       document.body.classList.remove(styles.noScroll);
     }
+    return () => {
+      document.body.classList.remove(styles.noScroll);
+    };
   }, [isMobileJobSelected]);
 
   const theme = createTheme({
@@ -406,7 +409,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
             <div className={styles.noJobsFound}>
               <div>Can&apos;t find what you are looking for</div>
               <span>If you can&apos;t find the job you are looking for then send us your CV and we will get back to you.</span>
-              <a href="/jobs/cv-upload">Send CV</a>
+              <a href="/jobs/cv-upload" style={{textDecoration: "none"}}>Send CV</a>
             </div>
           ) : (
           <div className={styles.jobsList} ref={jobsListRef}>
@@ -502,7 +505,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                               <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
                             </div>
                             {!isMobile && (
-                              <a className={styles.buttonContainer} href='/jobs/apply'>
+                              <a className={styles.buttonContainer} href='/jobs/apply' style={{textDecoration: "none"}}>
                                 <button className={styles.button} onClick={() => handleApplyNowButton(job.id)}>
                                   Apply Now
                                 </button>
@@ -531,7 +534,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                               </ul>
                               <div className={styles.jobBottomInfo}>
                                 <span>Engenious is acting as an Employment Agency and references to pay rates are indicative.</span>
-                                <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a href="#" style={{textDecoration: "none"}}>PRIVACY POLICY</a> WHICH GOVERNS YOUR USE OF ENGENIOUS SERVICES.</div>
+                                <div>BY APPLYING FOR THIS ROLE YOU ARE AGREEING TO OUR <a href="/privacy-policy" style={{textDecoration: "none"}}>PRIVACY POLICY</a> WHICH GOVERNS YOUR USE OF ENGENIOUS SERVICES.</div>
                               </div>
                               
                             </div>
@@ -547,7 +550,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           </div>
           )}
           {isMobile && (
-            <a className={`${styles.mobileButtonContainer} ${isMobileJobSelected ? styles.slideUp : ''}`}>
+            <a className={`${styles.mobileButtonContainer} ${isMobileJobSelected ? styles.slideUp : ''}`} href='/jobs/apply' style={{textDecoration: "none"}}>
               <button className={styles.button}>
                 Apply Now
               </button>
