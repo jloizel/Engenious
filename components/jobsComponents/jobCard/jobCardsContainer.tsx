@@ -61,6 +61,11 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
     setVisibleJobs(data);
   };
 
+  const handleButtonClickMobile = () => {
+    handleButtonClick()
+    window.scrollTo({ top: 0, behavior: "smooth" }); // Scroll to the top of the page
+  }
+
   const theme = createTheme({
     breakpoints: {
       values: {
@@ -131,12 +136,12 @@ const JobCardsContainer: React.FC<JobsProps> = ({ data, setKeywords, showAllJobs
         {isMobile && (
           href ? (
             <a href={href} style={{textDecoration: "none"}}>
-              <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
+              <button onClick={handleButtonClickMobile} className={styles.viewAllButtonMobile}>
                 {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
               </button>
             </a>
           ) : (
-            <button onClick={handleButtonClick} className={styles.viewAllButtonMobile}>
+            <button onClick={handleButtonClickMobile} className={styles.viewAllButtonMobile}>
               {displayedText} <KeyboardArrowRightIcon className={styles.searchIconMobile}/>
             </button>
           )
