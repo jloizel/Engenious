@@ -91,9 +91,9 @@ const Search: React.FC<SearchProps> = ({ data, handleButtonClick, setSearchKeywo
             <IoClose className={styles.clearIcon} onClick={clearInput} />
           )}
         </div>
-        <div className={styles.buttonContainer}>
+        <div className={styles.buttonContainer} onClick={handleButtonClick}>
           {/* <a href="/jobs"> */}
-            <button onClick={handleButtonClick} className={styles.button}>
+            <button  className={styles.button}>
               Search
               <IoSearchSharp className={styles.searchIcon}/>
             </button>
