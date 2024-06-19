@@ -1,5 +1,3 @@
-"use client"
-
 import React, { useState, useEffect, ChangeEvent, useRef } from 'react';
 import styles from './page.module.css';
 import { createJob, getAllJobs, updateJob, deleteJob, Job } from '../../src/app/API';
@@ -21,13 +19,13 @@ const AdminPage: React.FC = () => {
     responsibilities: [],
     skillsExperience: []
   });
-  const [jobRefresh, setJobRefresh] = useState(false)
+  const [jobRefresh, setJobRefresh] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [jobsPerPage] = useState(10);
   const [filter, setFilter] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [textTyped, setTextTyped] = useState(false)
+  const [textTyped, setTextTyped] = useState(false);
   const [input, setInput] = useState("");
   const suggestionsRef = useRef<HTMLDivElement>(null);
 
@@ -53,18 +51,8 @@ const AdminPage: React.FC = () => {
     try {
       const newJob = await createJob(jobData);
       setJobs([...jobs, newJob]);
-      setJobData({
-        position: '',
-        contractType: '',
-        location: '',
-        specialisation: '',
-        salary: '',
-        jobDescription: '',
-        duration: '',
-        responsibilities: [],
-        skillsExperience: []
-      });
-      setJobRefresh(true)
+      resetForm();
+      setJobRefresh(true);
       setTimeout(() => {
         setJobRefresh(false); // Reset pageChanged state after a short delay
       }, 500);
@@ -98,17 +86,17 @@ const AdminPage: React.FC = () => {
     } catch (error) {
       console.error('Error deleting job:', error);
     }
-    setJobRefresh(true)
-      setTimeout(() => {
-        setJobRefresh(false); // Reset pageChanged state after a short delay
-      }, 500);
+    setJobRefresh(true);
+    setTimeout(() => {
+      setJobRefresh(false); // Reset pageChanged state after a short delay
+    }, 500);
   };
 
   // Handle input changes
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setJobData({ ...jobData, [name]: value });
-    setTextTyped(true)
+    setTextTyped(true);
   };
 
   // Handle changes for array fields
@@ -133,18 +121,21 @@ const AdminPage: React.FC = () => {
     });
   };
 
+  // Handle filter change
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     setFilter(inputValue);
     setShowSuggestions(true);
-    setInput(inputValue)
+    setInput(inputValue);
   };
 
+  // Handle suggestion click
   const handleSuggestionClick = (suggestion: string) => {
     setFilter(suggestion);
     setShowSuggestions(false);
   };
 
+  // Reset form fields
   const resetForm = () => {
     setSelectedJobId(null);
     setJobData({
@@ -160,27 +151,7 @@ const AdminPage: React.FC = () => {
     });
   };
 
-  const uniquePositions = [...new Set(jobs.map(job => job.position))];
-
-  const filteredJobs = jobs.filter(job => job.position.toLowerCase().includes(filter.toLowerCase()));
-
-  const indexOfLastJob = currentPage * jobsPerPage;
-  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
-  const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
-  const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
-
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
-
-  const handlePaginationChange = (event: React.ChangeEvent<unknown>, page: number) => {
-    setCurrentPage(page);
-  };
-  
-  const clearInput = () => {
-    setInput("");
-    setFilter("");
-    setShowSuggestions(false);
-  };
-
+  // Highlight text function
   const getHighlightedText = (text: string, highlight: string) => {
     const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
     return (
@@ -192,12 +163,14 @@ const AdminPage: React.FC = () => {
     );
   };
 
+  // Handle click outside suggestion box
   const handleClickOutside = (event: MouseEvent) => {
     if (suggestionsRef.current && !suggestionsRef.current.contains(event.target as Node)) {
       setShowSuggestions(false);
     }
   };
 
+  // Attach click outside event listener
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -207,7 +180,7 @@ const AdminPage: React.FC = () => {
 
   return (
     <div>
-      <NavbarMain2/>
+      <NavbarMain2 />
       <div className={styles.container}>
         <div className={styles.headerContainer}>
           <div className={styles.header}>Job Handling</div>
@@ -218,20 +191,18 @@ const AdminPage: React.FC = () => {
           <div className={styles.instruction}>
             <li></li>
             <div>Use the form below to create a job by filling out each section.</div>
-          </div> 
+          </div>
           <div className={styles.instruction}>
             <li></li>
-            <div>For the <span>Responsibilites</span> and <span>Skills & Experience</span> sections, each line of text will appear as its own bullet point.</div>
-          </div> 
+            <div>For the <span>Responsibilities</span> and <span>Skills & Experience</span> sections, each line of text will appear as its own bullet point.</div>
+          </div>
           <div className={styles.instruction}>
             <li></li>
             <div>To <span>update</span> a job, first find the job you want to update in the job list or by using the filter below, then press the filter button, modify the required sections in the form and then press the update button.</div>
           </div>
         </div>
-        
+
         <div className={styles.form}>
-          {/* <div className={styles.header}></div> */}
-          {/* <h2>{selectedJobId ? 'Update Job' : 'Create Job'}</h2> */}
           <div className={styles.formInputs}>
             <div className={styles.formInputsLeft}>
               <span>Position</span>
@@ -258,16 +229,21 @@ const AdminPage: React.FC = () => {
           </div>
         </div>
 
-        {textTyped && (
-          <div className={styles.buttonContainer}>
-            <button onClick={selectedJobId ? handleUpdateJob : handleCreateJob} className={styles.button}>
-              {selectedJobId ? 'Update Job' : 'Create Job'}
+        <div className={styles.buttonContainer}>
+          {selectedJobId ? (
+            <button onClick={handleUpdateJob} className={styles.button}>
+              Update Job
             </button>
-          </div>
-        )}
+          ) : (
+            <button onClick={handleCreateJob} className={styles.button}>
+              Create Job
+            </button>
+          )}
+        </div>
 
         <div className={styles.header2}>
-          <HiSquare3Stack3D className={styles.leftIcon}/> Current Job List</div>
+          <HiSquare3Stack3D className={styles.leftIcon} /> Current Job List
+        </div>
         <div className={styles.filter}>
           <div className={styles.filterInputContainer}>
             <input
@@ -277,26 +253,25 @@ const AdminPage: React.FC = () => {
               onChange={handleFilterChange}
             />
             {input && (
-              <IoClose className={styles.clearIcon} onClick={clearInput} />
+              <IoClose className={styles.clearIcon} onClick={() => setInput("")} />
             )}
           </div>
-          
+
           {showSuggestions && (
             <div className={styles.suggestions} ref={suggestionsRef}>
-              {uniquePositions
-                .filter(position => position.toLowerCase().includes(filter.toLowerCase()))
-                .map((position, index) => (
-                  <span key={index} onClick={() => handleSuggestionClick(position)}>
-                    {getHighlightedText(position, input)}
-                  </span>
-                ))}
+              {jobs.map(job => (
+                <span key={job._id} onClick={() => handleSuggestionClick(job.position)}>
+                  {getHighlightedText(job.position, input)}
+                </span>
+              ))}
             </div>
           )}
         </div>
+
         <div className={styles.jobList}>
-          {currentJobs.length > 0 ? (
+          {jobs.length > 0 ? (
             <div className={styles.jobPairContainer}>
-              {currentJobs.map((job, index) => (
+              {jobs.map(job => (
                 <div key={job._id} className={styles.jobItem}>
                   <div className={styles.jobHeader}>{job.position}</div>
                   <p>{job.location}</p>
@@ -313,7 +288,7 @@ const AdminPage: React.FC = () => {
                         <li key={index}>{skill}</li>
                       ))}
                     </ul>
-                    <button className={styles.updateButton} onClick={() => handleUpdateJob()}>Update</button>
+                    <button className={styles.updateButton} onClick={() => handleSelectJob(job)}>Update</button>
                     <button className={styles.deleteButton} onClick={() => handleDeleteJob(job._id)}>Delete</button>
                   </div>
                 </div>
@@ -323,43 +298,15 @@ const AdminPage: React.FC = () => {
             <p>No jobs found</p>
           )}
         </div>
-        {/* <div className={styles.pagination}>
-          {Array.from({ length: totalPages }, (_, index) => (
-            <button key={index + 1} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? styles.activePage : ''}>
-              {index + 1}
-            </button>
-          ))}
-        </div> */}
+
         <div className={styles.paginationContainer}>
           <div className={styles.pagination}>
             <Pagination
-              count={totalPages}
+              count={Math.ceil(jobs.length / jobsPerPage)}
               page={currentPage}
-              siblingCount={0}
-              boundaryCount={2}
-              onChange={handlePaginationChange}
+              onChange={(event, page) => setCurrentPage(page)}
               color="primary"
-              variant="text"
               shape="rounded"
-              renderItem={(item) => (
-                <PaginationItem
-                  {...item}
-                  sx={{
-                    '&.Mui-selected': {
-                      backgroundColor: '#09B089',
-                      color: 'white',
-                      borderRadius: "10px"
-                    },
-                    '&.Mui-selected:hover': {
-                      backgroundColor: '#09B089'
-                    },
-                    fontFamily: "Poppins, sans-serif",
-                    '&.MuiPaginationItem-root': {
-                      borderRadius: "10px"
-                    }
-                  }}
-                />
-              )}
             />
           </div>
         </div>
