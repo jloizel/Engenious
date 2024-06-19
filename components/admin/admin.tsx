@@ -184,21 +184,21 @@ const AdminPage: React.FC = () => {
         
         <div className={styles.form}>
           <h2>{selectedJobId ? 'Update Job' : 'Create Job'}</h2>
-          <div className={styles.formLeft}>
-
+          <div className={styles.formInputs}>
+            <div className={styles.formInputsLeft}>
+              <input type="text" name="position" placeholder="Position" value={jobData.position} onChange={handleChange} />
+              <input type="text" name="contractType" placeholder="Contract Type" value={jobData.contractType} onChange={handleChange} />
+              <input type="text" name="location" placeholder="Location" value={jobData.location} onChange={handleChange} />
+              <input type="text" name="specialisation" placeholder="Specialisation" value={jobData.specialisation} onChange={handleChange} />
+              <input type="text" name="salary" placeholder="Salary" value={jobData.salary} onChange={handleChange} />
+              <input type="text" name="duration" placeholder="Duration" value={jobData.duration} onChange={handleChange} />
+            </div>
+            <div className={styles.formInputsRight}>
+              <textarea name="jobDescription" placeholder="Job Description" value={jobData.jobDescription} onChange={handleChange} />
+              <textarea name="responsibilities" placeholder="Responsibilities" value={jobData.responsibilities.join('\n')} onChange={handleArrayChange} />
+              <textarea name="skillsExperience" placeholder="Skills Experience" value={jobData.skillsExperience.join('\n')} onChange={handleArrayChange} />
+            </div>
           </div>
-          <div className={styles.formRight}>
-
-          </div>
-          <input type="text" name="position" placeholder="Position" value={jobData.position} onChange={handleChange} />
-          <input type="text" name="contractType" placeholder="Contract Type" value={jobData.contractType} onChange={handleChange} />
-          <input type="text" name="location" placeholder="Location" value={jobData.location} onChange={handleChange} />
-          <input type="text" name="specialisation" placeholder="Specialisation" value={jobData.specialisation} onChange={handleChange} />
-          <input type="text" name="salary" placeholder="Salary" value={jobData.salary} onChange={handleChange} />
-          <textarea name="jobDescription" placeholder="Job Description" value={jobData.jobDescription} onChange={handleChange} />
-          <input type="text" name="duration" placeholder="Duration" value={jobData.duration} onChange={handleChange} />
-          <textarea name="responsibilities" placeholder="Responsibilities" value={jobData.responsibilities.join('\n')} onChange={handleArrayChange} />
-          <textarea name="skillsExperience" placeholder="Skills Experience" value={jobData.skillsExperience.join('\n')} onChange={handleArrayChange} />
           <button onClick={selectedJobId ? handleUpdateJob : handleCreateJob}>
             {selectedJobId ? 'Update Job' : 'Create Job'}
           </button>
