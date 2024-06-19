@@ -14,7 +14,6 @@ const api: AxiosInstance = axios.create({
 export interface Job {
   _id: string;
   position: string;
-  postedAt: Date;
   contractType: string;
   location: string;
   specialisation: string;
@@ -26,7 +25,7 @@ export interface Job {
 }
 
 // API functions
-export const createJob = async (jobData: { position: string, postedAt: Date, contractType: string, location: string, specialisation: string, salary: string, jobDescription: string, duration: string, responsibilities: string[], skillsExperience: string[] }): Promise<Job> => {
+export const createJob = async (jobData: { position: string, contractType: string, location: string, specialisation: string, salary: string, jobDescription: string, duration: string, responsibilities: string[], skillsExperience: string[] }): Promise<Job> => {
   try {
     const response: AxiosResponse<Job> = await api.post('/jobs/create', jobData);
     return response.data;
@@ -50,14 +49,15 @@ export const getJobById = async (jobId: string): Promise<Job | null> => {
 export const getAllJobs = async (): Promise<Job[]> => {
   try {
     const response: AxiosResponse<{ jobs: Job[] }> = await api.get('/jobs/get');
-    return response.data.jobs;
+    return response.data.jobs || [];
   } catch (error) {
-    throw error;
+    console.error('Error fetching jobs:', error);
+    return [];
   }
 };
 
 
-export const updateJob = async (jobId: string, jobData: { position: string, postedAt: Date, contractType: string, location: string, specialisation: string, salary: string, jobDescription: string, duration: string, responsibilities: string[], skillsExperience: string[] }): Promise<Job> => {
+export const updateJob = async (jobId: string, jobData: { position: string, contractType: string, location: string, specialisation: string, salary: string, jobDescription: string, duration: string, responsibilities: string[], skillsExperience: string[] }): Promise<Job> => {
   try {
     const response: AxiosResponse<Job> = await api.patch(`/jobs/update/${jobId}`, jobData);
     return response.data;

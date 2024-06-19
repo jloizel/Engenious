@@ -1,0 +1,74 @@
+/* page.module.css */
+
+.container {
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.form input,
+.form textarea {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.form button {
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.job-list {
+  margin-top: 20px;
+}
+
+.job-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  position: relative;
+}
+
+.job-details {
+  display: none;
+  animation: slideIn 0.5s forwards;
+}
+
+.job-item:hover .job-details {
+  display: block;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.update-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  margin-left: 10px;
+}
