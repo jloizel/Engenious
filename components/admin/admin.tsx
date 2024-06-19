@@ -5,6 +5,8 @@ import styles from './page.module.css';
 import { createJob, getAllJobs, updateJob, deleteJob, Job } from '../../src/app/API';
 import NavbarMain2 from '../navbar/main/navbarMain2';
 import { IoClose } from 'react-icons/io5';
+import { Pagination, PaginationItem } from '@mui/material';
+import { HiSquare3Stack3D } from 'react-icons/hi2';
 
 const AdminPage: React.FC = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -78,19 +80,8 @@ const AdminPage: React.FC = () => {
     try {
       const updatedJob = await updateJob(selectedJobId, jobData);
       setJobs(jobs.map(job => job._id === selectedJobId ? updatedJob : job));
-      setSelectedJobId(null);
-      setJobData({
-        position: '',
-        contractType: '',
-        location: '',
-        specialisation: '',
-        salary: '',
-        jobDescription: '',
-        duration: '',
-        responsibilities: [],
-        skillsExperience: []
-      });
-      setJobRefresh(true)
+      resetForm();
+      setJobRefresh(true);
       setTimeout(() => {
         setJobRefresh(false); // Reset pageChanged state after a short delay
       }, 500);
@@ -154,6 +145,21 @@ const AdminPage: React.FC = () => {
     setShowSuggestions(false);
   };
 
+  const resetForm = () => {
+    setSelectedJobId(null);
+    setJobData({
+      position: '',
+      contractType: '',
+      location: '',
+      specialisation: '',
+      salary: '',
+      jobDescription: '',
+      duration: '',
+      responsibilities: [],
+      skillsExperience: []
+    });
+  };
+
   const uniquePositions = [...new Set(jobs.map(job => job.position))];
 
   const filteredJobs = jobs.filter(job => job.position.toLowerCase().includes(filter.toLowerCase()));
@@ -164,6 +170,10 @@ const AdminPage: React.FC = () => {
   const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+
+  const handlePaginationChange = (event: React.ChangeEvent<unknown>, page: number) => {
+    setCurrentPage(page);
+  };
   
   const clearInput = () => {
     setInput("");
@@ -256,7 +266,8 @@ const AdminPage: React.FC = () => {
           </div>
         )}
 
-        <div className={styles.header2}>Current Job List</div>
+        <div className={styles.header2}>
+          <HiSquare3Stack3D className={styles.leftIcon}/> Current Job List</div>
         <div className={styles.filter}>
           <div className={styles.filterInputContainer}>
             <input
@@ -284,38 +295,73 @@ const AdminPage: React.FC = () => {
         </div>
         <div className={styles.jobList}>
           {currentJobs.length > 0 ? (
-            currentJobs.map(job => (
-              <div key={job._id} className={styles.jobItem} onClick={() => handleSelectJob(job)}>
-                <h3>{job.position}</h3>
-                <p>{job.location}</p>
-                <p>{job.salary}</p>
-                <p>{job.jobDescription}</p>
-                <div className={styles.jobDetails}>
-                  <ul>
-                    {job.responsibilities?.map((responsibility, index) => (
-                      <li key={index}>{responsibility}</li>
-                    ))}
-                  </ul>
-                  <ul>
-                    {job.skillsExperience?.map((skill, index) => (
-                      <li key={index}>{skill}</li>
-                    ))}
-                  </ul>
-                  <button className={styles.updateButton} onClick={() => handleUpdateJob()}>Update</button>
-                  <button className={styles.deleteButton} onClick={() => handleDeleteJob(job._id)}>Delete</button>
+            <div className={styles.jobPairContainer}>
+              {currentJobs.map((job, index) => (
+                <div key={job._id} className={styles.jobItem}>
+                  <div className={styles.jobHeader}>{job.position}</div>
+                  <p>{job.location}</p>
+                  <p>{job.salary}</p>
+                  <p>{job.jobDescription}</p>
+                  <div className={styles.jobDetails}>
+                    <ul>
+                      {job.responsibilities?.map((responsibility, index) => (
+                        <li key={index}>{responsibility}</li>
+                      ))}
+                    </ul>
+                    <ul>
+                      {job.skillsExperience?.map((skill, index) => (
+                        <li key={index}>{skill}</li>
+                      ))}
+                    </ul>
+                    <button className={styles.updateButton} onClick={() => handleUpdateJob()}>Update</button>
+                    <button className={styles.deleteButton} onClick={() => handleDeleteJob(job._id)}>Delete</button>
+                  </div>
                 </div>
-              </div>
-            ))
+              ))}
+            </div>
           ) : (
             <p>No jobs found</p>
           )}
         </div>
-        <div className={styles.pagination}>
+        {/* <div className={styles.pagination}>
           {Array.from({ length: totalPages }, (_, index) => (
             <button key={index + 1} onClick={() => paginate(index + 1)} className={currentPage === index + 1 ? styles.activePage : ''}>
               {index + 1}
             </button>
           ))}
+        </div> */}
+        <div className={styles.paginationContainer}>
+          <div className={styles.pagination}>
+            <Pagination
+              count={totalPages}
+              page={currentPage}
+              siblingCount={0}
+              boundaryCount={2}
+              onChange={handlePaginationChange}
+              color="primary"
+              variant="text"
+              shape="rounded"
+              renderItem={(item) => (
+                <PaginationItem
+                  {...item}
+                  sx={{
+                    '&.Mui-selected': {
+                      backgroundColor: '#09B089',
+                      color: 'white',
+                      borderRadius: "10px"
+                    },
+                    '&.Mui-selected:hover': {
+                      backgroundColor: '#09B089'
+                    },
+                    fontFamily: "Poppins, sans-serif",
+                    '&.MuiPaginationItem-root': {
+                      borderRadius: "10px"
+                    }
+                  }}
+                />
+              )}
+            />
+          </div>
         </div>
       </div>
     </div>
