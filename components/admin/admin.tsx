@@ -1,9 +1,10 @@
 "use client"
 
-import React, { useState, useEffect, ChangeEvent } from 'react';
+import React, { useState, useEffect, ChangeEvent, useRef } from 'react';
 import styles from './page.module.css';
 import { createJob, getAllJobs, updateJob, deleteJob, Job } from '../../src/app/API';
 import NavbarMain2 from '../navbar/main/navbarMain2';
+import { IoClose } from 'react-icons/io5';
 
 const AdminPage: React.FC = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -24,6 +25,9 @@ const AdminPage: React.FC = () => {
   const [jobsPerPage] = useState(10);
   const [filter, setFilter] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [textTyped, setTextTyped] = useState(false)
+  const [input, setInput] = useState("");
+  const suggestionsRef = useRef<HTMLDivElement>(null);
 
   // Fetch jobs when the component mounts
   useEffect(() => {
@@ -113,6 +117,7 @@ const AdminPage: React.FC = () => {
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setJobData({ ...jobData, [name]: value });
+    setTextTyped(true)
   };
 
   // Handle changes for array fields
@@ -138,8 +143,10 @@ const AdminPage: React.FC = () => {
   };
 
   const handleFilterChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setFilter(e.target.value);
+    const inputValue = e.target.value;
+    setFilter(inputValue);
     setShowSuggestions(true);
+    setInput(inputValue)
   };
 
   const handleSuggestionClick = (suggestion: string) => {
@@ -157,6 +164,36 @@ const AdminPage: React.FC = () => {
   const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
 
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  
+  const clearInput = () => {
+    setInput("");
+    setFilter("");
+    setShowSuggestions(false);
+  };
+
+  const getHighlightedText = (text: string, highlight: string) => {
+    const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+    return (
+      <span>
+        {parts.map((part, i) =>
+          part.toLowerCase() === highlight.toLowerCase() ? <strong key={i}>{part}</strong> : part
+        )}
+      </span>
+    );
+  };
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (suggestionsRef.current && !suggestionsRef.current.contains(event.target as Node)) {
+      setShowSuggestions(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <div>
@@ -183,48 +220,69 @@ const AdminPage: React.FC = () => {
         </div>
         
         <div className={styles.form}>
-          <h2>{selectedJobId ? 'Update Job' : 'Create Job'}</h2>
+          {/* <div className={styles.header}></div> */}
+          {/* <h2>{selectedJobId ? 'Update Job' : 'Create Job'}</h2> */}
           <div className={styles.formInputs}>
             <div className={styles.formInputsLeft}>
-              <input type="text" name="position" placeholder="Position" value={jobData.position} onChange={handleChange} />
-              <input type="text" name="contractType" placeholder="Contract Type" value={jobData.contractType} onChange={handleChange} />
-              <input type="text" name="location" placeholder="Location" value={jobData.location} onChange={handleChange} />
-              <input type="text" name="specialisation" placeholder="Specialisation" value={jobData.specialisation} onChange={handleChange} />
-              <input type="text" name="salary" placeholder="Salary" value={jobData.salary} onChange={handleChange} />
-              <input type="text" name="duration" placeholder="Duration" value={jobData.duration} onChange={handleChange} />
+              <span>Position</span>
+              <input type="text" name="position" value={jobData.position} onChange={handleChange} />
+              <span>Contract Type</span>
+              <input type="text" name="contractType" value={jobData.contractType} onChange={handleChange} />
+              <span>Location</span>
+              <input type="text" name="location" value={jobData.location} onChange={handleChange} />
+              <span>Specialisation</span>
+              <input type="text" name="specialisation" value={jobData.specialisation} onChange={handleChange} />
+              <span>Salary</span>
+              <input type="text" name="salary" value={jobData.salary} onChange={handleChange} />
+              <span>Duration</span>
+              <input type="text" name="duration" value={jobData.duration} onChange={handleChange} />
             </div>
             <div className={styles.formInputsRight}>
-              <textarea name="jobDescription" placeholder="Job Description" value={jobData.jobDescription} onChange={handleChange} />
-              <textarea name="responsibilities" placeholder="Responsibilities" value={jobData.responsibilities.join('\n')} onChange={handleArrayChange} />
-              <textarea name="skillsExperience" placeholder="Skills Experience" value={jobData.skillsExperience.join('\n')} onChange={handleArrayChange} />
+              <span>Job Description</span>
+              <textarea name="jobDescription" value={jobData.jobDescription} onChange={handleChange} />
+              <span>Responsibilities</span>
+              <textarea name="responsibilities" value={jobData.responsibilities.join('\n')} onChange={handleArrayChange} />
+              <span>Skills Experience</span>
+              <textarea name="skillsExperience" value={jobData.skillsExperience.join('\n')} onChange={handleArrayChange} />
             </div>
           </div>
-          <button onClick={selectedJobId ? handleUpdateJob : handleCreateJob}>
-            {selectedJobId ? 'Update Job' : 'Create Job'}
-          </button>
         </div>
-        
+
+        {textTyped && (
+          <div className={styles.buttonContainer}>
+            <button onClick={selectedJobId ? handleUpdateJob : handleCreateJob} className={styles.button}>
+              {selectedJobId ? 'Update Job' : 'Create Job'}
+            </button>
+          </div>
+        )}
+
+        <div className={styles.header2}>Current Job List</div>
         <div className={styles.filter}>
-          <input
-            type="text"
-            placeholder="Filter by position"
-            value={filter}
-            onChange={handleFilterChange}
-          />
+          <div className={styles.filterInputContainer}>
+            <input
+              type="text"
+              placeholder="Filter by position"
+              value={filter}
+              onChange={handleFilterChange}
+            />
+            {input && (
+              <IoClose className={styles.clearIcon} onClick={clearInput} />
+            )}
+          </div>
+          
           {showSuggestions && (
-            <ul className={styles.suggestions}>
+            <div className={styles.suggestions} ref={suggestionsRef}>
               {uniquePositions
                 .filter(position => position.toLowerCase().includes(filter.toLowerCase()))
                 .map((position, index) => (
-                  <li key={index} onClick={() => handleSuggestionClick(position)}>
-                    {position}
-                  </li>
+                  <span key={index} onClick={() => handleSuggestionClick(position)}>
+                    {getHighlightedText(position, input)}
+                  </span>
                 ))}
-            </ul>
+            </div>
           )}
         </div>
         <div className={styles.jobList}>
-          <h2>Job List</h2>
           {currentJobs.length > 0 ? (
             currentJobs.map(job => (
               <div key={job._id} className={styles.jobItem} onClick={() => handleSelectJob(job)}>
@@ -249,7 +307,7 @@ const AdminPage: React.FC = () => {
               </div>
             ))
           ) : (
-            <p>No jobs available</p>
+            <p>No jobs found</p>
           )}
         </div>
         <div className={styles.pagination}>
