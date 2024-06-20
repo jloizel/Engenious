@@ -32,7 +32,7 @@ const AdminLoginPage: React.FC = () => {
           <span className={styles.header}>Admin Access</span>
           <form onSubmit={handleSubmit}>
             <div className={styles.inputContainer}>
-              <label>Email:</label>
+              <label style={{marginRight: "46px"}}>Email:</label>
               <input
                 type="email"
                 value={email}

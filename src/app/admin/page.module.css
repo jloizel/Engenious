@@ -74,6 +74,7 @@
   border: solid 1px lightgray;
   border-radius: 4px;
   padding: 5px;
+  align-self: flex-end;
 
   @media (min-width: 768px) {
     padding: 10px;

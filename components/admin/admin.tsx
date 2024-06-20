@@ -249,9 +249,14 @@ const AdminPage: React.FC = () => {
 
         <div className={styles.buttonContainer}>
           {selectedJobId ? (
-            <button onClick={handleUpdateJob} className={styles.button}>
-              Update Job
-            </button>
+            <>
+              <button onClick={handleUpdateJob} className={styles.button}>
+                Update Job
+              </button>
+              <button onClick={resetForm} className={styles.resetButton}>
+                Reset Form
+              </button>
+            </>
           ) : (
             <button onClick={handleCreateJob} className={styles.button}>
               Create Job
