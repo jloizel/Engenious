@@ -5,10 +5,11 @@ import NavbarMain2 from '../navbar/main/navbarMain2';
 import { IoClose } from 'react-icons/io5';
 import { Pagination, PaginationItem } from '@mui/material';
 import { HiSquare3Stack3D } from 'react-icons/hi2';
+import { formatDistanceToNow } from 'date-fns';
 
 const AdminPage: React.FC = () => {
   const [jobs, setJobs] = useState<Job[]>([]);
-  const [jobData, setJobData] = useState<Omit<Job, '_id'>>({
+  const [jobData, setJobData] = useState<Omit<Job, '_id' | 'createdAt' | 'updatedAt'>>({
     position: '',
     contractType: '',
     location: '',
@@ -156,7 +157,7 @@ const AdminPage: React.FC = () => {
 
   const uniquePositions = [...new Set(jobs.map(job => job.position))];
 
-  const filteredJobs = jobs.filter(job => job.position.toLowerCase().includes(filter.toLowerCase()));
+  const filteredJobs = jobs.filter(job => job.position?.toLowerCase().includes(filter.toLowerCase()));
 
   const clearInput = () => {
     setInput("");
@@ -311,6 +312,10 @@ const AdminPage: React.FC = () => {
                         <li key={index}>{skill}</li>
                       ))}
                     </ul>
+                    <div className={styles.infoHeader}>Created At:</div>
+                    <div>{formatDistanceToNow(new Date(job.createdAt), { addSuffix: true })}</div>
+                    <div className={styles.infoHeader}>Updated At:</div>
+                    <div>{formatDistanceToNow(new Date(job.updatedAt), { addSuffix: true })}</div>
                     <button className={styles.updateButton} onClick={() => handleSelectJob(job)}>Update</button>
                     <button className={styles.deleteButton} onClick={() => handleDeleteJob(job._id)}>Delete</button>
                   </div>
