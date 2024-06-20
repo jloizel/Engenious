@@ -22,12 +22,13 @@ const AdminPage: React.FC = () => {
   const [jobRefresh, setJobRefresh] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [jobsPerPage] = useState(10);
+  const [jobsPerPage] = useState(6);
   const [filter, setFilter] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [textTyped, setTextTyped] = useState(false);
   const [input, setInput] = useState("");
   const suggestionsRef = useRef<HTMLDivElement>(null);
+  const formRef = useRef<HTMLDivElement>(null);
 
   // Fetch jobs when the component mounts
   useEffect(() => {
@@ -38,7 +39,6 @@ const AdminPage: React.FC = () => {
   const fetchJobs = async () => {
     try {
       const jobs = await getAllJobs();
-      console.log('Fetched jobs:', jobs);
       setJobs(jobs);
     } catch (error) {
       console.error('Error fetching jobs:', error);
@@ -76,6 +76,7 @@ const AdminPage: React.FC = () => {
     } catch (error) {
       console.error('Error updating job:', error);
     }
+    
   };
 
   // Delete a job
@@ -119,6 +120,8 @@ const AdminPage: React.FC = () => {
       responsibilities: job.responsibilities,
       skillsExperience: job.skillsExperience
     });
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    formRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   // Handle filter change
@@ -151,6 +154,16 @@ const AdminPage: React.FC = () => {
     });
   };
 
+  const uniquePositions = [...new Set(jobs.map(job => job.position))];
+
+  const filteredJobs = jobs.filter(job => job.position.toLowerCase().includes(filter.toLowerCase()));
+
+  const clearInput = () => {
+    setInput("");
+    setFilter("");
+    setShowSuggestions(false);
+  };
+
   // Highlight text function
   const getHighlightedText = (text: string, highlight: string) => {
     const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
@@ -178,6 +191,10 @@ const AdminPage: React.FC = () => {
     };
   }, []);
 
+  const indexOfLastJob = currentPage * jobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+  const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
+
   return (
     <div>
       <NavbarMain2 />
@@ -202,7 +219,7 @@ const AdminPage: React.FC = () => {
           </div>
         </div>
 
-        <div className={styles.form}>
+        <div className={styles.form} ref={formRef}>
           <div className={styles.formInputs}>
             <div className={styles.formInputsLeft}>
               <span>Position</span>
@@ -253,36 +270,42 @@ const AdminPage: React.FC = () => {
               onChange={handleFilterChange}
             />
             {input && (
-              <IoClose className={styles.clearIcon} onClick={() => setInput("")} />
+              <IoClose className={styles.clearIcon} onClick={clearInput} />
             )}
           </div>
 
           {showSuggestions && (
             <div className={styles.suggestions} ref={suggestionsRef}>
-              {jobs.map(job => (
-                <span key={job._id} onClick={() => handleSuggestionClick(job.position)}>
-                  {getHighlightedText(job.position, input)}
-                </span>
-              ))}
+              {uniquePositions
+                .filter(position => position.toLowerCase().includes(filter.toLowerCase()))
+                .map((position, index) => (
+                  <span key={index} onClick={() => handleSuggestionClick(position)}>
+                    {getHighlightedText(position, input)}
+                  </span>
+                ))}
             </div>
           )}
         </div>
 
         <div className={styles.jobList}>
-          {jobs.length > 0 ? (
+          {currentJobs.length > 0 ? (
             <div className={styles.jobPairContainer}>
-              {jobs.map(job => (
+              {currentJobs.map(job => (
                 <div key={job._id} className={styles.jobItem}>
                   <div className={styles.jobHeader}>{job.position}</div>
-                  <p>{job.location}</p>
-                  <p>{job.salary}</p>
-                  <p>{job.jobDescription}</p>
+                  <span>{job.location}</span>
+                  <span>{job.contractType}</span>
+                  <span>{job.salary}</span>
+                  <div className={styles.infoHeader}>Job Description:</div>
+                  <div className={styles.jobDescription}>{job.jobDescription}</div>
                   <div className={styles.jobDetails}>
+                    <div className={styles.infoHeader}>Responsibilities:</div>
                     <ul>
                       {job.responsibilities?.map((responsibility, index) => (
                         <li key={index}>{responsibility}</li>
                       ))}
                     </ul>
+                    <div className={styles.infoHeader}>Skills & Experience:</div>
                     <ul>
                       {job.skillsExperience?.map((skill, index) => (
                         <li key={index}>{skill}</li>

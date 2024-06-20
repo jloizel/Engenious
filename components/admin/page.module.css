@@ -227,15 +227,66 @@
 }
 
 .jobHeader {
-  color: #005773;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  /* padding-bottom: 16px; */
+  display: flex;
+  align-items: center;
+  margin: 0;
   font-weight: 600;
-  font-size: 20px;
+  color: #005773;
+}
+
+.jobItem span {
+  background-color: #EFF0F0;
+  border-radius: 8px;
+  padding: 0px 8px;
+  text-align: center;
+  display: inline-flex;
+  margin-bottom: 0;
+  align-items: center;
+  column-gap: 10px;
+  font-weight: 500;
+  font-size: 12px;
+  margin-right: 10px;
+  margin-top: 5px;
+}
+
+.infoHeader {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  /* padding-bottom: 16px; */
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 25px;
+  font-weight: 500;
+}
+
+.jobDescription, .jobDetails ul {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+  /* padding-bottom: 16px; */
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  font-weight: 300;
+}
+
+.jobDetails ul {
+  padding-left: 20px;
+  margin: 0;
 }
 
 .jobDetails {
   display: flex;
   flex-direction: column;
   /* animation: slideIn 0.5s forwards; */
+  /* justify-content: center;
+  align-items: center; */
 }
 
 /* .jobItem:hover .jobDetails {
@@ -253,15 +304,36 @@
   }
 }
 
-.updateButton {
-  background-color: #4CAF50;
+.updateButton, .deleteButton {
   color: white;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  border: none;
+  border-radius: 4px;
+  width: 150px;
+  padding: 6px;
+  font-size: 16px;
+  margin: 5px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  align-self: center;
+}
+
+.updateButton {
+  background-color: #002D49;
+  margin-top: 20px;
+}
+
+.updateButton:hover {
+  background-color: #005773;
 }
 
 .deleteButton {
-  background-color: #f44336;
-  color: white;
-  margin-left: 10px;
+  background-color: #008489;
+}
+
+.deleteButton:hover {
+  background-color: #09B089;
 }
 
 .paginationContainer {
