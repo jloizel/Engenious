@@ -117,7 +117,7 @@ export default function ContactForm() {
               <textarea
                 id="contactFormMessage"
                 className={styles.message}
-                name="message"
+                // name="message"
                 {...register("message", { required: true })}
               />
             </div>
