@@ -22,8 +22,8 @@ export interface Job {
   duration: string;
   responsibilities: string[];
   skillsExperience: string[];
-  createdAt?: string;
-  updatedAt?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 // API functions

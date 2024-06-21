@@ -196,6 +196,26 @@ const AdminPage: React.FC = () => {
   const indexOfFirstJob = indexOfLastJob - jobsPerPage;
   const currentJobs = filteredJobs.slice(indexOfFirstJob, indexOfLastJob);
 
+  const calculateDaysAgo = (createdAt: string) => {
+    const postedDate = new Date(createdAt);
+    const currentDate = new Date();
+    const timeDifference = currentDate.getTime() - postedDate.getTime();
+    const daysAgo = Math.floor(timeDifference / (1000 * 3600 * 24));
+    return `${daysAgo} days ago`;
+  };
+
+  const getMostRecentDate = (createdAt: string, updatedAt: string) => {
+    const createdDate = new Date(createdAt);
+    const updatedDate = new Date(updatedAt);
+    return createdDate > updatedDate ? calculateDaysAgo(createdAt) : calculateDaysAgo(updatedAt);
+  };
+
+  const getMostRecentDateLabel = (createdAt: string, updatedAt: string) => {
+    const createdDate = new Date(createdAt);
+    const updatedDate = new Date(updatedAt);
+    return createdDate > updatedDate ? "Created" : "Updated";
+  };
+
   return (
     <div>
       <NavbarMain2 />
@@ -317,10 +337,14 @@ const AdminPage: React.FC = () => {
                         <li key={index}>{skill}</li>
                       ))}
                     </ul>
-                    <div className={styles.infoHeader}>Created At:</div>
-                    <div>{formatDistanceToNow(new Date(job.createdAt), { addSuffix: true })}</div>
+                    {/* <div className={styles.infoHeader}>Created At:</div>
+                    <div>{calculateDaysAgo(job.createdAt)}</div>
                     <div className={styles.infoHeader}>Updated At:</div>
-                    <div>{formatDistanceToNow(new Date(job.updatedAt), { addSuffix: true })}</div>
+                    <div>{calculateDaysAgo(job.updatedAt)}</div> */}
+                    <div className={styles.infoHeader}>
+                      {getMostRecentDateLabel(job.createdAt, job.updatedAt)}
+                      <div>{getMostRecentDate(job.createdAt, job.updatedAt)}</div>
+                    </div>
                     <button className={styles.updateButton} onClick={() => handleSelectJob(job)}>Update</button>
                     <button className={styles.deleteButton} onClick={() => handleDeleteJob(job._id)}>Delete</button>
                   </div>
