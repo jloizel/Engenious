@@ -92,7 +92,7 @@ const OurTeam = () => {
               <span style={{color:'white'}}> team.</span>
             </div>
             <div className={styles.mainText}>
-              Our team are at the heart of everything we do. Below you&apos;ll find out a little bit more about who you&apos;re dealing with and prove that we&apos;re not just a voice at the end of the phone.
+              Meet the driving force behind Engenious Recruitment. Our team is composed of passionate and experienced recruiters who are dedicated to excellence. Led by our founder with over 12 years of industry experience, we bring a wealth of knowledge and a personal touch to every recruitment process. Our energetic and dynamic team thrives on delighting our clients and candidates alike. Get to know the people who make Engenious Recruitment a trusted partner in the construction industry.
             </div>
           </div>
         </Box>
