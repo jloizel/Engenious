@@ -82,7 +82,7 @@ const Details = () => {
           <div className={styles.jobsMainContainer}>
             <div className={styles.jobsContainer}>
               <JobCardsContainer
-                data={sortedJobs}
+                // data={sortedJobs}
                 setKeywords={addFilterKeywords}
                 showAllJobs={showAllJobs}
                 handleButtonClick={handleButtonClick}

@@ -30,7 +30,7 @@ const AdminPage: React.FC = () => {
   const [input, setInput] = useState("");
   const suggestionsRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
-  const jobsListRef = useRef<HTMLDivElement>(null);
+  const jobsRef = useRef<HTMLDivElement>(null);
 
   // Fetch jobs when the component mounts
   useEffect(() => {
@@ -219,13 +219,13 @@ const AdminPage: React.FC = () => {
 
   useEffect(() => {
     // window.scrollTo({ top: 0, behavior: "smooth" });
-    jobsListRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+    jobsRef.current?.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage]);
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
     window.scrollTo({ top: 0, behavior: "smooth" });
-    jobsListRef.current?.scrollTo({ top: 0, behavior: "smooth" }); 
+    jobsRef.current?.scrollTo({ top: 0, behavior: "smooth" }); 
   };
 
   return (
@@ -273,7 +273,7 @@ const AdminPage: React.FC = () => {
               <textarea name="jobDescription" value={jobData.jobDescription} onChange={handleChange} />
               <span>Responsibilities</span>
               <textarea name="responsibilities" value={jobData.responsibilities.join('\n')} onChange={handleArrayChange} />
-              <span>Skills Experience</span>
+              <span>Skills & Experience</span>
               <textarea name="skillsExperience" value={jobData.skillsExperience.join('\n')} onChange={handleArrayChange} />
             </div>
           </div>
@@ -326,7 +326,7 @@ const AdminPage: React.FC = () => {
             )}
           </div>
 
-          <div className={styles.jobList} ref={jobsListRef}>
+          <div className={styles.jobList} ref={jobsRef}>
             {currentJobs.length > 0 ? (
               <div className={styles.jobPairContainer}>
                 {currentJobs.map(job => (
