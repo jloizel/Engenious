@@ -10,13 +10,18 @@ import { useJobContext } from "../../jobContext/jobContext";
 
 // Define the types for the job data
 interface JobData {
-  id: number;
+  _id: string;
   position: string;
-  postedAt: string;
   contractType: string;
   location: string;
   specialisation: string;
-  salary: string; // Assuming 'new' is a boolean property in the job data
+  salary: string;
+  jobDescription: string;
+  duration: string;
+  responsibilities: string[];
+  skillsExperience: string[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 // Define the types for the props
@@ -27,14 +32,16 @@ interface JobProps {
 
 const JobCard: React.FC<JobProps> = (props) => {
   const {
-    id,
+    _id,
     position,
-    postedAt,
+    createdAt,
     contractType,
     location,
     specialisation,
     salary,
   } = props.data;
+
+  console.log(_id)
 
   const { setId } = useJobContext();
 
@@ -45,11 +52,11 @@ const JobCard: React.FC<JobProps> = (props) => {
     return Math.floor(timeDifference / (1000 * 3600 * 24));
   };
 
-  const daysAgo = calculateDaysAgo(postedAt);
+  const daysAgo = calculateDaysAgo(createdAt);
 
   const handleCardClick = () => {
-    // Redirect to the desired URL
-    setId(id);
+    const jobIdNumber = parseInt(_id);
+    setId(_id);
     window.location.href = "/jobs/details"; // Replace with your actual URL
   };
 

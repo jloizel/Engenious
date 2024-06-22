@@ -8,6 +8,7 @@ import { sendCV } from '../../src/app/utils/sendCV';
 import styles from './page.module.css';
 import { JobProvider, useJobContext } from '../jobContext/jobContext';
 import data from "../jobsComponents/jobs.json";
+import { Job, getJobById } from '@/app/API';
 
 // Define the schema using zod
 const formSchema = z.object({
@@ -41,47 +42,86 @@ const SubmitCVForm2: FC = () => {
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [checkboxError, setCheckboxError] = useState<string>('');
   const [messageSent, setMessageSent] = useState<boolean>(false);
-  const [jobDetails, setJobDetails] = useState<any>(null);
+  const [jobDetails, setJobDetails] = useState<Job | null>(null);
 
   const { id } = useJobContext();
 
+  // useEffect(() => {
+  //   const job = data.find((job) => job.id === id);
+  //   setJobDetails(job);
+  // }, [id]);
+
   useEffect(() => {
-    const job = data.find((job) => job.id === id);
-    setJobDetails(job);
+    const fetchJobDetails = async () => {
+      try {
+        if (!id) {
+          throw new Error('No job ID provided');
+        }
+
+        console.log('Fetching job details for ID:', id);
+
+        const jobData = await getJobById(id); // Ensure id is string
+        console.log('Fetched job data:', jobData);
+        
+        if (jobData) {
+          setJobDetails(jobData);
+        } else {
+          console.log('Job details not found');
+          setJobDetails(null); // Handle case where jobData is null
+        }
+      } catch (error) {
+        console.error('Error fetching job details:', error);
+        setJobDetails(null); // Handle error state accordingly
+      }
+    };
+
+    fetchJobDetails();
   }, [id]);
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     let hasError = false;
-
+  
+    // Validate checkbox
     if (!checkboxChecked) {
       setCheckboxError('You must accept the privacy policy');
       hasError = true;
     } else {
       setCheckboxError('');
     }
-
+  
+    // Validate file
     if (!content || !filename) {
       setError('file', { type: 'manual', message: 'File is required.' });
       hasError = true;
     }
-
+  
     if (hasError) {
       return;
     }
-
-    const base64Content = content.split(',')[1];
-
+  
+    // Prepare form data with file content
+    const base64Content = content?.split(',')[1];
     const formDataWithFile = {
       ...data,
       file: {
         name: filename,
-        content: base64Content,
+        content: base64Content || '', // Ensure content is not undefined
       },
+      jobPosition: jobDetails?.position || '', // Example: Fetch job position from jobDetails
+      salary: jobDetails?.salary || '', // Example: Fetch salary from jobDetails
+      location: jobDetails?.location || '', // Example: Fetch location from jobDetails
+      contractType: jobDetails?.contractType || '', // Example: Fetch contract type from jobDetails
     };
-
-    sendCV(formDataWithFile);
-    setMessageSent(true);
-    reset();
+  
+    // Send form data
+    try {
+      await sendCV(formDataWithFile);
+      setMessageSent(true);
+      reset(); // Reset form after successful submission
+    } catch (error) {
+      console.error('Error sending CV:', error);
+      // Handle error accordingly
+    }
   };
 
   const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {

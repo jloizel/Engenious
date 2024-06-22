@@ -30,6 +30,7 @@ const AdminPage: React.FC = () => {
   const [input, setInput] = useState("");
   const suggestionsRef = useRef<HTMLDivElement>(null);
   const formRef = useRef<HTMLDivElement>(null);
+  const jobsListRef = useRef<HTMLDivElement>(null);
 
   // Fetch jobs when the component mounts
   useEffect(() => {
@@ -216,6 +217,17 @@ const AdminPage: React.FC = () => {
     return createdDate > updatedDate ? "Created" : "Updated";
   };
 
+  useEffect(() => {
+    // window.scrollTo({ top: 0, behavior: "smooth" });
+    jobsListRef.current?.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentPage]);
+
+  const handlePageChange = (event, value) => {
+    setCurrentPage(value);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    jobsListRef.current?.scrollTo({ top: 0, behavior: "smooth" }); 
+  };
+
   return (
     <div>
       <NavbarMain2 />
@@ -284,87 +296,111 @@ const AdminPage: React.FC = () => {
           )}
         </div>
 
-        <div className={styles.header2}>
-          <HiSquare3Stack3D className={styles.leftIcon} /> Current Job List
-        </div>
-        <div className={styles.filter}>
-          <div className={styles.filterInputContainer}>
-            <input
-              type="text"
-              placeholder="Filter by position"
-              value={filter}
-              onChange={handleFilterChange}
-            />
-            {input && (
-              <IoClose className={styles.clearIcon} onClick={clearInput} />
+        <div >
+          <div className={styles.header2} >
+            <HiSquare3Stack3D className={styles.leftIcon} /> Current Job List
+          </div>
+          <div className={styles.filter}>
+            <div className={styles.filterInputContainer}>
+              <input
+                type="text"
+                placeholder="Filter by position"
+                value={filter}
+                onChange={handleFilterChange}
+              />
+              {input && (
+                <IoClose className={styles.clearIcon} onClick={clearInput} />
+              )}
+            </div>
+
+            {showSuggestions && (
+              <div className={styles.suggestions} ref={suggestionsRef}>
+                {uniquePositions
+                  .filter(position => position.toLowerCase().includes(filter.toLowerCase()))
+                  .map((position, index) => (
+                    <span key={index} onClick={() => handleSuggestionClick(position)}>
+                      {getHighlightedText(position, input)}
+                    </span>
+                  ))}
+              </div>
             )}
           </div>
 
-          {showSuggestions && (
-            <div className={styles.suggestions} ref={suggestionsRef}>
-              {uniquePositions
-                .filter(position => position.toLowerCase().includes(filter.toLowerCase()))
-                .map((position, index) => (
-                  <span key={index} onClick={() => handleSuggestionClick(position)}>
-                    {getHighlightedText(position, input)}
-                  </span>
-                ))}
-            </div>
-          )}
-        </div>
-
-        <div className={styles.jobList}>
-          {currentJobs.length > 0 ? (
-            <div className={styles.jobPairContainer}>
-              {currentJobs.map(job => (
-                <div key={job._id} className={styles.jobItem}>
-                  <div className={styles.jobHeader}>{job.position}</div>
-                  <span>{job.location}</span>
-                  <span>{job.contractType}</span>
-                  <span>{job.salary}</span>
-                  <div className={styles.infoHeader}>Job Description:</div>
-                  <div className={styles.jobDescription}>{job.jobDescription}</div>
-                  <div className={styles.jobDetails}>
-                    <div className={styles.infoHeader}>Responsibilities:</div>
-                    <ul>
-                      {job.responsibilities?.map((responsibility, index) => (
-                        <li key={index}>{responsibility}</li>
-                      ))}
-                    </ul>
-                    <div className={styles.infoHeader}>Skills & Experience:</div>
-                    <ul>
-                      {job.skillsExperience?.map((skill, index) => (
-                        <li key={index}>{skill}</li>
-                      ))}
-                    </ul>
-                    {/* <div className={styles.infoHeader}>Created At:</div>
-                    <div>{calculateDaysAgo(job.createdAt)}</div>
-                    <div className={styles.infoHeader}>Updated At:</div>
-                    <div>{calculateDaysAgo(job.updatedAt)}</div> */}
-                    <div className={styles.infoHeader}>
-                      {getMostRecentDateLabel(job.createdAt, job.updatedAt)}
-                      <div>{getMostRecentDate(job.createdAt, job.updatedAt)}</div>
+          <div className={styles.jobList} ref={jobsListRef}>
+            {currentJobs.length > 0 ? (
+              <div className={styles.jobPairContainer}>
+                {currentJobs.map(job => (
+                  <div key={job._id} className={styles.jobItem}>
+                    <div className={styles.jobHeader}>{job.position}</div>
+                    <span>{job.location}</span>
+                    <span>{job.contractType}</span>
+                    <span>{job.salary}</span>
+                    <div className={styles.infoHeader}>Job Description:</div>
+                    <div className={styles.jobDescription}>{job.jobDescription}</div>
+                    <div className={styles.jobDetails}>
+                      <div className={styles.infoHeader}>Responsibilities:</div>
+                      <ul>
+                        {job.responsibilities?.map((responsibility, index) => (
+                          <li key={index}>{responsibility}</li>
+                        ))}
+                      </ul>
+                      <div className={styles.infoHeader}>Skills & Experience:</div>
+                      <ul>
+                        {job.skillsExperience?.map((skill, index) => (
+                          <li key={index}>{skill}</li>
+                        ))}
+                      </ul>
+                      {/* <div className={styles.infoHeader}>Created At:</div>
+                      <div>{calculateDaysAgo(job.createdAt)}</div>
+                      <div className={styles.infoHeader}>Updated At:</div>
+                      <div>{calculateDaysAgo(job.updatedAt)}</div> */}
+                      <div className={styles.infoHeader}>
+                        {getMostRecentDateLabel(job.createdAt, job.updatedAt)}
+                        <div>{getMostRecentDate(job.createdAt, job.updatedAt)}</div>
+                      </div>
+                      <button className={styles.updateButton} onClick={() => handleSelectJob(job)}>Update</button>
+                      <button className={styles.deleteButton} onClick={() => handleDeleteJob(job._id)}>Delete</button>
                     </div>
-                    <button className={styles.updateButton} onClick={() => handleSelectJob(job)}>Update</button>
-                    <button className={styles.deleteButton} onClick={() => handleDeleteJob(job._id)}>Delete</button>
                   </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            <p>No jobs found</p>
-          )}
-        </div>
+                ))}
+              </div>
+            ) : (
+              <p>No jobs found</p>
+            )}
+          </div>
 
-        <div className={styles.paginationContainer}>
-          <div className={styles.pagination}>
-            <Pagination
-              count={Math.ceil(jobs.length / jobsPerPage)}
-              page={currentPage}
-              onChange={(event, page) => setCurrentPage(page)}
-              color="primary"
-              shape="rounded"
-            />
+          <div className={styles.paginationContainer}>
+            <div className={styles.pagination}>
+              <Pagination
+                count={Math.ceil(jobs.length / jobsPerPage)}
+                page={currentPage}
+                siblingCount={0}
+                boundaryCount={2}
+                onChange={handlePageChange}
+                color="primary"
+                variant="text"
+                shape="rounded"
+                renderItem={(item) => (
+                  <PaginationItem
+                    {...item}
+                    sx={{
+                      '&.Mui-selected': {
+                        backgroundColor: '#09B089',
+                        color: 'white',
+                        borderRadius: "10px"
+                      },
+                      '&.Mui-selected:hover': {
+                        backgroundColor: '#09B089'
+                      },
+                      fontFamily: "Poppins, sans-serif",
+                      '&.MuiPaginationItem-root': {
+                        borderRadius: "10px"
+                      }
+                    }}
+                  />
+                )}
+              />
+            </div>
           </div>
         </div>
       </div>

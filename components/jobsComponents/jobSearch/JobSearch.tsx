@@ -12,16 +12,18 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import { JobProvider, useJobContext } from "../../jobContext/jobContext";
 
 export interface JobCardData {
-  id: number;
+  _id: string;
   position: string;
-  postedAt: string;
   contractType: string;
   location: string;
   specialisation: string;
   salary: string;
   jobDescription: string;
+  duration: string;
   responsibilities: string[];
   skillsExperience: string[];
+  createdAt: string;
+  updatedAt: string;
 }
 
 interface JobSearchProps {
@@ -34,24 +36,24 @@ interface JobSearchProps {
 const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords }) => {
   const [filteredApplied, setFilterApplied] = useState(false);
   const [filteredData, setFilteredData] = useState<JobCardData[]>(data);
-  const [selectedJobId, setSelectedJobId] = useState(data.length > 0 ? data[0].id : null);
+  const [selectedJobId, setSelectedJobId] = useState<string | null>(data.length > 0 ? data[0]._id : null);
 
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState<string>("");
   const [locations, setLocations] = useState<string[]>([]);
-  const [locationsCounts, setLocationsCounts] = useState({});
-  const [selectedLocations, setSelectedLocations] = useState([]);
+  const [locationsCounts, setLocationsCounts] = useState<Record<string, number>>({});
+  const [selectedLocations, setSelectedLocations] = useState<string[]>([]);
 
   const [contractTypes, setContractTypes] = useState<string[]>([]);
-  const [contractTypeCounts, setContractTypeCounts] = useState({});
-  const [selectedContractTypes, setSelectedContractTypes] = useState([]);
+  const [contractTypeCounts, setContractTypeCounts] = useState<Record<string, number>>({});
+  const [selectedContractTypes, setSelectedContractTypes] = useState<string[]>([]);
 
   const [salaryRanges, setSalaryRanges] = useState<string[]>([]);
-  const [salaryRangesCounts, setSalaryRangesCounts] = useState({});
-  const [selectedSalaryRanges, setSelectedSalaryRanges] = useState([]);
+  const [salaryRangesCounts, setSalaryRangesCounts] = useState<Record<string, number>>({});
+  const [selectedSalaryRanges, setSelectedSalaryRanges] = useState<string[]>([]);
 
   const [specialisations, setSpecialisations] = useState<string[]>([]);
-  const [specialisationsCounts, setSpecialisationsCounts] = useState({});
-  const [selectedSpecialisations, setSelectedSpecialisations] = useState([]);``
+  const [specialisationsCounts, setSpecialisationsCounts] = useState<Record<string, number>>({});
+  const [selectedSpecialisations, setSelectedSpecialisations] = useState<string[]>([]);
 
   const [positions, setPositions] = useState<string[]>([]);
 
@@ -59,14 +61,14 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   const jobsPerPage = 10;
   const jobListTopRef = useRef<HTMLDivElement>(null);
   const jobsListRef = useRef<HTMLDivElement>(null);
-  const [pageChanged, setPageChanged] = useState(false)
-  const [buttonPressed, setButtonPressed] = useState(false)
+  const [pageChanged, setPageChanged] = useState(false);
+  const [buttonPressed, setButtonPressed] = useState(false);
   const [isMobileJobSelected, setIsMobileJobSelected] = useState(false);
-  const [jobApplied, setJobApplied] = useState(false)
+  const [jobApplied, setJobApplied] = useState(false);
   const { setId } = useJobContext();
   const selectedJobContainerRef = useRef<HTMLDivElement>(null);
 
-  const handleJobClick = (jobId: number) => {
+  const handleJobClick = (jobId: string) => {
     setSelectedJobId(jobId);
     if (window.innerWidth <= 768) {
       setIsMobileJobSelected(true); // Show the right container on mobile when a job is selected
@@ -80,10 +82,13 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setIsMobileJobSelected(false);
   };
 
-  const handleApplyNowButton = (jobId: number) => {
-    setId(jobId);
-    setJobApplied(true)
-  }
+  const handleApplyNowButton = (jobId: string) => {
+    // Convert jobId from string to number
+    const jobIdNumber = parseInt(jobId); // or parseFloat(jobId) if it's a float
+  
+    setId(jobId); // Assuming setId expects a number
+    setJobApplied(true);
+  };
 
   const handleAppliedButton = () => {
     setFilterApplied(true);
@@ -99,7 +104,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setFilteredData(sortedFilteredData);
     setCurrentPage(1); // Reset to the first page after applying filters
     // Update selectedJobId to the id of the first job in the filtered data
-    setSelectedJobId(filtered.length > 0 ? filtered[0].id : null);
+    setSelectedJobId(filtered.length > 0 ? filtered[0]._id : null);
   };
 
   const calculateDaysAgo = (postedAt: string) => {
@@ -162,7 +167,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setFilteredData(sortedFilteredData);
     setCurrentPage(1); // Reset to the first page after applying filters
     if (filtered.length > 0) {
-        setSelectedJobId(filtered[0].id); // Set the first job as selected
+        setSelectedJobId(filtered[0]._id); // Set the first job as selected
     }
   };
 
@@ -315,7 +320,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
   useEffect(() => {
     // Update selectedJobId to the id of the first job on the new page
     if (pageChanged) {
-      setSelectedJobId(currentJobs.length > 0 ? currentJobs[0].id : null);
+      setSelectedJobId(currentJobs.length > 0 ? currentJobs[0]._id : null);
     }
   }, [currentPage, currentJobs, pageChanged]);
 
@@ -352,7 +357,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
     setLocation("");
     setFilteredData(data); // Reset filtered data to the original data
     setCurrentPage(1); // Reset to the first page
-    setSelectedJobId(data.length > 0 ? data[0].id : null); // Reset selected job
+    setSelectedJobId(data.length > 0 ? data[0]._id : null); // Reset selected job
   };
 
   return (
@@ -414,25 +419,25 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           ) : (
           <div className={styles.jobsList} ref={jobsListRef}>
             {currentJobs.map((job) => {
-              const daysAgo = calculateDaysAgo(job.postedAt);
+              const daysAgo = calculateDaysAgo(job.createdAt);
               return (
                 <div
-                  key={job.id}
-                  className={`${selectedJobId === job.id ? styles.jobCardContainerHighlighted : styles.jobCardContainer}`}
-                  onClick={() => handleJobClick(job.id)}
+                  key={job._id}
+                  className={`${selectedJobId === job._id ? styles.jobCardContainerHighlighted : styles.jobCardContainer}`}
+                  onClick={() => handleJobClick(job._id)}
                 >
                   <div className={styles.jobCard}>
                     <span className={styles.jobPosition}>{job.position}</span>
-                    <div className={`${selectedJobId === job.id ? styles.jobInfoHighlighted : styles.jobInfo}`}>
+                    <div className={`${selectedJobId === job._id ? styles.jobInfoHighlighted : styles.jobInfo}`}>
                       <span><GoLocation className={styles.icon}/>{job.location}</span>
                       <span><LuClock3 className={styles.icon}/>{job.contractType}</span>
                       <span><GiMoneyStack className={styles.icon}/>{job.salary}</span>
                     </div>
                     <div className={styles.bottomInfo}>
-                      {daysAgo <= 3 && <span className={`${selectedJobId === job.id ? styles.newHighlighted : styles.new}`}>new</span>}
-                      {daysAgo > 3 && <span className={`${selectedJobId === job.id ? styles.newHiddenHighlighted : styles.newHidden}`}>.</span>}
+                      {daysAgo <= 3 && <span className={`${selectedJobId === job._id ? styles.newHighlighted : styles.new}`}>new</span>}
+                      {daysAgo > 3 && <span className={`${selectedJobId === job._id ? styles.newHiddenHighlighted : styles.newHidden}`}>.</span>}
                       <span className={styles.postedDate}>
-                        {daysAgo > 7 ? calculateDate(job.postedAt) : `${daysAgo} days ago`}
+                        {daysAgo > 7 ? calculateDate(job.createdAt) : `${daysAgo} days ago`}
                       </span>
                     </div>
                   </div>
@@ -488,15 +493,15 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
           <div className={`${isMobile ? styles.selectedJobMobileContainer : styles.selectedJobInfoContainer}`} >
             {selectedJobId && (
               <div className={styles.selectedJobInfoContainer} >
-                {filteredData.find((job) => job.id === selectedJobId) && (
+                {filteredData.find((job) => job._id === selectedJobId) && (
                   <>
                     {filteredData.map((job) => {
-                      if (job.id === selectedJobId) {
-                        const daysAgo = calculateDaysAgo(job.postedAt);
+                      if (job._id === selectedJobId) {
+                        const daysAgo = calculateDaysAgo(job.createdAt);
                         return (
-                          <div key={job.id} className={styles.selectedJobInfo}>
+                          <div key={job._id} className={styles.selectedJobInfo}>
                             <span className={styles.postedDate}>
-                              {daysAgo > 7 ? calculateDate(job.postedAt) : `${daysAgo} days ago`}
+                              {daysAgo > 7 ? calculateDate(job.createdAt) : `${daysAgo} days ago`}
                             </span>
                             <span className={styles.selectedPosition}>{job.position}</span>
                             <div className={styles.jobInfo}>
@@ -506,7 +511,7 @@ const JobSearch: React.FC<JobSearchProps> = ({ keyword, data, setSearchKeywords 
                             </div>
                             {!isMobile && (
                               <a className={styles.buttonContainer} href='/jobs/apply' style={{textDecoration: "none"}}>
-                                <button className={styles.button} onClick={() => handleApplyNowButton(job.id)}>
+                                <button className={styles.button} onClick={() => handleApplyNowButton(job._id)}>
                                   Apply Now
                                 </button>
                                 {/* <BrowserRouter>

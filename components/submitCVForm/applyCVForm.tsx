@@ -11,6 +11,7 @@ import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import data from "../jobsComponents/jobs.json";
+import { Job, getJobById } from '@/app/API';
 
 // Define the schema using zod
 const formSchema = z.object({
@@ -53,20 +54,38 @@ const ApplyForm: FC<ApplyFormProps> = ({messageSent, handleSendMessage}) => {
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [checkboxError, setCheckboxError] = useState<string>('');
   // const [messageSent, setMessageSent] = useState<boolean>(false);
-  const [jobDetails, setJobDetails] = useState<any>(null);
+  // const [jobDetails, setJobDetails] = useState<any>(null);
+  const [jobDetails, setJobDetails] = useState<Job | null>(null);
+
 
   const { id } = useJobContext();
 
   useEffect(() => {
-    const job = data.find((job) => job.id === id);
-    setJobDetails(job);
-    if (job) {
-      setValue('jobPosition', job.position);
-      setValue('salary', job.salary);
-      setValue('location', job.location);
-      setValue('contractType', job.contractType);
-    }
+    const fetchJobDetails = async () => {
+      try {
+        if (!id) {
+          throw new Error('No job ID provided');
+        }
+
+        const jobData = await getJobById(id);
+        if (jobData) {
+          setJobDetails(jobData);
+          setValue('jobPosition', jobData.position);
+          setValue('salary', jobData.salary);
+          setValue('location', jobData.location);
+          setValue('contractType', jobData.contractType);
+        } else {
+          setJobDetails(null);
+        }
+      } catch (error) {
+        console.error('Error fetching job details:', error);
+        setJobDetails(null);
+      }
+    };
+
+    fetchJobDetails();
   }, [id, setValue]);
+
 
   const onSubmit = (data: FormData) => {
     let hasError = false;
@@ -87,18 +106,18 @@ const ApplyForm: FC<ApplyFormProps> = ({messageSent, handleSendMessage}) => {
       return;
     }
 
-    const base64Content = content.split(',')[1];
+    const base64Content = content?.split(',')[1];
 
     const formDataWithFile = {
       ...data,
       file: {
         name: filename,
-        content: base64Content,
+        content: base64Content || '',
       },
     };
 
     sendCV(formDataWithFile);
-    handleSendMessage()
+    handleSendMessage();
     reset();
   };
 

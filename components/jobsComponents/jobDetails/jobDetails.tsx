@@ -9,18 +9,42 @@ import { GiMoneyStack } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import data from "../../jobsComponents/jobs.json";
 import { createTheme, useMediaQuery } from '@mui/material';
+import { Job, getJobById } from '@/app/API';
 
 const JobDetails: FC = () => {
   const { id, setId } = useJobContext();
-  const [jobDetails, setJobDetails] = useState<any>(null);
+  const [jobDetails, setJobDetails] = useState<Job | null>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
 
+  console.log(id)
+
   useEffect(() => {
-    const job = data.find((job) => job.id === id);
-    setJobDetails(job);
+    const fetchJobDetails = async () => {
+      try {
+        if (!id) {
+          throw new Error('No job ID provided');
+        }
+
+        console.log('Fetching job details for ID:', id);
+
+        const jobData = await getJobById(id); // Ensure id is string
+        console.log('Fetched job data:', jobData);
+        
+        if (jobData) {
+          setJobDetails(jobData);
+        } else {
+          console.log('Job details not found');
+          setJobDetails(null); // Handle case where jobData is null
+        }
+      } catch (error) {
+        console.error('Error fetching job details:', error);
+        setJobDetails(null); // Handle error state accordingly
+      }
+    };
+
+    fetchJobDetails();
   }, [id]);
   
-
   const calculateDaysAgo = (postedAt: string) => {
     const postedDate = new Date(postedAt);
     const currentDate = new Date();
@@ -28,7 +52,7 @@ const JobDetails: FC = () => {
     return Math.floor(timeDifference / (1000 * 3600 * 24));
   };
 
-  const daysAgo = jobDetails ? calculateDaysAgo(jobDetails.postedAt) : null;
+  const daysAgo = jobDetails ? calculateDaysAgo(jobDetails.createdAt) : null;
 
   const calculateDate = (postedAt: string) => {
     const postedDate = new Date(postedAt);
@@ -46,9 +70,22 @@ const JobDetails: FC = () => {
     }
   };
 
-  const handleApplyNowButton = (jobId: number) => {
+  const handleApplyNowButton = (jobId: string) => {
+    const jobIdNumber = parseInt(jobId);
     setId(jobId);
   }
+
+  const renderApplyButton = () => {
+    if (!jobDetails) {
+      return null; // or loading indicator if jobDetails is not yet fetched
+    }
+
+    return (
+      <button className={styles.button} onClick={() => handleApplyNowButton(jobDetails._id)}>
+        Apply Now
+      </button>
+    );
+  };
 
   const theme = createTheme({
     breakpoints: {
@@ -63,6 +100,7 @@ const JobDetails: FC = () => {
   });
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  
 
   return (
     <JobProvider>
@@ -71,7 +109,7 @@ const JobDetails: FC = () => {
         {jobDetails && (
           <div className={styles.selectedJobInfo}>
             <span className={styles.postedDate}>
-              {daysAgo > 7 ? calculateDate(jobDetails.postedAt) : `${daysAgo} days ago`}
+              {daysAgo !== null && daysAgo > 7 ? calculateDate(jobDetails.createdAt) : `${daysAgo} days ago`}
             </span>
             <div className={styles.selectedPosition}>{jobDetails.position}</div>
             <div className={styles.jobInfo}>
@@ -81,7 +119,7 @@ const JobDetails: FC = () => {
             </div>
             {!isMobile && (
               <a className={styles.buttonContainer} href='/jobs/apply' style={{textDecoration: "none"}}>
-                <button className={styles.button} onClick={() => handleApplyNowButton(jobDetails.id)}>
+                <button className={styles.button} onClick={() => handleApplyNowButton(jobDetails._id)}>
                   Apply Now
                 </button>
               </a>
@@ -112,9 +150,7 @@ const JobDetails: FC = () => {
       </div>
       {isMobile && (
           <a className={styles.mobileButtonContainer} href='/jobs/apply' style={{textDecoration: "none"}}>
-            <button className={styles.button} onClick={() => handleApplyNowButton(jobDetails?.id)}>
-              Apply Now
-            </button>
+            {renderApplyButton()}
           </a>
         )}
     </div>

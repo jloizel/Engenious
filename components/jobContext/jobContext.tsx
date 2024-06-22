@@ -2,8 +2,8 @@ import React, { createContext, useState, useContext, ReactNode } from 'react';
 
 // Define a new context for managing the username state
 interface JobContextType {
-  id: number;
-  setId: (newId: number) => void;
+  id: string;
+  setId: (newId: string) => void;
 }
 
 const JobContext = createContext<JobContextType | undefined>(undefined);
@@ -24,19 +24,18 @@ interface JobProviderProps {
 
 // Provider component to wrap the application and provide the UsernameContext
 export const JobProvider: React.FC<JobProviderProps> = ({ children }) => {
-  const [id, setId] = useState<number>(() => {
-    // Initialize username from localStorage, or use a default value
+  const [id, setId] = useState<string>(() => {
     if (typeof window !== "undefined") {
       const storedId = localStorage.getItem('id');
-      return storedId ? parseInt(storedId) : 0; // Parse the string to a number
+      return storedId || ''; // Initialize with stored value or empty string
     } else {
-      return 0; // Return default value if localStorage is not available
+      return ''; // Default value if localStorage is not available
     }
   });
 
-  const setJobAndStore = (newId: number) => {
+  const setJobAndStore = (newId: string) => {
     setId(newId);
-    localStorage.setItem('id', newId.toString()); // Store the id as a string
+    localStorage.setItem('id', newId); // Store the id as a string
   };
 
   return (
