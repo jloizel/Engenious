@@ -16,8 +16,6 @@ const JobDetails: FC = () => {
   const [jobDetails, setJobDetails] = useState<Job | null>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
 
-  console.log(id)
-
   useEffect(() => {
     const fetchJobDetails = async () => {
       try {
@@ -25,19 +23,14 @@ const JobDetails: FC = () => {
           throw new Error('No job ID provided');
         }
 
-        console.log('Fetching job details for ID:', id);
-
         const jobData = await getJobById(id); // Ensure id is string
-        console.log('Fetched job data:', jobData);
         
         if (jobData) {
           setJobDetails(jobData);
         } else {
-          console.log('Job details not found');
           setJobDetails(null); // Handle case where jobData is null
         }
       } catch (error) {
-        console.error('Error fetching job details:', error);
         setJobDetails(null); // Handle error state accordingly
       }
     };

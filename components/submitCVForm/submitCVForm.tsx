@@ -58,15 +58,11 @@ const SubmitCVForm2: FC = () => {
           throw new Error('No job ID provided');
         }
 
-        console.log('Fetching job details for ID:', id);
-
         const jobData = await getJobById(id); // Ensure id is string
-        console.log('Fetched job data:', jobData);
         
         if (jobData) {
           setJobDetails(jobData);
         } else {
-          console.log('Job details not found');
           setJobDetails(null); // Handle case where jobData is null
         }
       } catch (error) {

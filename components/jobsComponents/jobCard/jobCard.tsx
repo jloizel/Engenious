@@ -41,8 +41,6 @@ const JobCard: React.FC<JobProps> = (props) => {
     salary,
   } = props.data;
 
-  console.log(_id)
-
   const { setId } = useJobContext();
 
   const calculateDaysAgo = (postedAt: string) => {
