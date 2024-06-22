@@ -224,7 +224,7 @@ const AdminPage: React.FC = () => {
 
   const handlePageChange = (event, value) => {
     setCurrentPage(value);
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 900, behavior: "smooth" });
     jobsRef.current?.scrollTo({ top: 0, behavior: "smooth" }); 
   };
 
