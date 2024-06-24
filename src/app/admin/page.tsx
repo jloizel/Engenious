@@ -4,15 +4,21 @@ import React, { useState, FormEvent } from 'react';
 import AdminPage from '../../../components/admin/admin';
 import NavbarMain2 from '../../../components/navbar/main/navbarMain2';
 import styles from "./page.module.css"
+import dotenv from "dotenv";
 
 const AdminLoginPage: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
+  dotenv.config()
+
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (email === '1@1' && password === '1') {
+    const storedEmail = process.env.REACT_APP_EMAIL;
+    const storedPassword = process.env.REACT_APP_PASSWORD;
+
+    if (email === storedEmail && password === storedPassword) {
       setIsAuthenticated(true);
     } else {
       alert('Invalid credentials');
