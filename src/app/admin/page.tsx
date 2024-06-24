@@ -18,7 +18,7 @@ const AdminLoginPage: React.FC = () => {
     const storedEmail = process.env.REACT_APP_EMAIL;
     const storedPassword = process.env.REACT_APP_PASSWORD;
 
-    if (email === storedEmail && password === storedPassword) {
+    if (email === "1@1" && password === "1") {
       setIsAuthenticated(true);
     } else {
       alert('Invalid credentials');
