@@ -35,7 +35,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/app/data/overviewData.js"
+    "src/app/data/overviewData.js",
+    "src/**/*"
   ],
   "exclude": [
     "node_modules"

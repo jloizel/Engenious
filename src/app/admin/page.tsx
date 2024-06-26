@@ -1,24 +1,22 @@
 "use client"
 
-import React, { useState, FormEvent } from 'react';
+import React, { useState, FormEvent, useEffect } from 'react';
 import AdminPage from '../../../components/admin/admin';
 import NavbarMain2 from '../../../components/navbar/main/navbarMain2';
 import styles from "./page.module.css"
-import dotenv from "dotenv";
 
 const AdminLoginPage: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-  dotenv.config()
-
+  const adminEmail = process.env.NEXT_PUBLIC_ADMIN_EMAIL || '';
+  const adminPassword = process.env.NEXT_PUBLIC_ADMIN_PASSWORD || '';
+  
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    const storedEmail = process.env.REACT_APP_EMAIL;
-    const storedPassword = process.env.REACT_APP_PASSWORD;
 
-    if (email === "1@1" && password === "1") {
+    if (email === adminEmail && password === adminPassword) {
       setIsAuthenticated(true);
     } else {
       alert('Invalid credentials');
@@ -26,7 +24,7 @@ const AdminLoginPage: React.FC = () => {
   };
 
   if (isAuthenticated) {
-    return <AdminPage />;
+    return <AdminPage />;1
   }
 
   return (
@@ -53,7 +51,7 @@ const AdminLoginPage: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-              />
+              />              
             </div>
             <button type="submit" className={styles.button}>Login</button>
           </form>

@@ -16,9 +16,11 @@
     "@mui/joy": "^5.0.0-beta.36",
     "@mui/material": "^5.15.10",
     "@swiper/core": "^0.0.21",
+    "@types/bcryptjs": "^2.4.6",
     "@types/nodemailer": "^6.4.15",
     "add": "^2.0.6",
     "axios": "^1.6.8",
+    "bcryptjs": "^2.4.3",
     "date-fns": "^3.6.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
@@ -53,6 +55,7 @@
     "@types/react-helmet": "^6.1.11",
     "eslint": "^8",
     "eslint-config-next": "^14.2.3",
+    "node-env-run": "^4.0.2",
     "typescript": "^5"
   }
 }
