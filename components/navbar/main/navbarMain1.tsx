@@ -8,27 +8,27 @@ import { createTheme, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 
 const links = [
-    {
-      id: 1,
-      title: "Employers",
-      url: "/employers",
-    },
-    {
-      id: 2,
-      title: "Jobs",
-      url: "/jobs",
-    },
-    {
-      id: 3,
-      title: "About",
-      url: "/about",
-    },
-    {
-      id: 4,
-      title: "Contact",
-      url: "/contact",
-    }
-  ];
+  {
+    id: 1,
+    title: "About Us",
+    url: "/about",
+  },
+  {
+    id: 2,
+    title: "Sectors",
+    url: "/sectors",
+  },
+  {
+    id: 3,
+    title: "Employers",
+    url: "/employers",
+  },
+  {
+    id: 4,
+    title: "Candidates",
+    url: "/candidates",
+  }
+];
 
 const NavbarMain1 = () => {
 
@@ -73,48 +73,6 @@ const NavbarMain1 = () => {
    }
   }
 
-  const handleContainerWidth = () => {
-    if (isMobile) {
-      return "100%"
-    }
-  }
-
-  const handleContainerJustify = () => {
-    if (isMobile) {
-      return "center"
-    } else {
-      return "space-between"
-    }
-  }
-
-  const handleContainerMargin = () => {
-    if (!isMobile) {
-      return "10px"
-    }
-  }
-
-  const handleContainerColumn = () => {
-    if (!isMobile) {
-      return "20px"
-    }
-  }
-
-  const handleLeftWidth = () => {
-    if (isMobile) {
-      return "90%"
-    } else {
-      return
-    }
-  }
-
-  const handleLeftJustify = () => {
-    if (isMobile) {
-      return "space-between"
-    } else {
-      return
-    }
-  }
-
   return (
     <div className={styles.navbar} style={{width: "100%"}}>
       <div className={styles.container}>
@@ -146,10 +104,14 @@ const NavbarMain1 = () => {
               ))}
           </div>
         </div>
-        {/* <div className={styles.right}>
-          <SearchIcon className={styles.searchIcon} style={{display: setDisplay()}}/>
-        </div> */}
-        <div className={styles.rightHidden}></div>
+        {!isMobile && (
+          <div className={styles.right}>
+            <a className={styles.button}>
+              Register a Vacancy
+            </a>
+          </div>
+        )}
+        {/* <div className={styles.rightHidden}></div> */}
       </div>
     </div>
   )

@@ -26,10 +26,10 @@
   background-size: 100% 3px; /* Adjust the height of the line as needed */
   background-position: bottom;
   background-repeat: no-repeat;
-  justify-content: center;
+  /* justify-content: center; */
 
   @media (min-width: 1024px) {
-    width: 220px;
+    width: 300px;
   }
 }
 
@@ -57,6 +57,9 @@
   justify-content: center !important
 }
 
+.content {
+  margin-top: 40px;
+}
 
 .title {
   color: #008489;
@@ -65,27 +68,19 @@
   margin-bottom: 10px;
   font-size: 50px !important;
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 40px !important;
-  }
-  
-  @media (min-width: 1024px) {
-    font-size: 40px !important;
+  @media (min-width: 768px) {
+    font-size: 30px !important;
   }
 }
 
 .text {
   color: #002D49;
-  font-weight: 700;
+  font-weight: 600;
   font-family: "Poppins", sans-serif;
   line-height: 150%;
   font-size: 18px !important;
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 20px !important;
-  }
-  
-  @media (min-width: 1024px) {
-    font-size: 20px !important;
+  @media (min-width: 768px){
+    font-size: 18px;
   }
 }

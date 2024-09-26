@@ -131,7 +131,7 @@
   }
 }
 
-.imageContainer1, .imageContainer {
+.imageContainer1, .imageContainer2 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -148,31 +148,16 @@
   }
 }
 
-.imageContainer {
-  
-  @media (min-width: 1024px) {
-    margin-left: 30px;
-  }
-}
-
 .imageContainer1:nth-child(even) {
   @media (min-width: 768px) {
     order: 1; /* Ensure image is on the left for even rows */
   }
 }
 
-.imageContainer:nth-child(even) {
-  @media (min-width: 768px) {
-    margin-left: 30px; /* Ensure margin is reset for even rows */
-  }
+.imageContainer2 {
+  display: flex;
+  flex-direction: column;
 }
-
-.imageContainer:nth-child(odd) {
-  @media (min-width: 768px) {
-    margin-right: 30px; /* Ensure margin is set for odd rows */
-  }
-}
-
 
 .image {
   border-radius: 20px;
@@ -280,7 +265,41 @@
     font-size: 20px;
     line-height: 30px;
   }
+}
 
+.buttonContainer {
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin-top: 40px;
+}
+
+.button1 {
+  background-color: #00617C;
+  color: white; 
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  padding: 10px 20px;
+  margin-bottom: 60px;
+  width: fit-content;
+  
+  
+  @media (min-width: 768px) {
+    font-size: 20px;
+    padding: 15px 50px;
+  }
+}
+
+.button1:hover {
+  background: #002D49;
 }
 
 .button {
@@ -299,7 +318,7 @@
   padding: 15px 0;
   margin-bottom: 60px;
   width: 100%;
-  
+  justify-self: center;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px !important;
@@ -317,3 +336,135 @@
 .button:hover {
   background: #002D49;
 }
+
+.aboutBox {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 40px;
+  margin-top: 10px;
+}
+
+.headerContainer2 {
+  width: 80%;
+  text-align: center;
+}
+
+.header {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  line-height: 125%;
+  margin-top: 40px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+    /* margin-bottom: 20px; */
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+    margin-top: 50px;
+    /* margin-bottom: 20px; */
+  }
+}
+
+.textContainer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #002D49;
+  flex-direction: column;
+  width: 80%;
+  padding: 20px 0px;
+  gap: 30px;
+  line-height: 30px;
+  text-align: center;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 20px 30px;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 20px 50px;
+    line-height: 40px;
+  }
+}
+
+.text1 {
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  text-align: left;
+  font-size: 16px;
+  line-height: 26px;
+  gap: 15px;
+  flex-direction: column;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    line-height: 28px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
+    line-height: 30px;
+    /* flex-direction: row; */
+  }
+}
+
+.about {
+  /* position: absolute; */
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  align-content: center;
+  /* height: 100%; */
+  text-align: center;
+  flex-direction: column;
+}
+
+.aboutHeader {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  line-height: 125%;
+  margin-bottom: 20px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+    margin-top: 40px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+    margin-top: 40px;
+  }
+}
+
+.subHeader {
+  color: #002D49;
+  font-family: 'Poppins', sans-serif !important;
+  font-weight: 700;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 22px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 24px;
+  }
+}
+
+
+

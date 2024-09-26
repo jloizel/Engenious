@@ -44,6 +44,11 @@
   }
 }
 
+.evenContainer {
+  background-color: #EFF0F0; 
+  padding: 30px 0;
+}
+
 .oddContainer {
   @media (min-width: 768px) and (max-width: 1023px) {
     order: 1;

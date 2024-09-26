@@ -97,6 +97,26 @@ const OurTeam = () => {
           </div>
         </Box>
         <Team/>
+        <Box className={styles.quoteContainer}>
+          <div className={styles.textBox}>
+            <div className={styles.quote}>
+              <div className={styles.quotationMark1}>
+                <FaQuoteLeft/>
+              </div>
+              <div className={styles.quoteBox}>
+                <div className={styles.quoteText}>
+                  Philippa has helped me with resourcing/recruitment over the last couple of years. I have found her approach to assessing our needs accurate, the service we received was exceptional and I would have no hesitation in recommending her to others.
+                </div>
+                {/* <div className={styles.quoter}>
+                  - Philippa Dickinson, CEO
+                </div> */}
+              </div>
+              <div className={styles.quotationMark2}>
+                <FaQuoteRight/>
+              </div>
+            </div>
+          </div>
+        </Box>
         <Box>
           <div className={styles.aboutBox}>
             {/* <div className={styles.imageContainer}>

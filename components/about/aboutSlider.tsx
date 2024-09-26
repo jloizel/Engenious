@@ -56,22 +56,6 @@ const AboutSlider: React.FC = ({}) => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const handleTitleFontSize = () => {
-    if (isMobile) {
-      return "50px"
-    } else {
-      return "40px"
-    }
-  }
-
-  const handleTextFontSize = () => {
-    if (isMobile) {
-      return "18px"
-    } else {
-      return "20px"
-    }
-  }
-
   return (
     <div className={styles.swiperContainer}>
       <Swiper

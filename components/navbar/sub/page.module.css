@@ -43,6 +43,7 @@
   @media (min-width: 768px) {
     width: auto;
     justify-content: flex-start;
+    margin-left: 30px;
   }
 }
 
@@ -162,6 +163,7 @@
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
+  margin-right: 30px;
 }
 
 .rightHidden {
@@ -199,12 +201,18 @@
   transition: all .3s ease-in-out;
 }
 
-/* .searchInputContainer {
-  padding: 10px;
-  flex: 1 1;
-  align-items: center;
-  display: flex;
-  position: relative;
-} */
+.button {
+  color: white;
+  background-color: #197089;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
 
+.button:hover {
+  background-color: #002D46;
+}
 

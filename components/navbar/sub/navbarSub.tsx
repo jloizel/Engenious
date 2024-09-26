@@ -40,38 +40,6 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
-  const handleNavbarDisplay = () => {
-    if (isMobile) {
-        return 'flex';
-    } else {
-        return '';
-    }
-  }; 
-
-  const handleContainerWidth = () => {
-    if (isMobile) {
-        return '90%';
-    } else {
-        return '';
-    }
-  }; 
-
-  const handleContainerMargin = () => {
-    if (isTabletOrAbove) {
-        return '10px';
-    } else {
-        return '';
-    }
-  }; 
-
-  const handleContainerGap = () => {
-    if (isTabletOrAbove) {
-        return '20px';
-    } else {
-        return '';
-    }
-  }; 
-
   const setDisplay  = () => {
     if (isMobile) {
         return 'none';
@@ -93,30 +61,6 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
       return 60
     } else {
       return 70
-   }
-  }
-
-  const handleLeftWidth = () => {
-    if (isMobile) {
-      return "100%"
-    } else {
-      return ""
-   }
-  }
-
-  const handleLeftJustify = () => {
-    if (isMobile) {
-      return "space-between"
-    } else {
-      return ""
-   }
-  }
-
-  const handleLinksGap = () => {
-    if (isTablet) {
-      return "35px"
-    } else if (isComputer) {
-      return "50px"
    }
   }
   
@@ -159,7 +103,13 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
             ))}
           </div>
         </div>
-        <div className={styles.rightHidden}></div>
+        {!isMobile && (
+          <div className={styles.right}>
+            <a className={styles.button}>
+              Register a Vacancy
+            </a>
+          </div>
+        )}
       </div>
     </div>
   )

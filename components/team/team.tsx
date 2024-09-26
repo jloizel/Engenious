@@ -10,7 +10,7 @@ const Team: React.FC = ({}) => {
       name: "",
       role: "",
       src: "",
-      text:""
+      text: [""]
     },
   ]);
 
@@ -41,14 +41,18 @@ const Team: React.FC = ({}) => {
         Meet the Team
       </div>
         {data.map((team, index) => (
-          <div className={styles.container} key={team.id}>
+          <div className={`${styles.container} ${
+            index % 2 === 0 ? styles.evenContainer : styles.oddContainer
+          }`} key={team.id}>
             <div className={`${styles.imageContainer} ${index % 2 === 0 ? styles.evenContainer : styles.oddContainer}`}>
               <img src={team.src} alt="Image" className={styles.image}/>
             </div>
             <div className={`${styles.textContainer} ${index % 2 === 0 ? styles.evenTextContainer : styles.oddTextContainer}`}>
               <div className={styles.name}>{team.name}</div>
               <div className={styles.role}>{team.role}</div>
-              <div className={styles.text}>{team.text}</div>
+              {team.text.map((paragraph, idx) => (
+                <p key={idx} className={styles.text}>{paragraph}</p>
+              ))}
             </div>
             {/* <hr className={styles.line}></hr> */}
           </div>

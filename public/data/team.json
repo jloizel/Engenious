@@ -1,24 +1,20 @@
 [
-    {
-      "id": 1,
-      "name": "Philippa Dickinson",
-      "role": "Founder / Managing Director",
-      "src": "/team/1.jpg",
-      "text": "Philippa Dickinson is the visionary force behind Engenious, bringing a wealth of experience and a passion for empowering individuals to achieve their career aspirations. With a keen eye for talent and a commitment to excellence, Philippa leads our team with integrity, innovation, and unwavering dedication. Under her guidance, Engenious has become a beacon of success in the recruitment industry, connecting top-tier talent with exceptional opportunities and driving positive change in the job market."
-    },
-    {
-        "id": 2,
-        "name": "Letitia Jackson",
-        "role": "Recruitment Consultant",
-        "src": "/team/3.jpg",
-        "text": "Letitia Jackson is a dynamic Recruitment Consultant at Engenious, dedicated to helping individuals navigate the complexities of the job market and find their perfect fit. With a warm and empathetic approach, Letitia builds genuine relationships with candidates and clients alike, understanding their unique needs and aspirations to make meaningful connections. Her tireless commitment to excellence and her passion for making a difference have earned her the trust and respect of all who work with her."
-      },
-      {
-        "id": 3,
-        "name": "James McDowell",
-        "role": "Commercial Director",
-        "src": "/team/2.jpg",
-        "text": "James McDowell is the driving force behind Engenious's strategic growth and success as our Commercial Director. With a sharp business acumen and a focus on delivering results, James leads our business development efforts with confidence and vision. His collaborative approach and dedication to fostering long-term partnerships have propelled Engenious to new heights, expanding our reach and impact in the competitive recruitment landscape. James's leadership ensures that we continue to innovate, adapt, and thrive in an ever-evolving market."
-      }
-  ]
+  {
+    "id": 1,
+    "name": "Philippa Dickinson",
+    "role": "Founder / Managing Director",
+    "src": "/team/1.jpg",
+    "text": [
+      "Philippa jumped into the recruitment world in 2012, diving headfirst into permanent search and select hires for the civil engineering and construction sectors. By 2021, she decided, \"Why not start my own agency?\" And thus, Engenious Recruitment was born, where quality and service aren’t just priorities—they’re practically family members at this point.",
+      "When she’s not running the show at work, Philippa’s busy keeping up with her two boys, who keep her on her toes. Her hobbies? Well, she’s basically a superhero—running, weight training, cooking, and staying fit. Oh, and she’s training for her sixth half marathon… because apparently, five just didn’t cut it!"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Letitia Jackson",
+    "role": "Resourcing Manager",
+    "src": "/team/3.jpg",
+    "text": ["Letitia is the heart and soul of Engenious, known for her knack for spotting key talent. Her secret? Understanding exactly what motivates our candidates (besides caffeine), and helping them land their dream job. She’s like a career matchmaker, but with fewer awkward dates.", "In her spare time, Letitia is basically a professional dog walker for her pup Bentley, racking up more steps than a fitness app can count—15,000 a day through fields and woods! When she’s not busy being a step-counting champion, you’ll find her enjoying time with friends, family, and her young son, mastering the art of multitasking like a pro."]
+  }
+]
   

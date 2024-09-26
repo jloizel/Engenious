@@ -135,12 +135,9 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* background-color: #EFF0F0;  */
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    flex-direction: row;
-  }
-
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     flex-direction: row;
   }
 }
@@ -200,7 +197,7 @@
   }
 
   @media (min-width: 1024px) {
-    padding: 100px 50px;
+    padding: 40px 0px;
     line-height: 50px;
   }
 }
@@ -276,4 +273,113 @@
 
 .button:hover {
   background: #002D49;
+}
+
+.quoteContainer {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: #EFF0F0;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  padding: 50px 0px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 70%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 70%;
+    padding: 100px 0px;
+  }
+}
+
+.quote {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.quotationMark1, .quotationMark2 {
+  color: #09B089;
+  font-size: 20px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px;
+  }
+}
+
+.quotationMark1 {
+  display: flex;
+}
+
+.quotationMark2 {
+  display: flex;
+  justify-content: flex-end;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex: none; 
+    align-self: flex-end;
+  }
+  
+  @media (min-width: 1024px) {
+    flex: none; 
+    align-self: flex-end;
+  }
+}
+
+.quoteBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.quoteText {
+  color: #002D49;
+  font-weight: 600;
+  line-height: 150%;
+  font-size: 18px;
+  padding: 0px 30px;
+  padding-top: 20px;
+  
+  @media (min-width: 768px)  {
+    font-size: 25px;
+    padding: 0px 50px;
+  }
+}
+
+.quoter {
+  color: #002D49;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0px 30px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+    padding: 0px 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    padding: 0px 50px;
+  }
 }
