@@ -10,11 +10,12 @@
 }
 
 .sectorsContent {
-  position: relative;
+  /* position: relative; */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
+
 
 .headerContainer {
   position: relative;
@@ -80,11 +81,11 @@
   align-content: center;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
+  /* margin-top: 40px; */
   gap: 20px;
   
   @media (min-width: 1024px) {
-    margin-top: 120px;
+    /* margin-top: 120px; */
     gap: 30px;
   }
 }

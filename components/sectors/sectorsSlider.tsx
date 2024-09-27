@@ -98,9 +98,10 @@ const SectorsSlider: React.FC = ({}) => {
     <div className={styles.sectorsContainer}>
       <Slider {...settings}>
         {data.map((sector) => (
-          <div 
+          <a 
             key={sector.id} 
             className={styles.cardContainer}
+            href={sector.href}
           >
             <div className={styles.card}>
               <div className={styles.cardImageContainer}>
@@ -110,7 +111,7 @@ const SectorsSlider: React.FC = ({}) => {
                 {sector.name}
               </div>
             </div>
-          </div>
+          </a>
         ))}
       </Slider>
     </div>

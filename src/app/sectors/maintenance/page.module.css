@@ -128,7 +128,7 @@
   }
 }
 
-.buttonContainer {
+.hireButtonContainer {
   align-self: flex-start;
   
 }
@@ -155,6 +155,23 @@
 
 .hireButton:hover {
   background-color: #002D49;
+}
+
+.hire {
+  background: #EFF0F0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hireLeft, .hireRight {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.hireLeft span:first-child {
+  color: red;
 }
 
 .listBox {
@@ -214,22 +231,17 @@
   font-size: 26px;
   margin-top: 40px;
   line-height: 35px;
-  margin-bottom: 20px;
   text-align: left;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 85%;
+  align-self: center;
+  justify-content: center;
+  gap: 5px;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) {
     font-size: 30px;
     line-height: 45px;
-    width: 90%;
-    text-align: center;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 30px;
-    line-height: 50px;
     width: 90%;
     text-align: center;
   }
@@ -239,29 +251,18 @@
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #002D49;
-  font-style: italic;
   font-size: 20px;
   margin-top: 20px;
   text-align: left;
   width: 85%;
   align-self: center;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 26px;
-    margin-top: 10px;
+  @media (min-width: 768px)  {
+    font-size: 24px;
     line-height: 45px;
     text-align: center;
     align-self: center;
     width: 90%;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 26px;
-    line-height: 50px;
-    width: 100%;
-    margin-bottom: 20px;
-    align-self: center;
-    text-align: center;
   }
 }
 
@@ -304,6 +305,7 @@
   }
 }
 
+
 .list1 li, .list2 li {
   text-align: left;
   align-self: flex-start;
@@ -333,17 +335,13 @@
   transition: all 0.3s ease-in-out;
   font-size: 16px;
   line-height: 30px;
-  padding: 10px 50px;
-  margin-bottom: 40px;
-  width: 100%;
+  padding: 10px 80px;
+  margin-bottom: 60px;
   margin-top: 40px;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
+  @media (min-width: 768px) {
     font-size: 20px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 22px;
+    padding: 10px 100px;
   }
 }
 

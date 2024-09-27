@@ -89,9 +89,9 @@ const Maintenance = () => {
             <span> Recruitment. </span>
           </div>
           <div className={styles.expertiseText}>
-            Our Construction Recruitment service specializes in finding top-tier professionals for the construction industry. Whether you need project managers, engineers, or skilled tradespeople, we ensure every candidate is the right fit for your project. We are committed to helping you build a capable team that delivers on time and within budget.
+            Planned & Reactive maintenance positions, we work on roles for contractors and local authorities when they have a need for operatives through to senior members of staff.
           </div>
-          <div className={styles.buttonContainer}>
+          <div className={styles.hireButtonContainer}>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.hireButton}>
               Hire Maintenance Talent
             </a>
@@ -101,43 +101,65 @@ const Maintenance = () => {
           <img src="/sectors/2.jpg" alt="Image" className={styles.cardImage} />
         </div>
       </Box>
+      <Box className={styles.hire}>
+        <div className={styles.hireLeft}>
+          <span>
+            Find Your Next Energy Storage Hire With Us
+          </span>
+          <span>
+            As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
+            </span>
+        </div>
+        <div className={styles.hireRight}>
+          <span>
+            We are uniquely placed to act as an extension of your company, offering industry insight that will allow you to identify, hire and retain the brightest minds in the energy storage sector.
+          </span>
+          <span>
+            We take the time to get to know our clients before offering bespoke solutions that help to bridge their staffing requirements.
+          </span>
+          <span>
+            We can help you to find permanent, contract and temporary team members with our tried-and-tested methods.
+          </span>
+        </div>
+      </Box>
       <Box className={styles.listBox}>
         <div className={styles.listHeader}>
+          <span>Hire</span>
+            <span style={{color: "#008489"}}>Maintenance Talent.</span>
+        </div>
+        <div className={styles.listHeader2}>
           Our recruiters can help you hire across...
         </div>
         <div className={styles.listContainer}>
           <div className={styles.list1}>
-            <div className={styles.listSubHeader}>
+            {/* <div className={styles.listSubHeader}>
               Commercial Roles
-            </div>
+            </div> */}
             <li>Estimators</li>
             <li>Quantity Surveyors</li>
             <li>Senior/ Managing Surveyors</li>
             <li>Commercial Managers</li>
-            <div className={styles.listSubHeader}>
+            {/* <div className={styles.listSubHeader}>
               Production Roles
-            </div>
+            </div> */}
             <li>Site Managers</li>
             <li>Site Agents</li>
             <li>Site Engineers</li>
-            <li>Foreman</li>
-            <li>Contracts Managers</li>
-            <li>Operations Managers</li>
           </div>  
           <div className={styles.list2}>
-            <div className={styles.listSubHeader}>
+            {/* <div className={styles.listSubHeader}>
               Trades & Labour
-            </div>
+            </div> */}
             <li>Labourers</li>
             <li>Groundworkers</li>
             <li>Steel fixers</li>
             <li>Carpenters</li>
+            <li>Foreman</li>
+            <li>Contracts Managers</li>
+            <li>Operations Managers</li>
           </div>
         </div>
-        <div className={styles.listHeader2}>
-          And many more
-        </div>
-        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor2}>
+        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.buttonContainer}>
           <button className={styles.button}>
             Hire talent
           </button>
@@ -169,7 +191,7 @@ const Maintenance = () => {
         <div className={styles.consultationText}>
           In recent years, the working world has transformed dramatically. Companies&apos; approaches to recruitment have changed too. Whether you&apos;re looking for contractors or temps who are on-site, hybrid or fully remote, we&apos;ll find the right people for you.
         </div>
-        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor2}>
+        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor}>
             <button className={styles.consultationButton}>
               Hire talent <KeyboardArrowRightIcon/>
             </button>

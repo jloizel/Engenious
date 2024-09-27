@@ -3,13 +3,13 @@
     "id": 1,
     "name": "Construction & House Building",
     "image": "/sectors/1.jpg",
-    "href": ""
+    "href": "/sectors/construction-housebuilding"
   },
   {
     "id": 2,
     "name": "Maintenance",
     "image": "/sectors/2.jpg",
-    "href": ""
+    "href": "/sectors/maintenance"
   },
   {
     "id": 3,
