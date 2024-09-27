@@ -8,6 +8,7 @@ const Services: React.FC = ({}) => {
   const [data, setData] = useState([
     {
       id: "",
+      name: "",
       title: "",
       text: "",
       link: "",
@@ -42,33 +43,42 @@ const Services: React.FC = ({}) => {
     }
   },[hoveredItem])
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
 
   return (
     <div className={styles.servicesContainer}>
       {data.map((service, index) => (
-          <a 
-            href="/employers/our-services"
-            style={{textDecoration: "none"}}
-            className={styles.container}
-            onMouseEnter={() => setHoveredItem(service.id)}
-            onMouseLeave={() => setHoveredItem(null)}
-            id={service.id}
-            key={service.id}>
-            <div className={styles.content}>
-              <div className={styles.title}>{service.title}</div>
-              <div className={styles.text}>{service.text}</div>
-            </div>
-            <div className={styles.buttonContainer}>
-              <button 
-                className={`${styles.button} ${hoveredItem === service.id ? styles.buttonActive : ''}`}
-                id={service.id}>
-                Learn More <KeyboardArrowRightIcon className={styles.arrow}/>
-              </button>
-            </div>
-          </a>
+        <div
+          className={styles.container}
+          onMouseEnter={() => setHoveredItem(service.id)}
+          onMouseLeave={() => setHoveredItem(null)}
+          id={service.id}
+          key={service.id}
+        >
+          <div className={styles.content}>
+            <div className={styles.title}>{service.title}</div>
+            <div className={styles.text}>{service.text}</div>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button
+              className={`${styles.button} ${
+                hoveredItem === service.id ? styles.buttonActive : ''
+              }`}
+              onClick={() => scrollToSection(service.id)} // Scroll to section on click
+            >
+              Learn More <KeyboardArrowRightIcon className={styles.arrow} />
+            </button>
+          </div>
+        </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Services
+export default Services;

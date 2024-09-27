@@ -6,13 +6,19 @@ import NavbarSub from '../../../components/navbar/sub/navbarSub'
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { useLocation } from 'react-router-dom';
-import Image from 'next/image';
+import Services from '../../../components/services/services';
+import ServicesSlider from "../../../components/services/servicesSlider";
+import { FaQuoteLeft } from "react-icons/fa";
+import { FaQuoteRight } from "react-icons/fa";
+import AboutInfo from '../../../components/about/aboutInfo';
 import AboutSlider from '../../../components/about/aboutSlider';
-import AboutInfo from '../../../components/about/about';
+import Testimonials from '../../../components/testimonials/testimonials';
+import Image from 'next/image';
+
 
 const About = () => {
   const pageName = "About"
-  
+
   const [currentPath, setCurrentPath] = useState('')
 
   useEffect(() => {
@@ -36,8 +42,9 @@ const About = () => {
 
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
-  const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
+
+  
 
   const links = [
     {
@@ -50,96 +57,87 @@ const About = () => {
       title: "Our work",
       url: "/about/our-work",
     },
-    {
-      id: 3,
-      title: "Our team",
-      url: "/about/our-team",
-    },
+    // {
+    //   id: 3,
+    //   title: "Our story",
+    //   url: "/about/our-story",
+    // },
     // {
     //   id: 4,
     //   title: "Our purpose",
     //   url: "/about/our-purpose",
     // },
-    // {
-    //   id: 5,
-    //   title: "Our team",
-    //   url: "/about/our-team",
-    // }
-  ]; 
+    {
+      id: 5,
+      title: "Our team",
+      url: "/about/our-team",
+    }
+  ];  
 
   return (
     <div className={styles.aboutContainer}>
-      {/* <Helmet>
+      <Helmet>
         <title>About</title>
         <meta name='description' content='' />
-      </Helmet> */}
+      </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      <Box className={styles.aboutContent}>
-        <Box className={styles.headerContainer} >
+      <Box className={styles.headerContent}>
+        <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <img src="./about/header.jpg" alt="Image" className={styles.headerImage}/>
+            <img src="/about/1.jpg" alt="Image" className={styles.headerImage} />
           </div>
-          <div className={styles.headerTextContainer} >
+          <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
               <span style={{color:'#09B089'}}>About</span>
               <span style={{color:'white'}}> us.</span>
             </div>
-            <div className={styles.mainText} >
+            <div className={styles.mainText}>
               We provide expert recruitment services for the Construction and Civil Engineering sectors across the UK, focusing on understanding the needs of both clients and candidates to match the best talent with the right opportunities. With over a decade of experience, we ensure personalized, open, and supportive communication throughout the hiring process.
             </div>
           </div>
         </Box>
-        <Box>
-          <div className={styles.aboutBox} id="where-we-come-from">
-            <div className={styles.headerContainer2}>
-              <div className={styles.header}>
-                <span>Who are we?</span>
+        <Box className={styles.intro}>
+          <div className={styles.introContent}>
+              <div className={styles.header1}>
+                <span>Who are are we?</span>
               </div>
-              {/* <div className={styles.subHeader}>
-                From day one, we&apos;ve had high expectations. High expectations of ourselves, and high expectations for the people we work with.
-              </div> */}
-            </div>
-            <div className={styles.imageContainer1}>
-              <img src="/about/4.jpg" alt="Image" className={styles.image} />
-            </div>
-            <div className={styles.textContainer}>
-              <div className={styles.text1}>
-                <span>
-                  We’re proud to offer top-tier service to both our clients and candidates in the Construction and Civil Engineering sectors across the UK. With over a decade of experience, we really understand what our clients need and the challenges they face when it comes to attracting and keeping the best talent.
-                </span>
-                <span>
-                  A big part of our success comes from the fantastic candidates we work with. We make sure to take the time to get to know each candidate and understand what they’re looking for, so we can find the perfect role for them. We also believe in keeping communication open and friendly throughout the recruitment process, ensuring our candidates always feel informed and supported.
-                </span>
+              <div className={styles.textContainer1}>
+                <div className={styles.text1}>
+                  <span>Our journey began with a simple yet profound belief: every individual possesses untapped potential waiting to be discovered and nurtured. Founded in the heart of innovation, our recruitment company emerged as a beacon of hope for both candidates and employers alike. From humble beginnings, we embarked on a mission to redefine the landscape of talent acquisition, guided by principles of integrity, empathy, and a relentless pursuit of excellence.</span>
+                  <span>Driven by a deep understanding of the transformative power of talent, we forged partnerships with organizations seeking not just employees, but visionary leaders, and with individuals yearning not just for jobs, but for opportunities to thrive. Our early days were characterized by perseverance in the face of adversity, as we navigated the complexities of an ever-evolving market, fueled by a passion to connect the right talent with the right opportunities.</span>
+                </div>
               </div>
-            </div>
+              <div className={styles.imageContainer}>
+                <img src="/about/4.jpg" alt="Image" className={styles.image1} />
+              </div>
           </div>
         </Box>
         <section className={styles.about}>
-          {/* <div className={styles.aboutContent}>
-            <div className={styles.aboutHeader} style={{display: "flex", flexDirection: "column"}}>
-              <span>Investing time in people; </span>
-              <span style={{color: "#008489"}}>it&apos;s in our DNA.</span>
-            </div>
-          </div> */}
           { isComputer ? <AboutInfo/> : <AboutSlider/> }
         </section>
         <div className={styles.buttonContainer}>
-          <a href="/about/our-work" style={{textDecoration: "none"}} className={styles.button1}>
+          <a href="/about/our-work" style={{textDecoration: "none"}} className={styles.ourWorkButton}>
             More about our work
           </a>
         </div>
         <Box>
-          <div className={`${styles.aboutBox} ${styles.reverse}`} style={{background: "#EFF0F0"}}>
-            <div className={styles.imageContainer2}>
+          <div className={styles.aboutBox}>
+            {isMobile && (
+              <div className={styles.header1}>
+                <span>Meet the</span>
+                <span style={{color: "#008489"}}> Owner</span>
+              </div>
+            )}
+            <div className={styles.imageContainer1}>
               <img src="/team/1.jpg" alt="Image" className={styles.image} />
-              <span className={styles.subHeader}>Philippa Dickinson</span>
-              <span className={styles.imageCaption}>Founder / Managing Director</span>
             </div>
             <div className={styles.textContainer}>
-              <div className={styles.header}>
-                <span>Meet the</span>
-                <span style={{color:'#09B089'}}> Owner.</span>
-              </div>
+              {!isMobile && (
+                <div className={styles.header1}>
+                  <span>Meet the</span>
+                  <span style={{color: "#008489"}}> Owner</span>
+                </div>
+              )}
               <div className={styles.text1}>
                 <span>
                   Philippa jumped into the recruitment world in 2012, diving headfirst into permanent search and select hires for the civil engineering and construction sectors. By 2021, she decided, "Why not start my own agency?" And thus, Engenious Recruitment was born, where quality and service aren’t just priorities—they’re practically family members at this point.
@@ -150,97 +148,40 @@ const About = () => {
               </div>
               <div className={styles.buttonContainer}>
                 <a href="/about/our-team" style={{textDecoration: "none"}} className={styles.button}>
-                Meet the rest of our team
+                  Meet the rest of the team
                 </a>
               </div>
             </div>
           </div>
         </Box>
-        <Box>
-          <div className={styles.aboutBox}>
-            <div className={styles.imageContainer1}>
-              <img src="/about/1.jpg" alt="Image" className={styles.image} />
-            </div>
-            <div className={styles.textContainer}>
-              <div className={styles.header}>
-                <span>Our</span>
-                <span style={{color:'#09B089'}}> work.</span>
-              </div>
-              <div className={styles.text}>
-                Philippa jumped into the recruitment world in 2012, diving headfirst into permanent search and select hires for the civil engineering and construction sectors. By 2021, she decided, "Why not start my own agency?" And thus, Engenious Recruitment was born, where quality and service aren’t just priorities—they’re practically family members at this point.
 
-                When she’s not running the show at work, Philippa’s busy keeping up with her two boys, who keep her on her toes. Her hobbies? Well, she’s basically a superhero—running, weight training, cooking, and staying fit. Oh, and she’s training for her sixth half marathon… because apparently, five just didn’t cut it!
+        {/* <Box className={styles.quoteContainer}>
+          <div className={styles.textBox}>
+            <div className={styles.quote}>
+              <div className={styles.quotationMark1}>
+                <FaQuoteLeft/>
               </div>
-              <a href="/about/our-work" style={{textDecoration: "none"}}>
-                <button className={styles.button}>
-                  More about what we do
-                </button>
-              </a>
-            </div>
-          </div>
-        </Box>
-        <Box>
-          <div className={`${styles.aboutBox} ${styles.reverse}`} style={{background: "#EFF0F0"}}>
-            <div className={styles.imageContainer1}>
-              <img src="/about/2.jpg" alt="Image" className={styles.image} />
-            </div>
-            <div className={styles.textContainer}>
-              <div className={styles.header}>
-                <span>Our</span>
-                <span style={{color:'#09B089'}}> team.</span>
+              <div className={styles.quoteBox}>
+                <div className={styles.quoteText}>
+                  Phillipa is highly skilled in her field. I felt that at times I was her only client and cannot thank her enough for going that extra mile. I would recommend Philipa without any hesitation.
+                </div>
               </div>
-              <div className={styles.text}>
-                Our devotion to go beyond expectations in everything we do has helped us establish a strong reputation over the years.
+              <div className={styles.quotationMark2}>
+                <FaQuoteRight/>
               </div>
-              <a href="/about/our-story" style={{textDecoration: "none"}}>
-                <button className={styles.button}>
-                  Meet our team
-                </button>
-              </a>
-            </div>
-          </div>
-        </Box>
-        {/* <Box>
-          <div className={styles.aboutBox}>
-            <div className={styles.imageContainer1}>
-              <img src="/about/3.jpg" alt="Image" className={styles.image} />
-            </div>
-            <div className={styles.textContainer}>
-              <div className={styles.header}>
-                <span>Our</span>
-                <span style={{color:'#09B089'}}> purpose.</span>
-              </div>
-              <div className={styles.text}>
-                We&apos;re in the business of improving lives. Our dedication to candidates and clients is what keeps us going everyday.
-              </div>
-              <a href="/about/our-purpose" style={{textDecoration: "none"}}>
-                <button className={styles.button}>
-                  More about our purpose
-                </button>
-              </a>
-            </div>
-          </div>
-        </Box>
-        <Box>
-          <div className={styles.aboutBox} style={{background:'#008489'}}>
-            <div className={styles.imageContainer2}>
-              <img src="/about/team.jpg" alt="Image" className={styles.image2} />
-            </div>
-            <div className={styles.textContainer}>
-              <div className={styles.header}>
-                <span style={{color:'white'}}>Careers</span>
-              </div>
-              <div className={styles.text2}>
-                We put our people first, so our people go further. Why not further your career with us?
-              </div>
-              <a href="/jobs/cv-upload" style={{textDecoration: "none"}}>
-                <button className={styles.button}>
-                  Work at Engenious
-                </button>
-              </a>
             </div>
           </div>
         </Box> */}
+        
+        <section className={styles.testimonials}>
+          <div className={styles.testimonialsContent}>
+            <div className={styles.header2}>
+              {/* <span style={{color: "#008489"}}>Talented people </span> */}
+              <span>We Are Trusted For A Reason</span>
+            </div>
+          </div>
+          <Testimonials/>
+        </section>
       </Box>
     </div>
   )

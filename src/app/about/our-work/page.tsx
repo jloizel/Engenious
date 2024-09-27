@@ -10,7 +10,7 @@ import Services from '../../../../components/services/services';
 import ServicesSlider from "../../../../components/services/servicesSlider";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
-import About from '../../../../components/about/about';
+import About from '../../../../components/about/aboutInfo';
 import AboutSlider from '../../../../components/about/aboutSlider';
 import Testimonials from '../../../../components/testimonials/testimonials';
 import Image from 'next/image';
@@ -57,16 +57,16 @@ const OurWork = () => {
       title: "Our work",
       url: "/about/our-work",
     },
-    {
-      id: 3,
-      title: "Our story",
-      url: "/about/our-story",
-    },
-    {
-      id: 4,
-      title: "Our purpose",
-      url: "/about/our-purpose",
-    },
+    // {
+    //   id: 3,
+    //   title: "Our story",
+    //   url: "/about/our-story",
+    // },
+    // {
+    //   id: 4,
+    //   title: "Our purpose",
+    //   url: "/about/our-purpose",
+    // },
     {
       id: 5,
       title: "Our team",
@@ -84,7 +84,7 @@ const OurWork = () => {
       <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
-            <img src="/about/1.jpg" alt="Image" className={styles.headerImage} />
+            <img src="/about/5.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
@@ -92,15 +92,15 @@ const OurWork = () => {
               <span style={{color:'white'}}> work.</span>
             </div>
             <div className={styles.mainText}>
-            Helping businesses evolve through their people. Helping professionals evolve through their careers. We&apos;re relentlessly committed. We&apos;re endlessly ambitious. We empower you to push yourself further. 
+              Helping businesses evolve through their people. Helping professionals evolve through their careers. We&apos;re relentlessly committed. We&apos;re endlessly ambitious. We empower you to push yourself further. 
             </div>
           </div>
         </Box>
         <Box className={styles.services}>
           <div className={styles.servicesContent}>
               <div className={styles.header1}>
-                <span >A range of </span>
-                <span style={{color: "#008489"}}>Talent Services..</span>
+                <span>Why work with </span>
+                <span style={{color: "#008489"}}>Engenious Recruitment</span>
               </div>
               <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
           </div>
@@ -116,11 +116,11 @@ const OurWork = () => {
               </div>
               <div className={styles.quoteBox}>
                 <div className={styles.quoteText}>
-                  Be the unicorn in a sea of donkeys; sprinkle your magic dust of innovation and sparkle your way to the rainbow of profits!
+                  Philippa is the best recruitment consultant. Incredibly talented, never misses a follow-up call, and a genuine pleasure to work with. She ensured I was kept informed every step of the way and gave me all information required. An absolute credit to the profession.
                 </div>
-                <div className={styles.quoter}>
-                  - Philippa Dickinson, CEO
-                </div>
+                {/* <div className={styles.quoter}>
+                  - Anna Solarek
+                </div> */}
               </div>
               <div className={styles.quotationMark2}>
                 <FaQuoteRight/>
@@ -128,24 +128,34 @@ const OurWork = () => {
             </div>
           </div>
         </Box>
-        <Box>
-          <div className={styles.aboutBox}>
-            <div className={styles.imageContainer1}>
-              <img src="/about/ourWork/1.jpg" alt="Image" className={styles.image} />
+        <Box className={styles.aboutBox}>
+          <div className={styles.textContainer}>
+            <div className={styles.header2}>
+              <span>Construction Experts</span>
             </div>
-            <div className={styles.textContainer}>
-              <div className={styles.header2}>
-                <span>The best opportunities, taking your career further.</span>
-              </div>
-              <div className={styles.text2}>
-                From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
-              </div>
-              <a href="/jobs" style={{textDecoration: "none"}}>
-                <button className={styles.button}>
-                  Search for a job
-                </button>
-              </a>
+            <div className={styles.text2}>
+              From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
             </div>
+            <a href="/employers/submit-vacancy" style={{textDecoration: "none"}}>
+              <button className={styles.button}>
+                Work with us
+              </button>
+            </a>
+          </div>
+        </Box>
+        <Box className={styles.aboutBox}>
+          <div className={styles.textContainer}>
+            <div className={styles.header2}>
+              <span>We care</span>
+            </div>
+            <div className={styles.text2}>
+              We’re an independent company, led by our Managing Director, Philippa Dickinson, who’s dedicated to providing outstanding service and consistently delivering high-quality results in everything we do.
+            </div>
+            <a href="/jobs" style={{textDecoration: "none"}}>
+              <button className={styles.button}>
+                Work with us
+              </button>
+            </a>
           </div>
         </Box>
         <section className={styles.about}>

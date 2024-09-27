@@ -5,6 +5,10 @@
   width: 90%;
   justify-content: center;
   align-items: center;
+
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
 }
 
 .container {
@@ -26,7 +30,7 @@
   
   @media (min-width: 1024px) {
     padding: 40px 25px;
-    width: 350px;
+    width: 400px;
   }
 }
 
@@ -61,14 +65,11 @@
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   margin-bottom: 10px;
-  font-size: 24px !important;
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 26px !important;
-  }
+  font-size: 24px;
   
   @media (min-width: 1024px) {
     font-size: 26px !important;
+    line-height: 28px;
   }
 }
 

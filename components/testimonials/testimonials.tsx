@@ -58,106 +58,6 @@ const Testimonials: React.FC = ({}) => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
-  const handleSwiperContainerWidth = () => {
-    if (isMobile) {
-      return "80%"
-    } else if (isTablet) {
-      return "60%"
-    } else {
-      return "650px"
-    }
-  }
-
-  const handleContainerPaddingL = () => {
-    if (isMobile) {
-      return "20px"
-    } else if (isTablet) {
-      return "40px"
-    } else {
-      return "60px"
-    }
-  }
-
-  const handleContainerPaddingT = () => {
-    if (isMobile) {
-      return "30px"
-    } else if (isTablet) {
-      return "30px"
-    } else {
-      return "40px"
-    }
-  }
-
-  const handleContainerPaddingB = () => {
-    if (isMobile) {
-      return "20px"
-    } else if (isTablet) {
-      return "20px"
-    } else {
-      return "30px"
-    }
-  }
-
-  const handleContainerMargin = () => {
-    if (isMobile) {
-      return "120px"
-    } else if (isTablet) {
-      return "140px"
-    } else {
-      return "140px"
-    }
-  }
-
-  const handleQuoteFontSize = () => {
-    if (isMobile) {
-      return "15px"
-    } else if (isTablet) {
-      return "18px"
-    } else {
-      return "20px"
-    }
-  }
-
-  const handleQuoteLineHeight = () => {
-    if (isMobile) {
-      return "20px"
-    } else if (isTablet) {
-      return "25px"
-    } else {
-      return "32px"
-    }
-  }
-
-  const handleQuoterFontSize = () => {
-    if (isMobile) {
-      return "15px"
-    } else if (isTablet) {
-      return "20px"
-    } else {
-      return "22px"
-    }
-  }
-
-  const handleQuoterMargin = () => {
-    if (isMobile) {
-      return "20px"
-    } else if (isTablet) {
-      return "20px"
-    } else {
-      return "30px"
-    }
-  }
-
-  const handleInfoFontSize = () => {
-    if (isMobile) {
-      return "12px"
-    } else if (isTablet) {
-      return "16px"
-    } else {
-      return "18px"
-    }
-  }
-
   const customButtonStyles = {
     color: 'red',
     background: '#6F6B71',
@@ -189,7 +89,8 @@ const Testimonials: React.FC = ({}) => {
             <div className={styles.container}>
                 <div className={styles.quote} >{testimonial.quote}</div>
                 <div className={styles.quoter} >{testimonial.quoter}</div>
-                <div className={styles.info} >{testimonial.role} | {testimonial.company}</div>
+                <div className={styles.info} >{testimonial.role}</div>
+                {/* <div className={styles.info} >{testimonial.role} | {testimonial.company}</div> */}
             </div>
           </SwiperSlide>
         ))}

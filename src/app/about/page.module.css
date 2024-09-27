@@ -3,11 +3,14 @@
   flex-direction: column;
   width: 100%;
   height: 100%;
-  align-items: center;
+  /* align-items: center; */
 }
 
-.aboutContent {
+.headerContent {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .headerContainer {
@@ -22,7 +25,6 @@
   
   @media (min-width: 768px) and (max-width: 1023px) {
     flex-direction: row;
-
   }
   
   @media (min-width: 1024px) {
@@ -49,8 +51,8 @@
 
 .headerImage {
   object-fit: cover;
-  width: 100%;
   height: 250px;
+  width: 100%;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     height: 300px;
@@ -67,8 +69,8 @@
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  padding: 50px 0px;
   width: 75%;
+  padding: 50px 0px;
   gap: 30px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -77,7 +79,6 @@
 
   @media (min-width: 1024px) {
     width: 50%;
-    gap: 50px;
   }
 }
 
@@ -96,14 +97,299 @@
   color: white;
   font-weight: 400;
   display: flex;
-  
-  @media (min-width: 768px) {
+
+  @media (min-width: 768px) and (max-width: 1023px) {
     padding: 0 30px;
   }
 
   @media (min-width: 1024px) {
+    padding: 0 30px;
     font-size: 18px;
     line-height: 30px;
+  }
+}
+
+.intro {
+  /* position: absolute; */
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  align-content: center;
+  /* height: 100%; */
+  text-align: center;
+  flex-direction: column;
+}
+
+.introContent {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  margin-bottom: 60px;
+  margin-top: 10px;
+  align-self: center;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+
+  @media (min-width: 1024px) {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+  }
+}
+
+.image1 {
+  border-radius: 20px;
+  height: 100%;
+  width: 100%;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 90%;
+    width: 90%;
+  }
+
+  @media (min-width: 1024px) {
+    height: 400px;
+    width: 80%;
+    object-fit: cover;
+  }
+}
+
+.textContainer1 {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: #002D49;
+  flex-direction: column;
+  padding: 20px 0px;
+  gap: 30px;
+  line-height: 30px;
+  text-align: center;
+  justify-items: center;
+  justify-self: center;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 20px 30px;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: column;
+    padding: 20px 50px;
+    gap: 30px;
+    line-height: 40px;
+    text-align: center;
+  }
+}
+
+.text1 {
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  text-align: left;
+  font-size: 16px;
+  line-height: 26px;
+  gap: 15px;
+  flex-direction: column;
+  justify-self: center;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    line-height: 28px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
+    line-height: 30px;
+  }
+}
+
+.header1 {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  line-height: 125%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  @media (min-width: 1024px) {
+    font-size: 45px;
+  }
+}
+
+.about {
+  flex-direction: column;
+  align-items: center;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.buttonContainer {
+  align-self: center;
+}
+
+.ourWorkButton {
+  background-color: #00617C;
+  color: white; 
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  padding: 15px 0;
+  margin-bottom: 60px;
+  padding: 15px 80px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+  }
+}
+
+.ourWorkButton:hover {
+  background-color: #002D49;
+}
+
+.text {
+  font-weight: 300;
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 16px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
+  }
+}
+
+.quoteContainer {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: #EFF0F0;
+}
+
+.textBox {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 80%;
+  padding: 50px 0px;
+  
+  @media (min-width: 1024px) {
+    padding: 100px 0px;
+  }
+}
+
+.quote {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.quotationMark1, .quotationMark2 {
+  color: #09B089;
+  font-size: 20px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 40px;
+  }
+}
+
+.quotationMark1 {
+  display: flex;
+}
+
+.quotationMark2 {
+  display: flex;
+  justify-content: flex-end;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex: none; 
+    align-self: flex-end;
+  }
+  
+  @media (min-width: 1024px) {
+    flex: none; 
+    align-self: flex-end;
+  }
+}
+
+.quoteBox {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
+  @media (min-width: 768px) {
+    gap: 20px;
+  }
+}
+
+.quoteText {
+  color: #002D49;
+  font-weight: 600;
+  line-height: 150%;
+  font-size: 18px;
+  padding: 0px 30px;
+  padding-top: 20px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 25px;
+    padding: 0px 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 35px;
+    padding: 0px 50px;
+  }
+}
+
+.quoter {
+  color: #002D49;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0px 30px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+    padding: 0px 50px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    padding: 0px 50px;
   }
 }
 
@@ -112,88 +398,58 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  flex-direction: column; 
+  flex-direction: column;
 
   @media (min-width: 768px) {
     flex-direction: row;
+    margin-bottom: 40px;
   }
 }
 
-@media (min-width: 768px) {
-  .aboutBox.reverse {
-    flex-direction: row-reverse;
-  }
-}
-
-.aboutBox:nth-child(even) {
-  @media (min-width: 768px) {
-    flex-direction: row-reverse;
-  }
-}
-
-.imageContainer1, .imageContainer2 {
+.imageContainer1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 85%; /* Default for mobile */
-  margin-top: 50px; /* Default for mobile */
-
-  @media (min-width: 768px) {
-    width: 50%;
-    margin-top: 0; /* Reset for larger screens */
-  }
+  width: 40%;
 
   @media (min-width: 1024px) {
     padding: 30px;
   }
 }
 
-.imageContainer1:nth-child(even) {
-  @media (min-width: 768px) {
-    order: 1; /* Ensure image is on the left for even rows */
+.imageContainer1 {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    order: 1;
+    /* padding-right: 20px; */
   }
-}
 
-.imageContainer2 {
-  display: flex;
-  flex-direction: column;
+  @media (min-width: 1024px) {
+    order: 1;
+    margin-right: 30px;
+    margin-top: 40px;
+  }
 }
 
 .image {
   border-radius: 20px;
-  width: 100%; /* Default for mobile */
-  height: auto; /* Default for mobile */
-
-  @media (min-width: 768px) {
-    width: 90%;
-    height: 90%;
-  }
-}
-
-.imageContainer2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 85%;
-  margin-top: 50px;
-  
+  height: 100%;
+  width: 100%;
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    width: 50%;
-    padding: 30px 0;
+    height: 90%;
+    width: 90%;
   }
 
   @media (min-width: 1024px) {
-    width: 50%;
-    padding: 30px 0;
+    height: 100%;
+    width: 100%;
   }
 }
 
 .image2 {
   border-radius: 20px;
-  height: 80%;
-  width: 80%;
-  
+  height: 100%;
+  width: 100%;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     height: 80%;
@@ -210,224 +466,56 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  flex-direction: column; /* Default for mobile */
-  width: 75%; /* Default for mobile */
-  padding: 30px 0px; /* Default for mobile */
-  gap: 30px; /* Default for mobile */
-  text-align: center; /* Default for mobile */
-
-  @media (min-width: 768px) {
-    width: 50%;
-    padding: 60px 30px;
-    text-align: left;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 100px 50px;
-  }
-}
-
-.header {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-size: 25px;
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 25px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 40px;
-  }
-}
-
-.text {
-  font-family: "Poppins", sans-serif;
-  font-weight: 300;
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 18px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 20px;
-    line-height: 30px;
-  }
-}
-
-.text2 {
-  font-family: "Poppins", sans-serif;
-  color: white;
-  font-weight: 400;
-  display: flex;
-
-  @media (min-width: 1024px) {
-    font-size: 20px;
-    line-height: 30px;
-  }
-}
-
-.buttonContainer {
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  margin-top: 40px;
-}
-
-.button1 {
-  background-color: #00617C;
-  color: white; 
-  font-weight: 600;
-  border-radius: 4px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Poppins", sans-serif;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  font-size: 16px;
-  padding: 10px 20px;
-  margin-bottom: 60px;
-  width: fit-content;
-  
-  
-  @media (min-width: 768px) {
-    font-size: 20px;
-    padding: 15px 50px;
-  }
-}
-
-.button1:hover {
-  background: #002D49;
-}
-
-.button {
-  background-color: #00617C;
-  color: white; 
-  font-weight: 600;
-  border-radius: 4px;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Poppins", sans-serif;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  font-size: 16px !important;
-  padding: 15px 0;
-  margin-bottom: 60px;
-  width: 100%;
-  justify-self: center;
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 20px !important;
-    padding: 15px 0;
-    width: 80%;
-  }
-  
-  @media (min-width: 1024px) {
-    font-size: 20px !important;
-    padding: 15px 0;
-    width: 80%;
-  }
-}
-
-.button:hover {
-  background: #002D49;
-}
-
-.aboutBox {
-  display: flex;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-bottom: 40px;
-  margin-top: 10px;
-}
-
-.headerContainer2 {
-  width: 80%;
-  text-align: center;
-}
-
-.header {
-  color: #002D49;
-  font-weight: 700;
-  font-family: "Poppins", sans-serif;
-  font-size: 22px;
-  line-height: 125%;
-  margin-top: 40px;
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 30px;
-    /* margin-bottom: 20px; */
-  }
-  
-  @media (min-width: 1024px) {
-    font-size: 45px;
-    margin-top: 50px;
-    /* margin-bottom: 20px; */
-  }
-}
-
-.textContainer {
-  display: flex;
-  justify-content: center;
-  align-content: center;
   color: #002D49;
   flex-direction: column;
-  width: 80%;
+  width: 90%;
   padding: 20px 0px;
   gap: 30px;
   line-height: 30px;
   text-align: center;
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    padding: 20px 30px;
-  }
-
-  @media (min-width: 1024px) {
-    padding: 20px 50px;
+    width: 80%;
+    padding: 0px 30px;
     line-height: 40px;
+    text-align: left;
   }
-}
 
-.text1 {
-  font-weight: 300;
-  font-family: "Poppins", sans-serif;
-  display: flex;
-  text-align: left;
-  font-size: 16px;
-  line-height: 26px;
-  gap: 15px;
-  flex-direction: column;
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    line-height: 28px;
-  }
-  
   @media (min-width: 1024px) {
-    font-size: 18px;
-    line-height: 30px;
-    /* flex-direction: row; */
+    width: 80%;
+    padding: 0px 50px;
+    line-height: 50px;
+    text-align: left;
+    margin-top: 40px;
+    max-width: 900px;
   }
 }
 
-.about {
-  /* position: absolute; */
-  z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  left: 0;
-  right: 0;
-  align-content: center;
-  /* height: 100%; */
-  text-align: center;
-  flex-direction: column;
+.header2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 25px;
+
+  @media (min-width: 1024px) {
+    font-size: 40px;
+  }
 }
+
+.text2 {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+
 
 .aboutHeader {
   color: #002D49;
@@ -448,23 +536,84 @@
   }
 }
 
-.subHeader {
-  color: #002D49;
-  font-family: 'Poppins', sans-serif !important;
-  font-weight: 700;
+.button {
+  background-color: #00617C;
+  color: white; 
+  font-weight: 600;
+  border-radius: 4px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   font-size: 16px;
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 5px;
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 22px;
-  }
-  
-  @media (min-width: 1024px) {
-    font-size: 24px;
+  padding: 10px 40px;
+  margin-bottom: 60px;
+  align-self: center;
+  line-height: 25px;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    padding: 15px 40px;
+    margin-top: 20px;
   }
 }
 
+.button:hover {
+  background-color: #002D49;
+}
 
+.aboutButton {
+  background: #09B089;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: 800;
+  font-family: "Poppins", sans-serif;
+  line-height: 50px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  width: 300px;
+  font-size: 16px;
 
+  @media (min-width: 1024px) {
+    width: 250px;
+    font-size: 18px;
+  }
+}
+
+.testimonials {
+  background: #EFF0F0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.testimonialsContent {
+  width: 80%;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+} 
+
+.header2 {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  line-height: 125%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+  }
+}

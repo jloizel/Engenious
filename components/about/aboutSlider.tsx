@@ -56,6 +56,7 @@ const AboutSlider: React.FC = ({}) => {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
+
   return (
     <div className={styles.swiperContainer}>
       <Swiper

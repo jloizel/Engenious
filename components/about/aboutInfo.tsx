@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 
 
-const About: React.FC = ({}) => {
+const AboutInfo: React.FC = ({}) => {
   const [data, setData] = useState([
     {
       id: "",
@@ -46,4 +46,4 @@ const About: React.FC = ({}) => {
   )
 }
 
-export default About
+export default AboutInfo

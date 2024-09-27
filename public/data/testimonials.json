@@ -1,37 +1,44 @@
 [
   {
     "id": 1,
-    "quote": "Choosing Engenious Recruitment was a game-changer for us. Their industry knowledge and network have been instrumental in sourcing skilled professionals for our construction projects.",
-    "quoter": "David Thompson",
-    "role": "Head of HR",
-    "company": "BuildWise Solutions"
+    "quote": "Philippa has helped me with resourcing/recruitment over the last couple of years. I have found her approach to assessing our needs accurate, the service we received was exceptional and I would have no hesitation in recommending her to others.",
+    "quoter": "Chris Bell",
+    "role": "Experienced Senior QS",
+    "company": ""
   },
   {
     "id": 2,
-    "quote": "Working with Engenious Recruitment has streamlined our hiring process. Their expertise in construction recruitment ensures we find the right talent for our projects every time.",
-    "quoter": "Emily Clarke",
-    "role": "Recruitment Manager",
-    "company": "Urban Builders Ltd."
+    "quote": "Phillipa is highly skilled in her field. I felt that at times I was her only client and cannot thank her enough for going that extra mile. I would recommend Philipa without any hesitation.",
+    "quoter": "Glen Paynter",
+    "role": "Site Manager",
+    "company": ""
   },
   {
     "id": 3,
-    "quote": "Thanks to Engenious Recruitment, we've assembled a top-notch team for our construction projects. Their professionalism and dedication to our success are unmatched.",
-    "quoter": "Liam Robinson",
-    "role": "Director of Operations",
-    "company": "Cityscape Developments"
+    "quote": "There is only one word that comes to mind when I think of Philippa, and that is brilliant. As having two jobs offers on the table it was a hard decision to take and so Philippa played a supporting role over this time and help me taking the best decision. Would highly recommend her to anybody looking to move forward in their career.",
+    "quoter": "Liliana Udrea",
+    "role": "Estimator",
+    "company": ""
   },
   {
     "id": 4,
-    "quote": "I've been consistently impressed by Engenious Recruitment's ability to find skilled professionals in the construction industry. They've become an invaluable partner for our hiring needs.",
-    "quoter": "Rachel Carter",
-    "role": "HR Manager",
-    "company": "Urban BuildWorks"
+    "quote": "Philippa was extremely professional to deal with and great with keeping me in the loop at every stage of the recruitment process. She took the time to know my current situation, professional ambitions and found a role that suited me extremely well. I couldn't be happier in my new position!",
+    "quoter": "David Robson",
+    "role": "Civil Engineer",
+    "company": ""
   },
   {
     "id": 5,
-    "quote": "Partnering with Engenious Recruitment has been a game-changer for us in the construction sector. Their expertise and dedication have helped us build a strong team to tackle our projects.",
-    "quoter": "Daniel Patel",
+    "quote": "I was very pleased with the recruitment process, Philippa was excellent from initial contact right through to acceptance of the role. Philippa was engaged and engaging throughout the process with regular communication and updates. I highly recommend Philippa and her team and will be using Engenious for recruitment in the future.",
+    "quoter": "Stephen Clark",
+    "role": "",
+    "company": ""
+  },
+  {
+    "id": 6,
+    "quote": "Philippa is very helpful and friendly. She found me a role with a great company matching everything I was looking for. She helped me through the whole process and always kept me updated without me having to chase. Even after I was successfully placed, Philippa has been in contact to make sure everything is ok. Thanks again for all your help.",
+    "quoter": "Ben Cawkill",
     "role": "Project Manager",
-    "company": "Skyline Construction Ltd."
+    "company": ""
   }
 ]

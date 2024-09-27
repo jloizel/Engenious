@@ -10,7 +10,7 @@ import Services from '../../../../components/services/services';
 import ServicesSlider from "../../../../components/services/servicesSlider";
 import { FaQuoteLeft } from "react-icons/fa";
 import { FaQuoteRight } from "react-icons/fa";
-import About from '../../../../components/about/about';
+import About from '../../../../components/about/aboutInfo';
 import AboutSlider from '../../../../components/about/aboutSlider';
 import Testimonials from '../../../../components/testimonials/testimonials';
 import Team from '../../../../components/team/team';

@@ -6,7 +6,7 @@ import ServicesSlider from "../../components/services/servicesSlider";
 import AboutSlider from "../../components/about/aboutSlider";
 import { createTheme, useMediaQuery } from "@mui/material";
 import Services from "../../components/services/services";
-import About from "../../components/about/about";
+import About from "../../components/about/aboutInfo";
 import Join from "../../components/join/join";
 import Testimonials from "../../components/testimonials/testimonials";
 import Location from "../../components/location/location";

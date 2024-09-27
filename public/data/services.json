@@ -1,20 +1,30 @@
 [
   {
     "id": 1,
-    "title": "Contract Recruitment",
-    "text": "Hire contractors or temps to strengthen your workforce. When it matters most, seize every opportunity.",
+    "name": "services1",
+    "title": "Construction Experts",
+    "text": "We specialize solely in construction and civil engineering recruitment with unmatched expertise.",
     "link": "/employers/our-services"
   },
   {
     "id": 2,
-    "title": "Permanent Recruitment",
-    "text": "On-site, hybrid or remote, hire specialist permanent talent for your long term business success.",
+    "name": "services2",
+    "title": "We Care",
+    "text": "We’re an independent company, led by Managing Director Philippa Dickinson, committed to delivering exceptional service and top-quality results.",
     "link": "/employers/our-services"
   },
   {
     "id": 3,
-    "title": "Search & Select",
-    "text": "A comprehensive service designed to identify, attract, and source senior-level candidates or those for specifically hard-to-place roles.",
+    "name": "services3",
+    "title": "We Are Efficient",
+    "text": "We fill our roles faster than the industry average",
+    "link": "/employers/our-services"
+  },
+  {
+    "id": 4,
+    "name": "services4",
+    "title": "We Interview",
+    "text": "Our expert consultants conduct in-depth interviews to understand each candidate’s motivations, ensuring we present only the best fit for every role.",
     "link": "/employers/our-services"
   }
 ]

@@ -23,6 +23,7 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
   const [data, setData] = useState([
     {
       id: "",
+      name: "",
       title: "",
       text: "",
       link: "",
@@ -56,7 +57,13 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
       setButtonClass ("button")
     }
   },[hoveredItem])
-  
+
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };  
 
   const theme = createTheme({
     breakpoints: {
@@ -73,39 +80,6 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
-  const handleContainerPadding = () => {
-    if (isMobile || isTablet) {
-      return "25px 25px"
-    } else {
-      return "40px 25px"
-    }
-  }
-
-  const handleTitleFontSize = () => {
-    if (isMobile) {
-      return "24px"
-    } else {
-      return "26px"
-    }
-  }
-
-  const handleTextFontSize = () => {
-    if (isMobile) {
-      return "14px"
-    } else if (isTablet) {
-      return "15px"
-    } else {
-      return "16px"
-    }
-  }
-
-  const handleButtonFontSize = () => {
-    if (isMobile || isTablet) {
-      return "14px"
-    } else {
-      return "16px"
-    }
-  }
 
   return (
     <div className={styles.swiperContainer}>
@@ -122,27 +96,28 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
     >
       {data.map((service, index) => (
         <SwiperSlide key={service.id} className={styles.swiperSlide}>
-          <a 
-            className={styles.container}
-            onMouseEnter={() => setHoveredItem(service.id)}
-            onMouseLeave={() => setHoveredItem(null)}
-            id={service.id}
-            href="/employers/our-services"
-            style={{textDecoration: "none"}}
+          <div
+          className={styles.container}
+          onMouseEnter={() => setHoveredItem(service.id)}
+          onMouseLeave={() => setHoveredItem(null)}
+          id={service.id}
+          key={service.id}
+        >
+          <div className={styles.content}>
+            <div className={styles.title}>{service.title}</div>
+            <div className={styles.text}>{service.text}</div>
+          </div>
+          <div className={styles.buttonContainer}>
+            <button
+              className={`${styles.button} ${
+                hoveredItem === service.id ? styles.buttonActive : ''
+              }`}
+              onClick={() => scrollToSection(service.id)} // Scroll to section on click
             >
-            <div className={styles.content}>
-              <div className={styles.title}>{service.title}</div>
-              <div className={styles.text}>{service.text}</div>
-            </div>
-            <div className={styles.buttonContainer} style={{textDecoration: "none"}}>
-              <button 
-                className={`${styles.button} ${hoveredItem === service.id ? styles.buttonActive : ''}`}
-                id={service.id}
-                >
-                Learn More <KeyboardArrowRightIcon className={styles.arrow}/>
-              </button>
-            </div>
-          </a>
+              Learn More <KeyboardArrowRightIcon className={styles.arrow} />
+            </button>
+          </div>
+        </div>
         </SwiperSlide>
       ))}
     </Swiper>
