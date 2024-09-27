@@ -7,21 +7,24 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
+import { TiTick } from "react-icons/ti";
+import { Box } from '@mui/material';
 
 
-
-const SectorsSlider: React.FC = ({}) => {
+const Values: React.FC = ({}) => {
   const [data, setData] = useState([
     {
       id: "",
       name: "",
-      image: "",
-      href: ""
+      title: "",
+      text: "",
+      content: "",
+      link: ""
     },
   ]);
 
   const getData = () => {
-    fetch('/data/sectors.json', {
+    fetch('/data/services.json', {
         headers : { 
           'Content-Type': 'application/json',
           'Accept': 'application/json'
@@ -95,26 +98,32 @@ const SectorsSlider: React.FC = ({}) => {
 
 
   return (
-    <div className={styles.sectorsContainer}>
-      <Slider {...settings}>
-        {data.map((sector) => (
-          <div 
-            key={sector.id} 
-            className={styles.cardContainer}
-          >
-            <div className={styles.card}>
-              <div className={styles.cardImageContainer}>
-                <img src={sector.image} alt={sector.name} className={styles.cardImage} />
-              </div>
-              <div className={styles.cardText}>
-                {sector.name}
-              </div>
+    <div className={styles.servicesInfo}>
+      <div className={styles.servicesInfoLeft}>
+        <div className={styles.servicesHeader}>
+          What makes us who we are:
+        </div>
+        <div className={styles.buttonContainer}>
+          <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.button}>
+            Recruit with Us
+          </a>
+        </div>
+      </div>
+      <div className={styles.servicesInfoRight}>
+        {data.map((service) => (
+          <div className={styles.textContainer} id={service.id}>
+            <div className={styles.header}>
+              <TiTick className={styles.tick}/>
+              {service.title}
+            </div>
+            <div className={styles.text2}>
+              {service.content}
             </div>
           </div>
         ))}
-      </Slider>
+      </div>
     </div>
   );
 };
 
-export default SectorsSlider;
+export default Values;

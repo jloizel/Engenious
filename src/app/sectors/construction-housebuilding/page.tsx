@@ -12,7 +12,7 @@ import ServicesSwiper from '../../../../components/servicesSwiper/servicesSwiper
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Image from 'next/image';
 
-const OurServices = () => {
+const ConstructionHouseBuilding = () => {
   const pageName = "Employers"
   
   const [currentPath, setCurrentPath] = useState('')
@@ -43,21 +43,31 @@ const OurServices = () => {
     {
       id: 1,
       title: "Overview",
-      url: "/employers",
+      url: "/sectors",
     },
     {
       id: 2,
-      title: "Our services",
-      url: "/employers/our-services",
+      title: "Construction & House Building",
+      url: "/sectors/construction-housebuilding",
     },
     {
       id: 3,
-      title: "Our expertise",
+      title: "Maintenance",
       url: "/employers/our-expertise",
     },
     {
       id: 4,
-      title: "Submit a vacancy",
+      title: "Civil Engineering",
+      url: "/employers/submit-vacancy",
+    },
+    {
+      id: 5,
+      title: "Trades & Labour",
+      url: "/employers/submit-vacancy",
+    },
+    {
+      id: 6,
+      title: "Search & Select",
       url: "/employers/submit-vacancy",
     }
   ]; 
@@ -187,4 +197,4 @@ const OurServices = () => {
   )
 }
 
-export default OurServices
+export default ConstructionHouseBuilding

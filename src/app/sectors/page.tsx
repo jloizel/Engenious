@@ -10,7 +10,8 @@ import ServicesSlider from '../../../components/services/servicesSlider';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Testimonials from '../../../components/testimonials/testimonials';
 import Image from 'next/image';
-import SectorsSlider from '../../../components/sectors/SectorsSlider';
+import SectorsSlider from '../../../components/sectors/sectorsSlider';
+import Values from '../../../components/values/values';
 
 
 const Sectors = () => {
@@ -45,21 +46,31 @@ const Sectors = () => {
     {
       id: 1,
       title: "Overview",
-      url: "/employers",
+      url: "/sectors",
     },
     {
       id: 2,
-      title: "Our services",
-      url: "/employers/our-services",
+      title: "Construction & House Building",
+      url: "/sectors/construction-housebuilding",
     },
     {
       id: 3,
-      title: "Our expertise",
+      title: "Maintenance",
       url: "/employers/our-expertise",
     },
     {
       id: 4,
-      title: "Submit a vacancy",
+      title: "Civil Engineering",
+      url: "/employers/submit-vacancy",
+    },
+    {
+      id: 5,
+      title: "Trades & Labour",
+      url: "/employers/submit-vacancy",
+    },
+    {
+      id: 6,
+      title: "Search & Select",
       url: "/employers/submit-vacancy",
     }
   ]; 
@@ -91,42 +102,32 @@ const Sectors = () => {
             </a>
           </div>          
         </Box>
-        <div className={styles.expertiseHeader}>
-          <span>Our recruitment </span>
-          <span style={{color: "#008489"}}>expertise.</span>
-        </div>
-        <SectorsSlider/>
-
-
+        <div className={styles.expertiseContent}>
+          <div className={styles.expertiseHeader}>
+            <span>Our recruitment </span>
+            <span style={{color: "#008489"}}>expertise.</span>
+          </div>
           <div className={styles.expertiseText}>
             Our reputation is built on finding you the right people. Talented people who stand out, who make a real difference. With the right people, your business can realise its ambitions and go further than you ever thought possible.
           </div>
-          <a href="/employers/our-expertise" className={styles.cardContainer}>
-            <div className={styles.card}>
-              <div className={styles.cardImageContainer}>
-                <img src="./employers/6.jpg" alt="Image" className={styles.cardImage} />
-              </div>
-              <div className={styles.cardText}>
-                Construction Recruitment
-              </div>
-            </div>
-          </a>
+        </div>
+        <SectorsSlider/>
         <Box className={styles.consultation}>
           <div className={styles.consultationHeader}>
-            <span>Not sure where to start?</span>
-            <span>Reach out.</span>
+            <span>Not sure where to start? Reach out.</span>
           </div>
           <a href="/contact" style={{textDecoration: "none"}}>
             <button className={styles.consultationButton}>
-              Arrange free consultation <KeyboardArrowRightIcon/>
+              Arrange a consultation <KeyboardArrowRightIcon/>
             </button>
           </a>
         </Box>
+        <Values/>
         <section className={styles.testimonials}>
           <div className={styles.testimonialsContent}>
             <div className={styles.testimonialsHeader}>
-              <span style={{color: "#008489"}}>Talented people </span>
-              <span >are at the centre of everything we do.</span>
+              {/* <span style={{color: "#008489"}}>Talented people </span> */}
+              <span >We Are Trusted For A Reason</span>
             </div>
           </div>
           <Testimonials/>

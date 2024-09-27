@@ -20,6 +20,12 @@
   text-align: center;
   overflow: hidden;
   height: 260px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover .cardText {
+  color: #09B089;
 }
 
 .cardImageContainer {
@@ -41,6 +47,8 @@
   justify-content: center;
   align-items: center;
   height: 60px;
+  color: #002D49;
+  transition: all 0.3s ease-in-out;
 }
 
 .customNextArrow,

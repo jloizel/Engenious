@@ -9,6 +9,12 @@
   align-content: center;
 }
 
+.sectorsContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
 .headerContainer {
   position: relative;
@@ -440,6 +446,14 @@
   color: #00617C;
 }
 
+.expertiseContent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .expertiseHeader {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -488,6 +502,7 @@
   justify-content: center;
   height: 250px;
   gap: 20px;
+  margin-top: 60px;
 
   @media (min-width: 768px) {
     height: 300px;
@@ -506,15 +521,8 @@
   line-height: 30px;
   flex-direction: column;
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 34px;
-    line-height: 40px;
-    gap: 10px;
-    padding-top: 30px;
-  }
-
   @media (min-width: 1024px) {
-    font-size: 40px;
+    font-size: 35px;
     line-height: 40px;
     gap: 10px;
     padding-top: 0px;
@@ -532,20 +540,10 @@
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 30px;
   padding: 10px 50px;
-  margin-bottom: 40px;
-
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 20px;
-  }
-
-  @media (min-width: 1024px) {
-    font-size: 22px;
-    padding: 15px 50px;
-    /* margin-bottom: 40px; */
-  }
+  /* margin-bottom: 40px; */
 }
 
 .consultationButton:hover {

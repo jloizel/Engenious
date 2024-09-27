@@ -16,6 +16,7 @@ import Testimonials from '../../../../components/testimonials/testimonials';
 import Image from 'next/image';
 import { TiTick } from "react-icons/ti";
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import Values from '../../../../components/values/values';
 
 
 const OurWork = () => {
@@ -131,56 +132,7 @@ const OurWork = () => {
             </div>
           </div>
         </Box>
-        <Box className={styles.servicesInfo}>
-          <div className={styles.servicesInfoLeft}>
-            <div className={styles.servicesHeader}>
-              What makes us who we are:
-            </div>
-            <div className={styles.buttonContainer}>
-              <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.button}>
-                Recruit with Us
-              </a>
-            </div>
-          </div>
-          <div className={styles.servicesInfoRight}>
-            <div className={styles.textContainer} id="services1">
-              <div className={styles.header2}>
-                <TiTick className={styles.tick}/>
-                Construction Experts
-              </div>
-              <div className={styles.text2}>
-                From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
-              </div>
-            </div>
-            <div className={styles.textContainer} id="services2">
-              <div className={styles.header2}>
-                <TiTick className={styles.tick}/>
-                We Care
-              </div>
-              <div className={styles.text2}>
-                We’re an independent company, led by our Managing Director, Philippa Dickinson, who’s dedicated to providing outstanding service and consistently delivering high-quality results in everything we do.
-              </div>
-            </div>
-            <div className={styles.textContainer} id="services3">
-              <div className={styles.header2}>
-                <TiTick className={styles.tick}/>
-                We Are Efficient
-              </div>
-              <div className={styles.text2}>
-                We thoroughly understand our clients' requirements and strive to function as an extension of your business by attentively listening and addressing the specific nuances of each individual role. As such, we fill our roles faster than the industry average.
-              </div>
-            </div>
-            <div className={styles.textContainer} id="services4">
-              <div className={styles.header2}>
-                <TiTick className={styles.tick}/>
-                We Interview
-              </div>
-              <div className={styles.text2}>
-                Our expert construction consultants conduct in-depth interviews with each candidate to thoroughly understand their motivations and career aspirations. This approach ensures that we present only the most suitable candidates for every role.
-              </div>
-            </div>
-          </div>
-        </Box>
+        <Values/>
         <Box className={styles.consultation}>
           <div className={styles.consultationHeader}>
             <span>Not sure where to start?</span>

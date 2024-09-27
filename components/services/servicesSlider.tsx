@@ -97,12 +97,12 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
       {data.map((service, index) => (
         <SwiperSlide key={service.id} className={styles.swiperSlide}>
           <div
-          className={styles.container}
-          onMouseEnter={() => setHoveredItem(service.id)}
-          onMouseLeave={() => setHoveredItem(null)}
-          id={service.id}
-          key={service.id}
-        >
+            className={styles.container}
+            onMouseEnter={() => setHoveredItem(service.id)}
+            onMouseLeave={() => setHoveredItem(null)}
+            id={service.id}
+            key={service.id}
+          >
           <div className={styles.content}>
             <div className={styles.title}>{service.title}</div>
             <div className={styles.text}>{service.text}</div>
