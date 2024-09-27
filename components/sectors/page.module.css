@@ -1,0 +1,67 @@
+/* Container for the entire sectors slider */
+.sectorsContainer {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  position: relative;
+}
+
+/* Individual card container */
+.cardContainer {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* Styling for each card */
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  overflow: hidden;
+  height: 260px;
+}
+
+.cardImageContainer {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardText {
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.customNextArrow,
+.customPrevArrow {
+  position: absolute; /* Use absolute positioning */
+  top: 40%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for true centering */
+  z-index: 1; /* Ensure arrows are on top */
+  cursor: pointer; /* Change cursor to pointer for better UX */
+  font-size: 50px; /* Adjust icon size */
+  color: #09B089 !important;
+}
+
+.customNextArrow:before, .customPrevArrow:before {
+  content: "";
+}
+
+.customNextArrow {
+  right: -20px; /* Position the right arrow */
+}
+
+.customPrevArrow {
+  left: -50px; /* Position the left arrow */
+}

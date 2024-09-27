@@ -196,4 +196,18 @@ textarea {
   width: 8px; /* Width of the scrollbar */
 }
 
+.slick-dots li button:before {
+  color: gray !important;  /* Default dot color */
+  font-size: 12px;  /* Adjust the size of the dots */
+}
+
+/* Style for the active dot */
+.slick-dots li.slick-active button:before {
+  color: #09B089 !important;  /* Active dot color */
+}
+
+/* Add space between the dots */
+.slick-dots li {
+  margin: 0 5px;
+}
 

@@ -1,0 +1,594 @@
+/* page.module.css */
+
+.sectorsContainer {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
+
+.headerContainer {
+  position: relative;
+  margin-top: 60px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-top: 20px;
+  }
+}
+
+.headerImageContainer {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  height: 700px;
+  margin-top: -200px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    height: 600px;
+    margin-top: -100px;
+  }
+  
+  @media (min-width: 1024px) {
+    height: 800px;
+    margin-top: -270px;
+
+  }
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6); /* Adjust the opacity and color as needed */
+  z-index: 1;
+}
+
+.headerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transform: translateY(50px);
+  
+  @media (min-width: 1024px) {
+    transform: translateY(120px)
+  }
+}
+
+.headerTextContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  gap: 20px;
+  
+  @media (min-width: 1024px) {
+    margin-top: 120px;
+    gap: 30px;
+  }
+}
+
+.mainHeader {
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  width: 90%;
+  font-size: 40px;
+  line-height: 45px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 42px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+  }
+}
+
+.mainText {
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  width: 80%;
+  font-size: 16px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+.button {
+  background-color: #00617C;
+  border: none;
+  color: white;
+  cursor: pointer;
+  height: 56px;
+  line-height: 56px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  margin-top: 20px;
+  padding: 0 100px;
+  margin-bottom: 20px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 20px;
+    padding: 0 70px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 22px;
+  }
+}
+
+.button:hover {
+  background: #002D49;
+}
+
+.servicesContainer {
+  /* position: absolute; */
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  align-content: center;
+  /* height: 100%; */
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 60px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 80px;
+  }
+}
+
+.servicesTextContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+}
+
+
+.servicesHeader {
+  width: 80%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #00617C;
+  font-size: 24px;
+  line-height: 32px;
+  margin-top: 40px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 32px;
+    margin-top: 80px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 35px;
+    margin-top: 80px;
+  }
+}
+
+.servicesText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  /* color: #00617C; */
+  font-size: 16px;
+  line-height: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%;
+  
+  @media (min-width: 768px) {
+    font-size: 18px;
+    margin-top: 30px;
+    width: 90%;
+  }
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    gap: 40px;
+    padding: 0px 40px;
+  }
+}
+
+.statsTextContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.expertise {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.expertise {
+  
+  @media (min-width: 1024px) {
+    margin-top: 60px;
+  }
+}
+
+.imageContainer {
+  width: 80%;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: 80%;
+  
+  @media (min-width: 1024px) {
+    width: 800px;
+    height: auto;
+  }
+}
+
+.statsImage {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.gradientLine {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Adjust the height as needed */
+  background-image: linear-gradient(to right, #002D49, #008489, #09B089, #8CD87A, #F9F871);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  bottom: 0;
+
+  @media (min-width: 768px) {
+    bottom: 7px;
+  }
+}
+
+.statsHeader {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #002D49;
+  width: 80%;
+  font-size: 24px;
+  margin-top: 40px;
+  line-height: 30px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 35px;
+    width: 100%;
+  }
+}
+
+.statsText {
+  color: #002D49;
+  font-weight: 300;
+  width: 80%;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 22px;
+    margin-top: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 24px;
+    margin-top: 40px;
+  }
+}
+
+.statsText2 {
+  color: #008489;
+  font-weight: 700;
+  font-size: 24px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 26px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 28px;
+  }
+}
+
+.statsText li {
+  list-style: none; /* Remove default bullets */
+  padding: 0;
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    margin-bottom: 30px;
+  }
+}
+
+.statsText li::before {
+  content: '•'; /* Custom bullet point */
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(1px); /* Adjust the value to vertically center the bullet */
+  color: #000; /* Adjust bullet color if necessary */
+  font-size: 1.5em; /* Adjust bullet size if necessary */
+}
+
+.cardContainer {
+  display: flex;
+  
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 80%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 500px;
+  }
+}
+
+.card {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 8px;
+  height: 360px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+  width: 100%;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 400px;
+    height: 400px;
+  }
+  
+  @media (min-width: 1024px) {
+    height: 400px;
+    height: auto;
+  }
+}
+
+.cardImageContainer {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+
+.cardText {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #002D49;
+  text-align: center;
+  font-size: 20px;
+  margin-top: 40px;
+  line-height: 30px;
+  margin-bottom: 20px;
+
+  @media (min-width: 768px)  {
+    font-size: 26px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+}
+
+.cardText:hover {
+  color: #00617C;
+}
+
+.expertiseHeader {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #002D49;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 40px;
+  line-height: 30px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 36px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 35px;
+  }
+}
+
+.expertiseText {
+  color: #002D49;
+  font-weight: 300;
+  width: 80%;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+    margin-top: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    margin-top: 30px;
+    line-height: 30px;
+  }
+}
+
+.consultation {
+  background-color: #09B089;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  gap: 20px;
+
+  @media (min-width: 768px) {
+    height: 300px;
+    gap: 30px;
+  }
+}
+
+.consultationHeader {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  display: flex;
+  font-size: 24px;
+  padding-top: 40px;
+  line-height: 30px;
+  flex-direction: column;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 34px;
+    line-height: 40px;
+    gap: 10px;
+    padding-top: 30px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 40px;
+    line-height: 40px;
+    gap: 10px;
+    padding-top: 0px;
+  }
+}
+
+.consultationButton {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  color: #09B089;
+  display: flex;
+  align-items: center;
+  background: white;
+  border: solid 1px white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-size: 16px;
+  line-height: 30px;
+  padding: 10px 50px;
+  margin-bottom: 40px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 20px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 22px;
+    padding: 15px 50px;
+    /* margin-bottom: 40px; */
+  }
+}
+
+.consultationButton:hover {
+  color: white;
+  background: none;
+}
+
+.testimonials {
+  /* position: absolute; */
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  /* margin: auto; */
+  justify-content: center;
+  left: 0;
+  right: 0;
+  align-content: center;
+  /* height: 100%; */
+  text-align: center;
+}
+
+.testimonials {
+  background: #EFF0F0;
+}
+
+.testimonialsContent {
+  width: 80%;
+}
+
+.testimonialsHeader {
+  color: #002D49;
+  font-weight: 700;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  line-height: 125%;
+  margin-top: 40px;
+  margin-bottom: 20px;
+  
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 30px;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 45px;
+  }
+}

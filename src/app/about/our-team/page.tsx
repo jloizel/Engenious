@@ -129,11 +129,11 @@ const OurTeam = () => {
               <div className={styles.text}>
                 Think you have what it takes to make a difference? We&apos;re always on the lookout for exceptional talent to join our team! Upload your CV below, and if we believe you&apos;re the right fit for our journey, we&apos;ll be in touch. Your next career adventure awaits – seize the opportunity and let&apos;s make magic together!
               </div>
-              <a href="/jobs/cv-upload" style={{textDecoration: "none"}} className={styles.buttonContainer}>
-                <button className={styles.button}>
+              <div className={styles.buttonContainer}>
+                <a href="/jobs/cv-upload" style={{textDecoration: "none"}} className={styles.button}>
                   Send us your CV
-                </button>
-              </a>
+                </a>
+              </div>
             </div>
           </div>
         </Box>

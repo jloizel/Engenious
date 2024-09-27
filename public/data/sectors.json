@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Construction & House Building",
+    "image": "/sectors/1.jpg",
+    "href": ""
+  },
+  {
+    "id": 2,
+    "name": "Maintenance",
+    "image": "/sectors/2.jpg",
+    "href": ""
+  },
+  {
+    "id": 3,
+    "name": "Civil Engineering",
+    "image": "/sectors/3.jpg",
+    "href": ""
+  },
+  {
+    "id": 4,
+    "name": "Trades & Labour",
+    "image": "/sectors/4.jpg",
+    "href": ""
+  },
+  {
+    "id": 5,
+    "name": "Search & Select",
+    "image": "/sectors/5.jpg",
+    "href": ""
+  }
+]
