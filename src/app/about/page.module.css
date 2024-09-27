@@ -136,7 +136,7 @@
   justify-content: center;
   width: 85%;
   margin-bottom: 60px;
-  margin-top: 10px;
+  margin-top: 30px;
   align-self: center;
 
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -242,6 +242,7 @@
 
 .buttonContainer {
   align-self: center;
+  
 }
 
 .ourWorkButton {
@@ -257,8 +258,6 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: 16px;
-  padding: 15px 0;
-  margin-bottom: 60px;
   padding: 15px 80px;
 
   @media (min-width: 768px) {
@@ -414,6 +413,7 @@
 
   @media (min-width: 1024px) {
     padding: 30px;
+    max-width: 350px;
   }
 }
 

@@ -70,7 +70,7 @@ const Services: React.FC = ({}) => {
               className={`${styles.button} ${
                 hoveredItem === service.id ? styles.buttonActive : ''
               }`}
-              onClick={() => scrollToSection(service.id)} // Scroll to section on click
+              onClick={() => scrollToSection(service.name)} // Scroll to section on click
             >
               Learn More <KeyboardArrowRightIcon className={styles.arrow} />
             </button>

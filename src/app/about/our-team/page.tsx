@@ -57,16 +57,16 @@ const OurTeam = () => {
       title: "Our work",
       url: "/about/our-work",
     },
-    {
-      id: 3,
-      title: "Our story",
-      url: "/about/our-story",
-    },
-    {
-      id: 4,
-      title: "Our purpose",
-      url: "/about/our-purpose",
-    },
+    // {
+    //   id: 3,
+    //   title: "Our story",
+    //   url: "/about/our-story",
+    // },
+    // {
+    //   id: 4,
+    //   title: "Our purpose",
+    //   url: "/about/our-purpose",
+    // },
     {
       id: 5,
       title: "Our team",
@@ -77,7 +77,7 @@ const OurTeam = () => {
   return (
     <div className={styles.teamContainer}>
       <Helmet>
-        <title>Our Team</title>
+        <title>About</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
