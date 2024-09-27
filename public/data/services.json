@@ -10,7 +10,7 @@
     "id": 2,
     "name": "services2",
     "title": "We Care",
-    "text": "We’re an independent company, led by Managing Director Philippa Dickinson, committed to delivering exceptional service and top-quality results.",
+    "text": "We’re an independent company committed to delivering exceptional service and top-quality results.",
     "link": "/employers/our-services"
   },
   {
@@ -24,7 +24,7 @@
     "id": 4,
     "name": "services4",
     "title": "We Interview",
-    "text": "Our expert consultants conduct in-depth interviews to understand each candidate’s motivations, ensuring we present only the best fit for every role.",
+    "text": "Our expert consultants conduct in-depth interviews, ensuring we present only the best fit for every role.",
     "link": "/employers/our-services"
   }
 ]

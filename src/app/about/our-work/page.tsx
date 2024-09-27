@@ -14,6 +14,8 @@ import About from '../../../../components/about/aboutInfo';
 import AboutSlider from '../../../../components/about/aboutSlider';
 import Testimonials from '../../../../components/testimonials/testimonials';
 import Image from 'next/image';
+import { TiTick } from "react-icons/ti";
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
 
 const OurWork = () => {
@@ -101,6 +103,7 @@ const OurWork = () => {
               <div className={styles.header1}>
                 <span>Why work with </span>
                 <span style={{color: "#008489"}}>Engenious Recruitment</span>
+                <span>?</span>
               </div>
               <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
           </div>
@@ -128,37 +131,70 @@ const OurWork = () => {
             </div>
           </div>
         </Box>
-        <Box className={styles.aboutBox}>
-          <div className={styles.textContainer}>
-            <div className={styles.header2}>
-              <span>Construction Experts</span>
+        <Box className={styles.servicesInfo}>
+          <div className={styles.servicesInfoLeft}>
+            <div className={styles.servicesHeader}>
+              What makes us who we are:
             </div>
-            <div className={styles.text2}>
-              From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
+            <div className={styles.buttonContainer}>
+              <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.button}>
+                Recruit with Us
+              </a>
             </div>
-            <a href="/employers/submit-vacancy" style={{textDecoration: "none"}}>
-              <button className={styles.button}>
-                Work with us
-              </button>
-            </a>
+          </div>
+          <div className={styles.servicesInfoRight}>
+            <div className={styles.textContainer} id="services1">
+              <div className={styles.header2}>
+                <TiTick className={styles.tick}/>
+                Construction Experts
+              </div>
+              <div className={styles.text2}>
+                From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  
+              </div>
+            </div>
+            <div className={styles.textContainer} id="services2">
+              <div className={styles.header2}>
+                <TiTick className={styles.tick}/>
+                We Care
+              </div>
+              <div className={styles.text2}>
+                We’re an independent company, led by our Managing Director, Philippa Dickinson, who’s dedicated to providing outstanding service and consistently delivering high-quality results in everything we do.
+              </div>
+            </div>
+            <div className={styles.textContainer} id="services3">
+              <div className={styles.header2}>
+                <TiTick className={styles.tick}/>
+                We Are Efficient
+              </div>
+              <div className={styles.text2}>
+                We thoroughly understand our clients' requirements and strive to function as an extension of your business by attentively listening and addressing the specific nuances of each individual role. As such, we fill our roles faster than the industry average.
+              </div>
+            </div>
+            <div className={styles.textContainer} id="services4">
+              <div className={styles.header2}>
+                <TiTick className={styles.tick}/>
+                We Interview
+              </div>
+              <div className={styles.text2}>
+                Our expert construction consultants conduct in-depth interviews with each candidate to thoroughly understand their motivations and career aspirations. This approach ensures that we present only the most suitable candidates for every role.
+              </div>
+            </div>
           </div>
         </Box>
-        <Box className={styles.aboutBox}>
-          <div className={styles.textContainer}>
-            <div className={styles.header2}>
-              <span>We care</span>
-            </div>
-            <div className={styles.text2}>
-              We’re an independent company, led by our Managing Director, Philippa Dickinson, who’s dedicated to providing outstanding service and consistently delivering high-quality results in everything we do.
-            </div>
-            <a href="/jobs" style={{textDecoration: "none"}}>
-              <button className={styles.button}>
-                Work with us
+        <Box className={styles.consultation}>
+          <div className={styles.consultationHeader}>
+            <span>Not sure where to start?</span>
+          </div>
+          <div className={styles.consultationText}>
+            In recent years, the working world has transformed dramatically. Companies&apos; approaches to recruitment have changed too. Whether you&apos;re looking for contractors or temps who are on-site, hybrid or fully remote, we&apos;ll find the right people for you.
+          </div>
+          <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor}>
+              <button className={styles.consultationButton}>
+                Hire talent <KeyboardArrowRightIcon/>
               </button>
             </a>
-          </div>
         </Box>
-        <section className={styles.about}>
+        {/* <section className={styles.about}>
           <div className={styles.aboutContent}>
             <div className={styles.aboutHeader} style={{display: "flex", flexDirection: "column"}}>
               <span>Investing time in people; </span>
@@ -195,7 +231,7 @@ const OurWork = () => {
           </div>
         </div>
         <Testimonials/>
-      </section>
+      </section> */}
       </Box>
     </div>
   )
