@@ -10,7 +10,7 @@ import Image from 'next/image';
 const links = [
   {
     id: 1,
-    title: "About Us",
+    title: "About",
     url: "/about",
   },
   {
@@ -27,6 +27,11 @@ const links = [
     id: 4,
     title: "Candidates",
     url: "/candidates",
+  },
+  {
+    id: 5,
+    title: "Contact",
+    url: "/contact",
   }
 ];
 

@@ -33,68 +33,6 @@ export default function Home() {
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
-  const handleFlexDirection = () => {
-    if (isMobile) {
-      return "column"
-    } else {
-      return "row"
-    }
-  }
-
-  const handleTitleFontSize = () => {
-    if (isMobile) {
-      return "40px"
-    } else if (isTablet) {
-      return "50px"
-    } else {
-      return "70px"
-    }
-  }
-
-  const handleTitleLineHeight = () => {
-    if (isMobile) {
-      return "125%"
-    } else {
-      return "115%"
-    }
-  }
-
-  const handleTitlePadding = () => {
-    if (isMobile) {
-      return "60px"
-    } else if (isTablet) {
-      return "40px"
-    } else {
-      return "50px"
-    }
-  }
-
-  const handleHeaderFontSize = () => {
-    if (isMobile) {
-      return "22px"
-    } else if (isTablet) {
-      return "30px"
-    } else {
-      return "45px"
-    }
-  }
-
-  const handleButtonFontSize = () => {
-    if (isMobile) {
-      return "16px"
-    } else {
-      return "18px"
-    }
-  }
-
-  
-  const handleButtonWidth = () => {
-    if (isMobile) {
-      return "300px"
-    } else {
-      return "350px"
-    }
-  }
 
   return (
     <JobProvider>
@@ -114,10 +52,10 @@ export default function Home() {
         </div>
         <div className={styles.bannerContent}>
           <div className={styles.title}>
-            Talent Services Beyond Expectations.
+            Building Careers and Shaping Futures
           </div>
           <div className={styles.buttonContainer}>
-            <a href="/jobs" className={styles.bannerButton}>I am a jobseeker</a>
+            <a href="/candidates" className={styles.bannerButton}>I am a jobseeker</a>
             <a href="/employers" className={styles.bannerButton}>I am an employer</a>
           </div>
         </div>
@@ -146,9 +84,9 @@ export default function Home() {
           </button>
         </a>
       </section>
-      <section className={styles.join}>
+      {/* <section className={styles.join}>
         <Join/>
-      </section>
+      </section> */}
       <section className={styles.testimonials}>
         <div className={styles.testimonialsContent}>
           <div className={styles.header} >

@@ -31,7 +31,7 @@ const Contact = () => {
         <title>Contact</title>
         <meta name='description' content=''/>
       </Helmet>
-      <NavbarMain2/>
+      <NavbarMain2 currentPath='/contact'/>
       <div className={styles.pageHeader}>
         <div className={styles.header}>Get in touch</div>
         <HiMiniArrowLongDown className={styles.arrow} />

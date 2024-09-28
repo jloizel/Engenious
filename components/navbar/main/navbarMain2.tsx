@@ -8,29 +8,38 @@ import { createTheme, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 
 const links = [
-    {
-      id: 1,
-      title: "Employers",
-      url: "/employers",
-    },
-    {
-      id: 2,
-      title: "Jobs",
-      url: "/jobs",
-    },
-    {
-      id: 3,
-      title: "About",
-      url: "/about",
-    },
-    {
-      id: 4,
-      title: "Contact",
-      url: "/contact",
-    }
-  ];
+  {
+    id: 1,
+    title: "About",
+    url: "/about",
+  },
+  {
+    id: 2,
+    title: "Sectors",
+    url: "/sectors",
+  },
+  {
+    id: 3,
+    title: "Employers",
+    url: "/employers",
+  },
+  {
+    id: 4,
+    title: "Candidates",
+    url: "/candidates",
+  },
+  {
+    id: 5,
+    title: "Contact",
+    url: "/contact",
+  }
+];
 
-const NavbarMain2 = () => {
+interface NavbarProps {
+  currentPath?: string
+} 
+
+const NavbarMain2: React.FC<NavbarProps> = ({currentPath}) => {
 
   const theme = createTheme({
     breakpoints: {
@@ -99,7 +108,7 @@ const NavbarMain2 = () => {
         <div className={styles.middle} style={{display: setDisplay()}}>
           <div className={styles.links}>
               {links.map(link => (
-                <a key={link.id} href={link.url} className={styles.link}>
+                <a key={link.id} href={link.url} className={`${styles.link} ${link.url === currentPath ? styles.active : ''}`}>
                     {link.title}
                 </a>
               ))}

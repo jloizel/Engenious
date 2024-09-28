@@ -35,146 +35,6 @@ const Footer: React.FC = ({}) => {
    }
   }
 
-  const handleContainerJustify = () => {
-    if (isMobile) {
-      return "center"
-    } else {
-      return ""
-   }
-  }
-
-  const handleBoxFD = () => {
-    if (isMobile) {
-      return "column"
-    } else {
-      return "row"
-   }
-  }
-
-  const handleHeaderFS = () => {
-    if (isMobile) {
-      return "25px"
-    } else if (isTablet) {
-      return "30px"
-    } else {
-      return "40px"
-   }
-  }
-
-  const handleHeaderMargin = () => {
-    if (isMobile) {
-      return "40px"
-    } else {
-      return ""
-   }
-  }
-  
-  const handleHeaderPadding = () => {
-    if (isMobile) {
-      return ""
-    } else {
-      return "30px 30px"
-    }
-  }
-
-  const handleButtonContainerGap = () => {
-    if (isMobile) {
-      return "20px"
-    } else if (isTablet) {
-      return "30px"
-    } else {
-      return "40px"
-   }
-  }
-
-  const handleButtonContainerPadding = () => {
-    if (isMobile) {
-      return ""
-    } else {
-      return "0 30px"
-   }
-  }
-
-  const handleButtonFS = () => {
-    if (isMobile) {
-      return "16px"
-    } else if (isTablet) {
-      return "16px"
-    } else {
-      return "20px"
-   }
-  }
-
-  const handleButtonPadding = () => {
-    if (isMobile) {
-      return "0 30px"
-    } else if (isTablet) {
-      return "0 40px"
-    } else {
-      return "0 80px"
-    }
-  }
-
-  const handleCNContainerLH = () => {
-    if (isMobile) {
-      return "18px"
-    } else {
-      return "35px"
-   }
-  }
-
-  const handleCNFS= () => {
-    if (isMobile) {
-      return "16px"
-    } else {
-      return "20px"
-   }
-  }
-
-  const handleCNLH= () => {
-    if (isTablet) {
-      return "25px"
-    } else {
-      return ""
-   }
-  }
-
-  const handlePGGap= () => {
-    if (isMobile) {
-      return "5px"
-    } else if (isTablet) {
-      return "15px"
-   }
-  }
-
-  const handlePGPadding= () => {
-    if (isTablet) {
-      return "20px"
-    } else {
-      return ""
-   }
-  }
-
-  const handlePageFS = () => {
-    if (isMobile) {
-      return "14px"
-    } else if (isTablet) {
-      return "22px"
-    } else {
-      return "18px"
-    }
-  }
-
-  const handlePrivacyFS = () => {
-    if (isMobile) {
-      return "12px"
-    } else if (isTablet) {
-      return "16px"
-    } else {
-      return "14px"
-    }
-  }
-  
   return (
     <div className={styles.container}>
       <div className={styles.box} >
@@ -243,16 +103,19 @@ const Footer: React.FC = ({}) => {
             </div>
           </div>
           <div className={styles.pagesContainerComputer}>
-            <a href="/employers" className={styles.pagesComputer} style={{textDecoration: "none"}}>
-              <div className={styles.page}>Employers</div>
-            </a>
-            <a href="/jobs" style={{textDecoration: "none"}} className={styles.pagesComputer}>
-              <div className={styles.page}>Jobs</div>
-            </a>
-            <a href="/about" style={{textDecoration: "none"}} className={styles.pagesComputer}>
+            <a href="/about" className={styles.pagesComputer} style={{textDecoration: "none"}}>
               <div className={styles.page}>About</div>
             </a>
-            <a href="contact" style={{textDecoration: "none"}} className={styles.pagesComputer}>
+            <a href="/sectors" style={{textDecoration: "none"}} className={styles.pagesComputer}>
+              <div className={styles.page}>Sectors</div>
+            </a>
+            <a href="/employers" style={{textDecoration: "none"}} className={styles.pagesComputer}>
+              <div className={styles.page}>Employers</div>
+            </a>
+            <a href="/candidates" style={{textDecoration: "none"}} className={styles.pagesComputer}>
+              <div className={styles.page}>Candidates</div>
+            </a>
+            <a href="/contact" style={{textDecoration: "none"}} className={styles.pagesComputer}>
               <div className={styles.page}>Contact</div>
             </a>
           </div>
