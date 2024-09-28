@@ -129,8 +129,12 @@
 }
 
 .buttonContainer {
-  align-self: flex-start;
+  /* align-self: flex-start; */
   margin-top: 20px;
+
+  @media (min-width: 768px) {
+    align-self: flex-start;
+  }
 }
 
 .ourWorkButton {
@@ -456,6 +460,7 @@
   width: 100%;
   height: 420px;
   gap: 20px;
+  margin-top: 30px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     height: 450px;

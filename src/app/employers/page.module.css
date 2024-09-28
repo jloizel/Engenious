@@ -55,6 +55,10 @@
   z-index: 0;
   transform: translateY(50px);
   
+  @media (min-width: 768px) and (max-width: 1023px) {
+    transform: translateY(0px)
+  }
+
   @media (min-width: 1024px) {
     transform: translateY(120px)
   }
@@ -473,11 +477,11 @@
   line-height: 30px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 36px;
+    font-size: 35px;
   }
 
   @media (min-width: 1024px) {
-    font-size: 35px;
+    font-size: 40px;
   }
 }
 

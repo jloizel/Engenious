@@ -125,8 +125,8 @@ const Employers = () => {
         </Box>
         <Box className={styles.expertise}>
           <div className={styles.expertiseHeader}>
-            <span>Confident Candidate </span>
-            <span style={{color: "#008489"}}>Evaluation.</span>
+            <span>Confident candidate </span>
+            <span style={{color: "#008489"}}>evaluation.</span>
           </div>
           <div className={styles.expertiseText}>
             At Engenious Recruitment, we offer psychometric testing and a detailed candidate evaluation alongside our thorough screening process, helping you confidently assess a candidate’s suitability for their role. Click below to find out more.
