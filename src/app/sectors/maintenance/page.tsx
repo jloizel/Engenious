@@ -13,6 +13,8 @@ import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Services from '../../../../components/services/services';
 import ServicesSlider from '../../../../components/services/servicesSlider';
 import Image from 'next/image';
+import AboutInfo from '../../../../components/about/aboutInfo';
+import AboutSlider from '../../../../components/about/aboutSlider';
 
 const Maintenance = () => {
   const pageName = "Sectors"
@@ -104,7 +106,7 @@ const Maintenance = () => {
       <Box className={styles.hire}>
         <div className={styles.hireLeft}>
           <span>
-            Find Your Next Energy Storage Hire With Us
+            Find Your Next Maintenance Hire With Us
           </span>
           <span>
             As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
@@ -165,25 +167,10 @@ const Maintenance = () => {
           </button>
         </a>
       </Box>
+      <section className={styles.about}>
+          { isComputer ? <AboutInfo/> : <AboutSlider/> }
+        </section>
       <section className={styles.testimonials}>
-        <div className={styles.testimonialsContent}>
-          <div className={styles.header}>
-            <span style={{color: "#008489"}}>Talented people </span>
-            <span >are at the centre of everything we do.</span>
-          </div>
-        </div>
-        <Testimonials/>
-      </section>
-      <section className={styles.services}>
-        <div className={styles.servicesContent}>
-          <div className={styles.header}>
-            <span >A range of </span>
-            <span style={{color: "#008489"}}>Talent Services..</span>
-          </div>
-          <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We go above and beyond to find you the right people.</p>
-        </div>
-        { isComputer ? <Services/> : <ServicesSlider/> }
-      </section>
       <Box className={styles.consultation}>
         <div className={styles.consultationHeader}>
           <span>Not sure where to start?</span>
@@ -197,6 +184,26 @@ const Maintenance = () => {
             </button>
           </a>
       </Box>
+        <div className={styles.testimonialsContent}>
+          <div className={styles.header}>
+            {/* <span style={{color: "#008489"}}>Talented people </span> */}
+            <span>We Are Trusted For A Reason</span>
+          </div>
+        </div>
+        <Testimonials/>
+      </section>
+      {/* <section className={styles.services}>
+        <div className={styles.servicesContent}>
+          <div className={styles.header}>
+            <span >A range of </span>
+            <span style={{color: "#008489"}}>Talent Services..</span>
+          </div>
+          <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We go above and beyond to find you the right people.</p>
+        </div>
+        { isComputer ? <Services/> : <ServicesSlider/> }
+      </section> */}
+      
+      
     </div>
   )
 }

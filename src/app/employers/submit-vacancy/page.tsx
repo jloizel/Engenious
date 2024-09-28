@@ -9,7 +9,7 @@ import NavbarSub from '../../../../components/navbar/sub/navbarSub';
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 
 const SubmitVacancy = () => {
-  const pageName = "Submit Vacancy"
+  const pageName = "Employers"
   
   const [currentPath, setCurrentPath] = useState('')
 
@@ -44,14 +44,14 @@ const SubmitVacancy = () => {
     },
     {
       id: 2,
-      title: "Our services",
-      url: "/employers/our-services",
+      title: "Candidate assessments",
+      url: "/employers/candidate-assessments",
     },
-    {
-      id: 3,
-      title: "Our expertise",
-      url: "/employers/our-expertise",
-    },
+    // {
+    //   id: 3,
+    //   title: "Our expertise",
+    //   url: "/employers/our-expertise",
+    // },
     {
       id: 4,
       title: "Submit a vacancy",

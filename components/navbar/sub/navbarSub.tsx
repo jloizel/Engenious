@@ -41,7 +41,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   const isComputer = useMediaQuery(theme.breakpoints.up('md'));
 
   const setDisplay  = () => {
-    if (isMobile) {
+    if (!isComputer) {
         return 'none';
     } else {
         return '';
@@ -49,7 +49,7 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   }; 
 
   const setDisplay2  = () => {
-    if (isMobile) {
+    if (!isComputer) {
         return 'flex';
     } else {
         return 'none';
@@ -103,13 +103,16 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
             ))}
           </div>
         </div>
-        {!isMobile && (
+        {/* {!isMobile && (
           <div className={styles.right}>
             <a className={styles.button}>
               Register a Vacancy
             </a>
           </div>
-        )}
+        )} */}
+        <div className={styles.rightHidden}>
+
+        </div>
       </div>
     </div>
   )

@@ -14,10 +14,10 @@ import { Pagination, Navigation } from 'swiper/modules';
 import { createTheme, useMediaQuery } from "@mui/material";
 
 interface ServicesSliderProps {
-  // text: string
+  pageName?: string
 }
 
-const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
+const ServicesSlider: React.FC<ServicesSliderProps> = ({pageName}) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [buttonClass, setButtonClass] = useState<string | null>(null);
   const [data, setData] = useState([
@@ -64,6 +64,14 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };  
+
+  const handleButtonClick = (id: string) => {
+    if (pageName === 'ourWork') {
+      scrollToSection(id); // Scroll to section if pageName is "ourWork"
+    } else {
+      window.open("/about/our-work")
+    }
+  };
 
   const theme = createTheme({
     breakpoints: {
@@ -112,7 +120,7 @@ const ServicesSlider: React.FC<ServicesSliderProps> = ({}) => {
               className={`${styles.button} ${
                 hoveredItem === service.id ? styles.buttonActive : ''
               }`}
-              onClick={() => scrollToSection(service.id)} // Scroll to section on click
+              onClick={() => handleButtonClick(service.id)} 
             >
               Learn More <KeyboardArrowRightIcon className={styles.arrow} />
             </button>

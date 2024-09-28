@@ -110,7 +110,7 @@ const OurWork = () => {
           </div>
         </Box>
         <div className={styles.services}>
-          { isComputer ? <Services/> : <ServicesSlider/> }
+          { isComputer ? <Services pageName="ourWork"/> : <ServicesSlider pageName="ourWork"/> }
         </div>
         <Box className={styles.quoteContainer}>
           <div className={styles.textBox}>

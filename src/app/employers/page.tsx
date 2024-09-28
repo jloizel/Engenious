@@ -10,6 +10,8 @@ import ServicesSlider from '../../../components/services/servicesSlider';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import Testimonials from '../../../components/testimonials/testimonials';
 import Image from 'next/image';
+import AboutInfo from '../../../components/about/aboutInfo';
+import AboutSlider from '../../../components/about/aboutSlider';
 
 
 const Employers = () => {
@@ -48,14 +50,14 @@ const Employers = () => {
     },
     {
       id: 2,
-      title: "Our services",
-      url: "/employers/our-services",
+      title: "Candidate assessments",
+      url: "/employers/candidate-assessments",
     },
-    {
-      id: 3,
-      title: "Our expertise",
-      url: "/employers/our-expertise",
-    },
+    // {
+    //   id: 3,
+    //   title: "Our expertise",
+    //   url: "/employers/our-expertise",
+    // },
     {
       id: 4,
       title: "Submit a vacancy",
@@ -74,14 +76,14 @@ const Employers = () => {
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
             <div className={styles.imageOverlay}></div>
-            <img src="./employers/3.jpg" alt="Image" className={styles.headerImage} />
+            <img src="./employers/header.jpg" alt="Image" className={styles.headerImage} />
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
-              It&apos;s time to find your human edge.
+              Find the talent your business needs.
             </div>
             <div className={styles.mainText}>
-              Find the right people to help your business thrive - today and in the future. We provide a full range of flexible Talent Services, so whatever your workforce needs are, we are well placed to help. It&apos;s time to pioneer through your people.
+              We help you connect with skilled professionals who can make an immediate impact. Whether you're filling short-term gaps or building long-term teams, our talent solutions are designed to meet your specific needs.
             </div>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}}>
               <button className={styles.button}>
@@ -90,7 +92,7 @@ const Employers = () => {
             </a>
           </div>          
         </Box>
-        <Box className={styles.servicesContainer}>
+        {/* <Box className={styles.servicesContainer}>
           <div className={styles.servicesTextContainer}>
             <div className={styles.servicesHeader}>
               Adaptable. Impactful. Unmatched.
@@ -100,39 +102,42 @@ const Employers = () => {
             </div>
           </div>
           { isComputer ? <Services/> : <ServicesSlider/> }
-        </Box>
+        </Box> */}
         <Box className={styles.stats}>
-            <div className={styles.imageContainer}>
-              <img src="./employers/5.jpg" alt="Image" className={styles.statsImage} />
+            {/* <div className={styles.imageContainer}>
+              <img src="./sectors/header.jpg" alt="Image" className={styles.statsImage} />
               <div className={styles.gradientLine}></div>
-            </div>
+            </div> */}
             <div className={styles.statsTextContainer}>
               <div className={styles.statsHeader}>
                 <span>Helping your business </span>
                 <span style={{color: "#008489"}}>evolve.</span>
               </div>
-              <div className={styles.statsText}>
+              {/* <div className={styles.statsText}>
                 <li>Placements with over <span className={styles.statsText2}>100</span> clients</li>
                 <li>Over <span className={styles.statsText2}>1000</span> candidates</li>
-                <li><span className={styles.statsText2}>10+ </span> years of experience</li>
-              </div>
+                <li><span className={styles.statsText2}>15+ </span> years of coexperience</li>
+              </div> */}
+              <section className={styles.about}>
+                { isComputer ? <AboutInfo/> : <AboutSlider/> }
+              </section>
             </div>
         </Box>
         <Box className={styles.expertise}>
           <div className={styles.expertiseHeader}>
-            <span>Our recruitment </span>
-            <span style={{color: "#008489"}}>expertise.</span>
+            <span>Confident Candidate </span>
+            <span style={{color: "#008489"}}>Evaluation.</span>
           </div>
           <div className={styles.expertiseText}>
-            Our reputation is built on finding you the right people. Talented people who stand out, who make a real difference. With the right people, your business can realise its ambitions and go further than you ever thought possible.
+            At Engenious Recruitment, we offer psychometric testing and a detailed candidate evaluation alongside our thorough screening process, helping you confidently assess a candidate’s suitability for their role. Click below to find out more.
           </div>
-          <a href="/employers/our-expertise" className={styles.cardContainer}>
+          <a href="/employers/candidate-assessments" className={styles.cardContainer}>
             <div className={styles.card}>
               <div className={styles.cardImageContainer}>
                 <img src="./employers/6.jpg" alt="Image" className={styles.cardImage} />
               </div>
               <div className={styles.cardText}>
-                Construction Recruitment
+                Candidate Assessments
               </div>
             </div>
           </a>

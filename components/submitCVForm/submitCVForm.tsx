@@ -14,11 +14,11 @@ import { Job, getJobById } from '@/app/API';
 const formSchema = z.object({
   name: z.string().min(2, { message: "This field cannot be left blank." }),
   email: z.string().email({ message: "Email must be in proper format." }),
-  message: z.string(),
+  message: z.string().min(2, { message: "This field cannot be left blank." }),
   file: z.object({
-    name: z.string().nonempty({ message: "File name is required" }),
-    content: z.string().nonempty({ message: "File content is required" }),
-  }),
+    name: z.string(),
+    content: z.string(),
+  }).optional()
 });
 
 export type FormData = z.infer<typeof formSchema>;
@@ -86,10 +86,10 @@ const SubmitCVForm2: FC = () => {
     }
   
     // Validate file
-    if (!content || !filename) {
-      setError('file', { type: 'manual', message: 'File is required.' });
-      hasError = true;
-    }
+    // if (!content || !filename) {
+    //   setError('file', { type: 'manual', message: 'File is required.' });
+    //   hasError = true;
+    // }
   
     if (hasError) {
       return;
@@ -186,7 +186,7 @@ const SubmitCVForm2: FC = () => {
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              <span>Upload CV *</span>
+              <span>Upload CV</span>
             </div>
             <div className={styles.fileinputBox}>
               <label htmlFor="fileInput" className={styles.fileinputLabel}>

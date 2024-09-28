@@ -2,7 +2,11 @@ import React, { useEffect, useState } from 'react'
 import styles from './page.module.css'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
-const Services: React.FC = ({}) => {
+interface ServicesProps {
+  pageName?: string
+}
+
+const Services: React.FC<ServicesProps> = ({pageName}) => {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [buttonClass, setButtonClass] = useState<string | null>(null);
   const [data, setData] = useState([
@@ -44,11 +48,20 @@ const Services: React.FC = ({}) => {
   },[hoveredItem])
 
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
+    const section = document.getElementById(id); // Find section with the correct id
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to section
     }
   };
+
+  const handleButtonClick = (id: string) => {
+    if (pageName === 'ourWork') {
+      scrollToSection(id); // Scroll to section if on the same page
+    } else {
+      window.location.href = '/about/our-work'; // Full-page redirect
+    }
+  };
+
 
 
   return (
@@ -60,6 +73,7 @@ const Services: React.FC = ({}) => {
           onMouseLeave={() => setHoveredItem(null)}
           id={service.id}
           key={service.id}
+          onClick={() => handleButtonClick(service.name)}
         >
           <div className={styles.content}>
             <div className={styles.title}>{service.title}</div>
@@ -70,7 +84,6 @@ const Services: React.FC = ({}) => {
               className={`${styles.button} ${
                 hoveredItem === service.id ? styles.buttonActive : ''
               }`}
-              onClick={() => scrollToSection(service.name)} // Scroll to section on click
             >
               Learn More <KeyboardArrowRightIcon className={styles.arrow} />
             </button>

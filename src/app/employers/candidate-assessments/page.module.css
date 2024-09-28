@@ -76,7 +76,7 @@
   }
 }
 
-.expertiseHeader {
+.mainHeader {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #002D49;
@@ -104,7 +104,7 @@
   }
 }
 
-.expertiseText {
+.mainText {
   color: #002D49;
   font-weight: 300;
   font-size: 16px;
@@ -128,12 +128,12 @@
   }
 }
 
-.hireButtonContainer {
+.buttonContainer {
   align-self: flex-start;
-  
+  margin-top: 20px;
 }
 
-.hireButton {
+.ourWorkButton {
   background-color: #00617C;
   color: white; 
   font-weight: 600;
@@ -146,54 +146,71 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: 16px;
-  padding: 15px 30px;
+  padding: 15px 60px;
 
   @media (min-width: 768px) {
     font-size: 18px;
   }
 }
 
-.hireButton:hover {
+.ourWorkButton:hover {
   background-color: #002D49;
 }
 
-.hire {
-  background: #EFF0F0;
+.expertiseContent {
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  /* width: 100%; */
-  padding: 60px 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 60px;
 }
 
-.hireLeft, .hireRight {
-  display: flex;
-  flex-direction: column;
-  width: 50%;
-  padding: 60px;
-}
-
-.hireRight {
-  gap: 10px;
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.hireLeft span:first-child {
-  color: #002D49;
+.expertiseHeader {
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
-  font-size: 45px;
-  line-height: 50px;
-}
-
-.hireLeft span:last-child, .hireRight {
   color: #002D49;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 25px;
-  margin-top: 30px;
+  width: 100%;
+  text-align: center;
+  font-size: 24px;
+  margin-top: 40px;
+  line-height: 30px;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 36px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 35px;
+  }
 }
 
+.expertiseText {
+  color: #002D49;
+  font-weight: 300;
+  width: 80%;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 18px;
+    margin-top: 24px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 20px;
+    margin-top: 30px;
+    line-height: 30px;
+  }
+}
+
+.sectorsButtonContainer {
+  align-self: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 
 .listBox {
   display: flex;
@@ -252,17 +269,22 @@
   font-size: 26px;
   margin-top: 40px;
   line-height: 35px;
+  margin-bottom: 20px;
   text-align: left;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 85%;
-  align-self: center;
-  justify-content: center;
-  gap: 5px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 30px;
     line-height: 45px;
+    width: 90%;
+    text-align: center;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 30px;
+    line-height: 50px;
     width: 90%;
     text-align: center;
   }
@@ -272,18 +294,29 @@
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   color: #002D49;
+  font-style: italic;
   font-size: 20px;
   margin-top: 20px;
   text-align: left;
   width: 85%;
   align-self: center;
 
-  @media (min-width: 768px)  {
-    font-size: 24px;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    font-size: 26px;
+    margin-top: 10px;
     line-height: 45px;
     text-align: center;
     align-self: center;
     width: 90%;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 26px;
+    line-height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+    align-self: center;
+    text-align: center;
   }
 }
 
@@ -326,7 +359,6 @@
   }
 }
 
-
 .list1 li, .list2 li {
   text-align: left;
   align-self: flex-start;
@@ -356,13 +388,17 @@
   transition: all 0.3s ease-in-out;
   font-size: 16px;
   line-height: 30px;
-  padding: 10px 80px;
-  margin-bottom: 60px;
+  padding: 10px 50px;
+  margin-bottom: 40px;
+  width: 100%;
   margin-top: 40px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px;
-    padding: 10px 100px;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 22px;
   }
 }
 
@@ -569,17 +605,4 @@
   @media (min-width: 1024px) {
     font-size: 18px;
   }
-}
-
-.about {
-  flex-direction: column;
-  align-items: center;
-  z-index: 10;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  text-align: center;
-  margin-bottom: 40px;
-  /* margin-top: 60px; */
 }

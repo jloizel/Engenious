@@ -110,8 +110,8 @@ const Values: React.FC = ({}) => {
         </div>
       </div>
       <div className={styles.servicesInfoRight}>
-        {data.map((service) => (
-          <div className={styles.textContainer} id={service.id}>
+        {data.map((service, id) => (
+          <div className={styles.textContainer} id={service.name} key={id}>
             <div className={styles.header}>
               <TiTick className={styles.tick}/>
               {service.title}
