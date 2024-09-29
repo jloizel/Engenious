@@ -13,6 +13,7 @@ import Location from "../../components/location/location";
 import NavbarMain1 from "../../components/navbar/main/navbarMain1";
 import { Helmet } from 'react-helmet';
 import { JobProvider } from "../../components/jobContext/jobContext";
+import SectorsSlider from "../../components/sectors/sectorsSlider";
 
 
 export default function Home() {
@@ -60,7 +61,17 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className={styles.services}>
+      <div className={styles.expertiseContent}>
+          <div className={styles.expertiseHeader}>
+            <span>Placing the best engineering talent in these </span>
+            <span style={{color: "#008489"}}>sectors:</span>
+          </div>
+          <div className={styles.expertiseText}>
+            Our reputation is built on finding you the right people. Talented people who stand out, who make a real difference. With the right people, your business can realise its ambitions and go further than you ever thought possible.
+          </div>
+        </div>
+        <SectorsSlider/>
+      {/* <section className={styles.services}>
         <div className={styles.servicesContent}>
           <div className={styles.header} >
             <span >A range of </span>
@@ -69,12 +80,12 @@ export default function Home() {
           <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We go above and beyond to find you the right people.</p>
         </div>
         { isComputer ? <Services/> : <ServicesSlider/> }
-      </section>
+      </section> */}
       <section className={styles.about}>
         <div className={styles.aboutContent}>
-          <div className={styles.header} style={{display: "flex", flexDirection: "column"}}>
-            <span>Investing time in people; </span>
-            <span style={{color: "#008489"}}>it&apos;s in our DNA.</span>
+          <div className={styles.expertiseHeader} style={{display: "flex", flexDirection: "column"}}>
+            <span>Helping your business </span>
+            <span style={{color: "#008489"}}>evolve through:</span>
           </div>
         </div>
         { isComputer ? <About/> : <AboutSlider/> }

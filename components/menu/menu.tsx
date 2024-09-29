@@ -115,6 +115,39 @@ const Menu: React.FC<MenuProps> = ({color}) => {
             </div>
             <div className={styles.list}>
               <div 
+                className={`${styles.listItem} ${activeItem === 'About' ? styles.active : ''}`} 
+                onClick={() => handleListItemClick('About')}
+                onMouseEnter={() => handleListItemHover('About')}
+              >
+                About
+              </div>
+              {isMobile && activeItem === 'About' && (
+                <div className={styles.subTopicContainer}>
+                  <a href="/about" className={styles.subTopicMobile}>Overview</a>
+                  <a href="/about/our-work" className={styles.subTopicMobile}>Our work</a>
+                  <a href="/about/our-story" className={styles.subTopicMobile}>Our story</a>
+                  <a href="/about/our-purpose" className={styles.subTopicMobile}>Our purpose</a>
+                  <a href="/about/our-team" className={styles.subTopicMobile}>Our team</a>
+                </div>
+              )}
+              <div 
+                className={`${styles.listItem} ${activeItem === 'Sectors' ? styles.active : ''}`} 
+                onClick={() => handleListItemClick('Sectors')}
+                onMouseEnter={() => handleListItemHover('Sectors')}
+              >
+                Sectors
+              </div>
+              {isMobile && activeItem === 'Sectors' && (
+                <div className={styles.subTopicContainer}>
+                  <a href="/sectors" className={styles.subTopicMobile}>Overview</a>
+                  <a href="/sectors/construction-housebuilding" className={styles.subTopicMobile}>Construction & House Building</a>
+                  <a href="/sectors/maintenance" className={styles.subTopicMobile}>Maintenance</a>
+                  <a href="/sectors/civilengineering" className={styles.subTopicMobile}>Civil Engineering</a>
+                  <a href="/sectors/trades-labour" className={styles.subTopicMobile}>Trades & Labour</a>
+                  <a href="/sectors/search-select" className={styles.subTopicMobile}>Search & Select</a>
+                </div>
+              )}
+              <div 
                 // className={`${isMobile ? styles.listItemMobile : styles.listItem} ${activeItem === 'Employers' ? styles.active : ''}`}
                 className={`${styles.listItem} ${activeItem === 'Employers' ? styles.active : ''}`} 
                 onClick={() => handleListItemClick('Employers')}
@@ -132,34 +165,19 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                 </div>
               )}
               <div 
-                className={`${styles.listItem} ${activeItem === 'Jobs' ? styles.active : ''}`} 
-                onClick={() => handleListItemClick('Jobs')}
-                onMouseEnter={() => handleListItemHover('Jobs')}
+                className={`${styles.listItem} ${activeItem === 'Candidates' ? styles.active : ''}`} 
+                onClick={() => handleListItemClick('Candidates')}
+                onMouseEnter={() => handleListItemHover('Candidates')}
               >
-                Jobs
+                Candidates
               </div>
-              {isMobile && activeItem === 'Jobs' && (
+              {isMobile && activeItem === 'Candidates' && (
                 <div className={styles.subTopicContainer}>
-                  <a href="/jobs" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Overview</a>
-                  <a href="/jobs/cv-upload" className={styles.subTopicMobile}>Send your cv</a>
+                  <a href="/candidates" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Overview</a>
+                  <a href="/candidates/cv-upload" className={styles.subTopicMobile}>Upload your CV</a>
                 </div>
               )}
-              <div 
-                className={`${styles.listItem} ${activeItem === 'About' ? styles.active : ''}`} 
-                onClick={() => handleListItemClick('About')}
-                onMouseEnter={() => handleListItemHover('About')}
-              >
-                About
-              </div>
-              {isMobile && activeItem === 'About' && (
-                <div className={styles.subTopicContainer}>
-                  <a href="/about" className={styles.subTopicMobile}>Overview</a>
-                  <a href="/about/our-work" className={styles.subTopicMobile}>Our work</a>
-                  <a href="/about/our-story" className={styles.subTopicMobile}>Our story</a>
-                  <a href="/about/our-purpose" className={styles.subTopicMobile}>Our purpose</a>
-                  <a href="/about/our-team" className={styles.subTopicMobile}>Our team</a>
-                </div>
-              )}
+              
               <div 
                 // className={`${isMobile ? styles.listItemMobile : styles.listItem} ${activeItem === 'Employers' ? styles.active : ''}`}
                 className={`${styles.listItem} ${activeItem === 'Contact' ? styles.active : ''}`} 
@@ -184,32 +202,42 @@ const Menu: React.FC<MenuProps> = ({color}) => {
             <div className={styles.extendedContainer}>
               {activeItem && (
                 <div>
-                  {activeItem === 'Employers' && (
+                  {activeItem === 'About' && (
                     <div className={styles.subMenu} id="subMenu1">
-                      <Overview text={"Learn more about our full talent services"} href="/employers"/>
+                      <Overview text={"Learn more about us"} href="/about"/>
+                      <a href="/about/our-work" className={styles.subTopic}>Our work</a>
+                      {/* <a href="/about/our-story" className={styles.subTopic}>Our story</a>
+                      <a href="/about/our-purpose" className={styles.subTopic}>Our purpose</a> */}
+                      <a href="/about/our-team" className={styles.subTopic}>Our team</a>
+                    </div>
+                  )}
+                  {activeItem === 'Sectors' && (
+                    <div className={styles.subMenu} id="subMenu2">
+                      <Overview text={"Learn more about our sectors"} href="/sectors"/>
+                      <a href="/sectors/construction-housebuilding" className={styles.subTopic}>Construction & House Building</a>
+                      <a href="/sectors/maintenance" className={styles.subTopic}>Maintenance</a>
+                      <a href="/sectors/civilengineering" className={styles.subTopic}>Civil Engineering</a>
+                      <a href="/sectors/trades-labour" className={styles.subTopic}>Trades & Labour</a>
+                      <a href="/sectors/search-select" className={styles.subTopic}>Search & Select</a>
+                    </div>
+                  )}
+                  {activeItem === 'Employers' && (
+                    <div className={styles.subMenu} id="subMenu3">
+                      <Overview text={"Learn more about our services"} href="/employers"/>
                       <a href="/employers/our-services" style={{textDecoration: "none"}} className={styles.subTopic}>Our services</a>
                       <a href="/employers/our-expertise" style={{textDecoration: "none"}} className={styles.subTopic}>Our expertise</a>
                       <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.subTopic}>Submit a vacancy</a>
                     </div>
                   )}
-                  {activeItem === 'Jobs' && (
-                    <div className={styles.subMenu} id="subMenu2">
-                      <Overview text={"Find your dream job"} href="/jobs"/>
+                  {activeItem === 'Candidates' && (
+                    <div className={styles.subMenu} id="subMenu4">
+                      <Overview text={"Get help finding your dream job"} href="/jobs"/>
                       {/* <div className={styles.subTopic}>Search all jobs</div> */}
-                      <a href="/jobs/cv-upload" style={{textDecoration: "none"}} className={styles.subTopic}>Upload your cv</a>
-                    </div>
-                  )}
-                  {activeItem === 'About' && (
-                    <div className={styles.subMenu} id="subMenu3">
-                      <Overview text={"Learn more about us"} href="/about"/>
-                      <a href="/about/our-work" className={styles.subTopic}>Our work</a>
-                      <a href="/about/our-story" className={styles.subTopic}>Our story</a>
-                      <a href="/about/our-purpose" className={styles.subTopic}>Our purpose</a>
-                      <a href="/about/our-team" className={styles.subTopic}>Our team</a>
+                      <a href="/candidates/cv-upload" style={{textDecoration: "none"}} className={styles.subTopic}>Upload your CV</a>
                     </div>
                   )}
                   {activeItem === 'Contact' && (
-                    <div className={styles.subMenu} id="subMenu4">
+                    <div className={styles.subMenu} id="subMenu5">
                       <Overview text={"Get in touch"} href="/contact"/>
                       {/* <a href="/contact" className={styles.subTopic}>Get in touch</a> */}
                     </div>
