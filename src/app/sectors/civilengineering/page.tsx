@@ -16,7 +16,7 @@ import Image from 'next/image';
 import AboutInfo from '../../../../components/about/aboutInfo';
 import AboutSlider from '../../../../components/about/aboutSlider';
 
-const Maintenance = () => {
+const CivilEngineering = () => {
   const pageName = "Sectors"
   
   const [currentPath, setCurrentPath] = useState('')
@@ -96,7 +96,7 @@ const Maintenance = () => {
             <span> Recruitment. </span>
           </div>
           <div className={styles.expertiseText}>
-            Planned & Reactive maintenance positions, we work on roles for contractors and local authorities when they have a need for operatives through to senior members of staff.
+            Partnering with main contractors and subcontractors to source skilled professionals for a wide range of civil engineering projects. From road and rail infrastructure to marine construction and minor civil works, we provide the expertise needed to support successful project delivery across the sector.
           </div>
           <div className={styles.hireButtonContainer}>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.hireButton}>
@@ -105,7 +105,7 @@ const Maintenance = () => {
           </div>
         </div>
         <div className={styles.cardImageContainer}>
-          <img src="/sectors/2.jpg" alt="Image" className={styles.cardImage} />
+          <img src="/sectors/3.jpg" alt="Image" className={styles.cardImage} />
         </div>
       </Box>
       <Box className={styles.hire}>
@@ -213,4 +213,4 @@ const Maintenance = () => {
   )
 }
 
-export default Maintenance
+export default CivilEngineering

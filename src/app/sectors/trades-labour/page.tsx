@@ -16,7 +16,7 @@ import Image from 'next/image';
 import AboutInfo from '../../../../components/about/aboutInfo';
 import AboutSlider from '../../../../components/about/aboutSlider';
 
-const Maintenance = () => {
+const TradesLabour = () => {
   const pageName = "Sectors"
   
   const [currentPath, setCurrentPath] = useState('')
@@ -85,27 +85,27 @@ const Maintenance = () => {
   return (
     <div className={styles.expertiseContainer}>
       <Helmet>
-        <title>Maintenance</title>
+        <title>Trades & Labour</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.expertise}>
         <div className={styles.expertiseTextContainer}>
           <div className={styles.expertiseHeader}>
-            <span style={{color: "#008489"}}>Maintenance</span>
+            <span style={{color: "#008489"}}>Trades & Labour</span>
             <span> Recruitment. </span>
           </div>
           <div className={styles.expertiseText}>
-            Planned & Reactive maintenance positions, we work on roles for contractors and local authorities when they have a need for operatives through to senior members of staff.
+            We cover a comprehensive range of trades and labour requirements, providing skilled professionals from carpenters and electricians to 360 operatives and general laborers. Whatever your project demands, we have the right workforce to keep your site running smoothly and efficiently.
           </div>
           <div className={styles.hireButtonContainer}>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.hireButton}>
-              Hire Maintenance Talent
+              Hire Trades & Labour Talent
             </a>
           </div>
         </div>
         <div className={styles.cardImageContainer}>
-          <img src="/sectors/2.jpg" alt="Image" className={styles.cardImage} />
+          <img src="/sectors/1.jpg" alt="Image" className={styles.cardImage} />
         </div>
       </Box>
       <Box className={styles.hire}>
@@ -213,4 +213,4 @@ const Maintenance = () => {
   )
 }
 
-export default Maintenance
+export default TradesLabour

@@ -85,22 +85,22 @@ const Maintenance = () => {
   return (
     <div className={styles.expertiseContainer}>
       <Helmet>
-        <title>Maintenance</title>
+        <title>Construction</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.expertise}>
         <div className={styles.expertiseTextContainer}>
           <div className={styles.expertiseHeader}>
-            <span style={{color: "#008489"}}>Maintenance</span>
+            <span style={{color: "#008489"}}>Construction</span>
             <span> Recruitment. </span>
           </div>
           <div className={styles.expertiseText}>
-            Planned & Reactive maintenance positions, we work on roles for contractors and local authorities when they have a need for operatives through to senior members of staff.
+            Partnering with main contractors to fulfill critical white-collar roles across diverse construction projects. From commercial developments to large-scale infrastructure, we connect you with the professionals needed to drive success.
           </div>
           <div className={styles.hireButtonContainer}>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.hireButton}>
-              Hire Maintenance Talent
+              Hire Construction Talent
             </a>
           </div>
         </div>
@@ -111,7 +111,7 @@ const Maintenance = () => {
       <Box className={styles.hire}>
         <div className={styles.hireLeft}>
           <span>
-            Find Your Next Maintenance Hire With Us
+            Find Your Next Constrution Hire With Us
           </span>
           <span>
             As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
@@ -132,7 +132,7 @@ const Maintenance = () => {
       <Box className={styles.listBox}>
         <div className={styles.listHeader}>
           <span>Hire</span>
-            <span style={{color: "#008489"}}>Maintenance Talent.</span>
+            <span style={{color: "#008489"}}>Constrution Talent.</span>
         </div>
         <div className={styles.listHeader2}>
           Our recruiters can help you hire across...
@@ -142,8 +142,8 @@ const Maintenance = () => {
             {/* <div className={styles.listSubHeader}>
               Commercial Roles
             </div> */}
-            <li>Estimators</li>
-            <li>Quantity Surveyors</li>
+            <li>Land Management</li>
+            <li>Commercial and Estimating</li>
             <li>Senior/ Managing Surveyors</li>
             <li>Commercial Managers</li>
             {/* <div className={styles.listSubHeader}>

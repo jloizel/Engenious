@@ -16,7 +16,7 @@ import Image from 'next/image';
 import AboutInfo from '../../../../components/about/aboutInfo';
 import AboutSlider from '../../../../components/about/aboutSlider';
 
-const Maintenance = () => {
+const SearchSelect = () => {
   const pageName = "Sectors"
   
   const [currentPath, setCurrentPath] = useState('')
@@ -85,27 +85,27 @@ const Maintenance = () => {
   return (
     <div className={styles.expertiseContainer}>
       <Helmet>
-        <title>Maintenance</title>
+        <title>Search & Select</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.expertise}>
         <div className={styles.expertiseTextContainer}>
           <div className={styles.expertiseHeader}>
-            <span style={{color: "#008489"}}>Maintenance</span>
-            <span> Recruitment. </span>
+            <span style={{color: "#008489"}}>Search & Select</span>
+            <span> Recruitment Service. </span>
           </div>
           <div className={styles.expertiseText}>
-            Planned & Reactive maintenance positions, we work on roles for contractors and local authorities when they have a need for operatives through to senior members of staff.
+            We specialize in filling hard-to-fill roles that demand a targeted and strategic headhunting approach. Our expertise ensures we identify and deliver the perfect candidate for even the most specialized and high-demand positions.
           </div>
           <div className={styles.hireButtonContainer}>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.hireButton}>
-              Hire Maintenance Talent
+              Find Your Expert
             </a>
           </div>
         </div>
         <div className={styles.cardImageContainer}>
-          <img src="/sectors/2.jpg" alt="Image" className={styles.cardImage} />
+          <img src="/sectors/5.jpg" alt="Image" className={styles.cardImage} />
         </div>
       </Box>
       <Box className={styles.hire}>
@@ -213,4 +213,4 @@ const Maintenance = () => {
   )
 }
 
-export default Maintenance
+export default SearchSelect

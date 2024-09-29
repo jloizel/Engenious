@@ -85,22 +85,22 @@ const Maintenance = () => {
   return (
     <div className={styles.expertiseContainer}>
       <Helmet>
-        <title>Maintenance</title>
+        <title>House Building</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
       <Box className={styles.expertise}>
         <div className={styles.expertiseTextContainer}>
           <div className={styles.expertiseHeader}>
-            <span style={{color: "#008489"}}>Maintenance</span>
+            <span style={{color: "#008489"}}>House Building</span>
             <span> Recruitment. </span>
           </div>
           <div className={styles.expertiseText}>
-            Planned & Reactive maintenance positions, we work on roles for contractors and local authorities when they have a need for operatives through to senior members of staff.
+            Supporting house builders in sourcing experienced talent for key professional roles. Whether it’s residential developments or housing projects, we provide the expertise to ensure your teams are equipped to deliver results.
           </div>
           <div className={styles.hireButtonContainer}>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.hireButton}>
-              Hire Maintenance Talent
+              Hire House Building Talent
             </a>
           </div>
         </div>
@@ -111,7 +111,7 @@ const Maintenance = () => {
       <Box className={styles.hire}>
         <div className={styles.hireLeft}>
           <span>
-            Find Your Next Maintenance Hire With Us
+            Find Your Next House Building Hire With Us
           </span>
           <span>
             As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  

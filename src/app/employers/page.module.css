@@ -53,11 +53,6 @@
   height: 100%;
   object-fit: cover;
   z-index: 0;
-  transform: translateY(50px);
-  
-  @media (min-width: 768px) and (max-width: 1023px) {
-    transform: translateY(0px)
-  }
 
   @media (min-width: 1024px) {
     transform: translateY(120px)

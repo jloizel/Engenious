@@ -50,28 +50,33 @@ const Sectors = () => {
     },
     {
       id: 2,
-      title: "Construction & House Building",
-      url: "/sectors/construction-housebuilding",
+      title: "Construction",
+      url: "/sectors/construction",
     },
     {
       id: 3,
-      title: "Maintenance",
-      url: "/employers/our-expertise",
+      title: "House Building",
+      url: "/sectors/housebuilding",
     },
     {
       id: 4,
-      title: "Civil Engineering",
-      url: "/employers/submit-vacancy",
+      title: "Maintenance",
+      url: "/sectors/maintenance",
     },
     {
       id: 5,
-      title: "Trades & Labour",
-      url: "/employers/submit-vacancy",
+      title: "Civil Engineering",
+      url: "/sectors/civilengineering",
     },
     {
       id: 6,
+      title: "Trades & Labour",
+      url: "/sectors/trades-labour",
+    },
+    {
+      id: 7,
       title: "Search & Select",
-      url: "/employers/submit-vacancy",
+      url: "/sectors/search-select",
     }
   ]; 
 
