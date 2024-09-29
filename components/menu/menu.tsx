@@ -100,15 +100,17 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               {!isMobile && (
                 <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
               )}
-              <a href="/">
-                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
-              </a>
-              <a href="/" className={styles.link}>
-                <div className={styles.companyNameContainer}>
-                  <div className={styles.companyName1}>ENGENIOUS</div>
-                  <div className={styles.companyName2}>RECRUITMENT</div>
-                </div>
-              </a>
+              <div className={styles.logoContainer}>
+                <a href="/">
+                  <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
+                </a>
+                <a href="/" className={styles.link}>
+                  <div className={styles.companyNameContainer}>
+                    <div className={styles.companyName1}>ENGENIOUS</div>
+                    <div className={styles.companyName2}>RECRUITMENT</div>
+                  </div>
+                </a>
+              </div>
               {isMobile && (
                 <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>
               )}
@@ -231,7 +233,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   )}
                   {activeItem === 'Candidates' && (
                     <div className={styles.subMenu} id="subMenu4">
-                      <Overview text={"Get help finding your dream job"} href="/jobs"/>
+                      <Overview text={"Get help finding your dream job"} href="/candidates"/>
                       {/* <div className={styles.subTopic}>Search all jobs</div> */}
                       <a href="/candidates/cv-upload" style={{textDecoration: "none"}} className={styles.subTopic}>Upload your CV</a>
                     </div>

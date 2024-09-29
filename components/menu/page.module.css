@@ -22,12 +22,14 @@
 
 .closeIcon {
   color: #00617C;
-  background-color: rgba(95, 95, 95, 0.08) !important;
+  background-color: rgba(95, 95, 95, 0.08);
   border-radius: 50%;
   cursor: pointer;
   padding: 5px;
   font-size: 20px !important;
-  margin-left: 150px !important;
+  /* margin-left: 150px !important; */
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 35px !important;
@@ -38,25 +40,43 @@
   }
 }
 
+.closeIcon:hover {
+  background-color: #00617C;
+  color: white;
+}
+
 .container {
   display: flex;
   flex-direction: column;
 }
 
 .topContainer {
-  margin-left: 20px;
   display: flex;
   flex-direction: row;
   line-height: 18px;
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  width: 100%;
   margin-bottom: 50px;
+  justify-content: space-between;
 
-  @media (min-width: 1024px) {
-    margin-bottom: 150px;
+  @media (max-width: 767px) {
+    padding: 0px 20px;
   }
+
+  @media (min-width: 768px) {
+    margin-bottom: 150px;
+    justify-content: flex-start;
+    margin-left: 20px;
+    width: 100%;
+  }
+}
+
+.logoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
 }
 
 .logo {

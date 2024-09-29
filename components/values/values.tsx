@@ -8,7 +8,7 @@ import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowBack } from "react-icons/io";
 import { TiTick } from "react-icons/ti";
-import { Box } from '@mui/material';
+import { Box, createTheme, useMediaQuery } from '@mui/material';
 
 
 const Values: React.FC = ({}) => {
@@ -95,6 +95,20 @@ const Values: React.FC = ({}) => {
       }
     ]
   };
+
+  const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 768,
+        md: 1024,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+  });
+  
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
 
   return (

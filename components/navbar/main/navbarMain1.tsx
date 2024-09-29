@@ -50,7 +50,7 @@ const NavbarMain1 = () => {
   });
   
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isComputer = useMediaQuery(theme.breakpoints.up('md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -82,9 +82,11 @@ const NavbarMain1 = () => {
     <div className={styles.navbar} style={{width: "100%"}}>
       <div className={styles.container}>
         <div className={styles.left}>
-          <div className={styles.menu1} style={{display: setDisplay()}}>
-            <Menu color={"white"}/>
-          </div>
+          {isComputer && (
+            <div className={styles.menu1}>
+              <Menu color={"white"}/>
+            </div>
+          )}
           <div className={styles.home}>
             <a href="/">
               <Image className={styles.logo} src="/engenious.png" alt="engenious logo" height={handleImageWidth()} width={handleImageWidth()}/>
@@ -96,20 +98,24 @@ const NavbarMain1 = () => {
               </div>
             </a>
           </div>
-          <div className={styles.menu2} style={{display: setDisplay2()}}>
-            <Menu color={"white"}/>
-          </div>
-          </div>
-        <div className={styles.middle} style={{display: setDisplay()}}>
-          <div className={styles.links}>
+          {!isComputer && (
+            <div className={styles.menu2}>
+              <Menu color={"white"}/>
+            </div>
+          )}
+        </div>
+        {isComputer && (
+          <div className={styles.middle}>
+            <div className={styles.links}>
               {links.map(link => (
                 <a key={link.id} href={link.url} className={styles.link}>
                     {link.title}
                 </a>
               ))}
+            </div>
           </div>
-        </div>
-        {!isMobile && (
+        )}
+        {isComputer && (
           <div className={styles.right}>
             <a className={styles.button}>
               Register a Vacancy

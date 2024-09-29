@@ -34,7 +34,11 @@
   align-items: center;
   justify-content: space-between;
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
     align-items: center;
     justify-content: flex-start;
     width: auto;
@@ -50,19 +54,9 @@
   gap: 5px;
 }
 
-.menu1 {
-  @media (max-width: 767px) {
-    display: none;
-  }
-}
-
 .menu2 {
   height: 100%;
   display: flex; 
-
-  @media (min-width: 768px) {
-    display: none;
-  }
 }
 
 .logo {
@@ -115,7 +109,7 @@
   }
   
   @media (min-width: 1024px) {
-    gap: 80px;
+    gap: 60px;
   }
 }
 
@@ -165,6 +159,7 @@
   cursor: pointer;
   font-weight: 600;
   transition: all 0.3s ease-in-out;
+  width: max-content;
 }
 
 .button:hover {
