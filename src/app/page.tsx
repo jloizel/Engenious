@@ -14,6 +14,7 @@ import NavbarMain1 from "../../components/navbar/main/navbarMain1";
 import { Helmet } from 'react-helmet';
 import { JobProvider } from "../../components/jobContext/jobContext";
 import SectorsSlider from "../../components/sectors/sectorsSlider";
+import Values from "../../components/values/values";
 
 
 export default function Home() {
@@ -98,11 +99,12 @@ export default function Home() {
       {/* <section className={styles.join}>
         <Join/>
       </section> */}
+      <Values/>
       <section className={styles.testimonials}>
         <div className={styles.testimonialsContent}>
           <div className={styles.header} >
-            <span style={{color: "#008489"}}>Talented people </span>
-            <span >are at the centre of everything we do.</span>
+            {/* <span style={{color: "#008489"}}>Talented people </span> */}
+            <span>We are trusted for a reason</span>
           </div>
         </div>
         <Testimonials/>
