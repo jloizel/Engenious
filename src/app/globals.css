@@ -89,7 +89,7 @@ body,
   
 @media (max-width: 1200px) {
   .MuiDrawer-paper {
-    width: 60% !important;
+    width: 65% !important;
   }
 }
 
@@ -98,7 +98,7 @@ body,
   width: 100% !important;
   
   @media (min-width: 1024px) {
-    width: 60% !important;
+    width: 65% !important;
   }
 }
 
