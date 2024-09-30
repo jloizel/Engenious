@@ -118,7 +118,7 @@ const NavbarMain1 = () => {
         {isComputer && (
           <div className={styles.right}>
             <a className={styles.button}>
-              Register a Vacancy
+              Submit a Vacancy
             </a>
           </div>
         )}

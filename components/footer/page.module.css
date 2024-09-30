@@ -11,6 +11,7 @@
 
   @media (min-width: 1024px) {
     align-items: center;
+    padding: 40px 0px;
   }
 }
 

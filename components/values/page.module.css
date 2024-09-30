@@ -1,16 +1,25 @@
 .servicesInfo {
   display: flex;
-  flex-direction: row;
-  width: 95%; 
+  flex-direction: column;
+  width: 80%; 
   padding: 60px 0px;
   align-self: center;
   gap: 40px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    width: 95%; 
+  }
 }
 
 .servicesInfoLeft, .servicesInfoRight {
-  width: 50%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
 }
 
 .servicesInfoRight {
@@ -28,6 +37,7 @@
   font-size: 25px;
   line-height: 125%;
   align-self: center;
+  text-align: center;
   
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 30px;
@@ -40,10 +50,14 @@
 
 .buttonContainer {
   align-self: center;
-  margin-top: 60px;
+  margin-top: 20px;
 
   @media (max-width: 767px) {
     width: 100%;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 60px;
   }
 }
 
@@ -60,12 +74,12 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: 18px;
-  margin-bottom: 60px;
   padding: 15px;
 
   @media (min-width: 768px) {
     font-size: 20px;
     padding: 15px 80px;
+    margin-bottom: 60px;
   }
 }
 
@@ -77,8 +91,13 @@
   display: flex;
   color: #002D49;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
   line-height: 30px;
+
+  @media (min-width: 768px) {
+    font-size: 25px;
+    gap: 30px;
+  }
 }
 
 .header {
