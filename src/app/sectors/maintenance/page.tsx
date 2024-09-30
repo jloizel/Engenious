@@ -142,28 +142,17 @@ const Maintenance = () => {
             {/* <div className={styles.listSubHeader}>
               Commercial Roles
             </div> */}
+            <li>Maintenance Operatives</li>
+            <li>Estate Surveyors</li>
             <li>Estimators</li>
-            <li>Quantity Surveyors</li>
-            <li>Senior/ Managing Surveyors</li>
-            <li>Commercial Managers</li>
-            {/* <div className={styles.listSubHeader}>
-              Production Roles
-            </div> */}
-            <li>Site Managers</li>
-            <li>Site Agents</li>
-            <li>Site Engineers</li>
           </div>  
           <div className={styles.list2}>
             {/* <div className={styles.listSubHeader}>
               Trades & Labour
             </div> */}
-            <li>Labourers</li>
-            <li>Groundworkers</li>
-            <li>Steel fixers</li>
-            <li>Carpenters</li>
-            <li>Foreman</li>
             <li>Contracts Managers</li>
-            <li>Operations Managers</li>
+            <li>Quantity Surveyors</li>
+            <li>and many more...</li>
           </div>
         </div>
         <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.buttonContainer}>

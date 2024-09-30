@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Land Management",
+    "image": "/sectors/housebuilding/land.jpg",
+    "text": "We provide recruitment solutions for land management roles, helping you secure experts in land acquisition, planning, and development. Our talent pool includes professionals skilled in identifying and maximizing land opportunities for successful housebuilding projects.",
+    "jobs": ["Land Manager", "Land Buyer", "Land Director", "Planning Manager", "Land and Planning Coordinator", "and many more..."]
+  },
+  {
+    "id": 2,
+    "name": "Commercial & Estimating",
+    "image": "/sectors/housebuilding/commercial.jpg",
+    "text": "Our expertise extends to commercial and estimating roles, ensuring your housebuilding projects are financially managed with precision. We help you hire professionals who excel in cost planning, tendering, and financial control to keep your projects on track.",
+    "jobs": ["Commercial Manager", "Quantity Surveyor", "Estimator", "Senior Buyer", "Cost Planner", "and many more..."]
+  },
+  {
+    "id": 3,
+    "name": "Technical",
+    "image": "/sectors/housebuilding/technical.jpg",
+    "text": "From design to engineering, our technical recruitment services help you find the experts needed to manage and oversee technical aspects of housebuilding projects. We provide access to skilled professionals who ensure your projects are structurally sound and technically compliant.",
+    "jobs": ["Technical Manager", "Design Manager", "Architectural Technician", "Engineering Manager", "CAD Technician", "and many more..."]
+  },
+  {
+    "id": 4,
+    "name": "Sales & Customer Services",
+    "image": "/sectors/housebuilding/sales.jpg",
+    "text": "We support housebuilders in recruiting top talent for sales and customer service roles. Whether it's selling new homes or ensuring customer satisfaction post-completion, our candidates excel at driving sales and maintaining client relationships.",
+    "jobs": ["Sales Manager", "Sales Director", "Sales Negotiator", "Customer Service Manager", "Aftercare Manager", "and many more..."]
+  }
+]

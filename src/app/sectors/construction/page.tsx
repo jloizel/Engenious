@@ -15,6 +15,9 @@ import ServicesSlider from '../../../../components/services/servicesSlider';
 import Image from 'next/image';
 import AboutInfo from '../../../../components/about/aboutInfo';
 import AboutSlider from '../../../../components/about/aboutSlider';
+import { FaCircleChevronRight } from "react-icons/fa6";
+import SubSectorCards from '../../../../components/subSectorCards/constructionSubSectorCards';
+
 
 const Maintenance = () => {
   const pageName = "Sectors"
@@ -129,49 +132,7 @@ const Maintenance = () => {
           </span>
         </div>
       </Box>
-      <Box className={styles.listBox}>
-        <div className={styles.listHeader}>
-          <span>Hire</span>
-            <span style={{color: "#008489"}}>Constrution Talent.</span>
-        </div>
-        <div className={styles.listHeader2}>
-          Our recruiters can help you hire across...
-        </div>
-        <div className={styles.listContainer}>
-          <div className={styles.list1}>
-            {/* <div className={styles.listSubHeader}>
-              Commercial Roles
-            </div> */}
-            <li>Land Management</li>
-            <li>Commercial and Estimating</li>
-            <li>Senior/ Managing Surveyors</li>
-            <li>Commercial Managers</li>
-            {/* <div className={styles.listSubHeader}>
-              Production Roles
-            </div> */}
-            <li>Site Managers</li>
-            <li>Site Agents</li>
-            <li>Site Engineers</li>
-          </div>  
-          <div className={styles.list2}>
-            {/* <div className={styles.listSubHeader}>
-              Trades & Labour
-            </div> */}
-            <li>Labourers</li>
-            <li>Groundworkers</li>
-            <li>Steel fixers</li>
-            <li>Carpenters</li>
-            <li>Foreman</li>
-            <li>Contracts Managers</li>
-            <li>Operations Managers</li>
-          </div>
-        </div>
-        <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.buttonContainer}>
-          <button className={styles.button}>
-            Hire talent
-          </button>
-        </a>
-      </Box>
+      <SubSectorCards/>
       <section className={styles.about}>
           { isComputer ? <AboutInfo/> : <AboutSlider/> }
         </section>

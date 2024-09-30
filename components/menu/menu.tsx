@@ -142,7 +142,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               {isMobile && activeItem === 'Sectors' && (
                 <div className={styles.subTopicContainer}>
                   <a href="/sectors" className={styles.subTopicMobile}>Overview</a>
-                  <a href="/sectors/construction-housebuilding" className={styles.subTopicMobile}>Construction & House Building</a>
+                  <a href="/sectors/construction" className={styles.subTopicMobile}>Construction</a>
+                  <a href="/sectors/housebuilding" className={styles.subTopicMobile}>House Building</a>
                   <a href="/sectors/maintenance" className={styles.subTopicMobile}>Maintenance</a>
                   <a href="/sectors/civilengineering" className={styles.subTopicMobile}>Civil Engineering</a>
                   <a href="/sectors/trades-labour" className={styles.subTopicMobile}>Trades & Labour</a>
@@ -216,7 +217,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   {activeItem === 'Sectors' && (
                     <div className={styles.subMenu} id="subMenu2">
                       <Overview text={"Learn more about our sectors"} href="/sectors"/>
-                      <a href="/sectors/construction-housebuilding" className={styles.subTopic}>Construction & House Building</a>
+                      <a href="/sectors/construction" className={styles.subTopic}>Construction</a>
+                      <a href="/sectors/housebuilding" className={styles.subTopic}>House Building</a>
                       <a href="/sectors/maintenance" className={styles.subTopic}>Maintenance</a>
                       <a href="/sectors/civilengineering" className={styles.subTopic}>Civil Engineering</a>
                       <a href="/sectors/trades-labour" className={styles.subTopic}>Trades & Labour</a>

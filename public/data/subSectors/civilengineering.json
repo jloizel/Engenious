@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Marine",
+    "image": "/sectors/civilengineering/marine.jpg",
+    "text": "We specialize in sourcing top talent for marine construction projects, helping you find skilled professionals to build, maintain, and manage coastal and offshore infrastructure. From civil engineers to marine surveyors, we can meet your recruitment needs in this highly specialized sector.",
+    "jobs": ["Marine Civil Engineer", "Coastal Engineer", "Marine Surveyor", "Dredging Engineer", "Port Construction Manager", "and many more..."]
+  },
+  {
+    "id": 2,
+    "name": "Infrastructure",
+    "image": "/sectors/civilengineering/infrastructure.jpg",
+    "text": "We help you source expert professionals for critical infrastructure projects, from utilities to large-scale civil works. Our recruitment services cover a wide range of roles, ensuring you have the right team for complex projects that shape communities.",
+    "jobs": ["Infrastructure Engineer", "Structural Engineer", "Utilities Engineer", "Project Manager", "Geotechnical Engineer", "and many more..."]
+  },
+  {
+    "id": 3,
+    "name": "Highways",
+    "image": "/sectors/civilengineering/highway.jpg",
+    "text": "Our recruitment services support the development and maintenance of highway infrastructure. We connect you with experienced professionals, from design engineers to construction managers, who are essential for ensuring safe and efficient road networks.",
+    "jobs": ["Highways Design Engineer", "Traffic Engineer", "Pavement Engineer", "Highways Construction Manager", "Site Engineer", "and many more..."]
+  },
+  {
+    "id": 4,
+    "name": "Rail",
+    "image": "/sectors/civilengineering/rail.jpg",
+    "text": "We assist rail operators and contractors in finding highly qualified professionals to deliver large-scale rail projects. Whether it's track engineering, project management, or signaling, we can help you fill critical positions that keep rail infrastructure on track.",
+    "jobs": ["Railway Civil Engineer", "Track Engineer", "Project Manager", "Signalling Engineer", "Overhead Line Engineer", "and many more..."]
+  },
+  {
+    "id": 5,
+    "name": "Groundworks",
+    "image": "/sectors/civilengineering/groundworks.jpg",
+    "text": "We provide specialized recruitment for groundworks projects, ensuring you have the skilled teams required to handle site preparation, excavation, and foundation works. From groundworks engineers to piling specialists, we can supply the expertise your project demands.",
+    "jobs": ["Groundworks Manager", "Groundworks Engineer", "Quantity Surveyor", "Excavation Engineer", "Piling Engineer", "and many more..."]
+  }
+]

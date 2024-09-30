@@ -111,7 +111,7 @@ const TradesLabour = () => {
       <Box className={styles.hire}>
         <div className={styles.hireLeft}>
           <span>
-            Find Your Next Maintenance Hire With Us
+            Find Your Next Trades & Labour Hire With Us
           </span>
           <span>
             As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
@@ -138,32 +138,21 @@ const TradesLabour = () => {
           Our recruiters can help you hire across...
         </div>
         <div className={styles.listContainer}>
-          <div className={styles.list1}>
+        <div className={styles.list1}>
             {/* <div className={styles.listSubHeader}>
               Commercial Roles
             </div> */}
-            <li>Estimators</li>
-            <li>Quantity Surveyors</li>
-            <li>Senior/ Managing Surveyors</li>
-            <li>Commercial Managers</li>
-            {/* <div className={styles.listSubHeader}>
-              Production Roles
-            </div> */}
-            <li>Site Managers</li>
-            <li>Site Agents</li>
-            <li>Site Engineers</li>
+            <li>Carpenter</li>
+            <li>Excavator Operator</li>
+            <li>Electrician</li>
           </div>  
           <div className={styles.list2}>
             {/* <div className={styles.listSubHeader}>
               Trades & Labour
             </div> */}
-            <li>Labourers</li>
-            <li>Groundworkers</li>
-            <li>Steel fixers</li>
-            <li>Carpenters</li>
-            <li>Foreman</li>
-            <li>Contracts Managers</li>
-            <li>Operations Managers</li>
+            <li>Plumber</li>
+            <li>General Labourer</li>
+            <li>and many more...</li>
           </div>
         </div>
         <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.buttonContainer}>

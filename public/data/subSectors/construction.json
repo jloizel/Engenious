@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "name": "Fit Out",
+    "image": "/sectors/construction/fitout.jpg",
+    "text": "We specialize in sourcing talent for fit out projects, covering everything from interiors to specialized installations. Whether you're looking for managers or skilled supervisors, we can help you hire professionals to deliver quality fit outs on time and within budget.",
+    "jobs": ["Fit Out Manager", "Contracts Manager", "Fit Out Supervisor", "Project Manager", "Interiors Project Coordinator", "and many more..."]
+  },
+  {
+    "id": 2,
+    "name": "Residential",
+    "image": "/sectors/construction/residential.jpg",
+    "text": "Our recruitment services support residential construction projects, from single-family homes to large developments. We provide access to experienced professionals who can manage and deliver residential projects, ensuring high standards at every stage.",
+    "jobs": ["Site Manager", "Project Director", "Construction Manager", "Residential Development Manager", "Senior Site Engineer", "and many more..."]
+  },
+  {
+    "id": 3,
+    "name": "General / Regional Main Contractors",
+    "image": "/sectors/construction/contractor.jpg",
+    "text": "We assist general and regional main contractors in finding the right professionals to manage and execute diverse construction projects. Whether it's commercial, industrial, or residential, we help you build the teams to keep your projects running smoothly.",
+    "jobs": ["Project Manager", "Contracts Manager", "Operations Director", "Site Engineer", "Commercial Manager", "and many more..."]
+  }
+]
