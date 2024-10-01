@@ -58,7 +58,6 @@
 .menu1 {
   background-color: rgba(12, 12, 12, 0.08);
   border-radius: 5px;
-  display: none;
 
   @media (min-width: 768px) {
     display: flex;
@@ -68,10 +67,6 @@
 .menu2 {
   height: 100%;
   display: flex;
-
-  @media (min-width: 768px) {
-    display: none;
-  }
 }
 
 .logo {
@@ -100,7 +95,6 @@
 /* middle of navbar */
 
 .middle {
-  /* flex-wrap: wrap; */
   display: none;
   justify-content: center;
   flex-direction: column;

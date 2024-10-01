@@ -162,8 +162,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               {isMobile && activeItem === 'Employers' && (
                 <div className={styles.subTopicContainer}>
                   <a href="/employers" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Overview</a>
-                  <a href="/employers/our-services" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Our services</a>
-                  <a href="/employers/our-expertise" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Our expertise</a>
+                  <a href="/employers/candidate-assessments" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Candidate assessments</a>
+                  {/* <a href="/employers/our-expertise" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Our expertise</a> */}
                   <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.subTopicMobile}>Submit a vacancy</a>
                 </div>
               )}
@@ -197,7 +197,7 @@ const Menu: React.FC<MenuProps> = ({color}) => {
             </div>
             <div className={styles.buttonContainer}>
               <a href="/employers/submit-vacancy" className={styles.button}>Find Talent</a>
-              <a href="/jobs" className={styles.button}>Find a Job</a>
+              <a href="/candidates" className={styles.button}>Find a Job</a>
             </div>
           </div>
           {!isMobile && (
@@ -228,8 +228,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                   {activeItem === 'Employers' && (
                     <div className={styles.subMenu} id="subMenu3">
                       <Overview text={"Learn more about our services"} href="/employers"/>
-                      <a href="/employers/our-services" style={{textDecoration: "none"}} className={styles.subTopic}>Our services</a>
-                      <a href="/employers/our-expertise" style={{textDecoration: "none"}} className={styles.subTopic}>Our expertise</a>
+                      <a href="/employers/candidate-assessments" style={{textDecoration: "none"}} className={styles.subTopic}>Candidate assessments</a>
+                      {/* <a href="/employers/our-expertise" style={{textDecoration: "none"}} className={styles.subTopic}>Our expertise</a> */}
                       <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.subTopic}>Submit a vacancy</a>
                     </div>
                   )}

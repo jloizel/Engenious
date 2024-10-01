@@ -69,9 +69,11 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
     <div className={styles.navbar}>
       <div className={styles.container} >
         <div className={styles.left} >
-          <div className={styles.menu1} style={{display: setDisplay()}}>
-            <Menu color={colour}/>
-          </div>
+          {isTabletOrAbove && (
+            <div className={styles.menu1}>
+              <Menu color={colour}/>
+            </div>
+          )}
           <div className={styles.home}>
             <a href="/">
               <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
@@ -83,9 +85,11 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
               </div>
             </a>
             </div>
-            <div className={styles.menu2} style={{display: setDisplay2()}}>
-              <Menu color={colour}/>
-            </div>
+            {isMobile && (
+              <div className={styles.menu2}>
+                <Menu color={colour}/>
+              </div>
+            )}
           </div>
         <div className={styles.middle}>
           <div className={styles.pageName} style={{color: colour}}>
