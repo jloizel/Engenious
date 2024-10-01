@@ -127,8 +127,8 @@ const Menu: React.FC<MenuProps> = ({color}) => {
                 <div className={styles.subTopicContainer}>
                   <a href="/about" className={styles.subTopicMobile}>Overview</a>
                   <a href="/about/our-work" className={styles.subTopicMobile}>Our work</a>
-                  <a href="/about/our-story" className={styles.subTopicMobile}>Our story</a>
-                  <a href="/about/our-purpose" className={styles.subTopicMobile}>Our purpose</a>
+                  {/* <a href="/about/our-story" className={styles.subTopicMobile}>Our story</a>
+                  <a href="/about/our-purpose" className={styles.subTopicMobile}>Our purpose</a> */}
                   <a href="/about/our-team" className={styles.subTopicMobile}>Our team</a>
                 </div>
               )}

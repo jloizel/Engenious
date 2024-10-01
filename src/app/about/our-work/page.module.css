@@ -109,7 +109,7 @@
   }
 }
 
-.services, .about, .testimonials {
+.services, .about, .testimonials, .services2 {
   /* position: absolute; */
   z-index: 10;
   display: flex;
@@ -121,6 +121,10 @@
   /* height: 100%; */
   text-align: center;
   flex-direction: column;
+}
+
+.services2 {
+  margin-bottom: 40px;
 }
 
 .servicesContent, .aboutContent, .testimonialsContent {

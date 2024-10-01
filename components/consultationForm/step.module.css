@@ -51,7 +51,7 @@
   font-family: "Poppins", sans-serif;
   border-radius: 4px;
   border: 1px solid #cccccc9a;
-  width: 250px;
+  width: 95%;
   font-size: 16px;
   padding: 10px;
 
@@ -179,7 +179,7 @@
   text-align: top;
   outline: none;
   min-height: 100px;
-  width: 250px;
+  width: 95%;
   font-size: 14px;
   padding: 10px;
 

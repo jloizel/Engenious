@@ -132,7 +132,7 @@ const TradesLabour = () => {
       <Box className={styles.listBox}>
         <div className={styles.listHeader}>
           <span>Hire</span>
-            <span style={{color: "#008489"}}>Maintenance Talent.</span>
+            <span style={{color: "#008489"}}>Trades & Labour Talent.</span>
         </div>
         <div className={styles.listHeader2}>
           Our recruiters can help you hire across...

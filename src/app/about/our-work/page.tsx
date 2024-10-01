@@ -109,7 +109,7 @@ const OurWork = () => {
               <p className={styles.text}>Whether you need new people to scale up your teams, or you&apos;re looking for specific skills to help your business react fast, our full range of talent services<i> will</i> deliver. We Go Beyond to find you the right people.</p>
           </div>
         </Box>
-        <div className={styles.services}>
+        <div className={styles.services2}>
           { isComputer ? <Services pageName="ourWork"/> : <ServicesSlider pageName="ourWork"/> }
         </div>
         <Box className={styles.quoteContainer}>

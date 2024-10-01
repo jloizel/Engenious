@@ -19,7 +19,7 @@ import { FaCircleChevronRight } from "react-icons/fa6";
 import SubSectorCards from '../../../../components/subSectorCards/constructionSubSectorCards';
 
 
-const Maintenance = () => {
+const Construction = () => {
   const pageName = "Sectors"
   
   const [currentPath, setCurrentPath] = useState('')
@@ -174,4 +174,4 @@ const Maintenance = () => {
   )
 }
 
-export default Maintenance
+export default Construction
