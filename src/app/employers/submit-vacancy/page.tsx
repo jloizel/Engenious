@@ -74,20 +74,20 @@ const SubmitVacancy = () => {
         <HiMiniArrowLongDown className={styles.arrow} />
       </div>   
       <Box className={styles.message}>
-          <div className={styles.messageLeft}>
-            <span>
-              Why not send us a quick message?
-            </span>
-          </div>
-          <div className={styles.messageRight}>
-            <span>
-              As soon as we hear from you, our team will arrange a convenient time to discuss your hiring objectives in detail. We pride ourselves on delivering exceptional customer service and are always on hand to ensure we fully understand your requirements. Plus, there’s no fee unless you decide to hire one of our candidates, so there’s nothing to lose and everything to gain!
-            </span>
-            <span>
-              Simply share your details below, and the team at Engenious Recruitment will get in touch at a time that suits you. While there’s no obligation to use our service, we’re confident our commitment to being readily available and supporting your hiring goals will make a positive impact.
-            </span>
-          </div>
-        </Box>
+        <div className={styles.messageLeft}>
+          <span>
+            Why not send us a quick message?
+          </span>
+        </div>
+        <div className={styles.messageRight}>
+          <span>
+            As soon as we hear from you, our team will arrange a convenient time to discuss your hiring objectives in detail. We pride ourselves on delivering exceptional customer service and are always on hand to ensure we fully understand your requirements. Plus, there’s no fee unless you decide to hire one of our candidates, so there’s nothing to lose and everything to gain!
+          </span>
+          <span>
+            Simply share your details below, and the team at Engenious Recruitment will get in touch at a time that suits you. While there’s no obligation to use our service, we’re confident our commitment to being readily available and supporting your hiring goals will make a positive impact.
+          </span>
+        </div>
+      </Box>
       <Box className={styles.employersContent}>
         <ConsultationForm/>
       </Box>
