@@ -92,14 +92,14 @@ const NavbarMain2: React.FC<NavbarProps> = ({currentPath}) => {
           </div>
           <div className={styles.home}>
             <a href="/">
-              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" height={handleImageWidth()} width={handleImageWidth()}/>
+              <img className={styles.logo} src="/logo.png" alt="engenious logo" />
             </a>
-            <a href="/" className={styles.titleLink}>
+            {/* <a href="/" className={styles.titleLink}>
               <div className={styles.companyNameContainer}>
                 <div className={styles.companyName1}>ENGENIOUS</div>
                 <div className={styles.companyName2}>RECRUITMENT</div>
               </div>
-            </a>
+            </a> */}
           </div>
           <div className={styles.menu2} style={{display: setDisplay2()}}>
             <Menu color={"#00617C"} />

@@ -54,23 +54,6 @@ const NavbarMain1 = () => {
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
 
-
-  const handleImageHeight = () => {
-    if (isTabletOrBelow) {
-      return 60
-    } else {
-      return 70
-   }
-  }
-
-  const handleImageWidth = () => {
-    if (isTabletOrBelow) {
-      return 60
-    } else {
-      return 70
-   }
-  }
-
   return (
     <div className={styles.navbar} style={{width: "100%"}}>
       <div className={styles.container}>

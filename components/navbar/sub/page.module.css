@@ -8,6 +8,7 @@
   justify-content: center;
   position: relative;
   display: flex;
+  background-color: white;
 
   @media (min-width: 768px) {
     display: block;
@@ -40,7 +41,11 @@
   width: 90%;
   justify-content: space-between;
 
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    width: 100%;
+  }
+
+  @media (min-width: 1024px) {
     width: auto;
     justify-content: flex-start;
     margin-left: 30px;
@@ -56,7 +61,7 @@
 }
 
 .menu1 {
-  background-color: rgba(12, 12, 12, 0.08);
+  /* background-color: rgba(12, 12, 12, 0.08); */
   border-radius: 5px;
 
   @media (min-width: 768px) {
@@ -71,10 +76,10 @@
 
 .logo {
   width: auto;
-  height: 60px;
+  height: 30px;
   
   @media (min-width: 1024px) {
-    height: 70px;
+    height: 40px;
   }
 }
 
@@ -126,7 +131,7 @@
 .link, .titleLink {
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  color: #00617C;
+  color: #005773;
   font-weight: 500;
   position: relative;
   /* width: max-content; */

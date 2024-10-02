@@ -35,64 +35,39 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
   });
   
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const isComputer = useMediaQuery(theme.breakpoints.up('md'));
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
-  const isComputer = useMediaQuery(theme.breakpoints.up('md'));
-
-  const setDisplay  = () => {
-    if (!isComputer) {
-        return 'none';
-    } else {
-        return '';
-    }
-  }; 
-
-  const setDisplay2  = () => {
-    if (!isComputer) {
-        return 'flex';
-    } else {
-        return 'none';
-    }
-  }; 
-
-  const handleImageWidth = () => {
-    if (isTabletOrBelow) {
-      return 60
-    } else {
-      return 70
-   }
-  }
-  
 
   return (
     <div className={styles.navbar}>
       <div className={styles.container} >
         <div className={styles.left} >
-          {isTabletOrAbove && (
+          {isComputer && (
             <div className={styles.menu1}>
-              <Menu color={colour}/>
+              <Menu color={"#005773"}/>
             </div>
           )}
           <div className={styles.home}>
             <a href="/">
-              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
+              <img className={styles.logo} src="/logo.png" alt="engenious logo"/>
             </a>
-            <a href="/" className={styles.titleLink} style={{color: colour}}>
+            {/* <a href="/" className={styles.titleLink} style={{color: colour}}>
               <div className={styles.companyNameContainer}>
                 <div className={styles.companyName1}>ENGENIOUS</div>
                 <div className={styles.companyName2}>RECRUITMENT</div>
               </div>
-            </a>
+            </a> */}
             </div>
-            {isMobile && (
+            {!isComputer && (
               <div className={styles.menu2}>
-                <Menu color={colour}/>
+                <Menu color={"#005773"}/>
               </div>
             )}
           </div>
+        {isComputer && (
         <div className={styles.middle}>
-          <div className={styles.pageName} style={{color: colour}}>
+          <div className={styles.pageName} style={{color: "#005773"}}>
             {pageName}
           </div>
           <div className={styles.links} >
@@ -101,12 +76,13 @@ const NavbarSub: React.FC<NavbarSubProps> = ({links, pageName, currentPath, colo
                 key={link.id} 
                 href={link.url} 
                 className={`${styles.link} ${link.url === currentPath ? styles.active : ''}`}
-                style={{color: colour}}
+                style={{color: "#005773"}}
                 >{link.title}
               </a>
             ))}
           </div>
         </div>
+        )}
         {/* {!isMobile && (
           <div className={styles.right}>
             <a className={styles.button}>
