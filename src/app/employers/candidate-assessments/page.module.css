@@ -150,10 +150,12 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   font-size: 16px;
-  padding: 15px 60px;
+  width: max-content;
+  padding: 15px 30px;
 
   @media (min-width: 768px) {
     font-size: 18px;
+    padding: 15px 60px;
   }
 }
 

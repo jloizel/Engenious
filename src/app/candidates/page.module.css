@@ -459,7 +459,7 @@
 }
 
 .quotationMark1, .quotationMark2 {
-  color: #005773;
+  color: #008489;
   font-size: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {

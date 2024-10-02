@@ -223,7 +223,7 @@
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  margin-top: 80px;
+  margin-top: 40px;
   
   @media (min-width: 1024px) {
     flex-direction: row;
@@ -289,7 +289,6 @@
   color: #002D49;
   width: 100%;
   font-size: 24px;
-  margin-top: 40px;
   line-height: 30px;
   justify-content: center;
   align-items: center;
@@ -523,7 +522,6 @@
   text-align: center;
   display: flex;
   font-size: 24px;
-  padding-top: 40px;
   line-height: 30px;
   flex-direction: column;
 
@@ -531,7 +529,6 @@
     font-size: 34px;
     line-height: 40px;
     gap: 10px;
-    padding-top: 30px;
   }
 
   @media (min-width: 1024px) {
