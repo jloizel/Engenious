@@ -77,7 +77,7 @@ const OurTeam = () => {
   return (
     <div className={styles.teamContainer}>
       <Helmet>
-        <title>About</title>
+        <title>Our Team</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>

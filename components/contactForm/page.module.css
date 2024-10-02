@@ -24,7 +24,7 @@
 }
 
 .inputTitle {
-  font-weight: 600;
+  font-weight: 500;
   width: 100%;
   font-family: "Poppins", sans-serif;
 }
@@ -49,7 +49,8 @@
   padding: 10px;
   width: 100%;
   border-radius: 8px;
-  box-shadow: 0px 0px 8px 0px rgba(62, 53, 82, 0.16);
+  /* box-shadow: 0px 0px 8px 0px rgba(62, 53, 82, 0.16); */
+  border: 1px solid #cccccc9a;
 
   @media (min-width: 768px) {
     line-height: 50px;
@@ -63,7 +64,8 @@
   display: flex;
   min-height: 200px;
   border-radius: 8px;
-  box-shadow: 0px 0px 8px 0px rgba(62, 53, 82, 0.16);
+  /* box-shadow: 0px 0px 8px 0px rgba(62, 53, 82, 0.16); */
+  border: 1px solid #cccccc9a;
 
   @media (min-width: 768px)  {
     min-height: 250px;
@@ -197,8 +199,4 @@
 .privacyPolicy {
   font-weight: 500;
   font-size: 13px !important;
-
-  @media (min-width: 768px) {
-    font-size: 14px !important;
-  }
 }

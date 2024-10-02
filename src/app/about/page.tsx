@@ -77,7 +77,7 @@ const About = () => {
   return (
     <div className={styles.aboutContainer}>
       <Helmet>
-        <title>About</title>
+        <title>About Us</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>

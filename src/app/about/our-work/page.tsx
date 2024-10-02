@@ -80,7 +80,7 @@ const OurWork = () => {
   return (
     <div className={styles.workContainer}>
       <Helmet>
-        <title>About</title>
+        <title>Our Work</title>
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
