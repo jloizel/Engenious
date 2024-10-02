@@ -102,14 +102,14 @@ const Menu: React.FC<MenuProps> = ({color}) => {
               )}
               <div className={styles.logoContainer}>
                 <a href="/">
-                  <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
+                  <img className={styles.logo} src="/logo.png" alt="engenious logo"/>
                 </a>
-                <a href="/" className={styles.link}>
+                {/* <a href="/" className={styles.link}>
                   <div className={styles.companyNameContainer}>
                     <div className={styles.companyName1}>ENGENIOUS</div>
                     <div className={styles.companyName2}>RECRUITMENT</div>
                   </div>
-                </a>
+                </a> */}
               </div>
               {isMobile && (
                 <CloseIcon onClick={handleDrawerClose} className={styles.closeIcon}/>

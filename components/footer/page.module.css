@@ -116,6 +116,7 @@
 .bottomContainer {
   display: flex;
   flex-direction: column !important;
+  margin-top: 20px;
 }
 
 
@@ -304,6 +305,7 @@
   justify-content: space-between;
   width: 95%;
   align-items: center;
+  margin-top: 20px;
 }
 
 .logosComputer {
