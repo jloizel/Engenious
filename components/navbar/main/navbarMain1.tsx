@@ -55,6 +55,14 @@ const NavbarMain1 = () => {
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
 
 
+  const handleImageHeight = () => {
+    if (isTabletOrBelow) {
+      return 60
+    } else {
+      return 70
+   }
+  }
+
   const handleImageWidth = () => {
     if (isTabletOrBelow) {
       return 60
@@ -69,23 +77,23 @@ const NavbarMain1 = () => {
         <div className={styles.left}>
           {isComputer && (
             <div className={styles.menu1}>
-              <Menu color={"white"}/>
+              <Menu color={"#005773"}/>
             </div>
           )}
           <div className={styles.home}>
             <a href="/">
-              <Image className={styles.logo} src="/engenious.png" alt="engenious logo" height={handleImageWidth()} width={handleImageWidth()}/>
+              <img className={styles.logo} src="/logo.png" alt="engenious logo"/>
             </a>
-            <a href="/" className={styles.titleLink}>
+            {/* <a href="/" className={styles.titleLink}>
               <div className={styles.companyNameContainer}>
                 <div className={styles.companyName1}>ENGENIOUS</div>
                 <div className={styles.companyName2}>RECRUITMENT</div>
               </div>
-            </a>
+            </a> */}
           </div>
           {!isComputer && (
             <div className={styles.menu2}>
-              <Menu color={"white"}/>
+              <Menu color={"#005773"}/>
             </div>
           )}
         </div>

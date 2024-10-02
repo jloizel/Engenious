@@ -68,14 +68,14 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logos}>
             <div className={styles.logoContainer}>
               <a href="/">
-                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
+                <img className={styles.logo} src="/logo2.png" alt="engenious logo"/>
               </a>
-              <a href="/" className={styles.link}>
+              {/* <a href="/" className={styles.link}>
                 <div className={styles.companyNameContainer} >
                   <div className={styles.companyName1} >ENGENIOUS</div>
                   <div className={styles.companyName2} >RECRUITMENT</div>
                 </div>
-              </a>
+              </a> */}
             </div>
           </div>
           <div className={styles.pagesContainer} >
@@ -92,13 +92,13 @@ const Footer: React.FC = ({}) => {
           <div className={styles.logosComputer}>
             <div className={styles.logoContainerComputer}>
               <a href="/">
-                <Image className={styles.logo} src="/engenious.png" alt="engenious logo" width={handleImageWidth()} height={handleImageWidth()}/>
+                <img className={styles.logo} src="/logo2.png" alt="engenious logo" />
               </a>
               <a href="/" className={styles.link}>
-                <div className={styles.companyNameContainerComputer}>
+                {/* <div className={styles.companyNameContainerComputer}>
                   <div className={styles.companyName1}>ENGENIOUS</div>
                   <div className={styles.companyName2}>RECRUITMENT</div>
-                </div>
+                </div> */}
               </a>
             </div>
           </div>
