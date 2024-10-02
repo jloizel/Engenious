@@ -75,7 +75,7 @@ const Candidates = () => {
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
               <span style={{color:'white'}}> Candidates</span>
-              <span style={{color:'#09B089'}}>.</span>
+              <span style={{color:'#008489'}}>.</span>
             </div>
             <div className={styles.mainText}>
               Unlock your potential and find your dream job with our expert guidance and opportunities.

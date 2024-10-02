@@ -23,7 +23,7 @@ const ContentHeader: React.FC<ContentHeaderProps> = ({ header, text, source, ima
       </div>
       <div className={styles.textContainer}>
         <div className={styles.header}>
-          <span style={{color:'#09B089'}}>{firstWord}</span>
+          <span style={{color:'#005773'}}>{firstWord}</span>
           <span style={{color:'white'}}> {lastWord}</span>
         </div>
         <div className={styles.text}>

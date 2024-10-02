@@ -116,7 +116,7 @@
 
 .filterCount {
   color: white;
-  background-color: #09B089;
+  background-color: #005773;
   padding: 0px 6px;
   border-radius: 2px;
   text-align: center;
@@ -165,7 +165,7 @@
 
 .dropdownClose::before {
   height: 6px;
-  background: #09B089;
+  background: #005773;
   border-radius: 4px;
   content: "";
   width: 70px;
@@ -186,7 +186,7 @@
 }
 
 .dropdownItem span {
-  background-color: #09B089;
+  background-color: #005773;
   color: white;
   font-weight: 500;
   border-radius: 10px;
@@ -242,7 +242,7 @@
 
 .applyButton {
   font-weight: 600;
-  background-color: #09B089;
+  background-color: #005773;
   color: white;
   border-radius: 4px;
   border: none;
@@ -399,7 +399,7 @@
   cursor: pointer;
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #09B089;
+  color: #005773;
   background: none;
   border: none;
   width: 100px;

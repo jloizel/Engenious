@@ -109,7 +109,7 @@
   padding: 10px 40px;
   font-size: 18px;
   cursor: pointer;
-  background: #09B089;
+  background: #005773;
   border: none;
   color: white;
   border-radius: 4px;
@@ -362,7 +362,7 @@
 }
 
 .deleteButton:hover {
-  background-color: #09B089;
+  background-color: #005773;
 }
 
 .paginationContainer {

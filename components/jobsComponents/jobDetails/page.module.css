@@ -185,7 +185,7 @@
 
 .jobBottomInfo a {
   cursor: pointer;
-  color: #09B089;
+  color: #005773;
   padding-bottom: 60px !important;
 }
 
@@ -194,7 +194,7 @@
 }
 
 .buttonContainer {
-  background-color: #09B089;
+  background-color: #005773;
   border-radius: 4px;
   text-align: center;
   justify-content: center;
@@ -238,7 +238,7 @@
 
 
 .mobileButtonContainer .button {
-  background: #09B089;
+  background: #005773;
   border: none;
   color: white;
   font-weight: 700;

@@ -385,12 +385,12 @@ const AdminPage: React.FC = () => {
                     {...item}
                     sx={{
                       '&.Mui-selected': {
-                        backgroundColor: '#09B089',
+                        backgroundColor: '#005773',
                         color: 'white',
                         borderRadius: "10px"
                       },
                       '&.Mui-selected:hover': {
-                        backgroundColor: '#09B089'
+                        backgroundColor: '#005773'
                       },
                       fontFamily: "Poppins, sans-serif",
                       '&.MuiPaginationItem-root': {

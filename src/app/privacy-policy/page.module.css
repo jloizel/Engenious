@@ -26,7 +26,7 @@
   font-weight: 700;
   color: white;
   font-family: "Poppins", sans-serif;
-  background: #09B089;
+  background: #005773;
   font-size: 40px;
   padding: 10px 4px;
   
@@ -169,7 +169,7 @@
 }
 
 .list::marker {
-  color: #09B089; /* Change to your desired color */
+  color: #005773; /* Change to your desired color */
 }
 
 .list {

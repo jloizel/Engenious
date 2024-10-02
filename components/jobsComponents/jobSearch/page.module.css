@@ -261,7 +261,7 @@
 }
 
 .buttonContainer {
-  background-color: #09B089;
+  background-color: #005773;
   border-radius: 4px;
   text-align: center;
   justify-content: center;
@@ -360,7 +360,7 @@
 
 .jobBottomInfo a {
   cursor: pointer;
-  color: #09B089;
+  color: #005773;
   padding-bottom: 60px !important;
 }
 
@@ -437,7 +437,7 @@
   height: 200px;
   margin: 0 auto 30px;
   margin-top: 100px;
-  color: #09B089;
+  color: #005773;
   animation: moveUpDown 4s ease-in-out infinite;
 }
 
@@ -540,7 +540,7 @@
 
 .dropdownClose::before {
   height: 6px;
-  background: #09B089;
+  background: #005773;
   border-radius: 4px;
   content: "";
   width: 70px;
@@ -588,7 +588,7 @@
 }
 
 .mobileButtonContainer .button {
-  background: #09B089;
+  background: #005773;
   border: none;
   color: white;
   font-weight: 700;

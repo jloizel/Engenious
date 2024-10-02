@@ -43,7 +43,7 @@
 }
 
 .quotationMark1, .quotationMark2 {
-  color: #09B089;
+  color: #005773;
   font-size: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {

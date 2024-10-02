@@ -110,7 +110,7 @@ const OurServices = () => {
       <Box className={styles.service} id="contract-recruitment">
         <div className={styles.serviceHeader}>
         <span>Our contract recruitment process: </span>
-          <span style={{color: "#09B089"}}>Right skills, right time.</span>
+          <span style={{color: "#005773"}}>Right skills, right time.</span>
         </div>
         <div className={styles.serviceText}>
           We &apos;ve been helping companies like yours hire contract and temporary staff for over 10 years. We&apos;re always on top of regulatory changes and know what works best, so you don&apos;t have to worry.

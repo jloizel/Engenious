@@ -191,7 +191,7 @@
 }
 
 .hireLeft span:first-child {
-  color: #09B089;
+  color: #008489;
   font-weight: 700;
   font-size: 35px;
   line-height: 40px;
@@ -459,7 +459,7 @@
 }
 
 .quotationMark1, .quotationMark2 {
-  color: #09B089;
+  color: #005773;
   font-size: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -710,7 +710,7 @@
 }
 
 .aboutButton {
-  background: #09B089;
+  background: #005773;
   border: none;
   border-radius: 5px;
   color: white;

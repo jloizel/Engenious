@@ -89,7 +89,7 @@ const OurPurpose = () => {
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
-              <span style={{color:'#09B089'}}>Our</span>
+              <span style={{color:'#005773'}}>Our</span>
               <span style={{color:'white'}}> purpose.</span>
             </div>
             <div className={styles.mainText}>

@@ -1,32 +1,38 @@
 [
   {
     "id": 1,
-    "name": "Construction & House Building",
+    "name": "Construction",
     "image": "/sectors/1.jpg",
-    "href": "/sectors/construction-housebuilding"
+    "href": "/sectors/construction"
   },
   {
     "id": 2,
-    "name": "Maintenance",
+    "name": "House Building",
     "image": "/sectors/2.jpg",
-    "href": "/sectors/maintenance"
+    "href": "/sectors/housebuilding"
   },
   {
     "id": 3,
-    "name": "Civil Engineering",
+    "name": "Maintenance",
     "image": "/sectors/3.jpg",
-    "href": ""
+    "href": "/sectors/maintenance"
   },
   {
     "id": 4,
-    "name": "Trades & Labour",
+    "name": "Civil Engineering",
     "image": "/sectors/4.jpg",
     "href": ""
   },
   {
     "id": 5,
-    "name": "Search & Select",
+    "name": "Trades & Labour",
     "image": "/sectors/5.jpg",
+    "href": ""
+  },
+  {
+    "id": 6,
+    "name": "Search & Select",
+    "image": "/sectors/6.jpg",
     "href": ""
   }
 ]

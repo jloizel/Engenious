@@ -104,15 +104,15 @@ body,
 
 .colours {
   color: #002D49
-#005773
-#008489
-#09B089
-#8CD87A
-#F9F871 
-#FFF7D6
-#C6D5B8
-#92B2A0
-#678F8B
+         #005773
+         #008489
+         #005773
+         #8CD87A
+         #F9F871 
+         #FFF7D6
+         #C6D5B8
+         #92B2A0
+         #678F8B
 }
 
 
@@ -203,7 +203,7 @@ textarea {
 
 /* Style for the active dot */
 .slick-dots li.slick-active button:before {
-  color: #09B089 !important;  /* Active dot color */
+  color: #008489 !important;  /* Active dot color */
 }
 
 /* Add space between the dots */

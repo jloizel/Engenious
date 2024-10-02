@@ -200,7 +200,7 @@
 }
 
 .quotationMark1, .quotationMark2 {
-  color: #09B089;
+  color: #005773;
   font-size: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -371,7 +371,7 @@
 
 .tick {
   color: white;
-  background-color: #09B089;
+  background-color: #005773;
   border-radius: 50%;
   padding: 4px;
 }
@@ -471,7 +471,7 @@
 }
 
 .consultation {
-  background-color: #09B089;
+  background-color: #008489;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -560,7 +560,7 @@
 .consultationButton {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
-  color: #09B089;
+  color: #005773;
   display: flex;
   align-items: center;
   background: white;
@@ -631,7 +631,7 @@
 }
 
 .aboutButton {
-  background: #09B089;
+  background: #005773;
   border: none;
   border-radius: 5px;
   color: white;

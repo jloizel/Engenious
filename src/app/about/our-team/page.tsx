@@ -88,7 +88,7 @@ const OurTeam = () => {
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
-              <span style={{color:'#09B089'}}>Our</span>
+              <span style={{color:'#008489'}}>Our</span>
               <span style={{color:'white'}}> team.</span>
             </div>
             <div className={styles.mainText}>

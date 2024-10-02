@@ -47,7 +47,7 @@ const PrivacyPolicy = () => {
           <div className={styles.textHeader}>Who to contact regarding your personal data</div>
           <div className={styles.text}>
             <span>Your privacy is important to us, and we are committed to protecting and safeguarding your data privacy rights. We would be happy to answer any of your questions about this privacy notice and how Engenious Recruitment uses your data.</span>
-            <span>Contact us via our <a href="/contact" style={{color: "#09B089", textDecoration: "none"}}>contact page</a>.</span>
+            <span>Contact us via our <a href="/contact" style={{color: "#005773", textDecoration: "none"}}>contact page</a>.</span>
           </div>
           <div className={styles.textHeader}>How we collect and process personal data</div>
           <div className={styles.text}>
@@ -168,7 +168,7 @@ const PrivacyPolicy = () => {
           </div>
           <div className={styles.textHeader}>Your rights as a data subject</div>
           <div className={styles.text3}>
-            <span><span style={{fontStyle: "italic"}}>Right of access</span> – you have the right to request a copy of the information that we hold about you. You can do that by contacting us through the <a href="/contact" style={{color: "#09B089", textDecoration: "none"}}>Contact Form</a>.</span>
+            <span><span style={{fontStyle: "italic"}}>Right of access</span> – you have the right to request a copy of the information that we hold about you. You can do that by contacting us through the <a href="/contact" style={{color: "#005773", textDecoration: "none"}}>Contact Form</a>.</span>
           </div>
           <div className={styles.text}>
             <span>If we do hold information about you we will:</span>
@@ -184,7 +184,7 @@ const PrivacyPolicy = () => {
             <span><span style={{fontStyle: "italic"}}>Right of rectification </span> – you have a right to correct data that we hold about you that is inaccurate or incomplete.</span>
           </div>
           <div className={styles.text3}>
-            <span><span style={{fontStyle: "italic"}}>Right to be forgotten</span> – in certain circumstances you can ask for the data we hold about you to be erased from our records by getting in touch via the <a href="/contact" style={{color: "#09B089", textDecoration: "none"}}>contact page</a>.</span>
+            <span><span style={{fontStyle: "italic"}}>Right to be forgotten</span> – in certain circumstances you can ask for the data we hold about you to be erased from our records by getting in touch via the <a href="/contact" style={{color: "#005773", textDecoration: "none"}}>contact page</a>.</span>
           </div>
           <div className={styles.text3}>
             <span><span style={{fontStyle: "italic"}}>Right to restriction of processing </span> – where certain conditions apply to have a right to restrict the processing.</span>
@@ -203,10 +203,10 @@ const PrivacyPolicy = () => {
           </div>
           <div className={styles.textHeader}>Complaints</div>
           <div className={styles.text}>
-            <span>We take the processing of your personal data very seriously and are here to help with any concerns you may have. Please do contact us using the <a href="/contact" style={{color: "#09B089", textDecoration: "none"}}>Contact Form</a>.</span>
+            <span>We take the processing of your personal data very seriously and are here to help with any concerns you may have. Please do contact us using the <a href="/contact" style={{color: "#005773", textDecoration: "none"}}>Contact Form</a>.</span>
           </div>
           <div className={styles.text}>
-            <span>If you are still not happy with how your personal data is being processed by Engenious Recruitment or how your complaint has been handled, you also have the right to lodge a complaint directly with the Information Commissioners Office at <a href="https://ico.org.uk/concerns/" target="_blank" style={{color: "#09B089", textDecoration: "none"}}> https://ico.org.uk/concerns/</a>or by calling 0303 123 1113.</span>
+            <span>If you are still not happy with how your personal data is being processed by Engenious Recruitment or how your complaint has been handled, you also have the right to lodge a complaint directly with the Information Commissioners Office at <a href="https://ico.org.uk/concerns/" target="_blank" style={{color: "#005773", textDecoration: "none"}}> https://ico.org.uk/concerns/</a>or by calling 0303 123 1113.</span>
           </div>
         </div>
       </div>

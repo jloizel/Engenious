@@ -88,7 +88,7 @@ const About = () => {
           </div>
           <div className={styles.headerTextContainer}>
             <div className={styles.mainHeader}>
-              <span style={{color:'#09B089'}}>About</span>
+              <span style={{color:'#008489'}}>About</span>
               <span style={{color:'white'}}> us.</span>
             </div>
             <div className={styles.mainText}>

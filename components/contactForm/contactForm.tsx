@@ -134,7 +134,7 @@ export default function ContactForm() {
               onChange={handleCheckboxChange}
             />
             <div className={styles.privacyPolicy}>
-              <span>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{color: "#09B089", cursor: "pointer"}}> Privacy Policy</span><span >.</span>
+              <span>By submitting your email address and any other personal information on the website, you consent to it being collected, held, used and disclosed in accordance with our</span><span style={{color: "#005773", cursor: "pointer"}}> Privacy Policy</span><span >.</span>
             </div>
           </div>
           {checkboxError && (

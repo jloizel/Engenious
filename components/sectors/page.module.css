@@ -26,7 +26,7 @@
 }
 
 .card:hover .cardText {
-  color: #09B089;
+  color: #005773;
 }
 
 .cardImageContainer {
@@ -60,7 +60,7 @@
   z-index: 1; /* Ensure arrows are on top */
   cursor: pointer; /* Change cursor to pointer for better UX */
   font-size: 50px; /* Adjust icon size */
-  color: #09B089 !important;
+  color: #008489 !important;
 }
 
 .customNextArrow:before, .customPrevArrow:before {

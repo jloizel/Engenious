@@ -6,7 +6,7 @@
 }
 
 .teamHeader {
-  color: #002D49;
+  color: #008489;
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   font-size: 40px;
@@ -96,7 +96,7 @@
 .textContainer {
   display: flex;
   flex-direction: column;
-  /* background: #09B089; */
+  /* background: #005773; */
   border-radius: 8px;
   text-align: left;
   width: 80%;

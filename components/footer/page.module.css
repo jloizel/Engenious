@@ -71,7 +71,7 @@
 }
 
 .button {
-  background-color: #09B089;
+  background-color: #008489;
   border: none;
   color: white;
   cursor: pointer;
@@ -106,7 +106,7 @@
 }
 
 .button:hover {
-  background: #008489;
+  background: #002D49;
 }
 
 .line {
