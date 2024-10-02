@@ -315,7 +315,7 @@
 }
 
 .quotationMark1, .quotationMark2 {
-  color: #005773;
+  color: #09B089;
   font-size: 20px;
   
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -418,15 +418,9 @@
 }
 
 .imageContainer1 {
-  @media (min-width: 768px) and (max-width: 1023px) {
-    order: 1;
-    /* padding-right: 20px; */
-  }
-
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     order: 1;
     margin-right: 30px;
-    margin-top: 40px;
   }
 }
 
@@ -566,7 +560,7 @@
 }
 
 .aboutButton {
-  background: #005773;
+  background: #09B089;
   border: none;
   border-radius: 5px;
   color: white;
