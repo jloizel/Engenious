@@ -50,7 +50,7 @@ const Footer: React.FC = ({}) => {
           </div>
         )}
         <div className={styles.buttonContainer} >
-          <a href="/jobs" style={{textDecoration: "none"}}>
+          <a href="/candidates" style={{textDecoration: "none"}}>
             <button className={styles.button} >
               Find a Job
             </button>
