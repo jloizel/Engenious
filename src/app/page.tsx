@@ -41,8 +41,8 @@ export default function Home() {
     <div className={styles.app}>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Engenious</title>
-        <link rel="canonical" href="http://mysite.com/example" />
+        <title>Engenious Recruitment</title>
+        {/* <link rel="canonical" href="http://mysite.com/example" /> */}
       </Helmet>
       <NavbarMain1/>
       <section className={styles.banner}>

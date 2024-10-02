@@ -35,7 +35,7 @@ const SubSectorCards: React.FC = ({}) => {
   return (
     <div className={styles.subSectorsContainer}>
       <div className={styles.listHeader}>
-        <span>We work across several areas of the <span style={{color: "#008489"}}>House Building:</span></span>
+        <span>We work across several areas of the <span style={{color: "#008489"}}>House Building Sector:</span></span>
         
       </div>
       {data.map((subSector, index) => {

@@ -31,11 +31,7 @@
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   
-  @media (min-width: 768px) and (max-width: 1023px) {
-    font-size: 35px !important;
-  }
-  
-  @media (min-width: 1024px) {
+  @media (min-width: 768px) {
     font-size: 25px !important;
   }
 }
