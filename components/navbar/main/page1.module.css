@@ -7,6 +7,7 @@
   height: 80px;
   justify-content: center;
   position: absolute;
+  background-color: white;
 }
 
 .container {
@@ -116,7 +117,7 @@
 .link, .titleLink {
   font-family: "Poppins", sans-serif;
   text-decoration: none;
-  color: white;
+  color: #005773;
   font-weight: 500;
   position: relative;
 }

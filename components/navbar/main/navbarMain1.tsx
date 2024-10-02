@@ -54,21 +54,6 @@ const NavbarMain1 = () => {
   const isTabletOrAbove = useMediaQuery(theme.breakpoints.up('sm'));
   const isTabletOrBelow = useMediaQuery(theme.breakpoints.down('md'));
 
-  const setDisplay  = () => {
-    if (isMobile) {
-        return 'none';
-    } else {
-        return '';
-    }
-  }; 
-
-  const setDisplay2  = () => {
-    if (isTabletOrAbove) {
-        return 'none';
-    } else {
-        return '';
-    }
-  }; 
 
   const handleImageWidth = () => {
     if (isTabletOrBelow) {
