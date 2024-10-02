@@ -26,7 +26,6 @@
   background-size: 100% 3px; /* Adjust the height of the line as needed */
   background-position: bottom;
   background-repeat: no-repeat;
-  /* justify-content: center; */
 
   @media (min-width: 1024px) {
     width: 300px;
@@ -69,12 +68,8 @@
   font-weight: 700;
   font-family: "Poppins", sans-serif;
   margin-bottom: 10px;
-  font-size: 40px ;
-  line-height: 35px;
-  
-  @media (min-width: 768px) {
-    font-size: 30px;
-  }
+  font-size: 30px ;
+  line-height: 30px;
 }
 
 .text {

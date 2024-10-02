@@ -397,11 +397,15 @@
   width: 100%;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; /* Default: Image and text in a column for mobile */
 
-  @media (min-width: 768px) {
-    flex-direction: row;
+  @media (min-width: 768px) and (max-width: 1023px) {
+    flex-direction: row; /* Tablet: Image to the right */
     margin-bottom: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: column; /* Desktop: Image above */
   }
 }
 
@@ -411,16 +415,15 @@
   justify-content: center;
   width: 40%;
 
+  @media (min-width: 768px) {
+    order: 1; /* On tablet, image comes after text */
+    margin-right: 30px; /* Spacing between text and image */
+  }
+
   @media (min-width: 1024px) {
+    order: 0; /* On desktop, image should be above text */
     padding: 30px;
     max-width: 350px;
-  }
-}
-
-.imageContainer1 {
-  @media (min-width: 768px) {
-    order: 1;
-    margin-right: 30px;
   }
 }
 
@@ -472,7 +475,7 @@
     width: 80%;
     padding: 0px 30px;
     line-height: 40px;
-    text-align: left;
+    text-align: left; /* Align text to the left on tablet */
   }
 
   @media (min-width: 1024px) {
