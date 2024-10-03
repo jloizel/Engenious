@@ -19,34 +19,6 @@ const Location: React.FC = ({}) => {
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isTablet = useMediaQuery(theme.breakpoints.between('sm', 'md'));
 
-  const handleGap = () => {
-    if (isMobile) {
-      return "30px"
-    } else if (isTablet) {
-      return "80px"
-    } else {
-      return "100px"
-    }
-  }
-
-  const handleHeaderFontSize = () => {
-    if (isMobile) {
-      return "25px"
-    } else if (isTablet) {
-      return "35px"
-    } else {
-      return "40px"
-    }
-  }
-
-  const handleSubHeaderFontSize = () => {
-    if (isMobile) {
-      return "16px"
-    } else {
-      return "22px"
-    }
-  }
-
   return (
     <div className={styles.container}>
       <div className={styles.textContainer} >
