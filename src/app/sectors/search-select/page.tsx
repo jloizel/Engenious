@@ -114,18 +114,18 @@ const SearchSelect = () => {
             Find Your Next Specialist Hire With Us
           </span>
           <span>
-            As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
-            </span>
+            Specialists in targeted recruitment, delivering top-tier talent for hard-to-fill roles.  
+          </span>
         </div>
         <div className={styles.hireRight}>
           <span>
-            We are uniquely placed to act as an extension of your company, offering industry insight that will allow you to identify, hire and retain the brightest minds in the energy storage sector.
+            We excel in identifying and securing candidates for roles that require a strategic and focused headhunting approach.
           </span>
           <span>
-            We take the time to get to know our clients before offering bespoke solutions that help to bridge their staffing requirements.
+            With our expertise in the search and select process, we pinpoint and deliver the perfect fit for even the most specialized and high-demand positions.
           </span>
           <span>
-            We can help you to find permanent, contract and temporary team members with our tried-and-tested methods.
+            Whether you're looking for senior leadership, niche technical experts, or other hard-to-fill roles, our dedicated approach ensures you get the right talent to drive your business forward.
           </span>
         </div>
       </Box>

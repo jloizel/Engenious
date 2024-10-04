@@ -115,18 +115,18 @@ const Maintenance = () => {
             Find Your Next House Building Hire With Us
           </span>
           <span>
-            As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
-            </span>
+            As house building recruitment specialists, we connect you with top talent to shape the future of residential construction.
+          </span>
         </div>
         <div className={styles.hireRight}>
           <span>
             We are uniquely placed to act as an extension of your company, offering industry insight that will allow you to identify, hire and retain the brightest minds in the energy storage sector.
           </span>
           <span>
-            We take the time to get to know our clients before offering bespoke solutions that help to bridge their staffing requirements.
+            Whether you need skilled tradespeople, site managers, or project leaders, we take the time to understand your needs and deliver candidates who align with your vision.
           </span>
           <span>
-            We can help you to find permanent, contract and temporary team members with our tried-and-tested methods.
+            From temporary to permanent roles, our efficient and personalized approach ensures you have the right people to drive your projects forward and deliver quality homes on time and on budget.
           </span>
         </div>
       </Box>

@@ -114,18 +114,18 @@ const TradesLabour = () => {
             Find Your Next Trades & Labour Hire With Us
           </span>
           <span>
-            As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
-            </span>
+            Your trusted partner for skilled trades and labour recruitment, keeping your projects on track.  
+          </span>
         </div>
         <div className={styles.hireRight}>
           <span>
-            We are uniquely placed to act as an extension of your company, offering industry insight that will allow you to identify, hire and retain the brightest minds in the energy storage sector.
+            We cover a wide range of trades and labour needs, providing skilled professionals such as carpenters, electricians, 360 operatives, and general labourers.
           </span>
           <span>
-            We take the time to get to know our clients before offering bespoke solutions that help to bridge their staffing requirements.
+            Whatever the scale of your project, our extensive network ensures that you have access to the right workforce to keep your site operating smoothly and efficiently.
           </span>
           <span>
-            We can help you to find permanent, contract and temporary team members with our tried-and-tested methods.
+            Whether you need temporary, contract, or permanent staff, we are committed to delivering reliable, experienced individuals to meet your project's demands and maintain productivity on-site.
           </span>
         </div>
       </Box>

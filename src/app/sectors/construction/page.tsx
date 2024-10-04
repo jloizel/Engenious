@@ -117,18 +117,18 @@ const Construction = () => {
             Find Your Next Constrution Hire With Us
           </span>
           <span>
-            As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
-            </span>
+            As a construction recruitment specialist, we have the expertise and industry connections to deliver top talent.
+          </span>
         </div>
         <div className={styles.hireRight}>
           <span>
-            We are uniquely placed to act as an extension of your company, offering industry insight that will allow you to identify, hire and retain the brightest minds in the energy storage sector.
+            We are uniquely positioned to act as an extension of your business, providing valuable insight and recruitment expertise to help you identify, hire, and retain the best professionals in the construction sector.
           </span>
           <span>
-            We take the time to get to know our clients before offering bespoke solutions that help to bridge their staffing requirements.
+            By taking the time to understand your company’s specific needs and challenges, we offer customized recruitment solutions that align with your staffing goals.
           </span>
           <span>
-            We can help you to find permanent, contract and temporary team members with our tried-and-tested methods.
+            Whether you're looking for permanent, contract, or temporary team members, our proven methods ensure you have access to the right talent to build your team.
           </span>
         </div>
       </Box>

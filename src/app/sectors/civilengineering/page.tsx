@@ -115,18 +115,18 @@ const CivilEngineering = () => {
             Find Your Next Civil Engineering Hire With Us
           </span>
           <span>
-            As a renewable energy engineering recruitment specialist, we have the insight and connections to make an impact.  
-            </span>
+            Experts in civil engineering recruitment, providing skilled professionals for infrastructure and development projects.  
+          </span>
         </div>
         <div className={styles.hireRight}>
           <span>
-            We are uniquely placed to act as an extension of your company, offering industry insight that will allow you to identify, hire and retain the brightest minds in the energy storage sector.
+            Partnering with main contractors and subcontractors, we specialize in sourcing top talent for a wide range of civil engineering projects.
           </span>
           <span>
-            We take the time to get to know our clients before offering bespoke solutions that help to bridge their staffing requirements.
+            Whether you're working on large-scale road and rail infrastructure, marine construction, or smaller civil works, we deliver the expertise and recruitment solutions to ensure project success.
           </span>
           <span>
-            We can help you to find permanent, contract and temporary team members with our tried-and-tested methods.
+            From site engineers to project managers, we can help you secure both temporary and permanent staff to support the seamless execution of your projects and drive growth in the civil engineering sector.
           </span>
         </div>
       </Box>
