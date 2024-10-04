@@ -139,9 +139,9 @@ const CivilEngineering = () => {
         <div className={styles.consultationHeader}>
           <span>Not sure where to start?</span>
         </div>
-        <div className={styles.consultationText}>
-          {/* In recent years, the working world has transformed dramatically. Companies&apos; approaches to recruitment have changed too. Whether you&apos;re looking for contractors or temps who are on-site, hybrid or fully remote, we&apos;ll find the right people for you. */}
-        </div>
+        {/* <div className={styles.consultationText}>
+          In recent years, the working world has transformed dramatically. Companies&apos; approaches to recruitment have changed too. Whether you&apos;re looking for contractors or temps who are on-site, hybrid or fully remote, we&apos;ll find the right people for you.
+        </div> */}
         <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor}>
             <button className={styles.consultationButton}>
               Hire talent <KeyboardArrowRightIcon/>

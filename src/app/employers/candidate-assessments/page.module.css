@@ -460,17 +460,11 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 420px;
+  height: 300px;
   gap: 20px;
-  margin-top: 30px;
+  /* margin-top: 30px; */
 
-  @media (min-width: 768px) and (max-width: 1023px) {
-    height: 450px;
-    gap: 30px;
-  }
-
-  @media (min-width: 1024px) {
-    height: 500px;
+  @media (min-width: 768px) {
     gap: 30px;
   }
 }
@@ -482,13 +476,11 @@
   text-align: center;
   display: flex;
   font-size: 24px;
-  padding-top: 30px;
   line-height: 30px;
   flex-direction: column;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 34px;
-    padding-top: 40px;
     line-height: 40px;
     gap: 10px;
   }
@@ -552,12 +544,10 @@
 
   @media (min-width: 768px) and (max-width: 1023px) {
     width: 60%;
-    margin-top: 40px;
   }
 
   @media (min-width: 1024px) {
     width: 50%;
-    margin-top: 30px;
   }
 }
 
@@ -578,7 +568,6 @@
   font-size: 16px;
   line-height: 30px;
   padding: 10px 50px;
-  margin-bottom: 40px;
 
   @media (min-width: 768px) and (max-width: 1023px) {
     font-size: 20px;
