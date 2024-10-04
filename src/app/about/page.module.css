@@ -405,7 +405,7 @@
   }
 
   @media (min-width: 1024px) {
-    flex-direction: column; /* Desktop: Image above */
+    flex-direction: row; /* Desktop: Image above */
   }
 }
 
@@ -421,7 +421,7 @@
   }
 
   @media (min-width: 1024px) {
-    order: 0; /* On desktop, image should be above text */
+    order: 1; 
     padding: 30px;
     max-width: 350px;
   }
