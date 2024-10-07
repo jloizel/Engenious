@@ -126,7 +126,7 @@ const Maintenance = () => {
             Whether you need skilled tradespeople, site managers, or project leaders, we take the time to understand your needs and deliver candidates who align with your vision.
           </span>
           <span>
-            From temporary to permanent roles, our efficient and personalized approach ensures you have the right people to drive your projects forward and deliver quality homes on time and on budget.
+            From temporary to permanent roles, our efficient and personalised approach ensures you have the right people to drive your projects forward and deliver quality homes on time and on budget.
           </span>
         </div>
       </Box>

@@ -89,7 +89,7 @@ const ServicesSwiper: React.FC = () => {
             <div className={styles.textContainer}>
               <div className={styles.content}>
                 <div className={styles.title}>Search & Select</div>
-                <div className={styles.text}>We offer a comprehensive search & select service designed to identify, attract, and source senior-level candidates or those for specifically hard-to-place roles. Our meticulous approach begins with a deep understanding of your organization&apos;s culture, goals, and specific needs for each position.</div>
+                <div className={styles.text}>We offer a comprehensive search & select service designed to identify, attract, and source senior-level candidates or those for specifically hard-to-place roles. Our meticulous approach begins with a deep understanding of your organisation&apos;s culture, goals, and specific needs for each position.</div>
                 <button className={styles.button} onClick={() => scrollToSection('search-select')}>
                   Learn more <IoIosArrowForward/>
                 </button>

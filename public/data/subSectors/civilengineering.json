@@ -3,7 +3,7 @@
     "id": 1,
     "name": "Marine",
     "image": "/sectors/civilengineering/marine.jpg",
-    "text": "We specialize in sourcing top talent for marine construction projects, helping you find skilled professionals to build, maintain, and manage coastal and offshore infrastructure. From civil engineers to marine surveyors, we can meet your recruitment needs in this highly specialized sector.",
+    "text": "We specialise in sourcing top talent for marine construction projects, helping you find skilled professionals to build, maintain, and manage coastal and offshore infrastructure. From civil engineers to marine surveyors, we can meet your recruitment needs in this highly specialised sector.",
     "jobs": ["Marine Civil Engineer", "Coastal Engineer", "Marine Surveyor", "Dredging Engineer", "Port Construction Manager", "and many more..."]
   },
   {
@@ -31,7 +31,7 @@
     "id": 5,
     "name": "Groundworks",
     "image": "/sectors/civilengineering/groundworks.jpg",
-    "text": "We provide specialized recruitment for groundworks projects, ensuring you have the skilled teams required to handle site preparation, excavation, and foundation works. From groundworks engineers to piling specialists, we can supply the expertise your project demands.",
+    "text": "We provide specialised recruitment for groundworks projects, ensuring you have the skilled teams required to handle site preparation, excavation, and foundation works. From groundworks engineers to piling specialists, we can supply the expertise your project demands.",
     "jobs": ["Groundworks Manager", "Groundworks Engineer", "Quantity Surveyor", "Excavation Engineer", "Piling Engineer", "and many more..."]
   }
 ]

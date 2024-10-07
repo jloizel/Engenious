@@ -79,7 +79,7 @@ const OurExpertise = () => {
             <span> Recruitment. </span>
           </div>
           <div className={styles.expertiseText}>
-            Our Construction Recruitment service specializes in finding top-tier professionals for the construction industry. Whether you need project managers, engineers, or skilled tradespeople, we ensure every candidate is the right fit for your project. We are committed to helping you build a capable team that delivers on time and within budget.
+            Our Construction Recruitment service specialises in finding top-tier professionals for the construction industry. Whether you need project managers, engineers, or skilled tradespeople, we ensure every candidate is the right fit for your project. We are committed to helping you build a capable team that delivers on time and within budget.
           </div>
         </div>
         <div className={styles.cardImageContainer}>

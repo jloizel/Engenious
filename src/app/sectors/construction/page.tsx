@@ -125,7 +125,7 @@ const Construction = () => {
             We are uniquely positioned to act as an extension of your business, providing valuable insight and recruitment expertise to help you identify, hire, and retain the best professionals in the construction sector.
           </span>
           <span>
-            By taking the time to understand your company’s specific needs and challenges, we offer customized recruitment solutions that align with your staffing goals.
+            By taking the time to understand your company’s specific needs and challenges, we offer customised recruitment solutions that align with your staffing goals.
           </span>
           <span>
             Whether you're looking for permanent, contract, or temporary team members, our proven methods ensure you have access to the right talent to build your team.

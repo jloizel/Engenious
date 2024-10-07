@@ -98,7 +98,7 @@ const Sectors = () => {
               Industry-Specific Talent Solutions
             </div>
             <div className={styles.mainText}>
-              Discover the skilled professionals who will drive your business forward. We specialize in recruiting for a range of sectors, ensuring you have the right people to meet your industry's unique demands, today and in the future. Let us help you build a workforce that leads the way.
+              Discover the skilled professionals who will drive your business forward. We specialise in recruiting for a range of sectors, ensuring you have the right people to meet your industry's unique demands, today and in the future. Let us help you build a workforce that leads the way.
             </div>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}}>
               <button className={styles.button}>

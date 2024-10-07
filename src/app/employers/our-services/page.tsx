@@ -130,10 +130,10 @@ const OurServices = () => {
           <span style={{color: "#8CD87A"}}>Identify, attract, source.</span>
         </div>
         <div className={styles.serviceText}>
-          Our meticulous approach begins with a deep understanding of your organization&apos;s culture, goals, and specific needs for each position. Utilizing a blend of advanced search techniques, extensive industry networks, and detailed candidate assessments, we go beyond traditional recruitment methods to find exceptional talent. Our dedicated team of recruiters leverages their expertise and connections to uncover passive candidates who might not be actively seeking new opportunities but possess the exact skills and experience required for your critical roles.
+          Our meticulous approach begins with a deep understanding of your organisation&apos;s culture, goals, and specific needs for each position. Utilising a blend of advanced search techniques, extensive industry networks, and detailed candidate assessments, we go beyond traditional recruitment methods to find exceptional talent. Our dedicated team of recruiters leverages their expertise and connections to uncover passive candidates who might not be actively seeking new opportunities but possess the exact skills and experience required for your critical roles.
         </div>
         <div className={styles.serviceText}>
-          From initial contact to final placement, we manage the entire recruitment process, ensuring a seamless and efficient experience. We conduct thorough interviews, reference checks, and skill evaluations to ensure each candidate not only meets but exceeds your expectations. Our goal is to provide you with leaders and specialists who will drive innovation, improve performance, and contribute significantly to your organization&apos;s success.
+          From initial contact to final placement, we manage the entire recruitment process, ensuring a seamless and efficient experience. We conduct thorough interviews, reference checks, and skill evaluations to ensure each candidate not only meets but exceeds your expectations. Our goal is to provide you with leaders and specialists who will drive innovation, improve performance, and contribute significantly to your organisation&apos;s success.
         </div>
         <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.consultationButtonAnchor1}>
           <button className={styles.button}>

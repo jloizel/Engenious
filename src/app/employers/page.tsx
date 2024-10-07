@@ -98,7 +98,7 @@ const Employers = () => {
               Adaptable. Impactful. Unmatched.
             </div>
             <div className={styles.servicesText}>
-              Whether you need to scale up your teams with new talent or seek specialized skills to quickly adapt your business, our comprehensive talent services deliver results. We go the extra mile to find the perfect fit for you.
+              Whether you need to scale up your teams with new talent or seek specialised skills to quickly adapt your business, our comprehensive talent services deliver results. We go the extra mile to find the perfect fit for you.
             </div>
           </div>
           { isComputer ? <Services/> : <ServicesSlider/> }

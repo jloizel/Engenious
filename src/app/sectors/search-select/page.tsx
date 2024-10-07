@@ -96,7 +96,7 @@ const SearchSelect = () => {
             <span> Recruitment Service. </span>
           </div>
           <div className={styles.expertiseText}>
-            We specialize in filling hard-to-fill roles that demand a targeted and strategic headhunting approach. Our expertise ensures we identify and deliver the perfect candidate for even the most specialized and high-demand positions.
+            We specialise in filling hard-to-fill roles that demand a targeted and strategic headhunting approach. Our expertise ensures we identify and deliver the perfect candidate for even the most specialised and high-demand positions.
           </div>
           <div className={styles.hireButtonContainer}>
             <a href="/employers/submit-vacancy" style={{textDecoration: "none"}} className={styles.hireButton}>
@@ -122,7 +122,7 @@ const SearchSelect = () => {
             We excel in identifying and securing candidates for roles that require a strategic and focused headhunting approach.
           </span>
           <span>
-            With our expertise in the search and select process, we pinpoint and deliver the perfect fit for even the most specialized and high-demand positions.
+            With our expertise in the search and select process, we pinpoint and deliver the perfect fit for even the most specialised and high-demand positions.
           </span>
           <span>
             Whether you're looking for senior leadership, niche technical experts, or other hard-to-fill roles, our dedicated approach ensures you get the right talent to drive your business forward.

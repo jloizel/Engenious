@@ -120,7 +120,7 @@ const CivilEngineering = () => {
         </div>
         <div className={styles.hireRight}>
           <span>
-            Partnering with main contractors and subcontractors, we specialize in sourcing top talent for a wide range of civil engineering projects.
+            Partnering with main contractors and subcontractors, we specialise in sourcing top talent for a wide range of civil engineering projects.
           </span>
           <span>
             Whether you're working on large-scale road and rail infrastructure, marine construction, or smaller civil works, we deliver the expertise and recruitment solutions to ensure project success.

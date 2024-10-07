@@ -98,7 +98,7 @@ const Candidates = () => {
               We understand how crucial it is to find the right job for you. That’s why we take the time to carefully listen and fully grasp your career goals, working closely with you to ensure your next move is the ideal fit.
             </span>
             <span>
-              We also recognize that changing jobs can be challenging, so we provide comprehensive, personalised support to make sure you feel comfortable and confident throughout the entire process. This approach not only allows us to connect the best talent with our clients but also fosters a successful partnership for everyone involved.
+              We also recognise that changing jobs can be challenging, so we provide comprehensive, personalised support to make sure you feel comfortable and confident throughout the entire process. This approach not only allows us to connect the best talent with our clients but also fosters a successful partnership for everyone involved.
             </span>
             <span>
               For a confidential conversation with a member of our team, please don’t hesitate to contact us at 07748 179242 or 07402 904 738.

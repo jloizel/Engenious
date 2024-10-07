@@ -92,7 +92,7 @@ const About = () => {
               <span style={{color:'white'}}> us.</span>
             </div>
             <div className={styles.mainText}>
-              We provide expert recruitment services for the Construction and Civil Engineering sectors across the UK, focusing on understanding the needs of both clients and candidates to match the best talent with the right opportunities. With over a decade of experience, we ensure personalized, open, and supportive communication throughout the hiring process.
+              We provide expert recruitment services for the Construction and Civil Engineering sectors across the UK, focusing on understanding the needs of both clients and candidates to match the best talent with the right opportunities. With over a decade of experience, we ensure personalised, open, and supportive communication throughout the hiring process.
             </div>
           </div>
         </Box>
@@ -104,7 +104,7 @@ const About = () => {
               <div className={styles.textContainer1}>
                 <div className={styles.text1}>
                   <span>Our journey began with a simple yet profound belief: every individual possesses untapped potential waiting to be discovered and nurtured. Founded in the heart of innovation, our recruitment company emerged as a beacon of hope for both candidates and employers alike. From humble beginnings, we embarked on a mission to redefine the landscape of talent acquisition, guided by principles of integrity, empathy, and a relentless pursuit of excellence.</span>
-                  <span>Driven by a deep understanding of the transformative power of talent, we forged partnerships with organizations seeking not just employees, but visionary leaders, and with individuals yearning not just for jobs, but for opportunities to thrive. Our early days were characterized by perseverance in the face of adversity, as we navigated the complexities of an ever-evolving market, fueled by a passion to connect the right talent with the right opportunities.</span>
+                  <span>Driven by a deep understanding of the transformative power of talent, we forged partnerships with organisations seeking not just employees, but visionary leaders, and with individuals yearning not just for jobs, but for opportunities to thrive. Our early days were characterised by perseverance in the face of adversity, as we navigated the complexities of an ever-evolving market, fueled by a passion to connect the right talent with the right opportunities.</span>
                 </div>
               </div>
               <div className={styles.imageContainer}>
