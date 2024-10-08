@@ -129,7 +129,8 @@ const Employers = () => {
             <span style={{color: "#008489"}}>evaluation.</span>
           </div>
           <div className={styles.expertiseText}>
-            At Engenious Recruitment, we offer psychometric testing and a detailed candidate evaluation alongside our thorough screening process, helping you confidently assess a candidate’s suitability for their role. Click below to find out more.
+            At Engenious Recruitment, we can provide psychometric testing as part of our comprehensive candidate evaluation service. Combined with our rigorous interview and screening process, this allows you to gain valuable insights into a candidate's potential to succeed in the role. If you'd like to learn more, feel free to reach out. We're here to help you make confident, informed hiring decisions and find the perfect match for your team.
+
           </div>
           <a href="/employers/candidate-assessments" className={styles.cardContainer}>
             <div className={styles.card}>

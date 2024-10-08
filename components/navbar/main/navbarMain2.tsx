@@ -75,14 +75,6 @@ const NavbarMain2: React.FC<NavbarProps> = ({currentPath}) => {
     }
   }; 
 
-  const handleImageWidth = () => {
-    if (isTabletOrBelow) {
-      return 60
-    } else {
-      return 70
-   }
-  }
-
   return (
     <div className={styles.navbar}>
       <div className={styles.container}>

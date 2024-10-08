@@ -3,7 +3,7 @@
 .navbar {
   width: 100%;
   z-index: 1000;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 80px;
   justify-content: center;
   position: absolute;
@@ -17,6 +17,7 @@
   height: 100%;
   justify-content: center;
   /* width: 100%; */
+  z-index: 1000;
 
   @media (min-width: 768px) {
     justify-content: space-between;
@@ -120,6 +121,20 @@
   color: #005773;
   font-weight: 600;
   position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.arrowIcon {
+  font-size: 20px;
+  vertical-align: middle;
+  transition: transform 0.3s ease;
+}
+
+.rotateArrow {
+  transform: rotate(90deg);
 }
 
 .link::after {
@@ -135,6 +150,84 @@
 
 .link:hover::after {
   width: 100%; /* Expand the underline on hover */
+}
+
+/* CSS for link container */
+.linkContainer {
+  position: relative;
+  overflow: visible;
+}
+
+/* Dropdown container */
+.dropdown {
+  position: absolute;
+  top: 240%; /* Move the dropdown even further down */
+  left: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease-in-out;
+  overflow: visible;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: max-content;
+}
+
+/* Show dropdown on hover */
+.linkContainer:hover .dropdown,
+.dropdown:hover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Extend the invisible buffer zone to cover a larger gap */
+.linkContainer::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 120px; /* Increased buffer height to cover the large gap */
+  z-index: 1000;
+  background-color: transparent; /* Invisible buffer */
+}
+
+/* Dropdown links */
+.sublink {
+  padding: 20px 25px;
+  color: #005773;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Hover state for dropdown links */
+.sublink:hover {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.rightIcon {
+  font-size: 20px;
+}
+
+.active {
+  border-bottom: 3px solid #197089; /* Add line for active link */
+  font-weight: 700;
 }
 
 /* right side of navbar */

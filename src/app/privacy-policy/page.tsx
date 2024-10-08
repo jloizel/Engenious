@@ -2,7 +2,7 @@
 
 import React from 'react'
 import styles from "./page.module.css"
-import NavbarMain2 from '../../../components/navbar/main/navbarMain2'
+import NavbarMain1 from '../../../components/navbar/main/navbarMain1'
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
@@ -29,7 +29,7 @@ const PrivacyPolicy = () => {
         <title>Privacy Policy</title>
         <meta name='description' content='' />
       </Helmet>
-      <NavbarMain2/>
+      <NavbarMain1/>
       <div className={styles.pageHeader}>
         <div className={styles.header}>Privacy Policy</div>
         <HiMiniArrowLongDown className={styles.arrow} />

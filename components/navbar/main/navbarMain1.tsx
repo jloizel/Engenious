@@ -1,11 +1,13 @@
 "use client"
 
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './page1.module.css'
 import SearchIcon from '@mui/icons-material/Search';
 import Menu from '../../menu/menu';
 import { createTheme, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
+import { IoIosArrowDown } from "react-icons/io";
+import { MdKeyboardArrowRight } from "react-icons/md";
 
 const links = [
   {
@@ -17,6 +19,14 @@ const links = [
     id: 2,
     title: "Sectors",
     url: "/sectors",
+    sublinks: [
+      { id: 21, title: "Construction", url: "/sectors/construction" },
+      { id: 22, title: "House Building", url: "/sectors/housebuilding" },
+      { id: 23, title: "Maintenance", url: "/sectors/maintenance" },
+      { id: 24, title: "Civil Engineering", url: "/sectors/civilengineering" },
+      { id: 25, title: "Trades & Labour", url: "/sectors/trades-labour" },
+      { id: 26, title: "Search & Select", url: "/sectors/search-select" }
+    ]
   },
   {
     id: 3,
@@ -35,7 +45,12 @@ const links = [
   }
 ];
 
-const NavbarMain1 = () => {
+interface NavbarProps {
+  currentPath?: string
+} 
+
+const NavbarMain1: React.FC<NavbarProps> = ({currentPath}) => {
+  const [isSectorsOpen, setIsSectorsOpen] = useState(false);
 
   const theme = createTheme({
     breakpoints: {
@@ -84,9 +99,34 @@ const NavbarMain1 = () => {
           <div className={styles.middle}>
             <div className={styles.links}>
               {links.map(link => (
-                <a key={link.id} href={link.url} className={styles.link}>
+                <div
+                key={link.id}
+                className={styles.linkContainer}
+                onMouseEnter={() => link.sublinks ? setIsSectorsOpen(true) : null}
+                onMouseLeave={() => link.sublinks ? setIsSectorsOpen(false) : null}
+              >
+                <a key={link.id} href={link.url} className={`${styles.link} ${link.url === currentPath ? styles.active : ''}`}>
                     {link.title}
-                </a>
+                    {/* Show arrow icon only for "Sectors" */}
+                    {link.sublinks && (
+                      <MdKeyboardArrowRight className={`${styles.arrowIcon} ${isSectorsOpen ? styles.rotateArrow : ''}`} />
+                    )}
+                  </a>
+                {/* Dropdown for "Sectors" */}
+                {link.sublinks && isSectorsOpen && (
+                  <div className={styles.dropdown}>
+                    {link.sublinks && isSectorsOpen && isComputer && (
+                    <div className={styles.dropdown}>
+                      {link.sublinks.map((sublink) => (
+                        <a key={sublink.id} href={sublink.url} className={styles.sublink}>
+                          {sublink.title} <MdKeyboardArrowRight className={styles.rightIcon}/>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                  </div>
+                )}
+              </div>
               ))}
             </div>
           </div>

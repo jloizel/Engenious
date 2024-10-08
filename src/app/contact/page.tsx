@@ -8,6 +8,7 @@ import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import ContactMap from '../../../components/contactMap/contactMap'
 import ContactForm from '../../../components/contactForm/contactForm';
+import NavbarMain1 from '../../../components/navbar/main/navbarMain1';
 
 const Contact = () => {
 
@@ -31,7 +32,7 @@ const Contact = () => {
         <title>Contact</title>
         <meta name='description' content=''/>
       </Helmet>
-      <NavbarMain2 currentPath='/contact'/>
+      <NavbarMain1 currentPath='/contact'/>
       <div className={styles.pageHeader}>
         <div className={styles.header}>Get in touch</div>
         <HiMiniArrowLongDown className={styles.arrow} />
