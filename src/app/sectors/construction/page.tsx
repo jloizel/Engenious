@@ -114,7 +114,7 @@ const Construction = () => {
       <Box className={styles.hire}>
         <div className={styles.hireLeft}>
           <span>
-            Find Your Next Constrution Hire With Us
+            Find Your Next Construction Hire With Us
           </span>
           <span>
             As a construction recruitment specialist, we have the expertise and industry connections to deliver top talent.
@@ -153,7 +153,7 @@ const Construction = () => {
         <div className={styles.testimonialsContent}>
           <div className={styles.header}>
             {/* <span style={{color: "#008489"}}>Talented people </span> */}
-            <span>We are trusted for a reason</span>
+            <span>Trusted because we care</span>
           </div>
         </div>
         <Testimonials/>

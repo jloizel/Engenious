@@ -119,13 +119,10 @@ const Maintenance = () => {
         </div>
         <div className={styles.hireRight}>
           <span>
-            We are uniquely placed to act as an extension of your company, offering industry insight that will allow you to identify, hire and retain the brightest minds in the energy storage sector.
+            We are uniquely positioned to work as an extension of your team, providing industry expertise that helps you identify, hire, and retain the top talent in the maintenance sector. We understand the essential role maintenance plays and offer customised staffing solutions to meet your needs with precision and efficiency.
           </span>
           <span>
-            We understand the critical nature of maintenance work and offer tailored solutions to meet your staffing needs efficiently.
-          </span>
-          <span>
-            Whether you require temporary or permanent staff, our extensive network and industry knowledge ensure that you’ll have reliable professionals to keep your projects running smoothly and your facilities in top condition.
+            Whether you need temporary or permanent staff, our vast network and deep industry knowledge ensure you'll have dependable professionals to keep your operations running smoothly and your facilities in excellent shape.
           </span>
         </div>
       </Box>
@@ -181,7 +178,7 @@ const Maintenance = () => {
         <div className={styles.testimonialsContent}>
           <div className={styles.header}>
             {/* <span style={{color: "#008489"}}>Talented people </span> */}
-            <span>We are trusted for a reason</span>
+            <span>Trusted because we care</span>
           </div>
         </div>
         <Testimonials/>

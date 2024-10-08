@@ -95,13 +95,13 @@ const Candidates = () => {
           </div>
           <div className={styles.hireRight}>
             <span>
-              We understand how crucial it is to find the right job for you. That’s why we take the time to carefully listen and fully grasp your career goals, working closely with you to ensure your next move is the ideal fit.
+              We know finding the perfect job can feel like navigating a maze, which is why we’re here to make it easier. We take the time to truly listen and understand your career goals, ensuring your next move isn’t just another job—it’s the right fit for you.
             </span>
             <span>
-              We also recognise that changing jobs can be challenging, so we provide comprehensive, personalised support to make sure you feel comfortable and confident throughout the entire process. This approach not only allows us to connect the best talent with our clients but also fosters a successful partnership for everyone involved.
+              We get it, changing jobs can feel a bit like diving into the deep end, so we’re here with personalised support to make sure you feel confident, comfortable, and maybe even excited along the way. Our goal? To connect top talent with our clients and create long term partnerships that benefit everyone.
             </span>
             <span>
-              For a confidential conversation with a member of our team, please don’t hesitate to contact us at 07748 179242 or 07402 904 738.
+              Ready to chat? Give us a ring for a confidential conversation at 07748 179242 or 07402 904 738. Let’s make your next move a great one!
             </span>
             <div className={styles.buttonContainer}>
               <a href="/candidates/cv-upload" style={{textDecoration: "none"}} className={styles.headerButton}>
@@ -132,7 +132,7 @@ const Candidates = () => {
           <div className={styles.testimonialsContent}>
             <div className={styles.header2}>
               {/* <span style={{color: "#008489"}}>Talented people </span> */}
-              <span>We are trusted for a reason</span>
+              <span>Trusted because we care</span>
             </div>
           </div>
           <Testimonials/>

@@ -151,7 +151,7 @@ const CivilEngineering = () => {
         <div className={styles.testimonialsContent}>
           <div className={styles.header}>
             {/* <span style={{color: "#008489"}}>Talented people </span> */}
-            <span>We are trusted for a reason</span>
+            <span>Trusted because we care</span>
           </div>
         </div>
         <Testimonials/>
