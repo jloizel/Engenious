@@ -2,33 +2,33 @@
   {
     "id": 1,
     "name": "services1",
-    "title": "Construction Experts",
-    "text": "We specialise solely in construction and civil engineering recruitment with unmatched expertise.",
-    "content": "From providing insightful advice and expert guidance on your next career move, to matching you with the right role and organisation where you can realise your ambitions.  ",
+    "title": "Construction Specialists",
+    "text": "We offer expert guidance to help advance your career by matching you with roles and companies where you can reach your full potential.",
+    "content": "We provide expert guidance to help you take the next step in your career, matching you with roles and companies where you can achieve your full potential.",
     "link": "/employers/our-services"
   },
   {
     "id": 2,
     "name": "services2",
-    "title": "We Care",
-    "text": "We’re an independent company committed to delivering exceptional service and top-quality results.",
-    "content": "We’re an independent company, led by our Managing Director, Philippa Dickinson, who’s dedicated to providing outstanding service and consistently delivering high-quality results in everything we do.",
+    "title": "Our Commitment",
+    "text": "As an independent firm led by Philippa Dickinson, we are committed to exceptional service and high-quality results.",
+    "content": "As an independent firm, led by Managing Director Philippa Dickinson, we’re passionate about delivering exceptional service and consistently producing high-quality results across all we do.",
     "link": "/employers/our-services"
   },
   {
     "id": 3,
     "name": "services3",
-    "title": "We Are Efficient",
-    "text": "We fill our roles faster than the industry average",
-    "content": "We thoroughly understand our clients' requirements and strive to function as an extension of your business by attentively listening and addressing the specific nuances of each individual role. As such, we fill our roles faster than the industry average.",
+    "title": "Efficient and Effective",
+    "text": "We fill our roles faster than the industry average.",
+    "content": "By truly understanding the specific needs of our clients, we act as an extension of your business, carefully tailoring our approach to meet the unique demands of each role. This enables us to fill vacancies more quickly than the industry average.",
     "link": "/employers/our-services"
   },
   {
     "id": 4,
     "name": "services4",
-    "title": "We Interview",
-    "text": "Our expert consultants conduct in-depth interviews, ensuring we present only the best fit for every role.",
-    "content": "Our expert construction consultants conduct in-depth interviews with each candidate to thoroughly understand their motivations and career aspirations. This approach ensures that we present only the most suitable candidates for every role.",
+    "title": "Thorough Interview Process",
+    "text": "Our construction consultants thoroughly interview candidates to ensure we recommend the best fit for each position.",
+    "content": "Our expert construction consultants conduct detailed interviews with every candidate, gaining a deep understanding of their goals and aspirations. This ensures we only recommend candidates who are the best fit for each position.",
     "link": "/employers/our-services"
   }
 ]
