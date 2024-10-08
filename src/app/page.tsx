@@ -54,7 +54,7 @@ export default function Home() {
         </div>
         <div className={styles.bannerContent}>
           <div className={styles.title}>
-            Building Careers and Shaping Futures
+            Building Careers and Shaping Companies
           </div>
           <div className={styles.buttonContainer}>
             <a href="/candidates" className={styles.bannerButton}>I am a jobseeker</a>
