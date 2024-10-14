@@ -7,19 +7,6 @@ import Jobs from "./jobs/page";
 import CVUpload from "./jobs/cv-upload/page";
 import ReactGA from "react-ga4"
 
-const googleAnalyticsId = process.env.REACT_APP_GOOGLE_ANALYTICS_ID || "";
-ReactGA.initialize("G-LBE91BRV9Z")
-
-if (googleAnalyticsId) {
-  // Initialize Google Analytics with your tracking ID
-  ReactGA.initialize(googleAnalyticsId);
-
-  // Send a pageview event
-  ReactGA.send({
-    hitType: "pageview",
-    page: window.location.pathname,
-  });
-}
 
 require('dotenv').config();
 
