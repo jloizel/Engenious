@@ -53,7 +53,7 @@ const Contact = () => {
               </div>
               <div>
                 <span style={{fontWeight: "500"}}>Drop us an email: </span>
-                <span style={{fontWeight: "500", color: "#008489"}}>email@engeniousrecruitment.com</span>
+                <span style={{fontWeight: "500", color: "#008489"}}>philippa@engenious.co</span>
               </div>
             </div>
           </div>
@@ -74,7 +74,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <span style={{fontWeight: "500"}}>Drop us an email:</span>
-                  <a href="mailto:email@engeniousrecruitment.com" target="_blank" style={{fontWeight: "500", color: "#008489", textDecoration: 'none'}}> email@engeniousrecruitment.com</a>
+                  <a href="mailto:email@engeniousrecruitment.com" target="_blank" style={{fontWeight: "500", color: "#008489", textDecoration: 'none'}}> philippa@engenious.co</a>
                 </div> 
               </div>
             </div>

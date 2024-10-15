@@ -4,6 +4,7 @@
   margin: 0 auto;
   padding: 20px;
   position: relative;
+  box-sizing: border-box;
 }
 
 /* Individual card container */

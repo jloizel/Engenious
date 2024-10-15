@@ -79,9 +79,10 @@ const Footer: React.FC = ({}) => {
             </div>
           </div>
           <div className={styles.pagesContainer} >
-            <a href="/employers" style={{textDecoration: "none"}} className={styles.page}>Employers</a>
-            <a href="/jobs" style={{textDecoration: "none"}} className={styles.page}>Jobs</a>
             <a href="/about" style={{textDecoration: "none"}} className={styles.page}>About</a>
+            <a href="/sectors" style={{textDecoration: "none"}} className={styles.page}>Sectors</a>
+            <a href="/employers" style={{textDecoration: "none"}} className={styles.page}>Employers</a>
+            <a href="/candidates" style={{textDecoration: "none"}} className={styles.page}>Candidates</a>
             <a href="/contact" style={{textDecoration: "none"}} className={styles.page}>Contact</a>
             <a href="/privacy-policy" style={{textDecoration: "none"}} className={styles.privacy}>Privacy Policy</a>
             <div className={styles.copyright} >© Engenious Recruitment</div>

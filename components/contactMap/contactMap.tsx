@@ -28,7 +28,7 @@ const ContactMap: React.FC = ({}) => {
             </div>
             <div className={styles.details}>
               <EmailIcon className={styles.icon}/>
-              <span className={styles.detail}>email@engeniousrecruitment.com</span>
+              <span className={styles.detail}>philippa@engenious.co</span>
             </div>
           </div>
         </div>
