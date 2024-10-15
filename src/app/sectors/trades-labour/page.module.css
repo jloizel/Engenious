@@ -196,14 +196,19 @@
 .hireLeft span:first-child {
   color: #002D49;
   font-weight: 700;
-  font-size: 45px;
-  line-height: 50px;
+  font-size: 28px;
+  line-height: 32px;
+
+  @media (min-width: 768px) {
+    font-size: 45px;
+    line-height: 50px;
+  }
 }
 
 .hireLeft span:last-child, .hireRight {
   color: #002D49;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 25px;
 }
 
