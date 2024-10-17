@@ -82,11 +82,11 @@ export const sendCV = async (formData: FormData): Promise<{ message: string }> =
   try {
     const response: AxiosResponse<{ message: string }> = await api.post('/api/sendCV', formData, {
       headers: {
-        'Content-Type': 'multipart/form-data', // Set correct header for file uploads
+        'Content-Type': 'multipart/form-data', 
       },
     });
     return response.data;
   } catch (error) {
-    throw error; // Handle errors as necessary
+    throw error; 
   }
 };

@@ -80,7 +80,7 @@ const SubmitCVForm2: FC = () => {
     }
 
     // Validate email
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
     if (!emailPattern.test(data.email)) {
       setError('email', { type: 'manual', message: 'Email must be in proper format.' });
       hasError = true;
@@ -118,10 +118,9 @@ const SubmitCVForm2: FC = () => {
 
     if (data.file) {
       formDataWithFile.append('file', data.file);
-      console.log('File appended to FormData:', data.file); // Debugging line
+      console.log('File appended to FormData:', data.file); 
     }
 
-    // Add additional job details if necessary
     if (jobDetails) {
       formDataWithFile.append('jobPosition', jobDetails.position);
       formDataWithFile.append('salary', jobDetails.salary);
@@ -129,15 +128,13 @@ const SubmitCVForm2: FC = () => {
       formDataWithFile.append('contractType', jobDetails.contractType);
     }
 
-    // Send the FormData
     try {
       await sendCV(formDataWithFile);
       setMessageSent(true);
-      reset(); // Reset form after successful submission
-      setFilename(''); // Clear filename on successful submission
+      reset(); 
+      setFilename(''); 
     } catch (error) {
       console.error('Error sending CV:', error);
-      // Handle error accordingly
     }
   };
 
@@ -146,11 +143,11 @@ const SubmitCVForm2: FC = () => {
 
     if (files && files[0]) {
       const file = files[0];
-      setValue('file', file); // Set the file directly
-      setFilename(file.name); // Set filename state
-      console.log('File selected:', file.name); // Debugging line
+      setValue('file', file); 
+      setFilename(file.name); 
+      console.log('File selected:', file.name); 
     } else {
-      setFilename(''); // Clear filename if no file selected
+      setFilename(''); 
     }
   };
 
