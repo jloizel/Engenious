@@ -1,4 +1,4 @@
-'use client';
+'use server';
 
 import React, { FC, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
