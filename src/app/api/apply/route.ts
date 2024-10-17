@@ -12,7 +12,7 @@ export async function POST(request: NextRequest) {
     service: 'gmail',
     auth: {
       user: process.env.MY_EMAIL,
-      pass: process.env.MY_PASSWORD,
+      pass: process.env.NEXT_PUBLIC_MY_PASSWORD,
     },
   });
 

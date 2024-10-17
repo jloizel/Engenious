@@ -1,4 +1,4 @@
-"use server"
+"use client"
 
 import { type NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
@@ -23,7 +23,7 @@ export async function POST(request: NextRequest) {
   */
     auth: {
       user: process.env.MY_EMAIL,
-      pass: process.env.MY_PASSWORD,
+      pass: process.env.NEXT_PUBLIC_MY_PASSWORD,
     },
   });
 
