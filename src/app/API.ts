@@ -1,5 +1,4 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
-import { FormData } from '../../components/submitCVForm/submitCVForm';
 
 const BASE_URL = 'https://engenious-server.vercel.app/'; // Update with your backend server URL
 
