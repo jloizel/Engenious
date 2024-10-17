@@ -11,18 +11,22 @@ import data from "../jobsComponents/jobs.json";
 import { Job, getJobById, sendCV } from '@/app/API';
 
 // Define the schema using zod
-const formSchema = z.object({
-  name: z.string().min(2, { message: "This field cannot be left blank." }),
-  email: z.string().email({ message: "Email must be in proper format." }),
-  message: z.string().min(2, { message: "This field cannot be left blank." }),
-  file: z.object({
-    name: z.string(),
-    content: z.string(),
-  }).optional()
-});
+// const formSchema = z.object({
+//   name: z.string().min(2, { message: "This field cannot be left blank." }),
+//   email: z.string().email({ message: "Email must be in proper format." }),
+//   message: z.string().min(2, { message: "This field cannot be left blank." }),
+//   file: z.instanceof(File).optional(), 
+// });
 
-export type FormData = z.infer<typeof formSchema>;
+// export type FormData = z.infer<typeof formSchema>;
 
+
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+  file?: File; // Optional file field
+}
 
 const SubmitCVForm2: FC = () => {
   const form = useRef<any>(null);
@@ -33,23 +37,15 @@ const SubmitCVForm2: FC = () => {
     formState: { errors },
     setValue,
     reset,
-  } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-  });
+  } = useForm<FormData>();
 
-  const [content, setContent] = useState<string | null>(null);
-  const [filename, setFilename] = useState<string>('');
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
   const [checkboxError, setCheckboxError] = useState<string>('');
   const [messageSent, setMessageSent] = useState<boolean>(false);
   const [jobDetails, setJobDetails] = useState<Job | null>(null);
+  const [filename, setFilename] = useState<string>('');
 
   const { id } = useJobContext();
-
-  // useEffect(() => {
-  //   const job = data.find((job) => job.id === id);
-  //   setJobDetails(job);
-  // }, [id]);
 
   useEffect(() => {
     const fetchJobDetails = async () => {
@@ -58,16 +54,16 @@ const SubmitCVForm2: FC = () => {
           throw new Error('No job ID provided');
         }
 
-        const jobData = await getJobById(id); // Ensure id is string
+        const jobData = await getJobById(id);
         
         if (jobData) {
           setJobDetails(jobData);
         } else {
-          setJobDetails(null); // Handle case where jobData is null
+          setJobDetails(null);
         }
       } catch (error) {
         console.error('Error fetching job details:', error);
-        setJobDetails(null); // Handle error state accordingly
+        setJobDetails(null);
       }
     };
 
@@ -76,7 +72,32 @@ const SubmitCVForm2: FC = () => {
 
   const onSubmit = async (data: FormData) => {
     let hasError = false;
-  
+
+    // Validate name
+    if (data.name.length < 2) {
+      setError('name', { type: 'manual', message: 'This field cannot be left blank.' });
+      hasError = true;
+    }
+
+    // Validate email
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
+    if (!emailPattern.test(data.email)) {
+      setError('email', { type: 'manual', message: 'Email must be in proper format.' });
+      hasError = true;
+    }
+
+    // Validate message
+    if (data.message.length < 2) {
+      setError('message', { type: 'manual', message: 'This field cannot be left blank.' });
+      hasError = true;
+    }
+
+    // Validate file if needed
+    if (!data.file) {
+      setError('file', { type: 'manual', message: 'Please upload a file.' });
+      hasError = true;
+    }
+
     // Validate checkbox
     if (!checkboxChecked) {
       setCheckboxError('You must accept the privacy policy');
@@ -84,38 +105,36 @@ const SubmitCVForm2: FC = () => {
     } else {
       setCheckboxError('');
     }
-  
+
     if (hasError) {
       return;
     }
-  
-    // Prepare form data with file content
-    const base64Content = content?.split(',')[1];
-    
-    // Create an instance of FormData
-    const formData = new FormData();
-    
-    // Append all fields to the FormData instance
-    formData.append('name', data.name);
-    formData.append('email', data.email);
-    formData.append('message', data.message);
-    
-    // Append the file if it exists
-    if (filename && base64Content) {
-      formData.append('file', new Blob([base64Content], { type: 'application/octet-stream' }), filename);
+
+    // Create a new FormData instance
+    const formDataWithFile = new FormData();
+    formDataWithFile.append('name', data.name);
+    formDataWithFile.append('email', data.email);
+    formDataWithFile.append('message', data.message);
+
+    if (data.file) {
+      formDataWithFile.append('file', data.file);
+      console.log('File appended to FormData:', data.file); // Debugging line
     }
-  
-    // Append additional job-related fields
-    formData.append('jobPosition', jobDetails?.position || '');
-    formData.append('salary', jobDetails?.salary || '');
-    formData.append('location', jobDetails?.location || '');
-    formData.append('contractType', jobDetails?.contractType || '');
-  
-    // Send form data
+
+    // Add additional job details if necessary
+    if (jobDetails) {
+      formDataWithFile.append('jobPosition', jobDetails.position);
+      formDataWithFile.append('salary', jobDetails.salary);
+      formDataWithFile.append('location', jobDetails.location);
+      formDataWithFile.append('contractType', jobDetails.contractType);
+    }
+
+    // Send the FormData
     try {
-      await sendCV(formData); // Use the sendCV function imported from API
+      await sendCV(formDataWithFile);
       setMessageSent(true);
       reset(); // Reset form after successful submission
+      setFilename(''); // Clear filename on successful submission
     } catch (error) {
       console.error('Error sending CV:', error);
       // Handle error accordingly
@@ -123,22 +142,15 @@ const SubmitCVForm2: FC = () => {
   };
 
   const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const reader = new FileReader();
     const files = e.target.files;
 
     if (files && files[0]) {
-      reader.onload = (r) => {
-        if (r.target && r.target.result) {
-          setContent(r.target.result.toString());
-          setFilename(files[0].name);
-          setValue('file', {
-            name: files[0].name,
-            content: r.target.result.toString(),
-          });
-        }
-      };
-
-      reader.readAsDataURL(files[0]);
+      const file = files[0];
+      setValue('file', file); // Set the file directly
+      setFilename(file.name); // Set filename state
+      console.log('File selected:', file.name); // Debugging line
+    } else {
+      setFilename(''); // Clear filename if no file selected
     }
   };
 
