@@ -5,6 +5,7 @@ import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 import { render } from "@react-email/render";
 import { EmailTemplate } from '../../../../components/submitCVForm/emailTemplate';
+require('dotenv').config()
 
 
 export async function POST(request: NextRequest) {
