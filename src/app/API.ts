@@ -76,3 +76,17 @@ export const deleteJob = async (jobId: string): Promise<{ message: string }> => 
     throw error;
   }
 };
+
+export const sendCV = async (formData: FormData): Promise<{ message: string }> => {
+  try {
+    // Use FormData for file uploads
+    const response: AxiosResponse<{ message: string }> = await api.post('/api/sendCV', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data', // Important for file uploads
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error; // Throw the error message from the server
+  }
+};

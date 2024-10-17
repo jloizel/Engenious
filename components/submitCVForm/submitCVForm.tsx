@@ -4,11 +4,11 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { sendCV } from '../../src/app/utils/sendCV';
+// import { sendCV } from '../../src/app/utils/sendCV';
 import styles from './page.module.css';
 import { JobProvider, useJobContext } from '../jobContext/jobContext';
 import data from "../jobsComponents/jobs.json";
-import { Job, getJobById } from '@/app/API';
+import { Job, getJobById, sendCV } from '@/app/API';
 
 // Define the schema using zod
 const formSchema = z.object({
@@ -85,33 +85,35 @@ const SubmitCVForm2: FC = () => {
       setCheckboxError('');
     }
   
-    // Validate file
-    // if (!content || !filename) {
-    //   setError('file', { type: 'manual', message: 'File is required.' });
-    //   hasError = true;
-    // }
-  
     if (hasError) {
       return;
     }
   
     // Prepare form data with file content
     const base64Content = content?.split(',')[1];
-    const formDataWithFile = {
-      ...data,
-      file: {
-        name: filename,
-        content: base64Content || '', // Ensure content is not undefined
-      },
-      jobPosition: jobDetails?.position || '', // Example: Fetch job position from jobDetails
-      salary: jobDetails?.salary || '', // Example: Fetch salary from jobDetails
-      location: jobDetails?.location || '', // Example: Fetch location from jobDetails
-      contractType: jobDetails?.contractType || '', // Example: Fetch contract type from jobDetails
-    };
+    
+    // Create an instance of FormData
+    const formData = new FormData();
+    
+    // Append all fields to the FormData instance
+    formData.append('name', data.name);
+    formData.append('email', data.email);
+    formData.append('message', data.message);
+    
+    // Append the file if it exists
+    if (filename && base64Content) {
+      formData.append('file', new Blob([base64Content], { type: 'application/octet-stream' }), filename);
+    }
+  
+    // Append additional job-related fields
+    formData.append('jobPosition', jobDetails?.position || '');
+    formData.append('salary', jobDetails?.salary || '');
+    formData.append('location', jobDetails?.location || '');
+    formData.append('contractType', jobDetails?.contractType || '');
   
     // Send form data
     try {
-      await sendCV(formDataWithFile);
+      await sendCV(formData); // Use the sendCV function imported from API
       setMessageSent(true);
       reset(); // Reset form after successful submission
     } catch (error) {
