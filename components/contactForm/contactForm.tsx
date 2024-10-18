@@ -77,7 +77,7 @@ export default function ContactForm() {
         <div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              Name
+              Name *
             </div>
             <div className={styles.inputBox}>
               <input
@@ -91,7 +91,7 @@ export default function ContactForm() {
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              Email
+              Email *
             </div>
             <div className={styles.inputBox}>
               <input
@@ -105,7 +105,7 @@ export default function ContactForm() {
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              Message
+              Message *
             </div>
             <div className={styles.messageBox}>
               <textarea

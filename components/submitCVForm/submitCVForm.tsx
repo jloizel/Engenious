@@ -186,7 +186,7 @@ const SubmitCVForm: FC = () => {
           </div>
           </div>
           <div className={styles.inputContainer}>
-            <div className={styles.inputTitle}>Message</div>
+            <div className={styles.inputTitle}>Message *</div>
             <div className={styles.messageBox}>
               <textarea
                 className={styles.message}
@@ -197,7 +197,7 @@ const SubmitCVForm: FC = () => {
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
-              <span>CV Upload</span>
+              <span>CV Upload  *</span>
             </div>
             <div className={styles.fileinputBox}>
               <label htmlFor="fileInput" className={styles.fileinputLabel}>

@@ -158,27 +158,25 @@ const SubmitVacancyForm: FC = () => {
   };
 
   const handleNext = async () => {
-    // Trigger validation for the current step fields
-    let isValid = false;
-  
     if (currentStep === 1) {
-      // Trigger validation for step 1 fields only
-      isValid = await trigger(['company', 'job', 'file', 'message']); // Include all relevant fields
+      // Trigger validation for 'company' and 'job' fields
+      const isValidStep1 = await trigger(['company', 'job']); 
   
-      if (isValid) {
-        clearErrors(); // Clear any existing errors
-        setCurrentStep(2); // Move to the next step
+      if (isValidStep1) {
+        // If both fields are valid, proceed to step 2
+        setCurrentStep(2); // Allow navigation to step 2
+      } else {
+        // If validation fails, keep the user on step 1
+        console.log("Step 1 validation failed. Fix errors before proceeding.");
       }
     } else if (currentStep === 2) {
-      // Trigger validation for step 2 fields only
-      isValid = await trigger(['name', 'email', 'phoneNumber']); // Include all relevant fields
-  
-      if (isValid) {
-        clearErrors(); // Clear any existing errors
-        handleSubmit(onSubmit)(); // Call the onSubmit function directly to submit
+      const isValidStep2 = await trigger(['name', 'email', 'phoneNumber']);
+      if (isValidStep2) {
+        handleSubmit(onSubmit)(); // If Step 2 is valid, submit the form
       }
     }
   };
+  
   
 
   const handleBack = () => {
@@ -244,6 +242,8 @@ const SubmitVacancyForm: FC = () => {
     setCheckboxError('');
   };
 
+  const isStep1Invalid = !!errors.company || !!errors.job;
+
   return (
     <div className={styles.formContainer}>
       {!messageSent && (
@@ -279,7 +279,7 @@ const SubmitVacancyForm: FC = () => {
                 <div className={stepStyles.label}>Company Name *</div>
                 <input
                   type="text"
-                  {...register('company')}
+                  {...register('company', { required: 'This field cannot be left blank.' })}
                   value={formData.company}
                   onChange={handleChange}
                   className={getInputClassName('company')}
@@ -292,7 +292,7 @@ const SubmitVacancyForm: FC = () => {
                 <div className={stepStyles.label}>Job Title *</div>
                 <input
                   type="text"
-                  {...register('job')}
+                  {...register('job', { required: 'This field cannot be left blank.' })}
                   value={formData.job}
                   onChange={handleChange}
                   className={getInputClassName('job')}
@@ -341,7 +341,7 @@ const SubmitVacancyForm: FC = () => {
               <div className={stepStyles.label}>Full Name *</div>
               <input
                 type="text"
-                {...register('name')}
+                {...register('name', { required: 'This field cannot be left blank.' })}
                 value={formData.name}
                 onChange={handleChange}
                 className={getInputClassName('name')}
@@ -355,7 +355,7 @@ const SubmitVacancyForm: FC = () => {
               <div className={stepStyles.label}>Work Email Address *</div>
               <input
                 type="text"
-                {...register('email')}
+                {...register('email', { required: 'Email must be in correct format.' })}
                 value={formData.email}
                 onChange={handleChange}
                 className={getInputClassName('email')}
@@ -369,7 +369,7 @@ const SubmitVacancyForm: FC = () => {
               <div className={stepStyles.label}>Phone Number *</div>
               <input
                 type="text"
-                {...register('phoneNumber')}
+                {...register('phoneNumber', { required: 'Phone number must be in correct format.' })}
                 value={formData.phoneNumber}
                 onChange={handleChange}
                 className={getInputClassName('phoneNumber')}
@@ -399,7 +399,7 @@ const SubmitVacancyForm: FC = () => {
         <div className={styles.navigation}>
           {currentStep < 2 && (
             <div className={styles.buttonContainer1}>
-              <button type="button" onClick={handleNext} className={styles.button} >
+              <button type="button" onClick={handleNext} className={styles.button}>
                 Next
               </button>
             </div>
