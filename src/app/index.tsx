@@ -3,8 +3,8 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import Home from "./page";
 import { JobProvider } from "../../components/jobContext/jobContext";
-import Jobs from "./jobs/page";
-import CVUpload from "./jobs/cv-upload/page";
+import Jobs from "./jobs(currently disabled)/page";
+import CVUpload from "./jobs(currently disabled)/cv-upload/page";
 import ReactGA from "react-ga4"
 
 
