@@ -133,7 +133,7 @@ const NavbarMain1: React.FC<NavbarProps> = ({currentPath}) => {
         )}
         {isComputer && (
           <div className={styles.right}>
-            <a className={styles.button}>
+            <a className={styles.button} href="/employers/submit-vacancy">
               Submit a Vacancy
             </a>
           </div>
