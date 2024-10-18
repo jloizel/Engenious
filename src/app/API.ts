@@ -89,3 +89,16 @@ export const sendCV = async (formData: FormData): Promise<{ message: string }> =
     throw error; 
   }
 };
+
+export const submitVacancy = async (formData: FormData): Promise<{ message: string }> => {
+  try {
+    const response: AxiosResponse<{ message: string }> = await api.post('/api/submitVacancy', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data', 
+      },
+    });
+    return response.data;
+  } catch (error) {
+    throw error; 
+  }
+};

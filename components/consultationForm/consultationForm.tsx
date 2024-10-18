@@ -2,39 +2,49 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { FC, useRef, useState } from 'react';
-import { useForm } from "react-hook-form";
+import { FieldError, useForm } from "react-hook-form";
 import * as z from "zod";
-import { sendVacancy } from '../../src/app/utils/sendVacancy';
 import styles from './page.module.css'
 import stepStyles from './step.module.css'
 import { createTheme, useMediaQuery } from "@mui/material";
+import { submitVacancy } from "@/app/API";
 
-const formSchema = z.object({
-  company: z.string().min(1, {
-    message: "This field cannot be left blank.",
-  }),
-  job: z.string().min(1, {
-    message: "This field cannot be left blank.",
-  }),
-  message: z.string(),
-  name: z.string().min(1, {
-    message: "This field cannot be left blank.",
-  }),
-  email: z.string().email({
-    message: "Email must be in proper format.",
-  }),
-  phoneNumber: z.string().min(9, {
-    message: "Phone number must be in proper format.",
-  }).regex(/^\+?[0-9]{1,4}?[-.\s]?[0-9]{1,3}?[-.\s]?[0-9]{3,5}?[-.\s]?[0-9]{4,6}?$/, {
-    message: "Phone number must be in proper format.",
-  }),
-  file: z.object({
-    name: z.string().optional(),
-    content: z.string().optional(),
-  }).optional()
-});
+// const formSchema = z.object({
+//   company: z.string().min(1, {
+//     message: "This field cannot be left blank.",
+//   }),
+//   job: z.string().min(1, {
+//     message: "This field cannot be left blank.",
+//   }),
+//   message: z.string(),
+//   name: z.string().min(1, {
+//     message: "This field cannot be left blank.",
+//   }),
+//   email: z.string().email({
+//     message: "Email must be in proper format.",
+//   }),
+//   phoneNumber: z.string().min(9, {
+//     message: "Phone number must be in proper format.",
+//   }).regex(/^\+?[0-9]{1,4}?[-.\s]?[0-9]{1,3}?[-.\s]?[0-9]{3,5}?[-.\s]?[0-9]{4,6}?$/, {
+//     message: "Phone number must be in proper format.",
+//   }),
+//   file: z.object({
+//     name: z.string().optional(),
+//     content: z.string().optional(),
+//   }).optional()
+// });
 
-export type FormData = z.infer<typeof formSchema>;
+// export type FormData = z.infer<typeof formSchema>;
+
+interface FormData {
+  company: string;
+  job: string;
+  message: string;
+  name: string;
+  email: string;
+  phoneNumber: string;
+  file?: File; 
+}
 
 const ConsultationForm: FC = () => {
   const form = useRef<any>(null);
@@ -47,12 +57,15 @@ const ConsultationForm: FC = () => {
     reset,
     trigger,
     clearErrors
-  } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
-  });
+  } = useForm();
 
   const [currentStep, setCurrentStep] = useState(1);
-  const [formData, setFormData] = useState<FormData>({
+  const [content, setContent] = useState<string | null>(null);
+  const [filename, setFilename] = useState<string>('');
+  const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
+  const [checkboxError, setCheckboxError] = useState<string>('');
+  const [messageSent, setMessageSent] = useState<boolean>(false);
+  const [formData, setFormData] = useState({
     company: '',
     job: '',
     message: '',
@@ -62,15 +75,35 @@ const ConsultationForm: FC = () => {
     file: { name: '', content: '' }
   });
 
-  const [content, setContent] = useState<string | null>(null);
-  const [filename, setFilename] = useState<string>('');
-  const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
-  const [checkboxError, setCheckboxError] = useState<string>('');
-  const [messageSent, setMessageSent] = useState<boolean>(false);
-
-  const onSubmit = (data: FormData) => {
+  const validateFields = () => {
     let hasError = false;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const phoneRegex = /^\+?[0-9]{1,4}?[-.\s]?[0-9]{1,3}?[-.\s]?[0-9]{3,5}?[-.\s]?[0-9]{4,6}?$/;
 
+    // Reset errors
+    clearErrors();
+
+    // Validate each field manually
+    if (!formData.company) {
+      setError('company', { message: "This field cannot be left blank." });
+      hasError = true;
+    }
+    if (!formData.job) {
+      setError('job', { message: "This field cannot be left blank." });
+      hasError = true;
+    }
+    if (!formData.name) {
+      setError('name', { message: "This field cannot be left blank." });
+      hasError = true;
+    }
+    if (!emailRegex.test(formData.email)) {
+      setError('email', { message: "Email must be in proper format." });
+      hasError = true;
+    }
+    if (!formData.phoneNumber || !phoneRegex.test(formData.phoneNumber)) {
+      setError('phoneNumber', { message: "Phone number must be in proper format." });
+      hasError = true;
+    }
     if (!checkboxChecked) {
       setCheckboxError('You must accept the privacy policy');
       hasError = true;
@@ -78,64 +111,81 @@ const ConsultationForm: FC = () => {
       setCheckboxError('');
     }
 
-    if (hasError) {
+    return hasError;
+  };
+
+  const onSubmit = async (data: FormData) => {
+    if (validateFields()) {
       return;
     }
 
-    const base64Content = content ? content.split(',')[1] : '';
-    const formDataWithFile = {
-      ...data,
-      file: {
-        name: filename,
-        content: base64Content,
-      },
-    };
+    // Create a new FormData instance
+    const formDataWithFile = new FormData();
+    formDataWithFile.append('company', data.company);
+    formDataWithFile.append('job', data.job);
+    formDataWithFile.append('name', data.name);
+    formDataWithFile.append('email', data.email);
+    formDataWithFile.append('phoneNumber', data.phoneNumber);
+    formDataWithFile.append('message', data.message);
 
-    sendVacancy(formDataWithFile);
-    setMessageSent(true);
-    reset();
+
+    if (data.file) {
+      formDataWithFile.append('file', data.file);
+      console.log('File appended to FormData:', data.file); 
+    }
+
+    try {
+      await submitVacancy(formDataWithFile);
+      setMessageSent(true);
+      reset(); 
+      setFilename(''); 
+    } catch (error) {
+      console.error('Error sending CV:', error);
+    }
   };
 
   const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const reader = new FileReader();
     const files = e.target.files;
 
     if (files && files[0]) {
-      reader.onload = (r) => {
-        if (r.target && r.target.result) {
-          setContent(r.target.result.toString());
-          setFilename(files[0].name);
-          setValue('file', {
-            name: files[0].name,
-            content: r.target.result.toString(),
-          });
-        }
-      };
-
-      reader.readAsDataURL(files[0]);
+      const file = files[0];
+      setValue('file', file); 
+      setFilename(file.name); 
+      console.log('File selected:', file.name); 
+    } else {
+      setFilename(''); 
     }
   };
 
   const handleNext = async () => {
+    // Trigger validation for the current step fields
+    let isValid = false;
+  
     if (currentStep === 1) {
       // Trigger validation for step 1 fields only
-      const isStep1Valid = await trigger(['company', 'job']);
-      if (isStep1Valid) {
-        clearErrors(); // Clear all errors before moving to the next step
-        setCurrentStep(2);
+      isValid = await trigger(['company', 'job', 'file', 'message']); // Include all relevant fields
+  
+      if (isValid) {
+        clearErrors(); // Clear any existing errors
+        setCurrentStep(2); // Move to the next step
       }
     } else if (currentStep === 2) {
       // Trigger validation for step 2 fields only
-      const isStep2Valid = await trigger();
-      
+      isValid = await trigger(['name', 'email', 'phoneNumber']); // Include all relevant fields
+  
+      if (isValid) {
+        clearErrors(); // Clear any existing errors
+        handleSubmit(onSubmit)(); // Call the onSubmit function directly to submit
+      }
     }
   };
+  
 
   const handleBack = () => {
     setCurrentStep(prev => prev - 1);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
@@ -234,7 +284,9 @@ const ConsultationForm: FC = () => {
                   onChange={handleChange}
                   className={getInputClassName('company')}
                 />
-                {errors.company && <p className={stepStyles.errorMessage}>{errors.company.message}</p>}
+                {errors.company && (
+                  <p className={stepStyles.errorMessage}>{(errors.company as FieldError).message}</p>
+                )}
               </div>
               <div className={stepStyles.inputContainer}>
                 <div className={stepStyles.label}>Job Title *</div>
@@ -245,7 +297,9 @@ const ConsultationForm: FC = () => {
                   onChange={handleChange}
                   className={getInputClassName('job')}
                 />
-                {errors.job && <p className={stepStyles.errorMessage}>{errors.job.message}</p>}
+                {errors.job && (
+                  <p className={stepStyles.errorMessage}>{(errors.job as FieldError).message}</p>
+                )}
               </div>
               <div className={stepStyles.inputContainer}>
                 <div className={stepStyles.label}>Upload Job Description</div>
@@ -293,7 +347,9 @@ const ConsultationForm: FC = () => {
                 className={getInputClassName('name')}
                 autoComplete="new-password"
               />
-              {errors.name && <p className={stepStyles.errorMessage}>{errors.name.message}</p>}
+              {errors.name && (
+                <p className={stepStyles.errorMessage}>{(errors.name as FieldError).message}</p>
+              )}
             </div>
             <div className={stepStyles.inputContainer}>
               <div className={stepStyles.label}>Work Email Address *</div>
@@ -305,7 +361,9 @@ const ConsultationForm: FC = () => {
                 className={getInputClassName('email')}
                 autoComplete="new-password"
               />
-              {errors.email && <p className={stepStyles.errorMessage}>{errors.email.message}</p>}
+              {errors.email && (
+                <p className={stepStyles.errorMessage}>{(errors.email as FieldError).message}</p>
+              )}
             </div>
             <div className={stepStyles.inputContainer}>
               <div className={stepStyles.label}>Phone Number *</div>
@@ -317,7 +375,9 @@ const ConsultationForm: FC = () => {
                 className={getInputClassName('phoneNumber')}
                 autoComplete="new-password"
               />
-              {errors.phoneNumber && <p className={stepStyles.errorMessage}>{errors.phoneNumber.message}</p>}
+              {errors.phoneNumber && (
+                <p className={stepStyles.errorMessage}>{(errors.phoneNumber as FieldError).message}</p>
+              )}
             </div>
             <div className={stepStyles.checkboxContainer}>
               <input

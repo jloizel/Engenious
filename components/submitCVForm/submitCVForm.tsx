@@ -25,7 +25,7 @@ interface FormData {
   name: string;
   email: string;
   message: string;
-  file?: File; // Optional file field
+  file?: File; 
 }
 
 const SubmitCVForm2: FC = () => {
