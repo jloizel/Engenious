@@ -37,6 +37,8 @@ const SubmitCVForm: FC = () => {
     formState: { errors },
     setValue,
     reset,
+    trigger,
+    clearErrors
   } = useForm<FormData>();
 
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
@@ -92,7 +94,6 @@ const SubmitCVForm: FC = () => {
       hasError = true;
     }
 
-    // Validate file if needed
     if (!data.file) {
       setError('file', { type: 'manual', message: 'Please upload a file.' });
       hasError = true;
@@ -138,16 +139,22 @@ const SubmitCVForm: FC = () => {
     }
   };
 
-  const onAddFileAction = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onAddFileAction = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
-
+  
     if (files && files[0]) {
       const file = files[0];
-      setValue('file', file); 
-      setFilename(file.name); 
-      console.log('File selected:', file.name); 
+      setValue('file', file);  // Set the file in the form state
+      setFilename(file.name);  // Set the file name for display
+      console.log('File selected:', file.name);
+      
+      // Clear the error when a valid file is selected
+      clearErrors('file');
+  
+      // Trigger validation for the file field
+      await trigger('file');
     } else {
-      setFilename(''); 
+      setFilename('');
     }
   };
 
