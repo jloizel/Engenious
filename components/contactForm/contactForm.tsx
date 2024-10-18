@@ -5,7 +5,9 @@ import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import styles from './page.module.css'
+import { sendCV } from "@/app/API";
 
+// Define the Zod schema
 const formSchema = z.object({
   name: z.string().min(2, {
     message: "Name must be at least 2 characters.",
@@ -13,59 +15,59 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Email must be in proper format.",
   }),
-  // phone: z.string().min(2, {
-  //   message: "Phone number must be at least 2 characters.",
-  // }),
   message: z.string().min(2, {
     message: "Content must be at least 2 characters.",
   }),
 });
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
 export default function ContactForm() {
+  const form = useRef<any>(null);
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors },
     reset
-  } = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
+  } = useForm<FormData>({
+    resolver: zodResolver(formSchema), // Use Zod resolver
   });
 
-  const form = useRef<any>("");
   const [checkboxChecked, setCheckboxChecked] = useState<boolean>(false);
-  const [checkboxError, setCheckboxError] = useState<string>("");
+  const [checkboxError, setCheckboxError] = useState<string>('');
   const [messageSent, setMessageSent] = useState<boolean>(false);
 
-  async function onSubmit(values: z.infer<typeof formSchema>) {
+  const onSubmit = async (data: FormData) => {
+    // Validate checkbox
     if (!checkboxChecked) {
-      // Set the checkbox error
       setCheckboxError('You must accept the privacy policy');
       return;
     } else {
-      // Clear any existing checkbox error
       setCheckboxError('');
     }
 
-    await fetch("/api/send", {
-      method: "POST",
-      body: JSON.stringify({
-        name: values.name,
-        emailAddress: values.email,
-        // phoneNumber: values.phone,
-        message: values.message,
-      }),
-    });
+    // Create a new FormData instance
+    const formDataWithFile = new FormData();
+    formDataWithFile.append('name', data.name);
+    formDataWithFile.append('email', data.email);
+    formDataWithFile.append('message', data.message);
 
-    // Set message sent flag to true
-    setMessageSent(true);
-
-    // Clear form inputs
-    reset();
-  }
+    try {
+      await sendCV(formDataWithFile);
+      setMessageSent(true);
+      reset(); 
+    } catch (error) {
+      console.error('Error sending CV:', error);
+    }
+  };
 
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCheckboxChecked(e.target.checked);
-    // setFormErrors({}); // Clear checkbox error when checkbox state changes
     setCheckboxError('');
   };
 
@@ -85,11 +87,7 @@ export default function ContactForm() {
                 {...register("name")}
               />
             </div>
-            {errors?.name && (
-              <p className={styles.errorMessage}>
-                {errors.name.message}
-              </p>
-            )}
+            {errors.name && <p className={styles.errorMessage}>{errors.name.message}</p>}
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
@@ -103,11 +101,7 @@ export default function ContactForm() {
                 {...register("email")}
               />
             </div>
-            {errors?.email && (
-              <p className={styles.errorMessage}>
-                {errors.email.message}
-              </p>
-            )}
+            {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
           </div>
           <div className={styles.inputContainer}>
             <div className={styles.inputTitle}>
@@ -117,15 +111,10 @@ export default function ContactForm() {
               <textarea
                 id="contactFormMessage"
                 className={styles.message}
-                // name="message"
                 {...register("message", { required: true })}
               />
             </div>
-            {errors?.message && (
-              <div className={styles.errorMessage}>
-                {errors.message.message}
-              </div>
-            )}
+            {errors.message && <p className={styles.errorMessage}>{errors.message.message}</p>}
           </div>
           <div className={styles.checkboxContainer}>
             <input
