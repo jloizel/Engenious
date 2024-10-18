@@ -4,14 +4,13 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { sendCV } from '../../src/app/utils/apply';
-import styles from './page2.module.css';
+import styles from './page.module.css';
 import { JobProvider, useJobContext } from '../jobContext/jobContext';
 import { LuClock3 } from "react-icons/lu";
 import { GiMoneyStack } from "react-icons/gi";
 import { GoLocation } from "react-icons/go";
 import data from "../jobsComponents/jobs.json";
-import { Job, getJobById } from '@/app/API';
+import { Job, getJobById, sendCV } from '@/app/API';
 
 // Define the schema using zod
 const formSchema = z.object({
@@ -108,13 +107,18 @@ const ApplyForm: FC<ApplyFormProps> = ({messageSent, handleSendMessage}) => {
 
     const base64Content = content?.split(',')[1];
 
-    const formDataWithFile = {
-      ...data,
-      file: {
-        name: filename,
-        content: base64Content || '',
-      },
-    };
+    // const formDataWithFile = {
+    //   ...data,
+    //   file: {
+    //     name: filename,
+    //     content: base64Content || '',
+    //   },
+    // };
+
+    const formDataWithFile = new FormData();
+    formDataWithFile.append('name', data.name);
+    formDataWithFile.append('email', data.email);
+    formDataWithFile.append('message', data.message);
 
     sendCV(formDataWithFile);
     handleSendMessage();

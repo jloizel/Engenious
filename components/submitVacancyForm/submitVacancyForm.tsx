@@ -46,7 +46,7 @@ interface FormData {
   file?: File; 
 }
 
-const ConsultationForm: FC = () => {
+const SubmitVacancyForm: FC = () => {
   const form = useRef<any>(null);
   const {
     register,
@@ -429,4 +429,4 @@ const ConsultationForm: FC = () => {
   );
 };
 
-export default ConsultationForm
+export default SubmitVacancyForm

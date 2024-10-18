@@ -6,7 +6,7 @@ import NavbarMain2 from '../../../../components/navbar/main/navbarMain2'
 import { createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
 import { JobProvider, useJobContext } from '../../../../components/jobContext/jobContext'
-import ApplyForm from '../../../../components/submitCVForm/applyCVForm'
+import ApplyForm from '../../../../components/applyForm/applyForm'
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import JobCardsContainer from '../../../../components/jobsComponents/jobCard/jobCardsContainer'
 

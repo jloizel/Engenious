@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "./page.module.css"
 import { Box, createTheme, useMediaQuery } from '@mui/material';
 import { Helmet } from 'react-helmet';
-import ConsultationForm from '../../../../components/consultationForm/consultationForm';
+import ConsultationForm from '../../../../components/submitVacancyForm/submitVacancyForm';
 import NavbarSub from '../../../../components/navbar/sub/navbarSub';
 import { HiMiniArrowLongDown } from "react-icons/hi2";
 
