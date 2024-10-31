@@ -15,6 +15,7 @@ import AboutSlider from '../../../../components/about/aboutSlider';
 import Testimonials from '../../../../components/testimonials/testimonials';
 import Team from '../../../../components/team/team';
 import Image from 'next/image';
+import { FaTools } from "react-icons/fa";
 
 
 const OurTeam = () => {
@@ -81,7 +82,7 @@ const OurTeam = () => {
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      <Box className={styles.headerContent}>
+      {/* <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
             <img src="/about/ourTeam/1.jpg" alt="Image" className={styles.headerImage} />
@@ -107,9 +108,6 @@ const OurTeam = () => {
                 <div className={styles.quoteText}>
                   Philippa has helped me with resourcing/recruitment over the last couple of years. I have found her approach to assessing our needs accurate, the service we received was exceptional and I would have no hesitation in recommending her to others.
                 </div>
-                {/* <div className={styles.quoter}>
-                  - Philippa Dickinson, CEO
-                </div> */}
               </div>
               <div className={styles.quotationMark2}>
                 <FaQuoteRight/>
@@ -119,9 +117,6 @@ const OurTeam = () => {
         </Box>
         <Box>
           <div className={styles.aboutBox}>
-            {/* <div className={styles.imageContainer}>
-              <Image src="/about/ourWork/2.jpg" alt="Image" className={styles.image} />
-            </div> */}
             <div className={styles.textContainer}>
               <div className={styles.header}>
                 <span>Become part of our journey.</span>
@@ -137,6 +132,15 @@ const OurTeam = () => {
             </div>
           </div>
         </Box>
+      </Box> */}
+      <Box className={styles.underConstructionBox}>
+        <div className={styles.underConstruction}>
+          <FaTools className={styles.toolIcon}/>
+          <div className={styles.constructionText}>Page Under Construction</div>
+        </div>
+        <div className={styles.constructionSubText}>
+          This page is currently under construction. Check back soon for updates on our team.
+        </div>
       </Box>
     </div>
   )

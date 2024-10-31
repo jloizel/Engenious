@@ -381,3 +381,33 @@
     padding: 0px 50px;
   }
 }
+
+.underConstructionBox {
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
+  gap: 20px;
+}
+
+.underConstruction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.toolIcon {
+  color: #002D49;
+  font-size: 30px;
+}
+
+.constructionText {
+  font-size: 26px;
+  color: #002D49;
+  font-weight: 600;
+  line-height: 30px;
+}
