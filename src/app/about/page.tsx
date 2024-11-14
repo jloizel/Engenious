@@ -114,13 +114,14 @@ const About = () => {
         </Box>
         <section className={styles.about}>
           { isComputer ? <AboutInfo/> : <AboutSlider/> }
-        </section>
-        <div className={styles.buttonContainer}>
+          <div className={styles.buttonContainer}>
           <a href="/about/our-work" style={{textDecoration: "none"}} className={styles.ourWorkButton}>
             More about our work
           </a>
         </div>
-        <Box>
+        </section>
+        
+        {/* <Box>
           <div className={styles.aboutBox}>
             {isMobile && (
               <div className={styles.header1}>
@@ -153,7 +154,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </Box>
+        </Box> */}
 
         {/* <Box className={styles.quoteContainer}>
           <div className={styles.textBox}>
