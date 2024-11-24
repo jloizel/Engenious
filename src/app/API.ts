@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-const BASE_URL = 'https://engenious-server.vercel.app/'; // Update with your backend server URL
+const BASE_URL = 'https://engenious-server.vercel.app/'; 
 
 // Create an Axios instance with custom configurations
 const api: AxiosInstance = axios.create({
@@ -32,7 +32,7 @@ export const createJob = async (jobData: { position: string, contractType: strin
     const response: AxiosResponse<Job> = await api.post('/jobs/create', jobData);
     return response.data;
   } catch (error) {
-    throw error; // Throw the error message from the server
+    throw error; 
   }
 };
 
@@ -44,7 +44,7 @@ export const getJobById = async (jobId: string): Promise<Job | null> => {
     if (error === 404) {
       return null; 
     }
-    throw error; // Throw other errors
+    throw error; 
   }
 };
 
