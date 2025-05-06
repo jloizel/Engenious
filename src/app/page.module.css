@@ -239,7 +239,7 @@
   border: none;
   border-radius: 5px;
   color: white;
-  font-weight: 800;
+  font-weight: 600;
   font-family: "Poppins", sans-serif;
   line-height: 50px;
   margin-top: 40px;
@@ -251,7 +251,7 @@
 
   @media (min-width: 1024px) {
     width: 350px;
-    font-size: 18px;
+    font-size: 20px;
   }
 }
 

@@ -82,7 +82,7 @@ const OurTeam = () => {
         <meta name='description' content='' />
       </Helmet>
       <NavbarSub links={links} pageName={pageName} currentPath={currentPath} colour="#00617C"/>
-      {/* <Box className={styles.headerContent}>
+      <Box className={styles.headerContent}>
         <Box className={styles.headerContainer}>
           <div className={styles.headerImageContainer}>
             <img src="/about/ourTeam/1.jpg" alt="Image" className={styles.headerImage} />
@@ -132,8 +132,8 @@ const OurTeam = () => {
             </div>
           </div>
         </Box>
-      </Box> */}
-      <Box className={styles.underConstructionBox}>
+      </Box>
+      {/* <Box className={styles.underConstructionBox}>
         <div className={styles.underConstruction}>
           <FaTools className={styles.toolIcon}/>
           <div className={styles.constructionText}>Page Under Construction</div>
@@ -141,7 +141,7 @@ const OurTeam = () => {
         <div className={styles.constructionSubText}>
           This page is currently under construction. Check back soon for updates on our team.
         </div>
-      </Box>
+      </Box> */}
     </div>
   )
 }
