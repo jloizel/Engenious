@@ -115,7 +115,7 @@ const OurTeam = () => {
             </div>
           </div>
         </Box>
-        <Box>
+        {/* <Box>
           <div className={styles.aboutBox}>
             <div className={styles.textContainer}>
               <div className={styles.header}>
@@ -131,7 +131,7 @@ const OurTeam = () => {
               </div>
             </div>
           </div>
-        </Box>
+        </Box> */}
       </Box>
       {/* <Box className={styles.underConstructionBox}>
         <div className={styles.underConstruction}>

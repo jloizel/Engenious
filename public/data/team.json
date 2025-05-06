@@ -2,11 +2,14 @@
   {
     "id": 1,
     "name": "Philippa Dickinson",
-    "role": "Founder / Managing Director",
+    "role": "Founder & Managing Director",
     "src": "/team/1.jpg",
     "text": [
-      "Philippa jumped into the recruitment world in 2012, diving headfirst into permanent search and select hires for the civil engineering and construction sectors. By 2021, she decided, \"Why not start my own agency?\" And thus, Engenious Recruitment was born, where quality and service aren’t just priorities—they’re practically family members at this point.",
+      "Philippa began in the recruitment world in 2012, working for several recruitment businesses across the Construction and Infrastructure sectors, winning a few accolades such as Best New Comer and being top of the tables for supplying Permanent and Freelance hires.",
       "When she’s not running the show at work, Philippa’s busy keeping up with her two boys, who keep her on her toes. Her hobbies? Well, she’s basically a superhero—running, weight training, cooking, and staying fit. Oh, and she’s training for her sixth half marathon… because apparently, five just didn’t cut it!"
+    ],
+    "quote": [
+      "From setting up the business I had the main aim of delivering quality, time and time again. We don't work to targets, instead we get to know each of our clients and their business, to provide the right person each time. We are obsessed with quality and that is why our clients keep coming back."
     ]
   },
   {
@@ -14,7 +17,13 @@
     "name": "Letitia Jackson",
     "role": "Resourcing Manager",
     "src": "/team/3.jpg",
-    "text": ["Letitia is the heart and soul of Engenious, known for her knack for spotting key talent. Her secret? Understanding exactly what motivates our candidates (besides caffeine), and helping them land their dream job. She’s like a career matchmaker, but with fewer awkward dates.", "In her spare time, Letitia is basically a professional dog walker for her pup Bentley, racking up more steps than a fitness app can count—15,000 a day through fields and woods! When she’s not busy being a step-counting champion, you’ll find her enjoying time with friends, family, and her young son, mastering the art of multitasking like a pro."]
+    "text": [
+      "Letitia is a core member of the Engenious Team and is there to support candidates from initial contact, to understand each and every candidates ambitions and objectives. She takes the time to fully understand what makes you tick to enable us to find you your next perfect role."
+    ],
+    "quote": [
+      "I've had the pleasure of working for Engenious Recruitment for the past 2 years and I genuinely enjoy my role. I take pride in building meaningful connections with our candidates and supporting our candidates throughout the hiring process. I would describe myself as an outgoing, approachable, and a people-focused individual who strives to deliver excellent results for both our candidates and clients.",
+      "Outside of work my time is spent building memories with my family and friends. I enjoy new adventures, travelling, and walking our lively Labrador."
+    ]
   }
 ]
   

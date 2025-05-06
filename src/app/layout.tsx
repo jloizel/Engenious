@@ -24,7 +24,7 @@ export default function RootLayout({
       <meta charSet="UTF-8"/>
       <body className="body">
         {children}
-        <Footer/>
+        {/* <Footer/> */}
       </body>
       <GA/>
     </html>

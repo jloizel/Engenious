@@ -10,7 +10,8 @@ const Team: React.FC = ({}) => {
       name: "",
       role: "",
       src: "",
-      text: [""]
+      text: [""],
+      quote: [""]
     },
   ]);
 
@@ -52,6 +53,11 @@ const Team: React.FC = ({}) => {
               <div className={styles.role}>{team.role}</div>
               {team.text.map((paragraph, idx) => (
                 <p key={idx} className={styles.text}>{paragraph}</p>
+              ))}
+              {team.quote.map((paragraph, idx) => (
+                <p key={idx} className={styles.text}>
+                  {idx === 0 ? `"${paragraph}` : idx === team.quote.length - 1 ? `${paragraph}"` : paragraph}
+                </p>
               ))}
             </div>
             {/* <hr className={styles.line}></hr> */}
