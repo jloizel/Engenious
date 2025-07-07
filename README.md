@@ -36,11 +36,11 @@ Throughout this project, I focused on enhancing both the user experience (UX) an
 
 ### Built With (***non-exhaustive***)
 
-<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/react-color.svg" alt="react" height="35px"/></code>
-<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/typescript-color.svg" alt="typescript" height="35px"/></code>
-<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/mongodb-color.svg" alt="mongodb" height="35px"/></code>
-<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/mongoose-color.svg" alt="mongoose" height="35px"/></code>
-<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/nextdotjs-color.svg" alt="nextJS" height="35px"/></code>
+<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/react-color.svg" alt="react" height="35px" width="35px"/></code>
+<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/typescript-color.svg" alt="typescript" height="35px" width="35px"/></code>
+<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/mongodb-color.svg" alt="mongodb" height="35px" width="35px"/></code>
+<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/mongoose-color.svg" alt="mongoose" height="35px" width="35px"/></code>
+<code><img src="https://github.com/jloizel/jloizel/blob/main/Assets/nextdotjs-color.svg" alt="nextJS" height="35px" width="35px"/></code>
 
 </br>
 
